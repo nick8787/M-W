@@ -1,0 +1,120 @@
+/*-------------------------
+  Form Styling
+-------------------------*/
+
+
+textarea.form-control {
+  min-height: 118px;
+  height: 193px;
+  padding-left: 0 !important;
+
+  @media(max-width: 578px) {
+    min-height: 140px;
+    max-height: 140px;
+  }
+}
+
+.input-block {
+
+  .form-control {
+    display: flex;
+    gap: $gap-8;
+    padding: clamp(8px, 0.625vw, 24px) clamp(12px, 0.833vw, 72px);
+    padding-left: 28px;
+    border-bottom: 1px solid $light-gray !important;
+    background: transparent;
+    font-family: $font-sec;
+    font-size: clamp(16px, 0.938vw, 36px);
+    font-weight: 400;
+    line-height: 140%;
+    position: relative;
+    color: $light-black;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    outline: 0;
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:focus {
+      transition: background-color 600000s 0s, color 600000s 0s;
+    }
+
+    &:focus {
+      box-shadow: none !important;
+      outline: 0 !important;
+      color: $light-black !important;
+      background: transparent !important;
+    }
+
+    &::placeholder {
+      color: $light-gray;
+      opacity: 1;
+    }
+  }
+
+  svg {
+    width: clamp(19px, 1.042vw, 48px);
+    height: clamp(19px, 1.042vw, 48px);
+  }
+}
+
+.input-block {
+  position: relative
+}
+
+.input-block svg {
+  position: absolute;
+  top: clamp(12px, 0.8vw, 48px);
+  left: 0;
+  width: clamp(19px, 1.042vw, 48px);
+  height: clamp(19px, 1.042vw, 48px)
+}
+
+
+input[type="file"] {
+  display: none;
+}
+
+label {
+  &.error {
+    color: #ff0000;
+  }
+}
+
+
+
+.cus-checkBox {
+  input {
+    display: none;
+    color: $light-black;
+  }
+
+  label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    color: $light-gray;
+    font-size: clamp(15px, 0.833vw, 32px);
+    font-weight: 400;
+
+    &::before {
+      content: '\f0c8';
+      font-family: $font-awesome;
+      color: $light-gray;
+      font-size: clamp(16px, 1.042vw, 40px);
+      font-weight: 400;
+    }
+  }
+
+  input[type="checkbox"]:checked {
+    +label {
+      &::before {
+        content: '\f14a';
+        color: $accent-1;
+        font-weight: 600;
+      }
+    }
+  }
+}

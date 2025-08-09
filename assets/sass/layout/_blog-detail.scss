@@ -1,0 +1,21 @@
+.blog-detail {
+    .blog-sidebar {
+        .gallery-img {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: 1fr;
+            grid-column-gap: 16px;
+            grid-row-gap: 0px;
+
+            img {
+                width: clamp(118px, 9.167vw, 199px);
+            }
+        }
+
+        .categoriy-block {
+            a {
+                display: block;
+            }
+        }
+    }
+}

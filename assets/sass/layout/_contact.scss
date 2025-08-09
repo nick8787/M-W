@@ -1,0 +1,30 @@
+.google-map-container {
+    border-radius: $br-24;
+    height: clamp(290px, 22.917vw, 1250px);
+
+    iframe {
+        border-radius: $br-24;
+        width: 100%;
+        height: clamp(290px, 22.917vw, 1250px);
+    }
+}
+
+.contact-info-wrapper {
+    .info-block {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: $gap-24;
+        padding-right: 64px;
+        row-gap: 32px;
+
+        @include media-query(720px) {
+            padding-right: 0;
+
+            .mb-16 {
+                margin-bottom: 8px;
+            }
+        }
+    }
+}

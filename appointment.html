@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Eventro | Event Planner Template">
+
+    <title>Eventro | Event Planner Template</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/media/favicon.png">
+
+    <!-- All CSS files -->
+
+    <link rel="stylesheet" href="assets/css/vendor/font-awesome.css">
+    <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/slick.css">
+    <link rel="stylesheet" href="assets/css/vendor/slick-theme.css">
+    <link rel="stylesheet" href="assets/css/vendor/wow.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/datetime.css">
+    <link rel="stylesheet" href="assets/css/vendor/calendar/classic.date.css">
+    <link rel="stylesheet" href="assets/css/vendor/calendar/classic.css">
+    <link rel="stylesheet" href="assets/css/vendor/jquery.timepicker.min.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+
+</head>
+
+<body class="tt-smooth-scroll body-bg">
+
+    <!-- Preloader Start -->
+    <div id="preloader">
+        <div class="loading loading07">
+            <span data-text="E">E</span>
+            <span data-text="v">v</span>
+            <span data-text="e">e</span>
+            <span data-text="n">n</span>
+            <span data-text="t">t</span>
+            <span data-text="r">r</span>
+            <span data-text="o">o</span>
+        </div>
+    </div>
+    <!-- Preloader End -->
+
+
+    <!-- Main Wrapper Start -->
+    <div id="scroll-container">
+
+        <!-- HEADER MENU START -->
+        <header class="header main-menu">
+            <div class="container-fluid">
+                <nav class="navigation">
+                    <a href="index.html" class="d-flex align-items-center">
+                        <img src="assets/media/logo.png" alt="/logo" class="header-logo">
+                    </a>
+                    <div class="menu-button-right">
+                        <div class="main-menu__nav">
+                            <ul class="main-menu__list cf" id="menu-main-menu">
+                                <li>
+                                    <a href="index.html">Home</a>
+                                </li>
+                                <li><a href="about.html">About Us</a></li>
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="active">Services
+                                    </a>
+                                    <ul>
+                                        <li><a href="services.html">Services</a></li>
+                                        <li><a href="service-detail.html">Services detail</a></li>
+                                        <li><a href="appointment.html" class="active">Appointment</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="javascript:void(0); ">Blogs
+                                    </a>
+                                    <ul>
+                                        <li><a href="blogs.html">Blogs</a></li>
+                                        <li><a href="blog-detail.html">Blog Detail</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="contact.html">Contact Us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="main-menu__right">
+                        <div class="search-heart-icon d-sm-flex d-none">
+                            <div class="d-flex align-items-center gap-24">
+                                <a href="appointment.html" class="cus-btn">
+                                    <svg class="arr-2" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                        viewBox="0 0 20 20" fill="none">
+                                        <path
+                                            d="M16.5616 6.65086C16.2751 6.65086 16.0032 6.71426 15.7585 6.82695C15.5625 5.97152 14.7957 5.33125 13.8817 5.33125C13.5888 5.33125 13.3111 5.39723 13.0623 5.51469C12.8427 4.69273 12.0919 4.08543 11.2017 4.08543C10.9342 4.08543 10.6793 4.14035 10.4476 4.23934V1.92594C10.4476 0.863945 9.58369 0 8.5217 0C7.4597 0 6.59572 0.863945 6.59572 1.92594V11.0899L5.60267 9.61578L5.58713 9.59645C4.84361 8.67215 3.53553 8.46676 2.54455 9.11875C2.02635 9.45965 1.67529 9.98258 1.55599 10.5912C1.43744 11.1962 1.56287 11.8092 1.90916 12.3186L5.45326 17.9051L5.46506 17.923C6.35834 19.2235 7.83361 20 9.41138 20H13.3881C16.1999 20 18.4876 17.7124 18.4876 14.9005V8.57676C18.4876 7.5148 17.6236 6.65086 16.5616 6.65086ZM17.3157 14.9005C17.3157 17.0662 15.5538 18.8281 13.3881 18.8281H9.41138C8.22322 18.8281 7.11209 18.2451 6.43693 17.268L2.89334 11.6823L2.88154 11.6645C2.7101 11.4148 2.64779 11.1137 2.70599 10.8166C2.76424 10.5195 2.93564 10.2641 3.18861 10.0977C3.66615 9.78356 4.29459 9.87723 4.65986 10.3137L7.7676 14.927V1.92594C7.7676 1.51012 8.10588 1.17188 8.5217 1.17188C8.93752 1.17188 9.27576 1.51012 9.27576 1.92594V8.87731H10.4476V6.01141C10.4476 5.59559 10.7859 5.25734 11.2017 5.25734C11.6175 5.25734 11.9558 5.59559 11.9558 6.01141V8.87731H13.1276V7.25719C13.1276 6.84137 13.4659 6.50312 13.8817 6.50312C14.2975 6.50312 14.6358 6.84137 14.6358 7.25719V8.87731H15.8076V8.5768C15.8076 8.16098 16.1459 7.82273 16.5617 7.82273C16.9775 7.82273 17.3158 8.16098 17.3158 8.5768V14.9005H17.3157Z"
+                                            fill="#FAFAFA" />
+                                    </svg>
+                                    <span class="text">Book Now</span>
+                                    <span class="circle"></span>
+                                    <svg class="arr-1" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                        viewBox="0 0 20 20" fill="none">
+                                        <path
+                                            d="M16.5616 6.65086C16.2751 6.65086 16.0032 6.71426 15.7585 6.82695C15.5625 5.97152 14.7957 5.33125 13.8817 5.33125C13.5888 5.33125 13.3111 5.39723 13.0623 5.51469C12.8427 4.69273 12.0919 4.08543 11.2017 4.08543C10.9342 4.08543 10.6793 4.14035 10.4476 4.23934V1.92594C10.4476 0.863945 9.58369 0 8.5217 0C7.4597 0 6.59572 0.863945 6.59572 1.92594V11.0899L5.60267 9.61578L5.58713 9.59645C4.84361 8.67215 3.53553 8.46676 2.54455 9.11875C2.02635 9.45965 1.67529 9.98258 1.55599 10.5912C1.43744 11.1962 1.56287 11.8092 1.90916 12.3186L5.45326 17.9051L5.46506 17.923C6.35834 19.2235 7.83361 20 9.41138 20H13.3881C16.1999 20 18.4876 17.7124 18.4876 14.9005V8.57676C18.4876 7.5148 17.6236 6.65086 16.5616 6.65086ZM17.3157 14.9005C17.3157 17.0662 15.5538 18.8281 13.3881 18.8281H9.41138C8.22322 18.8281 7.11209 18.2451 6.43693 17.268L2.89334 11.6823L2.88154 11.6645C2.7101 11.4148 2.64779 11.1137 2.70599 10.8166C2.76424 10.5195 2.93564 10.2641 3.18861 10.0977C3.66615 9.78356 4.29459 9.87723 4.65986 10.3137L7.7676 14.927V1.92594C7.7676 1.51012 8.10588 1.17188 8.5217 1.17188C8.93752 1.17188 9.27576 1.51012 9.27576 1.92594V8.87731H10.4476V6.01141C10.4476 5.59559 10.7859 5.25734 11.2017 5.25734C11.6175 5.25734 11.9558 5.59559 11.9558 6.01141V8.87731H13.1276V7.25719C13.1276 6.84137 13.4659 6.50312 13.8817 6.50312C14.2975 6.50312 14.6358 6.84137 14.6358 7.25719V8.87731H15.8076V8.5768C15.8076 8.16098 16.1459 7.82273 16.5617 7.82273C16.9775 7.82273 17.3158 8.16098 17.3158 8.5768V14.9005H17.3157Z"
+                                            fill="#FAFAFA" />
+                                    </svg>
+                                </a>
+                                <a href="contact.html" class="cus-btn-2">
+                                    <span class="">Contact Us</span>
+                                    <span class="">Contact Us</span>
+                                </a>
+                            </div>
+                        </div>
+                        <a href="" class="d-xl-none d-flex main-menu__toggler mobile-nav__toggler">
+                            <img src="assets/media/vector/menu-2.png" alt="">
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <div class="stricky-header stricked-menu">
+            <div class="sticky-header__content"></div>
+        </div>
+        <!-- HEADER MENU END -->
+
+        <!-- title Banner Start -->
+        <section class="title-banner mb-80">
+            <div class="container-fluid">
+                <div class="title">
+                    <h2 class="h2">Appointment</h2>
+                </div>
+            </div>
+        </section>
+        <!-- title Banner End -->
+
+        <!-- Get Help Section Start -->
+        <section class="contact-sec mb-120">
+            <div class="container-fluid">
+                <div class="row row-gap-4 align-items-stretch">
+                    <div class="col-lg-6">
+                        <form method="post" class="contact-form h-100">
+                            <h4 class="mb-16">Book a Service</h4>
+                            <p class="mb-48">Our friendly team would like to hear from you!</p>
+                            <div class="row row-gap-3 align-items-center mb-48">
+                                <div class="col-lg-6">
+                                    <p class="subtitle black mb-8">First Name</p>
+                                    <div class="input-block">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21"
+                                            viewBox="0 0 20 21" fill="none">
+                                            <path
+                                                d="M16.6667 18C16.6667 16.837 16.6667 16.2555 16.5231 15.7824C16.2 14.717 15.3663 13.8834 14.3009 13.5602C13.8278 13.4167 13.2463 13.4167 12.0833 13.4167H7.91667C6.75369 13.4167 6.17221 13.4167 5.69904 13.5602C4.63371 13.8834 3.80003 14.717 3.47686 15.7824C3.33333 16.2555 3.33333 16.837 3.33333 18M13.75 6.75C13.75 8.82107 12.0711 10.5 9.99999 10.5C7.92893 10.5 6.24999 8.82107 6.24999 6.75C6.24999 4.67893 7.92893 3 9.99999 3C12.0711 3 13.75 4.67893 13.75 6.75Z"
+                                                stroke="#92949F" stroke-width="1.66667" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                        </svg>
+                                        <input type="text" name="name" id="first1Name" class="form-control" required
+                                            placeholder="e.g John">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <p class="subtitle black mb-8">Second Name</p>
+                                    <div class="input-block">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21"
+                                            viewBox="0 0 20 21" fill="none">
+                                            <path
+                                                d="M16.6667 18C16.6667 16.837 16.6667 16.2555 16.5231 15.7824C16.2 14.717 15.3663 13.8834 14.3009 13.5602C13.8278 13.4167 13.2463 13.4167 12.0833 13.4167H7.91667C6.75369 13.4167 6.17221 13.4167 5.69904 13.5602C4.63371 13.8834 3.80003 14.717 3.47686 15.7824C3.33333 16.2555 3.33333 16.837 3.33333 18M13.75 6.75C13.75 8.82107 12.0711 10.5 9.99999 10.5C7.92893 10.5 6.24999 8.82107 6.24999 6.75C6.24999 4.67893 7.92893 3 9.99999 3C12.0711 3 13.75 4.67893 13.75 6.75Z"
+                                                stroke="#92949F" stroke-width="1.66667" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                        </svg>
+                                        <input type="text" name="name" id="lastName" class="form-control" required
+                                            placeholder="e.g Doe">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <p class="subtitle black mb-8">Phone Number</p>
+                                    <div class="input-block">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21"
+                                            viewBox="0 0 20 21" fill="none">
+                                            <path
+                                                d="M6.98356 7.87767C7.56356 9.08569 8.35422 10.2179 9.35553 11.2192C10.3568 12.2205 11.4891 13.0112 12.6971 13.5912C12.801 13.6411 12.8529 13.666 12.9187 13.6852C13.1523 13.7533 13.4392 13.7044 13.637 13.5627C13.6927 13.5228 13.7403 13.4752 13.8356 13.3799C14.1269 13.0886 14.2726 12.9429 14.4191 12.8477C14.9715 12.4885 15.6837 12.4885 16.2361 12.8477C16.3825 12.9429 16.5282 13.0886 16.8196 13.3799L16.9819 13.5423C17.4248 13.9852 17.6462 14.2066 17.7665 14.4444C18.0058 14.9174 18.0058 15.476 17.7665 15.9489C17.6462 16.1867 17.4248 16.4082 16.9819 16.851L16.8506 16.9824C16.4092 17.4238 16.1886 17.6444 15.8885 17.813C15.5556 18 15.0385 18.1345 14.6567 18.1333C14.3126 18.1323 14.0774 18.0655 13.607 17.932C11.0792 17.2146 8.69387 15.8608 6.70388 13.8709C4.7139 11.8809 3.36017 9.49557 2.6427 6.96774C2.50919 6.49737 2.44244 6.26218 2.44141 5.91806C2.44028 5.53621 2.57475 5.01913 2.76176 4.68621C2.9303 4.38618 3.15098 4.16551 3.59233 3.72416L3.72369 3.59279C4.16656 3.14992 4.388 2.92849 4.62581 2.8082C5.09878 2.56898 5.65734 2.56898 6.1303 2.8082C6.36812 2.92849 6.58955 3.14992 7.03242 3.59279L7.19481 3.75518C7.48615 4.04652 7.63182 4.19219 7.72706 4.33867C8.08622 4.89108 8.08622 5.60323 7.72706 6.15564C7.63182 6.30212 7.48615 6.44779 7.19481 6.73913C7.09955 6.83439 7.05192 6.88202 7.01206 6.9377C6.87038 7.13556 6.82146 7.42244 6.88957 7.65607C6.90873 7.72181 6.93367 7.77376 6.98356 7.87767Z"
+                                                stroke="#92949F" stroke-width="1.66667" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                        </svg>
+                                        <input type="text" name="tel" id="tel" class="form-control" required
+                                            placeholder="+1 234 456 6789">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <p class="subtitle black mb-8">Email</p>
+                                    <div class="input-block">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21"
+                                            viewBox="0 0 20 21" fill="none">
+                                            <path
+                                                d="M1.66667 6.3335L8.47077 11.0964C9.02175 11.482 9.29724 11.6749 9.59689 11.7496C9.86158 11.8156 10.1384 11.8156 10.4031 11.7496C10.7028 11.6749 10.9783 11.482 11.5292 11.0964L18.3333 6.3335M5.66667 17.1668H14.3333C15.7335 17.1668 16.4335 17.1668 16.9683 16.8943C17.4387 16.6547 17.8212 16.2722 18.0609 15.8018C18.3333 15.267 18.3333 14.567 18.3333 13.1668V7.8335C18.3333 6.43336 18.3333 5.7333 18.0609 5.19852C17.8212 4.72811 17.4387 4.34566 16.9683 4.10598C16.4335 3.8335 15.7335 3.8335 14.3333 3.8335H5.66667C4.26654 3.8335 3.56647 3.8335 3.0317 4.10598C2.56129 4.34566 2.17884 4.72811 1.93916 5.19852C1.66667 5.7333 1.66667 6.43336 1.66667 7.8335V13.1668C1.66667 14.567 1.66667 15.267 1.93916 15.8018C2.17884 16.2722 2.56129 16.6547 3.0317 16.8943C3.56647 17.1668 4.26654 17.1668 5.66667 17.1668Z"
+                                                stroke="#92949F" stroke-width="1.66667" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                        </svg>
+                                        <input type="email" name="email" id="e-mail" class="form-control" required
+                                            placeholder="sample@mail.com">
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <p class="subtitle black mb-8">Service Name</p>
+                                    <div class="input-block">
+                                        <div class="w-100 drop-container form-control">
+                                            <div class="wrapper-dropdown" id="dropdown-l2">
+                                                <span class="selected-display" id="desation112">Wedding Decor</span>
+                                                <svg id="drp-arrowe12" xmlns="http://www.w3.org/2000/svg" width="20"
+                                                    height="20" viewBox="0 0 20 20" fill="none">
+                                                    <path
+                                                        d="M19.7337 4.81165C19.3788 4.45668 18.8031 4.45662 18.4481 4.81171L10.0002 13.2598L1.55191 4.81165C1.19694 4.45668 0.621303 4.45662 0.266273 4.81171C-0.0887576 5.16674 -0.0887576 5.74232 0.266273 6.09735L9.35742 15.1883C9.52791 15.3587 9.75912 15.4545 10.0002 15.4545C10.2413 15.4545 10.4726 15.3587 10.643 15.1882L19.7337 6.09729C20.0888 5.74232 20.0888 5.16668 19.7337 4.81165Z"
+                                                        fill="#92949F" />
+                                                </svg>
+                                                <ul class="topbar-dropdown">
+                                                    <li class="item">Corporate Event</li>
+                                                    <li class="item">Thanksgiving Catering</li>
+                                                    <li class="item">Dinning Events</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="input-date-picker">
+                                        <label for="flightDep" class="subtitle black mb-8">Date</label>
+                                        <div class="input-block">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21"
+                                                viewBox="0 0 21 21" fill="none">
+                                                <path
+                                                    d="M17.833 8.83329H2.83301M13.6663 2.16663V5.49996M6.99967 2.16663V5.49996M6.83301 18.8333H13.833C15.2331 18.8333 15.9332 18.8333 16.468 18.5608C16.9384 18.3211 17.3208 17.9387 17.5605 17.4683C17.833 16.9335 17.833 16.2334 17.833 14.8333V7.83329C17.833 6.43316 17.833 5.7331 17.5605 5.19832C17.3208 4.72791 16.9384 4.34546 16.468 4.10578C15.9332 3.83329 15.2331 3.83329 13.833 3.83329H6.83301C5.43288 3.83329 4.73281 3.83329 4.19803 4.10578C3.72763 4.34546 3.34517 4.72791 3.10549 5.19832C2.83301 5.7331 2.83301 6.43316 2.83301 7.83329V14.8333C2.83301 16.2334 2.83301 16.9335 3.10549 17.4683C3.34517 17.9387 3.72763 18.3211 4.19803 18.5608C4.73281 18.8333 5.43288 18.8333 6.83301 18.8333Z"
+                                                    stroke="#92949F" stroke-width="1.66667" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+                                            <input type="text" class="sel-input date_from form-control" id="flightDep"
+                                                placeholder="01/01/2026">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="timepicker">
+                                        <label for="timeinput" class="subtitle black mb-8">Time</label>
+                                        <div class="input-block">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21"
+                                                viewBox="0 0 21 21" fill="none">
+                                                <path
+                                                    d="M10.6673 5.49996V10.5L14.0007 12.1666M19.0007 10.5C19.0007 15.1023 15.2697 18.8333 10.6673 18.8333C6.06494 18.8333 2.33398 15.1023 2.33398 10.5C2.33398 5.89759 6.06494 2.16663 10.6673 2.16663C15.2697 2.16663 19.0007 5.89759 19.0007 10.5Z"
+                                                    stroke="#92949F" stroke-width="1.66667" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+                                            <input type="text" class="timepicker form-control" id="timeinput"
+                                                placeholder="01/01/2026">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <p class="subtitle black mb-8">Your Message</p>
+                                    <div class="input-block">
+                                        <textarea name="message" id="comments" class="form-control"
+                                            placeholder="Your Message Here"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="cus-checkBox mb-48">
+                                        <input type="checkbox" id="remember">
+                                        <label for="remember">I agree to receiving promotional updates.</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-end">
+                                <button type="submit" class="cus-btn">
+                                    <svg class="arr-2" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                        viewBox="0 0 20 20" fill="none">
+                                        <path
+                                            d="M16.5616 6.65086C16.2751 6.65086 16.0032 6.71426 15.7585 6.82695C15.5625 5.97152 14.7957 5.33125 13.8817 5.33125C13.5888 5.33125 13.3111 5.39723 13.0623 5.51469C12.8427 4.69273 12.0919 4.08543 11.2017 4.08543C10.9342 4.08543 10.6793 4.14035 10.4476 4.23934V1.92594C10.4476 0.863945 9.58369 0 8.5217 0C7.4597 0 6.59572 0.863945 6.59572 1.92594V11.0899L5.60267 9.61578L5.58713 9.59645C4.84361 8.67215 3.53553 8.46676 2.54455 9.11875C2.02635 9.45965 1.67529 9.98258 1.55599 10.5912C1.43744 11.1962 1.56287 11.8092 1.90916 12.3186L5.45326 17.9051L5.46506 17.923C6.35834 19.2235 7.83361 20 9.41138 20H13.3881C16.1999 20 18.4876 17.7124 18.4876 14.9005V8.57676C18.4876 7.5148 17.6236 6.65086 16.5616 6.65086ZM17.3157 14.9005C17.3157 17.0662 15.5538 18.8281 13.3881 18.8281H9.41138C8.22322 18.8281 7.11209 18.2451 6.43693 17.268L2.89334 11.6823L2.88154 11.6645C2.7101 11.4148 2.64779 11.1137 2.70599 10.8166C2.76424 10.5195 2.93564 10.2641 3.18861 10.0977C3.66615 9.78356 4.29459 9.87723 4.65986 10.3137L7.7676 14.927V1.92594C7.7676 1.51012 8.10588 1.17188 8.5217 1.17188C8.93752 1.17188 9.27576 1.51012 9.27576 1.92594V8.87731H10.4476V6.01141C10.4476 5.59559 10.7859 5.25734 11.2017 5.25734C11.6175 5.25734 11.9558 5.59559 11.9558 6.01141V8.87731H13.1276V7.25719C13.1276 6.84137 13.4659 6.50312 13.8817 6.50312C14.2975 6.50312 14.6358 6.84137 14.6358 7.25719V8.87731H15.8076V8.5768C15.8076 8.16098 16.1459 7.82273 16.5617 7.82273C16.9775 7.82273 17.3158 8.16098 17.3158 8.5768V14.9005H17.3157Z"
+                                            fill="#FAFAFA" />
+                                    </svg>
+                                    <span class="text">Submit</span>
+                                    <span class="circle"></span>
+                                    <svg class="arr-1" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                        viewBox="0 0 20 20" fill="none">
+                                        <path
+                                            d="M16.5616 6.65086C16.2751 6.65086 16.0032 6.71426 15.7585 6.82695C15.5625 5.97152 14.7957 5.33125 13.8817 5.33125C13.5888 5.33125 13.3111 5.39723 13.0623 5.51469C12.8427 4.69273 12.0919 4.08543 11.2017 4.08543C10.9342 4.08543 10.6793 4.14035 10.4476 4.23934V1.92594C10.4476 0.863945 9.58369 0 8.5217 0C7.4597 0 6.59572 0.863945 6.59572 1.92594V11.0899L5.60267 9.61578L5.58713 9.59645C4.84361 8.67215 3.53553 8.46676 2.54455 9.11875C2.02635 9.45965 1.67529 9.98258 1.55599 10.5912C1.43744 11.1962 1.56287 11.8092 1.90916 12.3186L5.45326 17.9051L5.46506 17.923C6.35834 19.2235 7.83361 20 9.41138 20H13.3881C16.1999 20 18.4876 17.7124 18.4876 14.9005V8.57676C18.4876 7.5148 17.6236 6.65086 16.5616 6.65086ZM17.3157 14.9005C17.3157 17.0662 15.5538 18.8281 13.3881 18.8281H9.41138C8.22322 18.8281 7.11209 18.2451 6.43693 17.268L2.89334 11.6823L2.88154 11.6645C2.7101 11.4148 2.64779 11.1137 2.70599 10.8166C2.76424 10.5195 2.93564 10.2641 3.18861 10.0977C3.66615 9.78356 4.29459 9.87723 4.65986 10.3137L7.7676 14.927V1.92594C7.7676 1.51012 8.10588 1.17188 8.5217 1.17188C8.93752 1.17188 9.27576 1.51012 9.27576 1.92594V8.87731H10.4476V6.01141C10.4476 5.59559 10.7859 5.25734 11.2017 5.25734C11.6175 5.25734 11.9558 5.59559 11.9558 6.01141V8.87731H13.1276V7.25719C13.1276 6.84137 13.4659 6.50312 13.8817 6.50312C14.2975 6.50312 14.6358 6.84137 14.6358 7.25719V8.87731H15.8076V8.5768C15.8076 8.16098 16.1459 7.82273 16.5617 7.82273C16.9775 7.82273 17.3158 8.16098 17.3158 8.5768V14.9005H17.3157Z"
+                                            fill="#FAFAFA" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div id="message" class="alert-msg"></div>
+                        </form>
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="assets/media/images/appointment-img.jpg" class="br-24 h-100 object-fit-cover" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Get Help Section End -->
+
+        <!-- BRAND SLIDER START -->
+        <div class="brand-slider-wrapper mb-80">
+            <div class="brand-slider">
+                <div class="brand-image">
+                    <img src="assets/media/images/brand-1.png" alt="">
+                </div>
+                <div class="brand-image">
+                    <img src="assets/media/images/brand-2.png" alt="">
+                </div>
+                <div class="brand-image">
+                    <img src="assets/media/images/brand-3.png" alt="">
+                </div>
+                <div class="brand-image">
+                    <img src="assets/media/images/brand-4.png" alt="">
+                </div>
+                <div class="brand-image">
+                    <img src="assets/media/images/brand-5.png" alt="">
+                </div>
+                <div class="brand-image">
+                    <img src="assets/media/images/brand-1.png" alt="">
+                </div>
+                <div class="brand-image">
+                    <img src="assets/media/images/brand-2.png" alt="">
+                </div>
+                <div class="brand-image">
+                    <img src="assets/media/images/brand-3.png" alt="">
+                </div>
+                <div class="brand-image">
+                    <img src="assets/media/images/brand-4.png" alt="">
+                </div>
+                <div class="brand-image">
+                    <img src="assets/media/images/brand-5.png" alt="">
+                </div>
+            </div>
+        </div>
+        <!-- BRAND SLIDER END -->
+
+        <!-- Footer Section Start -->
+        <footer class="footer-bg">
+            <div class="container-fluid">
+                <div class="row row-gap-5 align-items-center mb-96">
+                    <div class="col-lg-6">
+                        <div class="footer-block">
+                            <a href="" class="footer-logo"><img src="assets/media/footer-logo.png"
+                                    alt="footer-logo"></a>
+                            <h6 class="light-black">Weekly Insurance Tips<br class="d-sm-block d-none">
+                                directly in your inbox</h6>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <form class="news-letter-form w-100">
+                            <div class="w-100">
+                                <p class="subtitle light-black mb-4p">Email</p>
+                                <input type="email" name="email" id="new-email" class="form-control w-100"
+                                    placeholder="yourmail@mail.com">
+                            </div>
+                            <button type="submit" class="cus-btn flex-shrink-0 border-0">
+                                <svg class="arr-2" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                    viewBox="0 0 20 20" fill="none">
+                                    <path
+                                        d="M16.5616 6.65086C16.2751 6.65086 16.0032 6.71426 15.7585 6.82695C15.5625 5.97152 14.7957 5.33125 13.8817 5.33125C13.5888 5.33125 13.3111 5.39723 13.0623 5.51469C12.8427 4.69273 12.0919 4.08543 11.2017 4.08543C10.9342 4.08543 10.6793 4.14035 10.4476 4.23934V1.92594C10.4476 0.863945 9.58369 0 8.5217 0C7.4597 0 6.59572 0.863945 6.59572 1.92594V11.0899L5.60267 9.61578L5.58713 9.59645C4.84361 8.67215 3.53553 8.46676 2.54455 9.11875C2.02635 9.45965 1.67529 9.98258 1.55599 10.5912C1.43744 11.1962 1.56287 11.8092 1.90916 12.3186L5.45326 17.9051L5.46506 17.923C6.35834 19.2235 7.83361 20 9.41138 20H13.3881C16.1999 20 18.4876 17.7124 18.4876 14.9005V8.57676C18.4876 7.5148 17.6236 6.65086 16.5616 6.65086ZM17.3157 14.9005C17.3157 17.0662 15.5538 18.8281 13.3881 18.8281H9.41138C8.22322 18.8281 7.11209 18.2451 6.43693 17.268L2.89334 11.6823L2.88154 11.6645C2.7101 11.4148 2.64779 11.1137 2.70599 10.8166C2.76424 10.5195 2.93564 10.2641 3.18861 10.0977C3.66615 9.78356 4.29459 9.87723 4.65986 10.3137L7.7676 14.927V1.92594C7.7676 1.51012 8.10588 1.17188 8.5217 1.17188C8.93752 1.17188 9.27576 1.51012 9.27576 1.92594V8.87731H10.4476V6.01141C10.4476 5.59559 10.7859 5.25734 11.2017 5.25734C11.6175 5.25734 11.9558 5.59559 11.9558 6.01141V8.87731H13.1276V7.25719C13.1276 6.84137 13.4659 6.50312 13.8817 6.50312C14.2975 6.50312 14.6358 6.84137 14.6358 7.25719V8.87731H15.8076V8.5768C15.8076 8.16098 16.1459 7.82273 16.5617 7.82273C16.9775 7.82273 17.3158 8.16098 17.3158 8.5768V14.9005H17.3157Z"
+                                        fill="#FAFAFA" />
+                                </svg>
+                                <span class="text">Submit</span>
+                                <span class="circle"></span>
+                                <svg class="arr-1" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                    viewBox="0 0 20 20" fill="none">
+                                    <path
+                                        d="M16.5616 6.65086C16.2751 6.65086 16.0032 6.71426 15.7585 6.82695C15.5625 5.97152 14.7957 5.33125 13.8817 5.33125C13.5888 5.33125 13.3111 5.39723 13.0623 5.51469C12.8427 4.69273 12.0919 4.08543 11.2017 4.08543C10.9342 4.08543 10.6793 4.14035 10.4476 4.23934V1.92594C10.4476 0.863945 9.58369 0 8.5217 0C7.4597 0 6.59572 0.863945 6.59572 1.92594V11.0899L5.60267 9.61578L5.58713 9.59645C4.84361 8.67215 3.53553 8.46676 2.54455 9.11875C2.02635 9.45965 1.67529 9.98258 1.55599 10.5912C1.43744 11.1962 1.56287 11.8092 1.90916 12.3186L5.45326 17.9051L5.46506 17.923C6.35834 19.2235 7.83361 20 9.41138 20H13.3881C16.1999 20 18.4876 17.7124 18.4876 14.9005V8.57676C18.4876 7.5148 17.6236 6.65086 16.5616 6.65086ZM17.3157 14.9005C17.3157 17.0662 15.5538 18.8281 13.3881 18.8281H9.41138C8.22322 18.8281 7.11209 18.2451 6.43693 17.268L2.89334 11.6823L2.88154 11.6645C2.7101 11.4148 2.64779 11.1137 2.70599 10.8166C2.76424 10.5195 2.93564 10.2641 3.18861 10.0977C3.66615 9.78356 4.29459 9.87723 4.65986 10.3137L7.7676 14.927V1.92594C7.7676 1.51012 8.10588 1.17188 8.5217 1.17188C8.93752 1.17188 9.27576 1.51012 9.27576 1.92594V8.87731H10.4476V6.01141C10.4476 5.59559 10.7859 5.25734 11.2017 5.25734C11.6175 5.25734 11.9558 5.59559 11.9558 6.01141V8.87731H13.1276V7.25719C13.1276 6.84137 13.4659 6.50312 13.8817 6.50312C14.2975 6.50312 14.6358 6.84137 14.6358 7.25719V8.87731H15.8076V8.5768C15.8076 8.16098 16.1459 7.82273 16.5617 7.82273C16.9775 7.82273 17.3158 8.16098 17.3158 8.5768V14.9005H17.3157Z"
+                                        fill="#FAFAFA" />
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="row row-gap-5 mb-64">
+                    <div class="col-lg-3 col-sm-4">
+                        <div class="intro-block">
+                            <h6 class="mb-24 underline-title">Information</h6>
+                            <div class="d-flex align-items-center gap-8 mb-16">
+                                <div class="svg-block">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25"
+                                        fill="none">
+                                        <g clip-path="url(#clip0_13662_1525)">
+                                            <path
+                                                d="M12 0.5C7.58888 0.5 3.99998 4.08889 3.99998 8.50002C3.99998 9.82423 4.33106 11.1372 4.96045 12.3018L11.5625 24.2422C11.6504 24.4014 11.8179 24.5 12 24.5C12.1821 24.5 12.3496 24.4014 12.4375 24.2422L19.042 12.2978C19.6689 11.1372 20 9.82419 20 8.49997C20 4.08889 16.4111 0.5 12 0.5ZM12 12.5C9.79444 12.5 8.00002 10.7056 8.00002 8.50002C8.00002 6.29445 9.79444 4.50003 12 4.50003C14.2056 4.50003 16 6.29445 16 8.50002C16 10.7056 14.2056 12.5 12 12.5Z"
+                                                fill="#878C53" />
+                                        </g>
+                                        <defs>
+                                            <clipPath>
+                                                <rect width="24" height="24" fill="white"
+                                                    transform="translate(0 0.5)" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </div>
+                                <p class="light-black">216 Main Boulevard, New York City</p>
+                            </div>
+                            <div class="d-flex align-items-center gap-8 mb-16">
+                                <div class="svg-block">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25"
+                                        fill="none">
+                                        <g clip-path="url(#clip0_13662_1532)">
+                                            <path
+                                                d="M23.3474 18.1136L19.9981 14.7643C18.802 13.5681 16.7685 14.0467 16.29 15.6016C15.9312 16.6782 14.735 17.2763 13.6584 17.037C11.2661 16.4389 8.03645 13.3289 7.43836 10.817C7.07951 9.74036 7.79721 8.54419 8.87376 8.18538C10.4288 7.70691 10.9073 5.67343 9.71108 4.47726L6.36181 1.12799C5.40488 0.290671 3.96947 0.290671 3.13216 1.12799L0.859436 3.40071C-1.41328 5.79305 1.09867 12.1327 6.72066 17.7547C12.3427 23.3767 18.6823 26.0083 21.0747 23.616L23.3474 21.3432C24.1848 20.3863 24.1848 18.9509 23.3474 18.1136Z"
+                                                fill="#878C53" />
+                                        </g>
+                                        <defs>
+                                            <clipPath>
+                                                <rect width="24" height="24" fill="white"
+                                                    transform="translate(0 0.5)" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </div>
+                                <a href="tel:+12345678" class="hover-content light-black text-18">+123 (4567) -890</a>
+                            </div>
+                            <div class="d-flex align-items-center gap-8 mb-36">
+                                <div class="svg-block">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25"
+                                        fill="none">
+                                        <path
+                                            d="M14.0057 15.2041C13.4086 15.6021 12.7151 15.8126 12 15.8126C11.285 15.8126 10.5914 15.6021 9.99431 15.2041L0.159797 8.64752C0.105234 8.61115 0.0520781 8.57323 0 8.53423V19.2778C0 20.5096 0.999609 21.4872 2.20936 21.4872H21.7906C23.0224 21.4872 24 20.4876 24 19.2778V8.53418C23.9478 8.57327 23.8945 8.61129 23.8398 8.64771L14.0057 15.2041Z"
+                                            fill="#878C53" />
+                                        <path
+                                            d="M0.939844 7.47795L10.7744 14.0345C11.1466 14.2827 11.5733 14.4068 12 14.4068C12.4267 14.4068 12.8534 14.2827 13.2256 14.0345L23.0602 7.47795C23.6487 7.08584 24 6.42959 24 5.7213C24 4.50345 23.0092 3.5127 21.7914 3.5127H2.20861C0.990797 3.51274 0 4.50349 0 5.72248C0 6.42959 0.351375 7.08584 0.939844 7.47795Z"
+                                            fill="#878C53" />
+                                    </svg>
+                                </div>
+                                <a href="mailto:support@trustInsure.com"
+                                    class="hover-content text-18 light-black">support@trustInsure.com</a>
+                            </div>
+                            <div class="social-icons">
+                                <a href="" class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none">
+                                        <path
+                                            d="M14.0057 14.7046C13.4086 15.1026 12.7151 15.313 12 15.313C11.285 15.313 10.5914 15.1026 9.99431 14.7046L0.159797 8.14801C0.105234 8.11164 0.0520781 8.07372 0 8.03472V18.7783C0 20.0101 0.999609 20.9877 2.20936 20.9877H21.7906C23.0224 20.9877 24 19.9881 24 18.7783V8.03467C23.9478 8.07376 23.8945 8.11178 23.8398 8.1482L14.0057 14.7046Z"
+                                            fill="#C550FF" />
+                                        <path
+                                            d="M0.939844 6.97795L10.7744 13.5345C11.1466 13.7827 11.5733 13.9068 12 13.9068C12.4267 13.9068 12.8534 13.7827 13.2256 13.5345L23.0602 6.97795C23.6487 6.58584 24 5.92959 24 5.2213C24 4.00345 23.0092 3.0127 21.7914 3.0127H2.20861C0.990797 3.01274 0 4.00349 0 5.22248C0 5.92959 0.351375 6.58584 0.939844 6.97795Z"
+                                            fill="#C550FF" />
+                                    </svg>
+                                </a>
+                                <a href="" class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
+                                        fill="none">
+                                        <path
+                                            d="M11.75 3.75C12.0087 3.75 12.2188 3.54 12.2188 3.28125V0.46875C12.2188 0.21 12.0087 0 11.75 0H8.9375C7.12812 0 5.65625 1.47187 5.65625 3.28125V5.625H4.25C3.99125 5.625 3.78125 5.835 3.78125 6.09375V8.90625C3.78125 9.165 3.99125 9.375 4.25 9.375H5.65625V15.5312C5.65625 15.79 5.86625 16 6.125 16H8.9375C9.19625 16 9.40625 15.79 9.40625 15.5312V9.375H11.2812C11.5103 9.375 11.7059 9.20938 11.7438 8.98344L12.2125 6.17094C12.235 6.035 12.1969 5.89594 12.1078 5.79063C12.0188 5.68563 11.8878 5.625 11.75 5.625H9.40625V3.75H11.75ZM8.9375 6.5625H11.1966L10.8841 8.4375H8.9375C8.67875 8.4375 8.46875 8.6475 8.46875 8.90625V15.0625H6.59375V8.90625C6.59375 8.6475 6.38375 8.4375 6.125 8.4375H4.71875V6.5625H6.125C6.38375 6.5625 6.59375 6.3525 6.59375 6.09375V3.28125C6.59375 1.98906 7.64531 0.9375 8.9375 0.9375H11.2812V2.8125H8.9375C8.67875 2.8125 8.46875 3.0225 8.46875 3.28125V6.09375C8.46875 6.3525 8.67875 6.5625 8.9375 6.5625Z"
+                                            fill="#C550FF" />
+                                    </svg>
+                                </a>
+                                <a href="" class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
+                                        fill="none">
+                                        <g clip-path="url(#clip0_11680_412)">
+                                            <path
+                                                d="M8.03125 16C12.4353 16 16 12.4359 16 8.03125C16 3.6427 12.4502 0 8.03125 0C3.63074 0 0 3.6283 0 8.03125C0 12.4541 3.64709 16 8.03125 16ZM3.91821 13.7568C4.49915 11.543 6.5686 9.7417 9.21558 8.94409C9.8363 10.7754 10.2195 12.7095 10.3358 14.6742C9.61353 14.9254 8.83813 15.0625 8.03125 15.0625C6.49927 15.0625 5.0791 14.5785 3.91821 13.7568ZM11.2496 14.2815C11.1099 12.3698 10.7366 10.5048 10.1357 8.71252C11.7671 8.38062 13.4679 8.44312 15.0133 8.86108C14.7341 11.2245 13.2786 13.2325 11.2496 14.2815ZM9.2804 6.54248C10.871 5.94971 12.5574 4.96667 13.4745 3.54614C14.4419 4.73877 15.0321 6.25391 15.0609 7.90479C13.3978 7.48767 11.574 7.44324 9.81482 7.81824C9.64453 7.37354 9.47241 6.96399 9.2804 6.54248ZM12.8101 2.83289C12.0491 4.20935 10.3447 5.15649 8.87195 5.69434C8.04761 4.07275 7.03918 2.59351 5.86023 1.27771C6.5448 1.05713 7.27429 0.9375 8.03125 0.9375C9.87488 0.9375 11.5547 1.65747 12.8101 2.83289ZM4.93213 1.65125C6.12048 2.93152 7.13843 4.39783 7.96167 5.99023C5.90564 6.58118 3.49438 6.78308 1.10535 6.49573C1.578 4.36218 3.01404 2.58679 4.93213 1.65125ZM0.963867 7.4231C3.52393 7.73523 6.13599 7.51453 8.37878 6.84424C8.56189 7.24158 8.73352 7.64563 8.89282 8.05591C6.31677 8.83679 3.98328 10.5961 3.13306 13.1125C1.78101 11.8315 0.9375 10.0272 0.9375 8.03125C0.9375 7.82642 0.946777 7.62366 0.963867 7.4231Z"
+                                                fill="#C550FF" />
+                                        </g>
+                                        <defs>
+                                            <clipPath>
+                                                <rect width="16" height="16" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </a>
+                                <a href="" class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="14" viewBox="0 0 18 14"
+                                        fill="none">
+                                        <path
+                                            d="M1.23741 6.02697C6.06923 4.05126 9.29121 2.74875 10.9033 2.11944C15.5063 0.322639 16.4627 0.0105163 17.0861 9.9919e-05C17.2232 -0.00205699 17.5298 0.0298337 17.7284 0.181063C17.8961 0.308757 17.9422 0.481255 17.9643 0.602323C17.9864 0.723392 18.0139 0.999189 17.992 1.21469C17.7426 3.67437 16.6633 9.64338 16.1142 12.3983C15.8818 13.564 15.4244 13.9548 14.9815 13.9931C14.0189 14.0762 13.288 13.3961 12.3558 12.8226C10.897 11.9251 10.0729 11.3664 8.65691 10.4907C7.02048 9.47862 8.08131 8.92236 9.0139 8.01329C9.25797 7.77538 13.4988 4.15516 13.5809 3.82675C13.5912 3.78568 13.6007 3.63258 13.5038 3.55173C13.4069 3.47089 13.2639 3.49853 13.1606 3.52052C13.0143 3.55169 10.6839 4.9973 6.16938 7.85735C5.5079 8.28364 4.90875 8.49135 4.37193 8.48046C3.78013 8.46846 2.64175 8.16643 1.79548 7.90825C0.757494 7.59159 -0.0674757 7.42417 0.00436067 6.88638C0.0417775 6.60627 0.452793 6.3198 1.23741 6.02697Z"
+                                            fill="#FAF0FF" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-9 col-sm-8">
+                        <div class="row row-gap-5">
+                            <div class="col-md-4 col-6">
+                                <div class="links-block">
+                                    <ul class="unstyled">
+                                        <li class="mb-24">
+                                            <h5 class="h6 fw-400">Our Services</h5>
+                                        </li>
+                                        <li class="mb-16"><a href="service-detail.html" class="hover-content">Wedding
+                                                Planning</a></li>
+                                        <li class="mb-16"><a href="service-detail.html" class="hover-content">Flower
+                                                Decor</a>
+                                        </li>
+                                        <li class="mb-16"><a href="service-detail.html" class="hover-content">Dinning
+                                                Events</a>
+                                        </li>
+                                        <li><a href="service-detail.html" class="hover-content">Event Decoration</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-3 col-6">
+                                <div class="links-block">
+                                    <ul class="unstyled">
+                                        <li class="mb-24">
+                                            <h5 class="h6 fw-400">Quick Links</h5>
+                                        </li>
+                                        <li class="mb-16"><a href="index.html" class="hover-content">Home</a></li>
+                                        <li class="mb-16"><a href="about.html" class="hover-content">About Us</a>
+                                        </li>
+                                        <li class="mb-16"><a href="contact.html" class="hover-content">Contact Us</a>
+                                        </li>
+                                        <li class=""><a href="blogs.html" class="hover-content">Blogs</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-5 col-sm-6 col-12">
+                                <div class="time-block">
+                                    <div>
+                                        <h5 class="mb-24 h6 fw-400">Working Hours</h5>
+                                        <div class="d-flex align-items-center gap-12 mb-16">
+                                            <img class="clock-vector" src="assets/media/vector/clock.png"
+                                                alt="clock-vector">
+                                            <div>
+                                                <p class="light-black">09:00 am - 05:00 pm</p>
+                                                <p class="light-black">Monday - Thursday</p>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center gap-12">
+                                            <img class="clock-vector" src="assets/media/vector/clock.png"
+                                                alt="clock-vector">
+                                            <div>
+                                                <p class="light-black">12:00 am - 09:00 pm </p>
+                                                <p class="light-black">Friday - Saturday</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <p class="black privacy-text">© 2025. All rights reserved by UI Paradox</p>
+                </div>
+            </div>
+        </footer>
+        <!-- Footer Section End -->
+
+        <!-- Main Wrapper End -->
+    </div>
+    <!-- Back To Top Start -->
+    <button class="scrollToTopBtn"><i class="fa fa-arrow-up"></i></button>
+
+
+    <!-- Mobile Menu Start -->
+    <div class="mobile-nav__wrapper">
+        <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+        <div class="mobile-nav__content">
+            <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
+            <div class="logo-box">
+                <a href="index.html" aria-label="logo image"><img src="assets/media/logo.png" alt=""></a>
+            </div>
+            <div class="mobile-nav__container"></div>
+            <ul class="mobile-nav__contact list-unstyled">
+                <li>
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:example@company.com">example@company.com</a>
+                </li>
+                <li>
+                    <i class="fa-solid fa-phone"></i>
+                    <a href="tel:+12345678">+123 (4567) -890</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- Mobile Menu End -->
+
+    <!-- Jquery Js -->
+    <script src="assets/js/vendor/bootstrap.min.js"></script>
+    <script src="assets/js/vendor/jquery-3.6.3.min.js"></script>
+    <script src="assets/js/vendor/slick.min.js"></script>
+    <script src="assets/js/vendor/jquery-validator.js"></script>
+    <script src="assets/js/vendor/calendar/picker.js"></script>
+    <script src="assets/js/vendor/calendar/picker.date.js"></script>
+    <script src="assets/js/vendor/jquery.timepicker.min.js"></script>
+    <script src="assets/js/date.js"></script>
+    <script src="assets/js/app.js"></script>
+
+</body>
+
+</html>

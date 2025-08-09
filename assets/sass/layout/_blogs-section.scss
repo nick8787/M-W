@@ -1,0 +1,66 @@
+.blog-sec {
+    background: url('../media/images/bg-circle-3.png') no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: clamp(60px, 6.25vw, 154px) 0 0 0;
+    background-position: center;
+
+    &.blog-page-sec {
+        background: none;
+        padding: 0;
+    }
+
+    .blog-card {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        .card-img {
+            border-radius: $br-12;
+            width: 100%;
+            overflow: hidden;
+
+            img {
+                transition: $transition;
+                border-radius: $br-12;
+                width: 100%;
+
+                @include media-query(720px) {
+                    height: 250px;
+                    object-fit: cover;
+                }
+            }
+        }
+
+        .card-content {
+            padding: clamp(12px, 0.833vw, 32px);
+
+            @include media-query(720px) {
+                padding: 14px 0;
+            }
+
+            .h6,
+            p {
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 1;
+                align-self: stretch;
+                overflow: hidden;
+            }
+        }
+
+        &:hover {
+            .card-img {
+                img {
+                    transform: scale(1.04);
+                }
+            }
+
+            .card-content {
+                .hover-content {
+                    color: $accent-1 !important;
+                }
+            }
+        }
+    }
+}

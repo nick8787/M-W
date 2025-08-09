@@ -1,0 +1,95 @@
+.background-sec {
+    background: url('../media/images/bg-circle-2.png') no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: clamp(40px, 2.083vw, 54px) 0;
+    background-position: center;
+}
+
+.pricing-sec {
+    .pricing-card {
+        padding: clamp(30px, 2.083vw, 54px) clamp(18px, 1.25vw, 48px);
+        border-radius: $br-16;
+        border: 1px solid $light-gray;
+        background-color: $white;
+        transition: $transition;
+
+        .price-btn {
+            display: flex;
+            height: clamp(40px, 2.5vw, 84px);
+            padding: clamp(8px, 0.625vw, 24px) clamp(24px, 1.667vw, 64px);
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            border: 1px solid $accent-1;
+            border-radius: $br-48;
+            font-weight: 500;
+            line-height: 120%;
+            font-size: clamp(16px, 0.938vw, 36px);
+            color: $accent-1;
+            transition: $transition;
+        }
+
+        .tick-icon {
+            width: clamp(24px, 1.667vw, 64px);
+            height: clamp(24px, 1.667vw, 64px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: $accent-2;
+            flex-shrink: 0;
+            transition: $transition;
+
+            &.cross {
+                background-color: transparent;
+                border: 1px solid $light-gray;
+            }
+
+            svg {
+                width: clamp(12px, 0.833vw, 32px);
+                height: clamp(12px, 0.833vw, 32px);
+
+                path {
+                    transition: $transition;
+                }
+            }
+        }
+
+        h6,
+        h3,
+        p {
+            transition: $transition;
+        }
+
+        &:hover,
+        &.active {
+            background-color: $accent-1;
+
+            h6,
+            h3,
+            p {
+                color: $white !important;
+            }
+
+            .price-btn {
+                background-color: $white;
+                color: $accent-1;
+            }
+
+            .cros-text {
+                color: $accent-2 !important;
+            }
+
+            .cross {
+                border: 1px solid $white;
+
+                svg {
+                    path {
+                        fill: $white;
+                    }
+                }
+            }
+        }
+    }
+}
