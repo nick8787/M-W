@@ -307,7 +307,6 @@ var MyScroll = "";
           autoplaySpeed: 3000,
           speed: 900,
           infinite: !0,
-          autoplay: true,
           dots: false,
           draggable: !0,
           arrows: !1,
