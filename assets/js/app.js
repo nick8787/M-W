@@ -54,7 +54,7 @@ var MyScroll = "";
     preloader: function () {
       setTimeout(function () {
         $("#preloader").fadeOut("slow");
-      }, 2800);
+      }, 1000);
     },
 
     w: function (e) {
