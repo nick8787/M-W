@@ -1208,6 +1208,13 @@ html {
 /* Honey pot */
 .ow-honeypot{ position:absolute; left:-9999px; }
 
+@media (max-width: 767px) {
+  .desktop-only {
+    display: none !important;
+  }
+}
+
+
 .mb-24 {
   margin-bottom: 24px;
 }
