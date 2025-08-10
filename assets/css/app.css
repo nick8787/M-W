@@ -828,6 +828,386 @@ html {
   scroll-behavior: smooth;
 }
 
+/* About — стиль фіч */
+.features-grid {
+  display: grid;
+  gap: 16px;
+}
+@media (min-width: 768px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
+.feature-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  gap: 14px;
+  padding: 16px 18px;
+  border-radius: 16px;
+  background: rgba(250, 250, 250, 0.6);
+  backdrop-filter: blur(2px);
+  border: 1px solid rgba(135, 140, 83, 0.12); /* відтінок під твої SVG */
+  position: relative;
+}
+
+.feature-card::after {
+  content: "";
+  position: absolute;
+  inset: auto 18px 0 18px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(135,140,83,0.25), transparent);
+  border-radius: 1px;
+}
+
+.feature-card:last-child::after { display: none; }
+
+.feature-num {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  font-weight: 600;
+  font-size: 14px;
+  color: #878C53;
+  background: linear-gradient(180deg, rgba(135,140,83,0.12), rgba(135,140,83,0.06));
+  border: 1px solid rgba(135,140,83,0.18);
+}
+
+.feature-body h5 {
+  margin: 0 0 6px 0;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.feature-body p {
+  margin: 0;
+  line-height: 1.55;
+  opacity: 0.9;
+}
+
+/* Невеликий відступ зверху для кнопки */
+.mt-24 { margin-top: 24px; }
+
+:root{
+  --accent:#878C53;                 /* оливковий */
+  --ivory:#FBFAF7;
+  --paper:#FFFFFF;
+  --ink:#121212;
+  --soft:rgba(135,140,83,.18);
+}
+
+/* Заголовок секції */
+.heading.text-center{text-align:center;}
+.pricing-sub{opacity:.9}
+.heading-divider{
+  width:140px;height:2px;margin:16px auto 0;border-radius:2px;
+  background:linear-gradient(90deg,transparent,var(--accent),transparent);
+}
+
+/* Колонки как флексы — одинаковая высота */
+.row .d-flex{ display:flex!important; }
+.h-100{ height:100%; }
+
+/* Карточка */
+.invite-card{
+  position:relative;
+  display:flex; flex-direction:column;
+  width:100%;
+  padding:42px 26px 22px;             /* сверху место под наплывающий бейдж */
+  border-radius:24px;
+  background: radial-gradient(120% 120% at 100% 0%, var(--paper) 0%, #f8f7f3 60%, #f3f1eb 100%);
+  border:1px solid var(--soft);
+  box-shadow:0 10px 30px rgba(0,0,0,.06);
+  overflow:visible;                    /* чтобы бейдж не обрезался */
+  min-height:500px;                    /* по твоей просьбе 500px */
+}
+.invite-card--accent{
+  background: radial-gradient(120% 120% at 100% 0%, #fff 0%, #f6f6ef 60%, #efeee7 100%);
+  border-color: rgba(135,140,83,.28);
+  box-shadow:0 14px 42px rgba(135,140,83,.18);
+}
+.invite-card:hover{ box-shadow:0 14px 40px rgba(0,0,0,.09); }
+
+/* Бейдж наполовину сверху карточки */
+.plan-badge{
+  position:absolute; left:50%; transform:translateX(-50%);
+  padding:8px 20px; font-weight:700; font-size:14px; letter-spacing:.2px;
+  color:var(--accent); background:#fff; border:2px solid #a6ac72;
+  border-radius:999px; box-shadow:0 6px 16px rgba(0,0,0,.07);
+  white-space:nowrap;
+}
+.plan-badge--over{ top:-18px; }        /* половина выступает над карточкой */
+
+/* Контент */
+.card-body{ display:flex; flex-direction:column; gap:14px; margin-bottom:14px; }
+.card-title{ margin:0; font-weight:700; font-size:18px; color:var(--ink); }
+.card-sub{ margin:0; opacity:.92; }
+
+/* Подзаголовок «Стандарт» с отделением */
+.chip-sep{
+  display:flex; align-items:center; gap:10px;
+  padding:10px 12px; border-radius:14px;
+  background:rgba(135,140,83,.06);
+  border:1px solid rgba(135,140,83,.15);
+}
+.chip-sep .chip-dot{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--accent); box-shadow:0 0 0 3px rgba(135,140,83,.12);
+}
+
+/* Список фич (база одинакова у всех) */
+.feature-list{ list-style:none; padding:0; margin:8px 0 0; display:grid; gap:12px; }
+.feature-list li{
+  display:grid; grid-template-columns:28px 1fr; gap:12px; align-items:center;
+  line-height:1.6;
+}
+.feature-list li.extra{ opacity:.98; }  /* добавленные пункты слегка выделены */
+
+/* Галочка в круге — всегда по центру */
+.tick{
+  width:22px;height:22px;border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  background: linear-gradient(180deg, #a6ac72, #8f955e);
+  border:1px solid rgba(255,255,255,.6);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.5), 0 2px 6px rgba(0,0,0,.08);
+}
+.tick i{
+  width:7px;height:12px; display:block;
+  border-right:2px solid #fff; border-bottom:2px solid #fff;
+  transform: rotate(45deg);
+}
+
+/* Цена — у нижней кромки */
+.price-line{
+  margin-top:auto;
+  display:flex; align-items:flex-end; gap:8px;
+  padding-top:16px; border-top:1px dashed rgba(135,140,83,.28);
+}
+.price-amount{ font-size:34px; line-height:1; font-weight:700; color:var(--ink); }
+.price-currency{ font-size:16px; opacity:.9; }
+
+/* Мобильные правки */
+@media(max-width:575.98px){
+  .invite-card{ padding:46px 22px 20px; border-radius:22px; }
+  .plan-badge--over{ top:-16px; }
+}
+
+:root{
+  --olive:#878C53;
+  --olive-2:#9aa06a;
+  --line: rgba(135,140,83,.18);
+}
+
+/* компактні витягнуті картки */
+.tcard{
+  display:block;
+  border-radius:18px;
+  background:#fff;
+  border:1px solid var(--line);
+  overflow:hidden;
+  text-decoration:none; color:inherit;
+  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  box-shadow:0 4px 16px rgba(0,0,0,.05);
+  min-height:100%;
+}
+.tcard--accent{ border-color: rgba(135,140,83,.28); box-shadow:0 6px 22px rgba(135,140,83,.14); }
+
+/* витягнуте фото + бейдж напівповерх */
+.tcard__img{
+  position:relative; aspect-ratio: 3 / 4; overflow:hidden;
+}
+.tcard__img img{
+  width:100%; height:100%; object-fit:cover; display:block;
+  transform: scale(1.02); transition: transform .35s ease;
+}
+.tcard__badge{
+  position:absolute; left:12px; top:10px;
+  padding:6px 12px; font-size:12px; font-weight:700; letter-spacing:.2px;
+  background:#fff; color:var(--olive);
+  border:1.5px solid var(--olive-2);
+  border-radius:999px; box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+.tcard__hint{
+  position:absolute; left:12px; bottom:12px;
+  padding:6px 10px; font-size:12px; font-weight:600; color:#fff;
+  background:rgba(0,0,0,.42); border-radius:10px;
+  opacity:0; transform: translateY(6px);
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+/* текст */
+.tcard__body{ padding:14px 14px 16px; }
+.tcard__title{ margin:0 0 4px; font-size:17px; font-weight:700; }
+.tcard__sub{ margin:0; opacity:.9; font-size:14px; }
+
+/* hover — легкий і чистий */
+.tcard:hover{ transform: translateY(-3px); box-shadow:0 10px 26px rgba(0,0,0,.09); border-color: rgba(135,140,83,.28); }
+.tcard:hover .tcard__img img{ transform: scale(1.06); }
+.tcard:hover .tcard__hint{ opacity:1; transform: translateY(0); }
+
+/* відступ перед CTA */
+.mt-48{ margin-top:48px; }
+
+@media (max-width:575.98px){
+  .tcard__body{ padding:12px; }
+  .tcard__title{ font-size:16px; }
+  .tcard__sub{ font-size:13px; }
+}
+
+/* ===== Wedding Order Form (clean, centered, no photo) ===== */
+:root{
+  --ivory:#FBFAF7;
+  --paper:#FFFFFF;
+  --rose:#E9D7DC;          /* нежный бордер/фон */
+  --rose-deep:#C69AA8;     /* акцентная розово-бордовая */
+  --olive:#878C53;         /* можно использовать как втор. акцент */
+  --line:rgba(198,154,168,.28);
+  --ink:#171717;
+  --muted:#6f727a;
+}
+
+.order-wed-sec{
+  min-height:100vh;
+  display:flex; align-items:center; justify-content:center;
+  padding:64px 16px;
+  background:
+          radial-gradient(130% 120% at 100% 0%, #fff 0%, #fbf8f5 60%, #f3eee8 100%);
+}
+
+.order-wed-card{
+  width:100%;
+  max-width:1200px;
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:28px;
+  box-shadow:0 18px 50px rgba(0,0,0,.08);
+  padding:36px 28px;
+}
+
+@media (min-width: 768px){
+  .order-wed-card{ padding:44px 48px; }
+}
+
+.ow-head{ text-align:center; margin-bottom:20px; }
+.ow-title{
+  font-size:32px; line-height:1.2; font-weight:700; color:var(--ink);
+}
+.ow-title span{ color:var(--olive); }
+.ow-sub{ color:var(--muted); margin-top:8px; }
+
+/* Form layout */
+.ow-form{ display:grid; gap:16px; }
+.ow-grid{
+  display:grid; gap:16px; grid-template-columns:1fr;
+}
+@media (min-width: 768px){
+  .ow-grid{ grid-template-columns: 1fr 1fr; }
+}
+
+/* Groups */
+.ow-group{ display:block; }
+.ow-label{
+  display:block; margin-bottom:8px;
+  font-weight:650; color:var(--ink);
+}
+
+/* Inputs */
+.ow-input{
+  display:flex; align-items:center; gap:12px;
+  background:var(--ivory);
+  border:1px solid var(--line);
+  border-radius:16px; padding:14px 16px;
+}
+.ow-input input{
+  appearance:none; border:none; outline:none; background:transparent;
+  width:100%; font-size:16px; color:var(--ink);
+}
+
+/* Textarea */
+.ow-textarea{
+  background:var(--ivory);
+  border:1px solid var(--line);
+  border-radius:16px; padding:12px 14px;
+}
+.ow-textarea textarea{
+  width:100%; border:none; outline:none; background:transparent;
+  font-size:16px; color:var(--ink); resize:vertical; min-height:140px;
+}
+
+/* Pills (radio) */
+.ow-pills{
+  display:grid; gap:12px;
+}
+@media (min-width: 992px){
+  .ow-pills{ grid-template-columns: repeat(3, 1fr); }
+}
+.ow-radio{ position:absolute; left:-9999px; }
+
+.ow-pill{
+  display:flex; align-items:center; gap:10px;
+  background:var(--ivory);
+  border:1px solid var(--line);
+  border-radius:16px; padding:14px 16px;
+  cursor:pointer; transition:.2s ease;
+  min-height:58px;
+}
+.ow-pill small{ color:var(--muted); margin-left:auto; font-size:12.6px; }
+
+/* Perfect radio dot */
+.ow-dot{
+  width:22px; height:22px; border-radius:50%;
+  flex:0 0 22px; display:grid; place-items:center;
+  background:#fff; border:1.6px solid var(--olive);
+  position:relative;
+}
+.ow-dot::after{
+  content:"";
+  width:12px; height:12px; border-radius:50%;
+  background:var(--olive);
+  transform:scale(0); transition:transform .14s ease;
+}
+
+/* Active state */
+#ow-mini:checked + .ow-pill,
+#ow-std:checked  + .ow-pill,
+#ow-prem:checked + .ow-pill{
+  border-color: var(--rose);
+  background: linear-gradient(180deg, #fff 0%, #fdfaf9 100%);
+  box-shadow: 0 10px 26px rgba(198,154,168,.18);
+}
+#ow-mini:checked + .ow-pill .ow-dot,
+#ow-std:checked  + .ow-pill .ow-dot,
+#ow-prem:checked + .ow-pill .ow-dot{
+  border-color: var(--olive);
+}
+#ow-mini:checked + .ow-pill .ow-dot::after,
+#ow-std:checked  + .ow-pill .ow-dot::after,
+#ow-prem:checked + .ow-pill .ow-dot::after{
+  transform:scale(1);   /* точка идеально по центру */
+}
+
+/* Actions */
+.ow-actions{ display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:4px; }
+.ow-btn{
+  background:var(--olive); color:#fff; border:none; cursor:pointer;
+  border-radius:14px; padding:12px 22px; font-weight:600; font-size:16px;
+  box-shadow:0 8px 20px rgba(198,154,168,.28);
+  transition:transform .12s ease, box-shadow .2s ease, background .2s ease;
+}
+.ow-btn:hover{ transform:translateY(-1px); box-shadow:0 10px 26px rgba(198,154,168,.34); }
+.ow-btn:active{ transform:translateY(0); }
+
+.ow-alert{ color:var(--muted); min-height:18px; font-size:14px; }
+.ow-alert.ok{ color:#2f7a47; }
+.ow-alert.err{ color:#b94a4a; }
+
+/* Honey pot */
+.ow-honeypot{ position:absolute; left:-9999px; }
+
 .mb-24 {
   margin-bottom: 24px;
 }
