@@ -1214,6 +1214,330 @@ html {
   }
 }
 
+/* ===== Templates Grid (Wedding style) — FIXED ===== */
+:root{
+  --tmpl-primary:#878C53;
+  --tmpl-ink:#121314;
+  --tmpl-text:#5b5f69;
+  --tmpl-line:#E9EAF0;
+  --tmpl-chip:#F4F5F0;
+  --tmpl-shadow:0 10px 28px rgba(18,19,20,.08);
+  --tmpl-radius:20px;
+}
+
+.templates-sec .heading p{color:var(--tmpl-text);}
+
+/* Фільтри */
+.tmpl-filters{display:flex;flex-wrap:wrap;gap:10px;}
+.tmpl-chip{
+  border:1px solid var(--tmpl-line);
+  background:var(--tmpl-chip);
+  padding:10px 16px;border-radius:999px;
+  font-size:14px;color:var(--tmpl-ink);cursor:pointer;
+  transition:.2s ease;
+}
+.tmpl-chip:hover{filter:brightness(1.02);}
+.tmpl-chip.active{
+  background:#fff;border-color:var(--tmpl-primary);
+  box-shadow:0 0 0 4px rgba(135,140,83,.12);
+}
+
+/* Картки */
+.tmpl-card{
+  position:relative;
+  background:#fff;border:1px solid var(--tmpl-line);
+  border-radius:var(--tmpl-radius);
+  box-shadow:var(--tmpl-shadow);
+  overflow:visible;                 /* бейдж може виступати */
+  /* ВАЖЛИВО: без паддінга зверху, щоб не було білої смуги */
+  transition:transform .12s ease, box-shadow .2s ease;
+  height:100%;
+  display:grid;
+}
+
+.tmpl-card:hover{
+  /* мягкое свечение + глубокая тень */
+  box-shadow:
+          0 10px 28px rgba(18,19,20,.10),   /* базовая тень */
+          0 0 20px 6px rgba(135,140,83,.15); /* мягкое свечение с большим blur */
+  border-color: rgba(135,140,83,.25);
+}
+
+/* Бейдж категорії (напіввиступає) */
+.tmpl-badge{
+  position:absolute;top:-12px;left:16px;z-index:3;
+  padding:8px 14px;border-radius:999px;font-size:12px;font-weight:600;letter-spacing:.3px;color:#fff;
+  box-shadow:0 8px 18px rgba(0,0,0,.08);
+}
+.tmpl-badge.mini{background:#8E9A6A;}
+.tmpl-badge.standard{background:#778252;}
+.tmpl-badge.premium{background:#5f6740;}
+
+/* Зображення — обрізаємо тільки фото, не всю картку */
+.tmpl-img{
+  position:relative;
+  display:block;
+  aspect-ratio:16/10;
+  overflow:hidden;                               /* обрізаємо тільки фото */
+  border-top-left-radius:var(--tmpl-radius);
+  border-top-right-radius:var(--tmpl-radius);
+}
+.tmpl-img img{
+  display:block;                                  /* прибирає baseline-зазор */
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .35s ease;
+}
+
+/* Оверлей */
+.tmpl-overlay {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  z-index: 2;
+  background: rgba(255,255,255,.92);
+  backdrop-filter: blur(3px);
+  color: var(--tmpl-ink);
+  border: 1px solid var(--tmpl-line);
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: 13px;
+  box-shadow: 0 8px 18px rgba(18,19,20,.08);
+  transition: transform .2s ease;
+  transform: translateZ(0);
+}
+.tmpl-card:hover .tmpl-overlay {
+  transform: translateY(-2px) translateZ(0);
+}
+
+/* Контент */
+.tmpl-content {
+  padding: 16px 16px 18px;
+}
+.tmpl-title {
+  margin: 0 0 6px;
+  font-weight: 600;
+  color: var(--tmpl-ink);
+}
+.tmpl-desc {
+  margin: 0;
+  color: var(--tmpl-text);
+  font-size: 14px;
+}
+
+/* ===== Состояния для фильтрации (плавно, без мерцаний) ===== */
+
+/* Базовые карточки */
+.tmpl-item {
+  position: relative;
+  opacity: 1;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: opacity, transform;
+  transition:
+          opacity .28s ease,
+          transform .28s cubic-bezier(.2,.7,.2,1);
+}
+
+/* Плавное исчезновение — элемент остаётся в потоке */
+.tmpl-item.fading-out {
+  opacity: 0;
+  transform: translateY(-10px) scale(0.98);
+  pointer-events: none;
+  visibility: hidden;
+}
+
+/* Плавное появление — старт из прозрачности и сдвига вниз */
+.tmpl-item.appearing {
+  opacity: 0;
+  transform: translateY(12px) scale(0.985);
+  visibility: visible;
+}
+
+/* Полное скрытие после fade-out (убираем из потока) */
+.tmpl-item.hidden {
+  display: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
+
+/* Призрак (для FLIP, если нужен) */
+.tmpl-ghost {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  border-radius: var(--tmpl-radius);
+  overflow: hidden;
+  box-shadow: var(--tmpl-shadow);
+  transform: translateZ(0);
+  will-change: transform, opacity;
+}
+.tmpl-ghost .tmpl-img {
+  aspect-ratio: auto;
+}
+.tmpl-ghost .tmpl-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ===== Wedding Contact Section (v4: ровно, без подпрыгиваний) ===== */
+:root{
+  --wed-bg:#f9f6f4;
+  --wed-ink:#2b2a2a;
+  --wed-soft:#ffffff;
+  --wed-accent:#d9b8a9;
+  --wed-accent-2:#c8a58f;
+  --wed-gold:#c9a66b;
+  --wed-line:rgba(0,0,0,.06);
+  --wed-shadow:0 14px 40px rgba(34,30,27,.10);
+  --wed-radius:26px;
+}
+
+/* секция */
+.contact-wed-sec{
+  position:relative;
+  padding:clamp(56px,6.2vw,108px) 20px;
+  background:
+          radial-gradient(1200px 600px at 10% -10%, rgba(201,166,107,.08), transparent 70%),
+          radial-gradient(900px 500px at 100% 0%, rgba(217,184,169,.10), transparent 60%),
+          var(--wed-bg);
+  overflow:hidden;
+}
+.contact-wed-sec::before{
+  content:""; position:absolute; inset:auto auto 0 -120px;
+  width:400px; height:400px;
+  background:
+          radial-gradient(closest-side, rgba(201,166,107,.12), transparent 70%),
+          radial-gradient(closest-side, rgba(217,184,169,.12), transparent 70%);
+  filter:blur(12px); opacity:.6; pointer-events:none;
+}
+.contact-wed-wrap{ max-width:1160px; margin:0 auto; }
+.contact-wed-head{ text-align:center; margin-bottom:clamp(34px,4.2vw,56px); }
+.contact-wed-title{
+  margin:0 0 12px;
+  font-family:"Playfair Display", ui-serif, Georgia, serif;
+  font-weight:600; font-size:clamp(30px,4.8vw,46px); line-height:1.15; color:var(--wed-ink);
+}
+.contact-wed-title span{
+  background:linear-gradient(90deg, var(--wed-gold), var(--wed-accent));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.contact-wed-sub{
+  margin:0 auto; max-width:740px; color:#5a5552; font-size:clamp(15px,2.4vw,17px);
+}
+
+/* сетка */
+.contact-wed-grid{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0,1fr));
+  gap:clamp(18px,2.6vw,26px);
+  margin-top:clamp(28px,3.2vw,40px);
+  align-items:stretch; /* карточки тянутся на равную высоту в своей строке */
+}
+@media (max-width:900px){ .contact-wed-grid{ grid-template-columns:1fr 1fr; } }
+@media (max-width:640px){ .contact-wed-grid{ grid-template-columns:1fr; } }
+
+/* карточка — фиксированная высота + без движений на hover */
+.contact-wed-card{
+  position:relative;
+  display:grid;
+  grid-template-columns:64px 1fr auto;
+  grid-auto-rows:min-content;
+  align-items:center;
+  gap:18px 20px;
+
+  height:156px;                 /* одинаковая высота у всех */
+  padding:26px 26px;
+  background:linear-gradient(180deg, #fff, #fdf9f5);
+  border:1px solid var(--wed-line);
+  border-radius:var(--wed-radius);
+  box-shadow:var(--wed-shadow);
+  text-decoration:none; color:var(--wed-ink);
+
+  /* убираем любые “подпрыгивания” */
+  transition: color .2s ease, background .2s ease; /* без transform, без изменения размера тени */
+  will-change:auto;
+}
+.contact-wed-card:hover{
+  /* только лёгкое изменение цвета акцентов, без смещения/масштаба и без изменения box-shadow */
+  background:linear-gradient(180deg, #fff, #fcf2eb);
+  border-color:rgba(201,166,107,.28);
+}
+
+/* некликабельная */
+.contact-wed-card.is-static{ cursor:default; }
+.contact-wed-card.is-static:hover{
+  background:linear-gradient(180deg, #fff, #fdf9f5);
+  border-color:var(--wed-line);
+}
+
+/* ленточка */
+.contact-wed-ribbon{
+  position:absolute; top:-14px; left:22px;
+  padding:8px 12px;
+  background:linear-gradient(180deg, rgba(217,184,169,.96), rgba(201,166,107,.96));
+  color:#fff; font-size:12px; letter-spacing:.3px;
+  border-radius:999px;
+  box-shadow:0 6px 16px rgba(201,166,107,.28);
+  backdrop-filter:blur(3px);
+}
+
+/* иконка — фикс размер, чтобы всё ровно стояло */
+.contact-wed-icon{
+  width:64px; height:64px;
+  display:grid; place-items:center;
+  border-radius:16px;
+  border:1px solid rgba(201,166,107,.28);
+  background:linear-gradient(180deg, #fff, #f6eee9);
+  color:var(--wed-accent-2);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.7);
+  font-size:0; /* убираем артефакты выравнивания */
+}
+
+/* текстовый блок — аккуратные переносы */
+.contact-wed-main{
+  display:grid; gap:6px; min-width:0; align-content:start;
+}
+.contact-wed-label{
+  font-size:14px; color:#867d78; line-height:1.2; white-space:normal;
+}
+.contact-wed-value{
+  font-size:clamp(16px,2.2vw,18px);
+  font-weight:600; color:var(--wed-ink); line-height:1.35;
+  white-space:normal; overflow:visible; text-overflow:clip; word-break:break-word;
+  max-height:3.1em; /* визуально ровные две строки, но без троеточия */
+}
+
+/* стрелка — без подскока */
+.contact-wed-cta{
+  font-size:15px; color:var(--wed-accent-2); align-self:start;
+  transition: color .2s ease; /* без translate */
+}
+.contact-wed-card:hover .contact-wed-cta{ color:var(--wed-gold); }
+
+/* выключаем “блик”, чтобы вообще ничего не меняло размеры/композицию */
+.contact-wed-card::after{ content:none; }
+
+/* фокус */
+.contact-wed-card:focus-visible{
+  outline:3px solid rgba(201,166,107,.45);
+  outline-offset:3px;
+}
+
+/* системное: если пользователь просит меньше анимации */
+@media (prefers-reduced-motion: reduce){
+  .contact-wed-card, .contact-wed-cta { transition:none; }
+}
+
+
 
 .mb-24 {
   margin-bottom: 24px;

@@ -1,0 +1,128 @@
+/*----------------------------------------*/
+/*  Banner CSS START
+/*----------------------------------------*/
+.hero-banner {
+    position: relative;
+    background: url('../media/bg/hero-bg.png') no-repeat;
+    background-position: top;
+    background-size: cover;
+
+    .content {
+        position: relative;
+        padding: clamp(20px, 1.667vw, 64px) 0;
+
+        .text-block {
+            position: relative;
+            padding: 6.042vw 0;
+            text-align: center;
+            background: url('../media/banner/banner-flower.png') no-repeat;
+            background-size: inherit;
+            background-position: center;
+            
+            @include media-query(768px) {
+                padding: 3.125vw 0;
+            }
+            @include media-query(490px) {
+                padding: 10.333vw 0;
+            }
+
+            @include media-query(393px) {
+                padding: 4.333vw 0;
+            }
+
+            @include media-query(390px) {
+                padding: 11.333vw 0;
+            }
+
+            .flower-image{
+                width: 15.677vw;
+                height: 7.224vw;
+                @include media-query(768px) {
+                    width: clamp(100px, 19.531vw, 180px);
+                    height: auto;
+                }
+            }
+
+            .wedding-date {
+                position: relative;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 50%;
+                    left: 10%;
+                    width: 80%;
+                    height: 1px;
+                    z-index: 5;
+                    background: $accent-border;
+                }
+
+                h4 {
+                    padding: 0 clamp(14px, 1.25vw, 32px);
+                    position: relative;
+                    z-index: 10;
+                    display: inline-block;
+                    background: $white;
+                }
+            }
+
+            br {
+                @include media-query(1024px) {
+                    display: none;
+                }
+            }
+
+            .title {
+                
+                @include media-query(575px) {
+                    font-size: clamp(32px, 6.939vw, 40px);
+                }
+
+                br {
+                    @include media-query(1024px) {
+                        display: none;
+                    }
+
+                    @include media-query(992px) {
+                        display: block;
+                    }
+
+                    @include media-query(575px) {
+                        display: none;
+                    }
+                }
+            }
+
+            br {
+                @include media-query(575px) {
+                    display: none;
+                }
+            }
+
+            .btn-block {
+                display: flex;
+                justify-content: start;
+                flex-wrap: wrap;
+                margin-top: 2.5vw;
+                margin-bottom: 5vw;
+                gap: clamp(24px, 1.66vw, 48px);
+
+                @include media-query(1199px) {
+                    margin-top: 24px;
+                }
+            }
+
+        }
+
+        .banner-image {
+            position: relative;
+
+            @include media-query(768px) {
+                text-align: center;
+            }
+            @media (min-width: 2299px){
+                width: 100%;
+            }
+        }
+    }
+}

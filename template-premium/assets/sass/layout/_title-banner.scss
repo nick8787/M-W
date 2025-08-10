@@ -1,0 +1,10 @@
+
+.title-banner{
+    background: url('../media/banner/title-banner.png') no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: clamp(96px, 8.854vw, 280px) 0;
+    @include media-query(575px){
+        background-position: 60%;
+    }
+}

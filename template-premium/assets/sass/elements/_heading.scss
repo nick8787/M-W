@@ -1,0 +1,27 @@
+/*----------------------------------------*/
+/*  Heading CSS START
+/*----------------------------------------*/
+.heading {
+  span {
+    color: $accent;
+  }
+}
+
+.heading-label {
+  background: url('../media/bg/banner-shape.png') no-repeat;
+  background-position: center;
+  background-size: 100%;
+  width: 8.823vw;
+  height: 2.24vw;
+  text-align: center;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  @include media-query(1199px){
+    width: 150px;
+    height: 40px;
+  }
+  @include media-query(490px){
+    width: 130px;
+  }
+}

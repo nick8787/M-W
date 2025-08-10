@@ -1,0 +1,209 @@
+// Colors
+.color-primary {
+    color: $accent !important;
+}
+.bg-primary {
+    background-color: $accent !important;
+}
+.accent-dark {
+    color: $accent-dark !important;
+}
+.bg-accent-dark {
+    background-color: $accent-dark !important;
+}
+.accent-lightest {
+    color: $accent-lightest !important;
+}
+.bg-accent-lightest {
+    background-color: $accent-lightest !important;
+}
+.accent-light {
+    color: $accent-light !important;
+}
+.bg-accent-light {
+    background-color: $accent-light !important;
+}
+.color-white {
+    color: $white !important;
+}
+.light-black {
+    color: $light-black !important;
+}
+.bg-white {
+    background-color: $white !important;
+}
+
+.dark-gray {
+    color: $dark-gray !important;
+}
+.bg-dark-gray {
+    background-color: $dark-gray !important;
+}
+
+// Border Radius
+
+.br-30{
+    border-radius: clamp(15px, 1.563vw, 40px);
+}
+.br-20{
+    border-radius: clamp(10px, 1.042vw, 30px);
+}
+.br-10{
+    border-radius: clamp(6px, 0.521vw, 20px);
+}
+
+
+// Mix helper classes
+.b-unstyle {
+    border: 0;
+    background: transparent;
+}
+.uppercase{
+    text-transform: uppercase;
+}
+.bold-text{
+    font-weight: 500;
+    line-height: 120%;
+}
+.font-sec{
+    font-family: $font-sec;
+}
+.font-sec-2{
+    font-family: $font-pacifico;
+    font-weight: 400;
+}
+
+.fw-500{
+    font-weight: 500;
+}
+span{
+    &.br{
+        display: block;
+        margin-bottom: 12px;
+    }
+}
+
+
+.social-icons{
+    display: flex;
+    align-items: center;
+    gap: clamp(6px, 0.42vw, 12px);  
+    li{
+        a{
+            width: clamp(36px, 2.5vw, 64px);
+            height: clamp(36px, 2.5vw, 64px);
+            display: grid;
+            align-content: center;
+            justify-content: center;
+            background-color: $accent-light;
+            border-radius: 50%;
+            transition: $transition;
+            svg{
+                width: clamp(18px, 1.25vw, 32px);
+                path{
+                    fill: $accent;
+                }
+            }
+            &:hover {
+                background: $accent-dark;
+            }
+        }
+    }
+}
+.quantity-wrap{
+    display: flex;
+    gap: clamp(4px, 0.62vw, 16px);
+    width: fit-content;
+
+    input{
+        border: none !important;
+        font-size: clamp(14.5px, 1.042vw, 40px);
+        font-weight: 600;
+        line-height: 140%; /* 24px */
+        letter-spacing: -0.4px;
+        color: $accent-dark !important;
+        padding: 0 !important;
+        background: transparent;    
+        width: 24px;
+        text-align: center;
+        @include media-query(991px) {
+            font-size: clamp(15px, 2.107vw, 21px);
+        }
+        @include media-query(767px) {
+            font-size: clamp(15.5px, 2.656vw, 19px);
+        }
+        @include media-query(575px) {
+            font-size: clamp(14.45px, 4.146vw, 18px);
+        }
+        &:focus{
+            border: none;
+            outline: none;
+            color: $accent-dark;
+        }
+        &:hover{
+            border: none;
+            color: $accent-dark;
+        }
+    }
+    .decrement,
+    .increment{
+        display: grid;
+        align-content: center;
+        justify-content: center;
+        height: clamp(30px, 2.083vw, 48px);
+        width: clamp(30px, 2.083vw, 48px);
+        background-color: $accent-light;
+        border-radius: 5px;
+        cursor: pointer;
+        i{
+            font-size: clamp(14.5px, 1.042vw, 40px);
+            color: $accent;
+            @include media-query(991px) {
+                font-size: clamp(15px, 2.107vw, 21px);
+            }
+            @include media-query(767px) {
+                font-size: clamp(15.5px, 2.656vw, 19px);
+            }
+            @include media-query(575px) {
+                font-size: clamp(14.45px, 4.146vw, 18px);
+            }
+        }
+    }
+}
+
+.cart-btn{
+    height: clamp(36px, 2.5vw, 64px);
+    width: clamp(36px, 2.5vw, 64px);
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: $accent;
+    transition: $transition;
+    img{
+        width: clamp(18px, 1.25vw, 32px);
+        height: clamp(18px, 1.25vw, 32px);
+    }
+
+}
+.dash-line {
+  height: 1px;
+  opacity: 1;
+  background-image: linear-gradient(90deg, $accent-border, $accent-border 65%, transparent 65%, transparent 100%);
+  background-size: 15px 1px;
+  border: none;
+}
+.dash-line-2 {
+  position: relative;
+  height: 1px;
+  
+  .line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, transparent 50%, $accent-border 50%);
+    background-size: 10px 10%;
+  }
+}

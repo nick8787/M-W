@@ -1,0 +1,182 @@
+// ====================================================== //
+// =================== Inquiry Banner =============== //
+// ====================================================== // 
+.inquiry-bg {
+    background: url('../media/bg/contact-bg.png') no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 5vw;
+    border-radius: clamp(15px, 1.563vw, 40px);
+
+    .inquiry-form {
+        background: $white;
+        padding: clamp(24px, 2.5vw, 64px);
+        border-radius: clamp(10px, 1.042vw, 30px);
+    }
+}
+
+// ====================================================== //
+// =================== Wedding Banner =============== //
+// ====================================================== // 
+.wedding-banner {
+    .sale-banner {
+        border-radius: 10px;
+
+        .sale-text {
+            padding: 4.557vw 0;
+
+            .flower-image{
+                width: 15.677vw;
+                height: 7.224vw;
+                @include media-query(768px) {
+                    width: clamp(100px, 19.531vw, 180px);
+                    height: auto;
+                }
+            }
+
+            .sale-label {
+                background: url('../media/bg/banner-shape-white.png') no-repeat;
+                background-position: center;
+                background-size: 100%;
+                width: 13.75vw;
+                height: 4.792vw;
+                text-align: center;
+                padding: 10px;
+                display: grid;
+                align-items: center;
+                justify-content: center;
+
+                @include media-query(1024px) {
+                    width: 160px;
+                    height: 60px;
+                }
+
+                @include media-query(575px) {
+                    background-position: 20%;
+                }
+            }
+
+            .countdown {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: clamp(10px, 0.83vw, 24px);
+
+                @include media-query(492px) {
+                    flex-wrap: wrap;
+                }
+
+                li {
+                    width: clamp(90px, 7.292vw, 280px);
+                    height: clamp(90px, 7.292vw, 280px);
+                    background-color: $accent-lightest;
+                    display: grid;
+                    justify-content: center;
+                    align-content: center;
+                    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='5' ry='5' stroke='%23985A86FF' stroke-width='2' stroke-dasharray='4%2c 6' stroke-dashoffset='0' stroke-linecap='round'/%3e%3c/svg%3e");
+                    border-radius: 5px;
+
+                    @include media-query(492px) {
+                        width: 72px;
+                        height: 72px;
+                    }
+
+                    h2 {
+                        color: $accent;
+                    }
+                }
+            }
+        }
+        .wedding-image{
+            width: 100%;
+            height: 100%;
+            object-fit: inherit;
+            @include media-query(1399px){
+                object-fit: cover;
+            }
+        }
+    }
+}
+
+
+// ====================================================== //
+// =================== Ceremony Banner =============== //
+// ====================================================== // 
+.ceremony-banner {
+    .banner-wrapper {
+        background: url('../media/bg/inner-banner.png') no-repeat;
+        background-position: center;
+        background-size: cover;
+        padding: 5vw;
+        border-radius: clamp(15px, 1.563vw, 40px);
+
+        .content-block {
+            width: 26.979vw;
+            height: auto;
+            text-align: center;
+            background: $white;
+            border-radius: clamp(10px, 1.042vw, 32px);
+            padding: clamp(64px, 5vw, 160px);
+            background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='20' ry='20' stroke='%23BE70A7FF' stroke-width='2' stroke-dasharray='12%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+            @include media-query(1299px){
+                width: 40%;
+            }
+            @include media-query(992px){
+                width: 50%;
+            }
+            @include media-query(768px){
+                width: 60%;
+            }
+            @include media-query(575px){
+                width: 100%;
+            }
+        }
+    }
+}
+
+.radio-container {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+
+    .radio-button {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        input[type="radio"] {
+            display: none;
+        }
+
+        input[type="radio"]:checked {
+            &~.radio-checkmark {
+                &:before {
+                    transform: translate(-50%, -50%) scale(1);
+                }
+            }
+        }
+
+        .radio-checkmark {
+            display: inline-block;
+            position: relative;
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            border: 2px solid $accent;
+            border-radius: 50%;
+
+            &:before {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) scale(0);
+                width: 11px;
+                height: 11px;
+                border-radius: 50%;
+                background-color: $accent;
+                transition: all 0.2s ease-in-out;
+            }
+        }
+    }
+}
