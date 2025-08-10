@@ -1,7 +1,7 @@
----
-permalink: /
-layout: none
----
+<!-- -&#45;&#45;-->
+<!--permalink: /-->
+<!--layout: none-->
+<!-- -&#45;&#45;-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -62,9 +62,9 @@ layout: none
               <ul class="main-menu__list cf" id="menu-main-menu">
                 <li>
                   <!-- FOR LOCAL DEVELOPMENT: /my-wedding -->
-                  <a href="/" class="active">Home</a>
+                  <a href="index.html" class="active">Головна</a>
                 </li>
-                <li><a href="/about">About Us</a></li>
+                <li><a href="about.html">About Us</a></li>
                 <li class="dropdown">
                   <a href="javascript:void(0); ">Services
                   </a>
@@ -128,20 +128,19 @@ layout: none
     <section class="hero-banner mb-48">
       <div class="container-fluid">
         <div class="row row-gap-5 align-items-center">
-          <div class="col-md-6 wow fadeIn animated" data-wow-delay="2.9s">
+          <div class="col-md-6 wow fadeIn animated" data-wow-delay="1s">
             <img src="assets/media/hero/line-vector.png" class="line-vec mb-24" alt="">
-            <h1 class="h1 mb-24">Create <span class="color-primary d-inline">Special Moments</span> for Your Event</h1>
-            <p class="mb-48">From intimate gatherings to grand celebrations, we design unforgettable experiences<br
-                class="d-xl-block d-none"> tailored to your vision. Let us turn your dreams into reality!</p>
+            <h1 class="h1 mb-24" style="font-size: 36px; line-height: 1.2;">ВАШЕ <span class="color-primary d-inline">ВЕСІЛЛЯ МРІЇ</span> ПОЧИНАЄТЬСЯ ЗІ СТИЛЬНОГО ЗАПРОШЕННЯ</h1>
+            <p class="mb-48">Сучасний та зручний спосіб запросити гостей на ваше весілля - красиво, швидко і без зайвих клопотів!</p>
             <div class="d-flex align-items-center flex-wrap gap-24">
-              <a href="appointment.html" class="cus-btn">
+              <a href="#about" class="cus-btn">
                 <svg class="arr-2" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
                   fill="none">
                   <path
                     d="M16.5616 6.65086C16.2751 6.65086 16.0032 6.71426 15.7585 6.82695C15.5625 5.97152 14.7957 5.33125 13.8817 5.33125C13.5888 5.33125 13.3111 5.39723 13.0623 5.51469C12.8427 4.69273 12.0919 4.08543 11.2017 4.08543C10.9342 4.08543 10.6793 4.14035 10.4476 4.23934V1.92594C10.4476 0.863945 9.58369 0 8.5217 0C7.4597 0 6.59572 0.863945 6.59572 1.92594V11.0899L5.60267 9.61578L5.58713 9.59645C4.84361 8.67215 3.53553 8.46676 2.54455 9.11875C2.02635 9.45965 1.67529 9.98258 1.55599 10.5912C1.43744 11.1962 1.56287 11.8092 1.90916 12.3186L5.45326 17.9051L5.46506 17.923C6.35834 19.2235 7.83361 20 9.41138 20H13.3881C16.1999 20 18.4876 17.7124 18.4876 14.9005V8.57676C18.4876 7.5148 17.6236 6.65086 16.5616 6.65086ZM17.3157 14.9005C17.3157 17.0662 15.5538 18.8281 13.3881 18.8281H9.41138C8.22322 18.8281 7.11209 18.2451 6.43693 17.268L2.89334 11.6823L2.88154 11.6645C2.7101 11.4148 2.64779 11.1137 2.70599 10.8166C2.76424 10.5195 2.93564 10.2641 3.18861 10.0977C3.66615 9.78356 4.29459 9.87723 4.65986 10.3137L7.7676 14.927V1.92594C7.7676 1.51012 8.10588 1.17188 8.5217 1.17188C8.93752 1.17188 9.27576 1.51012 9.27576 1.92594V8.87731H10.4476V6.01141C10.4476 5.59559 10.7859 5.25734 11.2017 5.25734C11.6175 5.25734 11.9558 5.59559 11.9558 6.01141V8.87731H13.1276V7.25719C13.1276 6.84137 13.4659 6.50312 13.8817 6.50312C14.2975 6.50312 14.6358 6.84137 14.6358 7.25719V8.87731H15.8076V8.5768C15.8076 8.16098 16.1459 7.82273 16.5617 7.82273C16.9775 7.82273 17.3158 8.16098 17.3158 8.5768V14.9005H17.3157Z"
                     fill="#FAFAFA" />
                 </svg>
-                <span class="text">Book Now</span>
+                <span class="text">Дізнатись більше</span>
                 <span class="circle"></span>
                 <svg class="arr-1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
                   fill="none">
@@ -151,27 +150,35 @@ layout: none
                 </svg>
               </a>
               <a href="services.html" class="cus-btn-2">
-                <span class="">Explore Services</span>
-                <span class="">Explore Services</span>
+                <span class="">Обрати шаблон</span>
+                <span class="">Обрати шаблон</span>
               </a>
             </div>
+
           </div>
+          <style>
+            @media (max-width: 768px) {
+              .img-wrapper {
+                display: none;
+              }
+            }
+          </style>
+
           <div class="col-md-6">
             <div class="img-wrapper">
-              <img src="assets/media/hero/img-1.jpg" class="img-1 wow fadeIn animated" data-wow-delay="2.9s"
-                alt="small-img">
-              <img src="assets/media/hero/img-2.jpg" class="img-2" alt="large-img">
-              <img src="assets/media/hero/img-3.jpg" class="img-3 wow fadeInLeft animated" data-wow-delay="3s"
-                alt="small-img">
+              <img src="assets/media/hero/img-1.jpg" class="img-1 wow fadeIn animated" data-wow-delay="1s" alt="small-img">
+              <img src="assets/media/hero/img-2.jpg" class="img-2" alt="large-img" data-wow-delay="1s">
+              <img src="assets/media/hero/img-3.jpg" class="img-3 wow fadeInLeft animated" data-wow-delay="1s" alt="small-img">
             </div>
           </div>
+
         </div>
       </div>
     </section>
     <!-- Hero Section End -->
 
     <!-- About Section Start -->
-    <section class="about-sec mb-96 wow fadeInUp animated" data-wow-delay="350ms">
+    <section id="about" class="about-sec mb-96 wow fadeInUp animated">
       <div class="container-fluid">
         <div class="row row-gap-4 align-items-center">
           <div class="col-lg-6">

@@ -824,6 +824,10 @@ Helpers
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .mb-24 {
   margin-bottom: 24px;
 }
