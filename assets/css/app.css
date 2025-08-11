@@ -3636,6 +3636,8 @@ footer .privacy-text {
   justify-content: center;
   padding: clamp(108px, 9.063vw, 628px) 0;
 }
+
+
 @media (max-width: 999px) {
   .title-banner {
     background-position-x: center;
