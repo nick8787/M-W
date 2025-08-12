@@ -992,9 +992,15 @@ html {
 
 /* Мобильные правки */
 @media(max-width:575.98px){
-  .invite-card{ padding:46px 22px 20px; border-radius:22px; }
-  .plan-badge--over{ top:-16px; }
+  .invite-card{
+    padding:40px 20px 18px;  /* чуть меньше паддинги */
+    border-radius:20px;
+    min-height:460px;        /* была 500 — уменьшил немного */
+    margin-bottom:24px;      /* добавил больше расстояния между карточками */
+  }
+  .plan-badge--over{ top:-14px; }
 }
+
 
 :root{
   --olive:#878C53;
@@ -1031,13 +1037,23 @@ html {
   border:1.5px solid var(--olive-2);
   border-radius:999px; box-shadow:0 4px 12px rgba(0,0,0,.08);
 }
-.tcard__hint{
-  position:absolute; left:12px; bottom:12px;
-  padding:6px 10px; font-size:12px; font-weight:600; color:#fff;
-  background:rgba(0,0,0,.42); border-radius:10px;
-  opacity:0; transform: translateY(6px);
-  transition: opacity .2s ease, transform .2s ease;
+.tcard__hint {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: var(--accent);
+  color: #fff;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 999px;
+  box-shadow: 0 4px 10px rgba(0,0,0,.15);
+  cursor: pointer;
+  opacity: 1; /* теперь всегда видна */
+  transform: translateY(0); /* убираем смещение в стартовом виде */
+  z-index: 2;
 }
+
 
 /* текст */
 .tcard__body{ padding:14px 14px 16px; }
@@ -1080,7 +1096,7 @@ html {
 
 .order-wed-card{
   width:100%;
-  max-width:1200px;
+  max-width:1400px;
   background:var(--paper);
   border:1px solid var(--line);
   border-radius:28px;
@@ -1419,7 +1435,10 @@ html {
           radial-gradient(closest-side, rgba(217,184,169,.12), transparent 70%);
   filter:blur(12px); opacity:.6; pointer-events:none;
 }
-.contact-wed-wrap{ max-width:1160px; margin:0 auto; }
+.contact-wed-wrap{ max-width:1400px; margin:0 auto; }
+@media (max-width: 768px) {
+  .contact-wed-wrap { max-width: 94%; }
+}
 .contact-wed-head{ text-align:center; margin-bottom:clamp(34px,4.2vw,56px); }
 .contact-wed-title{
   margin:0 0 12px;
@@ -1440,12 +1459,12 @@ html {
   grid-template-columns:repeat(3, minmax(0,1fr));
   gap:clamp(18px,2.6vw,26px);
   margin-top:clamp(28px,3.2vw,40px);
-  align-items:stretch; /* карточки тянутся на равную высоту в своей строке */
+  align-items:stretch;
 }
 @media (max-width:900px){ .contact-wed-grid{ grid-template-columns:1fr 1fr; } }
 @media (max-width:640px){ .contact-wed-grid{ grid-template-columns:1fr; } }
 
-/* карточка — фиксированная высота + без движений на hover */
+/* карточка */
 .contact-wed-card{
   position:relative;
   display:grid;
@@ -1454,7 +1473,7 @@ html {
   align-items:center;
   gap:18px 20px;
 
-  height:156px;                 /* одинаковая высота у всех */
+  height:156px;
   padding:26px 26px;
   background:linear-gradient(180deg, #fff, #fdf9f5);
   border:1px solid var(--wed-line);
@@ -1462,12 +1481,23 @@ html {
   box-shadow:var(--wed-shadow);
   text-decoration:none; color:var(--wed-ink);
 
-  /* убираем любые “подпрыгивания” */
-  transition: color .2s ease, background .2s ease; /* без transform, без изменения размера тени */
+  transition: color .2s ease, background .2s ease;
   will-change:auto;
 }
+
+@media (max-width: 768px) {
+  .contact-wed-card {
+    height: 130px; /* ↓ уменьшаем высоту только на мобилках */
+    padding:20px;  /* можно ещё чуть уменьшить отступы */
+  }
+}
+
+/* мобильный макет: убираем третий столбец для CTA */
+@media (max-width:1023.98px){
+  .contact-wed-card{ grid-template-columns:64px 1fr; }
+}
+
 .contact-wed-card:hover{
-  /* только лёгкое изменение цвета акцентов, без смещения/масштаба и без изменения box-shadow */
   background:linear-gradient(180deg, #fff, #fcf2eb);
   border-color:rgba(201,166,107,.28);
 }
@@ -1490,19 +1520,25 @@ html {
   backdrop-filter:blur(3px);
 }
 
-/* иконка — фикс размер, чтобы всё ровно стояло */
+/* иконка */
 .contact-wed-icon{
-  width:64px; height:64px;
-  display:grid; place-items:center;
+  width:64px;
+  height:64px;
+  display:grid;
+  place-items:center;
   border-radius:16px;
   border:1px solid rgba(201,166,107,.28);
   background:linear-gradient(180deg, #fff, #f6eee9);
   color:var(--wed-accent-2);
   box-shadow:inset 0 0 0 1px rgba(255,255,255,.7);
-  font-size:0; /* убираем артефакты выравнивания */
+  font-size:0;
+  margin-top: 20px;
+}
+@media (max-width: 768px) {
+  .contact-wed-icon { margin-top: 10px; }
 }
 
-/* текстовый блок — аккуратные переносы */
+/* текстовый блок */
 .contact-wed-main{
   display:grid; gap:6px; min-width:0; align-content:start;
 }
@@ -1513,17 +1549,28 @@ html {
   font-size:clamp(16px,2.2vw,18px);
   font-weight:600; color:var(--wed-ink); line-height:1.35;
   white-space:normal; overflow:visible; text-overflow:clip; word-break:break-word;
-  max-height:3.1em; /* визуально ровные две строки, но без троеточия */
+  max-height:3.1em;
+}
+/* ДОБАВЛЕНО: для инстаграм-хендла — запрет переносов */
+.contact-wed-handle{
+  white-space:nowrap;
+  word-break:keep-all;
+  overflow:hidden;
+  text-overflow:ellipsis; /* на очень узких экранах аккуратно обрежется */
 }
 
-/* стрелка — без подскока */
+/* CTA (стрелка/текст) */
 .contact-wed-cta{
   font-size:15px; color:var(--wed-accent-2); align-self:start;
-  transition: color .2s ease; /* без translate */
+  transition: color .2s ease;
+}
+/* ДОБАВЛЕНО: показывать CTA только на десктопе */
+@media (max-width:1023.98px){
+  .contact-wed-cta{ display:none; }
 }
 .contact-wed-card:hover .contact-wed-cta{ color:var(--wed-gold); }
 
-/* выключаем “блик”, чтобы вообще ничего не меняло размеры/композицию */
+/* выключаем “блик” */
 .contact-wed-card::after{ content:none; }
 
 /* фокус */
@@ -1532,12 +1579,57 @@ html {
   outline-offset:3px;
 }
 
-/* системное: если пользователь просит меньше анимации */
+/* системное */
 @media (prefers-reduced-motion: reduce){
   .contact-wed-card, .contact-wed-cta { transition:none; }
 }
 
+/* выравнивание единой полосы */
+.site-footer .footer-top {
+  row-gap: 24px;
+}
 
+/* логотип по размеру и без смещения */
+.footer-logo img{
+  max-height: 56px;
+  width: auto;
+  display: block;
+}
+
+/* аккуратные отступы в колонках */
+.site-footer .intro-block,
+.site-footer .links-block,
+.site-footer .time-block{
+  margin: 0;
+}
+
+.svg-block{
+  width: 28px; height: 28px;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+
+/* социалки в линию */
+.social-icons .icon{
+  display: inline-flex; line-height: 1;
+}
+
+/* запрет переносов у @my_wedding_ua */
+.no-wrap{ white-space: nowrap; }
+
+/* нижняя граница */
+.border-top-light{
+  border-top: 1px solid rgba(0,0,0,.06);
+}
+
+/* мелкие правки типографики */
+.privacy-text{ font-size: 14px; opacity: .85; }
+
+@media (min-width: 992px){
+  /* плотнее на десктопе */
+  .site-footer .footer-top{
+    row-gap: 0;
+  }
+}
 
 .mb-24 {
   margin-bottom: 24px;
