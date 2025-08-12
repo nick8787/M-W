@@ -1417,8 +1417,11 @@ background-color: #FFFFFF !important;
 }
 .text-date p span {
     font-size: 28px;
-    padding-left: 15px;
+    padding-left: 0; /* убрали сдвиг вправо */
+    display: inline-block;
+    text-align: center; /* выравнивание по центру */
 }
+
 #wd-banner.mt_video .banner_caption_text p{margin-top: 0px;}
 
 #wd-banner .banner_caption_text h3 {
