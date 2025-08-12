@@ -310,6 +310,46 @@ label{font-weight: 400;}
   .seperator{display: none;}
 }
 
+/* Контейнер для орнаментов */
+.decor-corner {
+    position: absolute;
+    z-index: 3; /* выше фона, ниже текста */
+    pointer-events: none; /* не мешает кликам */
+    opacity: 0.9; /* лёгкая прозрачность */
+}
+
+/* Левый верхний */
+.decor-top-left {
+    top: 15px;
+    left: 15px;
+}
+
+/* Правый нижний */
+.decor-bottom-right {
+    bottom: 15px;
+    right: 15px;
+}
+
+/* Картинка завитушки */
+.decor-corner img {
+    max-width: 140px;
+    height: auto;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+    .decor-corner img {
+        max-width: 90px; /* уменьшение на мобильных */
+    }
+    .decor-top-left {
+        top: 10px;
+        left: 10px;
+    }
+    .decor-bottom-right {
+        bottom: 10px;
+        right: 10px;
+    }
+}
 
 /* -- 4.0 - Common Styles -- */
 

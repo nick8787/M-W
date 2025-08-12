@@ -6,10 +6,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Royal Love - Responsive Wedding Template</title>
-    <meta name="description" content="Romantic story or journey, wedding event, party schedule, rsvp form">
-    <meta name="keywords" content="CycloneThemes">
-    <meta name="author" content="CycloneThemes">
+    <title>Денис & Анастасія - Весільне запрошення</title>
+    <meta name="description" content="Денис & Анастасія - Весільне запрошення">
+    <meta name="keywords" content="Денис & Анастасія - Весільне запрошення">
+    <meta name="author" content="Денис & Анастасія - Весільне запрошення">
 
     <!-- Favicon -->
     <link rel="icon" href="assets_premium2/images/header/favicon.png">
@@ -82,6 +82,10 @@
             margin-left: 8px;
             font-weight: bold;
         }
+        .text-date {
+            margin-top: -20px; /* поднимет вверх на 20px */
+        }
+
     </style>
 
 </head>
@@ -139,7 +143,7 @@
                 <div class="heart-arrow2">
                     <span><i class="fa fa-heart"></i></span>
                 </div>
-                <h3 style="font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 500; margin-bottom: 30px;">
+                <h3 style="font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 500; margin-bottom: 15px;">
                     Запрошуємо на весілля!
                 </h3>
                 <h2 style="font-family: 'Great Vibes', cursive; font-size: 64px; font-weight: normal; margin-bottom: 15px;">
@@ -190,49 +194,9 @@
         }
     </style>
 
-    <section id="about-us" class="section-padding">
-        <div class="container">
-            <div class="section-title wow fadeInDown">
-                <h2>Про Нас</h2>
-            </div>
-            <div class="row">
-                <div class="col-md-6 col-sm-12">
-                    <div class="the-couple wow fadeInLeft">
-                        <div class="couple-img pull-right">
-                            <img src="assets_premium2/images/about/1.jpg" alt="">
-                            <h4>Наречений</h4>
-                        </div>
-                        <div class="about-couple about-couple-1">
-                            <h3>Денис</h3>
-                            <div class="cp-detail">
-                                <p>Любить каву міцнішу за Wi-Fi та обіцяє завжди гріти плед для неї 😉</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-sm-12">
-                    <div class="the-couple wow fadeInRight">
-                        <div class="couple-img">
-                            <img src="assets_premium2/images/about/2.jpg" alt="">
-                            <h4>Наречена</h4>
-                        </div>
-                        <div class="about-couple">
-                            <h3>Анастасія</h3>
-                            <div class="cp-detail">
-                                <p>Може планувати весілля і серіали одночасно, а ще знайде ідеальний торт для настрою ✨</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row wow fadeIn"></div>
-        </div>
-    </section>
 
-    <!--About Us section -->
 
-    <!--Our story section -->
-    <!-- Шрифты (оставил как в твоём варианте) -->
+    <!--Таймінг весілля -->
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;700&family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
 
     <style>
@@ -808,298 +772,6 @@
     </script>
 
     <!-- /End Gift Registry -->
-
-    <!-- rsvp section -->
-    <section id="rsvp2" class="rsvp2-section">
-
-        <div class="rsvp2-container">
-            <div class="rsvp2-header">
-                <h2>Опитування для гостей 💌</h2>
-                <p>Відгукніться до <strong>10.06.2026</strong></p>
-            </div>
-
-            <!-- Форма -->
-            <form id="guestForm2" class="rsvp2-form" action="https://api.web3forms.com/submit" method="POST">
-                <input type="hidden" name="access_key" value="581eaf16-3866-475f-8020-0f5282f63bec">
-                <!-- Тема листа (опціонально, але корисно) -->
-                <input type="hidden" name="subject" value="Відповіді на опитування гостей">
-                <!-- Хто надіслав (опціонально) -->
-                <input type="hidden" name="from_name" value="Весільна форма RSVP">
-
-                <!-- Ім’я (UA назва поля) -->
-                <div class="rsvp2-group">
-                    <label for="guestName2">Ваше ім’я *</label>
-                    <input type="text" id="guestName2" name="Ім’я" placeholder="Введіть ім’я" required>
-                </div>
-
-                <!-- Радио: участь (UA назва поля через data-name) -->
-                <div class="rsvp2-group">
-                    <label>Чи плануєте ви бути на весіллі?</label>
-                    <div class="rsvp2-option-buttons" data-type="radio" data-name="Присутність на весіллі">
-                        <div class="rsvp2-option-btn">Так</div>
-                        <div class="rsvp2-option-btn">Ні</div>
-                    </div>
-                </div>
-
-                <!-- Радио: РАЦС (UA назва поля) -->
-                <div class="rsvp2-group">
-                    <label>Чи будете на офіційній частині в РАЦС?</label>
-                    <div class="rsvp2-option-buttons" data-type="radio" data-name="Присутність у РАЦС">
-                        <div class="rsvp2-option-btn">Так</div>
-                        <div class="rsvp2-option-btn">Ні</div>
-                    </div>
-                </div>
-
-                <!-- Чекбокси: напої (UA назва поля; масив значень) -->
-                <div class="rsvp2-group">
-                    <label>Ваші побажання щодо напоїв:</label>
-                    <div class="rsvp2-option-buttons" data-type="checkbox" data-name="Напої">
-                        <div class="rsvp2-option-btn">🥂 Шампанське</div>
-                        <div class="rsvp2-option-btn">🍷 Вино</div>
-                        <div class="rsvp2-option-btn">🥃 Коньяк</div>
-                        <div class="rsvp2-option-btn">🍾 Горілка</div>
-                    </div>
-                </div>
-
-                <!-- Побажання (UA назва поля) -->
-                <div class="rsvp2-group rsvp3-form textarea">
-                    <label>Ваші побажання</label>
-                    <textarea name="Побажання" rows="3" placeholder="Напишіть тут будь-які додаткові побажання чи важливу інформацію. Якщо з вами будуть діти, зазначте це, будь ласка"></textarea>
-                </div>
-
-                <button type="submit" class="rsvp2-btn-submit">Відправити 💌</button>
-                <div id="formAlert2" class="rsvp2-form-alert"></div>
-            </form>
-
-        </div>
-    </section>
-
-    <style>
-        .rsvp2-section {
-            background: #fffaf8;
-            padding: 60px 15px;
-        }
-        .rsvp2-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        .rsvp2-header h2 {
-            font-family: 'Great Vibes', cursive;
-            font-size: 46px;
-            color: #c59f8a;
-            margin-bottom: 5px;
-        }
-        .rsvp2-header p {
-            font-size: 16px;
-            color: #555;
-        }
-        .rsvp2-form {
-            max-width: 600px;
-            margin: auto;
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 16px;
-            box-shadow: 0 8px 28px rgba(0,0,0,0.08);
-        }
-        @media (max-width: 600px) {
-            .rsvp2-header h2 {
-                font-size: 35px; /* меньше шрифт для 1 ряда */
-                white-space: nowrap; /* запретить перенос */
-            }
-        }
-
-        .rsvp2-group {
-            margin-bottom: 20px;
-        }
-        .rsvp2-group label {
-            font-weight: 500;
-            margin-bottom: 8px;
-            display: block;
-            color: #333;
-        }
-        .rsvp2-form input[type="text"],
-        .rsvp2-form textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 15px;
-            transition: 0.3s;
-        }
-        .rsvp3-form textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 15px;
-            transition: 0.3s;
-            height: 150px;
-        }
-        .rsvp2-form input:focus,
-        .rsvp2-form textarea:focus {
-            border-color: #c59f8a;
-            outline: none;
-            box-shadow: 0 0 6px rgba(197,159,138,0.4);
-        }
-        .rsvp2-option-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        .rsvp2-option-btn {
-            flex: 1 1 calc(50% - 10px);
-            background: #faf7f5;
-            padding: 12px;
-            border: 1px solid #e4d9d4;
-            border-radius: 8px;
-            text-align: center;
-            cursor: pointer;
-            transition: 0.3s;
-            user-select: none;
-        }
-        .rsvp2-option-btn:hover {
-            background: #f3ebe8;
-        }
-        .rsvp2-option-btn.selected {
-            background: #c59f8a;
-            color: white;
-            border-color: #b58772;
-            font-weight: bold;
-            box-shadow: 0 0 8px rgba(197,159,138,0.5);
-        }
-        .rsvp2-btn-submit {
-            width: 100%;
-            background: #c59f8a;
-            border: none;
-            padding: 14px;
-            font-size: 16px;
-            border-radius: 8px;
-            color: white;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .rsvp2-btn-submit:hover {
-            background: #b58772;
-        }
-        .rsvp2-form-alert {
-            margin-top: 10px;
-            font-size: 14px;
-            display: none;
-        }
-        .rsvp2-form-alert.ok { color: green; }
-        .rsvp2-form-alert.err { color: red; }
-        @media (max-width: 600px) {
-            .rsvp2-option-btn {
-                flex: 1 1 100%;
-            }
-        }
-    </style>
-
-    <script>
-        (() => {
-            const form = document.getElementById('guestForm2');
-            const alertBox = document.getElementById('formAlert2');
-
-            document.querySelectorAll('.rsvp2-option-buttons').forEach(group => {
-                const type = group.dataset.type;
-                const name = group.dataset.name || '';
-
-                // Для чекбоксов создаём одно скрытое поле сразу
-                let hidden = null;
-                if (type === 'checkbox') {
-                    hidden = document.createElement('input');
-                    hidden.type = 'hidden';
-                    hidden.name = name;
-                    group.appendChild(hidden);
-                }
-
-                const updateCheckboxValue = () => {
-                    const selectedValues = Array.from(group.querySelectorAll('.rsvp2-option-btn.selected'))
-                        .map(btn => btn.textContent.trim());
-                    if (hidden) {
-                        hidden.value = selectedValues.join(', ');
-                    }
-                };
-
-                group.querySelectorAll('.rsvp2-option-btn').forEach(btn => {
-                    btn.addEventListener('click', () => {
-                        if (type === 'radio') {
-                            group.querySelectorAll('.rsvp2-option-btn').forEach(b => b.classList.remove('selected'));
-                            btn.classList.add('selected');
-
-                            let hiddenRadio = group.querySelector(`input[name="${name}"]`);
-                            if (!hiddenRadio) {
-                                hiddenRadio = document.createElement('input');
-                                hiddenRadio.type = 'hidden';
-                                hiddenRadio.name = name;
-                                group.appendChild(hiddenRadio);
-                            }
-                            hiddenRadio.value = btn.textContent.trim();
-
-                        } else if (type === 'checkbox') {
-                            btn.classList.toggle('selected');
-                            updateCheckboxValue();
-                        }
-                    });
-                });
-            });
-
-            function setAlert(type, msg) {
-                alertBox.className = 'rsvp2-form-alert ' + (type || '');
-                alertBox.textContent = msg || '';
-                alertBox.style.display = 'block';
-            }
-
-            form.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                setAlert('', '');
-
-                let valid = true;
-                let errorMessages = [];
-
-                document.querySelectorAll('.rsvp2-option-buttons').forEach(group => {
-                    const type = group.dataset.type;
-                    const labelText = group.closest('.rsvp2-group')?.querySelector('label')?.textContent.trim() || 'Поле';
-                    const selectedBtns = group.querySelectorAll('.rsvp2-option-btn.selected');
-
-                    if (type === 'radio' && selectedBtns.length === 0) {
-                        valid = false;
-                        errorMessages.push(`Оберіть варіант: "${labelText}"`);
-                    }
-                    if (type === 'checkbox' && selectedBtns.length === 0) {
-                        valid = false;
-                        errorMessages.push(`Оберіть хоча б один варіант: "${labelText}"`);
-                    }
-                });
-
-                if (!valid) {
-                    setAlert('err', errorMessages.join(' | '));
-                    return;
-                }
-
-                const formData = new FormData(form);
-
-                try {
-                    const res = await fetch(form.action, { method: 'POST', body: formData });
-                    const data = await res.json();
-
-                    if (res.ok && (data.success || data.message === "Submission successful")) {
-                        setAlert('ok', 'Дякуємо! Повідомлення надіслано. 💖');
-                        form.reset();
-                        document.querySelectorAll('.rsvp2-option-btn').forEach(btn => btn.classList.remove('selected'));
-                    } else {
-                        throw new Error(data.message || 'Помилка сервера');
-                    }
-                } catch (err) {
-                    setAlert('err', 'Не вдалося надіслати. Спробуйте пізніше.');
-                }
-            });
-        })();
-    </script>
-
-
-
-    <!-- /End rsvp section -->
 
     <!-- Footer section -->
     <footer id="footer" class="footer-widgets">
