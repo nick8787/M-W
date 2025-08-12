@@ -1,0 +1,285 @@
+/*
+Version : 1.0
+*/
+
+/***----------MediaCSS-----------***/
+
+@media screen and (max-width: 1199px) {
+	.wdp_event_date {
+	    float: none;
+	    margin: auto; 
+	}
+	.wdp_event_time, .wdp_event_location {
+	    text-align: inherit;
+	}
+}
+
+@media screen and (max-width: 1145px) {
+	.wdp_splash_inner{
+		top: 320px;
+	}
+}
+
+@media screen and (max-width: 1070px) {
+	.wdp_splash_inner{
+		top: 244px;
+	}
+}
+
+@media screen and (max-width: 1023px) {
+	#wdp_splash,
+	.wdp_splash_inner {
+		position: relative;
+		top: 0;
+		padding: 0;
+		margin-top: 4%;
+	}
+}
+
+@media screen and (max-width: 991px) {
+    .wdp_home_event_item {
+        width: 48.88%;
+    }
+}
+
+@media screen and (min-width: 911px) {
+    .dropdown:hover .dropdown-menu {
+	    display: block;
+	}
+}
+
+@media screen and (max-width: 910px) {
+    .wdp_header {
+		position: relative;
+	}
+	.wdp_nav {
+		margin-top:0;
+		margin-bottom:0
+	}
+	.navbar-header {
+        float: none;
+    }
+    .navbar-left,.navbar-right {
+        float: none !important;
+    }
+    .navbar-toggle {
+        display: block;
+    }
+    .navbar-collapse.collapse {
+        display: none!important;
+    }
+	.wdp_nav>li {
+        display: block;
+    }   
+    #wdp_navbar_collapse {
+        margin-right: -15px;
+        margin-left: -15px;
+        overflow-y: hidden;
+    }    
+    .collapse.in{
+  		display:block !important;
+	}
+	.nav_center {
+		display: block;
+	}
+	.wdp_navigation .navbar-text,
+	.wdp_navigation .wdp_nav > li > a {
+		text-align: left;
+    	padding: 15px 25px!important;
+	}
+	.wdp_dropdown_menu {
+	    position: relative;
+	    float: none;
+	}	
+}
+
+@media screen and (min-width: 768px) {
+    .wdp_event_description {
+        padding-top: 12px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+		font-size: 14px;
+	}
+    .wdp_site_title {
+        font-size: 54px;
+    }
+    .wdp_header_icon {
+        height: 110px;
+    }
+    .wdp_dropdown_menu {
+        font-size: 12px;
+    }
+    .wdp_splash_date {
+        font-size: 28px;
+    }
+    .wdp_splash_couple_ini {
+        font-size: 18px
+    }
+    .wdp_section_title h2,
+    .wdp_about_inner h2,
+    #page_title h2{
+        font-size: 46px;
+    }
+    .wdp_countdown_int {
+        font-size: 22px;
+    }
+    .wdp_countdown_int {
+        margin-top: 10px;
+    }
+
+    .wdp_social_icon_item {
+        font-size: 18px;
+        width: 42px;
+        height: 42px;
+    }
+
+    .wdp_event_title {
+        font-size: 24px;
+    }
+
+    .wdp_carousel_swiper_data_name {
+        font-size: 22px;
+    }
+	.wdp_event_map {
+        margin-left: 15px;
+        margin-right: 15px;
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 767px) {
+	.wdp_slideshow_splash_container {
+    	position: static;
+	}
+	.wdp_slideshow_splash_inner {
+		padding: 0;
+	}
+	.groom_bride {
+		display: none;
+	}
+	.wdp_about_inner {
+		padding: 50px 40px;
+	}
+	.wdp_bouquet_img {
+		margin: 20px auto;
+		max-width: 140px;
+	}   
+    .wdp_home_event_container {
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+	.wdp_home_form input, 
+	.wdp_home_form select,
+	.wdp_home_form .fancy-select {
+		margin: 10px auto 20px;
+	}
+	.wdp_home_registry_col{
+	    margin-bottom: 4%;
+	}
+	.wdp_home_registry_col:last-child {
+	    margin-bottom: 0;
+	}
+}
+
+@media screen and (max-width: 676px) {
+    .wdp_header_icon {
+        height: 100px;
+    }
+    .wdp_site_title {
+        font-size: 46px;
+    }
+}
+
+@media screen and (max-width: 592px) {
+	.wdp_countdown_item {
+		width: 80px;
+	    height: 60px;
+	    margin: 0 5px;
+	    padding: 0;
+	}
+	.wdp_contact_bar {
+		padding: 3em 0;
+	}
+}
+
+@media screen and (max-width: 575px) {
+    .wdp_entry_title_icon {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 555px) {
+    .wdp_header_icon {
+        height: 80px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    .wdp_site_title {
+        font-size: 36px;
+    }
+    .wdp_splash_date {
+        font-size: 24px;
+    }
+    .wdp_splash_couple_ini {
+        font-size: 14px
+    }
+    .wdp_section_title h2,
+    .wdp_about_inner h2,
+    #page_title h2{
+        font-size: 42px;
+    }
+    .wdp_countdown_int {
+        font-size: 18px;
+    }
+    .wdp_countdown_int {
+        margin-top: 0px;
+    }
+    .wdp_event_title {
+        font-size: 22px;
+    }
+}
+
+@media screen and (max-width: 480px){
+	.wdp_home_event_item {
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 395px) {
+    .wdp_header_icon {
+        height: 60px;
+    }
+    .wdp_site_title {
+		font-size: 30px;
+	}
+    .wdp_section_title h2,
+    .wdp_about_inner h2,
+    #page_title h2{
+        font-size: 38px;
+    }
+	.wdp_countdown_item {
+		margin: 0;
+		width: 62px;
+	}
+}
+
+@media screen and (max-width: 375px) {
+    .wdp_header_icon {
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+    .wdp_margin_top_10 {
+		margin-top: 20% !important;
+    }
+    .wdp_margin_top_6 {
+		margin-top: 12% !important;
+    }
+    .wdp_margin_top_4 {
+		margin-top: 8% !important;
+    }
+}
