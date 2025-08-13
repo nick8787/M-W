@@ -297,12 +297,10 @@
                     Більше персоналізації та зручності для гостей
                   </div>
 
-                  <!-- База -->
                   <ul class="feature-list">
                     <li><span class="tick"><i></i></span>Стандартний шаблон із фото та текстами</li>
                     <li><span class="tick"><i></i></span>Таймер зі зворотним відліком</li>
                     <li><span class="tick"><i></i></span>Інтерактивна мапа локації</li>
-                    <!-- Добавка для Стандарт -->
                     <li class="extra"><span class="tick"><i></i></span>Форма зворотного зв’язку: RSVP, меню, алко/без алко</li>
                   </ul>
                 </div>
@@ -322,13 +320,12 @@
                   <h6 class="card-title">Максимум персоналізації</h6>
                   <p class="card-sub">Дизайн під вас та всі зручності для гостей.</p>
 
-                  <!-- База -->
                   <ul class="feature-list">
                     <li><span class="tick"><i></i></span>Стандартний шаблон із фото та текстами</li>
                     <li><span class="tick"><i></i></span>Таймер зі зворотним відліком</li>
                     <li><span class="tick"><i></i></span>Інтерактивна мапа локації</li>
                     <li class="extra"><span class="tick"><i></i></span>Форма зворотного зв’язку: RSVP, меню, алко/без алко</li>
-                    <!-- Добавки для Преміум -->
+
                     <li class="extra"><span class="tick"><i></i></span>Індивідуальний дизайн та кольори</li>
                     <li class="extra"><span class="tick"><i></i></span>Таймінг дня</li>
                     <li class="extra"><span class="tick"><i></i></span>Дрес-код (палетка, приклади образів)</li>
@@ -423,19 +420,14 @@
             <p class="ow-sub">Заповніть форму: оберіть пакет, залиште контакти та побажання - ми швидко відповімо.</p>
           </header>
 
-          <!-- ВАЖНО: Web3Forms action + скрытый access_key -->
           <form id="wedForm" class="ow-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
-            <!-- Вставь СВОЙ ключ сюда (получишь на web3forms.com, бесплатно) -->
             <input type="hidden" name="access_key" value="581eaf16-3866-475f-8020-0f5282f63bec">
-            <!-- куда прислать копию письма (необязательно) -->
             <input type="hidden" name="from_name" value="Wedding Invitations Site">
             <input type="hidden" name="subject" value="Нове замовлення запрошення">
 
-            <!-- honeypot для антиспама -->
             <input type="checkbox" name="botcheck" class="ow-honeypot" style="display:none;">
 
             <div class="ow-grid">
-              <!-- Ім’я -->
               <label class="ow-group">
                 <span class="ow-label">Ім’я</span>
                 <span class="ow-input">
@@ -443,7 +435,6 @@
           </span>
               </label>
 
-              <!-- Телефон -->
               <label class="ow-group">
                 <span class="ow-label">Номер телефону</span>
                 <span class="ow-input">
@@ -452,7 +443,6 @@
               </label>
             </div>
 
-            <!-- Пакет (строго один вариант, ровные «радио-піллюлі») -->
             <fieldset class="ow-group">
               <legend class="ow-label">Оберіть пакет</legend>
               <div class="ow-pills" role="radiogroup" aria-label="Пакет послуг">
@@ -479,7 +469,6 @@
               </div>
             </fieldset>
 
-            <!-- Повідомлення -->
             <label class="ow-group">
               <span class="ow-label">Повідомлення / побажання</span>
               <div class="ow-textarea">
@@ -508,7 +497,6 @@
             e.preventDefault();
             setAlert('', '');
 
-            // простая проверка
             const name  = document.getElementById('owName').value.trim();
             const phone = document.getElementById('owPhone').value.trim();
             const packEl= document.querySelector('input[name="package"]:checked');
@@ -518,14 +506,12 @@
               return;
             }
 
-            // проверь, что ключ вставлен
             const access = form.querySelector('input[name="access_key"]')?.value || '';
             if(!access || access.includes('YOUR_WEB3FORMS_ACCESS_KEY_HERE')){
               setAlert('err','Форма не налаштована: вставте свій access_key від Web3Forms.');
               return;
             }
 
-            // собираем данные формы
             const formData = new FormData(form);
 
             try {
@@ -574,7 +560,6 @@
         </span>
               <span class="contact-wed-main">
           <span class="contact-wed-label">Наш профіль</span>
-                <!-- ДОБАВЛЕНО класс для запрета переносов -->
           <span class="contact-wed-value contact-wed-handle">@my_wedding_ua</span>
         </span>
               <span class="contact-wed-cta" aria-hidden="true">Відкрити →</span>
@@ -617,16 +602,13 @@
       <!-- Footer Section Start -->
     <footer class="site-footer">
       <div class="container-fluid">
-        <!-- ЕДИНАЯ ПОЛОСА -->
         <div class="row align-items-start footer-top">
-          <!-- ЛОГО -->
           <div class="col-12 col-lg-3 mb-32 mb-lg-0">
             <a href="/" class="footer-logo d-inline-flex align-items-center">
               <img src="assets/media/footer-logo.png" alt="footer-logo">
             </a>
           </div>
 
-          <!-- Інформація -->
           <div class="col-12 col-sm-6 col-lg-3 mb-32 mb-lg-0">
             <div class="intro-block">
               <h6 class="mb-24 underline-title">Інформація</h6>
@@ -638,7 +620,6 @@
                       <path d="M12 0.5C7.58888 0.5 3.99998 4.08889 3.99998 8.50002C3.99998 9.82423 4.33106 11.1372 4.96045 12.3018L11.5625 24.2422C11.6504 24.4014 11.8179 24.5 12 24.5C12.1821 24.5 12.3496 24.4014 12.4375 24.2422L19.042 12.2978C19.6689 11.1372 20 9.82419 20 8.49997C20 4.08889 16.4111 0.5 12 0.5ZM12 12.5C9.79444 12.5 8.00002 10.7056 8.00002 8.50002C8.00002 6.29445 9.79444 4.50003 12 4.50003C14.2056 4.50003 16 6.29445 16 8.50002C16 10.7056 14.2056 12.5 12 12.5Z" fill="#878C53"/>
                     </g>
                     <defs>
-                      <!-- добавил id, чтобы работал clip-path -->
                       <clipPath id="clip0_13662_1525">
                         <rect width="24" height="24" fill="white" transform="translate(0 0.5)" />
                       </clipPath>
@@ -703,14 +684,12 @@
             </div>
           </div>
 
-        <!-- НИЖНЯЯ ПОЛОСА -->
         <div class="text-center pt-32">
           <p class="black privacy-text mb-0">© 2025. All rights reserved by My Wedding Ua</p>
         </div>
       </div>
       </div>
     </footer>
-
     <!-- Footer Section End -->
 
     <!-- Main Wrapper End -->

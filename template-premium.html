@@ -62,7 +62,6 @@
         <section class="wedding-banner py-80">
             <div class="container-fluid">
                 <div class="row row-gap-5 align-items-stretch">
-                    <!-- Ліва частина: текст запрошення (трішки вища) -->
                     <div class="col-lg-6 col-md-12 d-flex">
                         <div class="invite-card w-100">
                             <h2 class="eyebrow">Ми одружуємося</h2>
@@ -84,7 +83,6 @@
                         </div>
                     </div>
 
-                    <!-- Права частина: мапа з кнопкою -->
                     <div class="col-lg-6 col-md-12">
                         <div class="map-card">
                             <iframe
@@ -121,11 +119,9 @@
                 --text:#6b5f66;
             }
 
-            /* Базові відступи */
             .py-80{padding:80px 0}
             .row-gap-5{row-gap:40px}
 
-            /* Ліва картка */
             .invite-card{
                 background: radial-gradient(120% 120% at 0% 0%, #fdeffc 0%, var(--paper) 60%);
                 border:1px solid var(--line);
@@ -135,8 +131,7 @@
                 box-shadow:0 20px 40px rgba(215,135,185,.18);
                 color:var(--ink);
 
-                /* робимо трохи вищою */
-                min-height:425px;              /* було ~420 — тепер вища */
+                min-height:425px;
                 display:flex; flex-direction:column;
                 justify-content:center; gap:16px;
             }
@@ -166,14 +161,12 @@
                 display:block; font-size:12px; color:var(--text); letter-spacing:.6px; text-transform:uppercase;
             }
 
-            /* Адреса + збільшена назва ресторану */
             .place{margin:6px 0 0; color:var(--ink); font-weight:600; line-height:1.45}
             .place-name{
-                display:inline-block; font-size:22px;     /* було дрібніше — зробив більше */
+                display:inline-block; font-size:22px;
                 font-weight:800; color:var(--primary);
             }
 
-            /* Права картка з мапою */
             .map-card{
                 position:relative; border-radius:24px; overflow:hidden;
                 box-shadow:0 24px 48px rgba(28,25,23,.22);
@@ -200,7 +193,6 @@
             }
             .map-btn:hover{transform:translateY(-2px); box-shadow:0 14px 30px rgba(176,74,140,.45)}
 
-            /* Адаптив */
             @media (max-width:768px){
                 .invite-card{padding:28px; min-height:460px}
                 .invite-card .date{font-size:38px}
@@ -222,7 +214,6 @@
 
 
                 <div class="timeline" id="timeline">
-                    <!-- РАЦС -->
                     <article class="event" data-side="left">
                         <div class="dot"><span class="heart">❤</span></div>
                         <div class="card">
@@ -234,7 +225,6 @@
                         </div>
                     </article>
 
-                    <!-- Вінчання -->
                     <article class="event" data-side="right">
                         <div class="dot"><span class="heart">❤</span></div>
                         <div class="card">
@@ -246,7 +236,6 @@
                         </div>
                     </article>
 
-                    <!-- Ресторан -->
                     <article class="event" data-side="left">
                         <div class="dot"><span class="heart">❤</span></div>
                         <div class="card">
@@ -258,7 +247,6 @@
                         </div>
                     </article>
 
-                    <!-- Завершення вечора -->
                     <article class="event" data-side="right">
                         <div class="dot"><span class="heart">❤</span></div>
                         <div class="card">
@@ -270,7 +258,6 @@
                 </div>
             </div>
         </section>
-
 
         <style>
             :root {
@@ -330,7 +317,7 @@
             }
 
             .event[data-side="left"] {
-                flex-direction: row-reverse; /* чтобы линия была между сердечком и карточкой */
+                flex-direction: row-reverse;
                 justify-content: flex-end;
             }
             .event[data-side="right"] {
@@ -495,7 +482,6 @@
         </style>
 
         <script>
-            /* Плавне з’явлення лінії та подій при скролі */
             (function(){
                 const tl = document.getElementById('timeline');
                 const io = new IntersectionObserver((entries)=>{
@@ -537,19 +523,17 @@
         </section>
 
         <style>
-            /* Контейнер */
             .ceremony-banner .banner-wrapper {
-                max-width: 1100px; /* чуть шире контейнер */
+                max-width: 1100px;
                 margin: 0 auto;
-                padding: 60px 40px; /* меньше, чем 100px, чтобы фон был виден */
+                padding: 60px 40px;
                 display: flex;
                 justify-content: center;
             }
 
-            /* Картка */
             .ceremony-banner .banner-wrapper .content-block {
                 width: 100%;
-                max-width: 850px; /* немного уже */
+                max-width: 850px;
                 background: #fff;
                 padding: 32px 40px;
                 border-radius: 16px;
@@ -557,13 +541,11 @@
                 box-sizing: border-box;
             }
 
-            /* Заголовок */
             .ceremony-title {
-                color: #c06c84 !important; /* розовый */
+                color: #c06c84 !important;
                 font-size: clamp(26px, 3vw, 34px);
             }
 
-            /* Текст */
             .ceremony-text {
                 font-size: clamp(15px, 2vw, 18px);
                 line-height: 1.7;
@@ -571,7 +553,6 @@
                 margin: 0;
             }
 
-            /* Адаптация для планшета */
             @media (max-width: 992px) {
                 .ceremony-banner .banner-wrapper {
                     padding: 40px 20px;
@@ -582,7 +563,6 @@
                 }
             }
 
-            /* Адаптация для мобильных */
             @media (max-width: 576px) {
                 .ceremony-banner .banner-wrapper {
                     padding: 50px 30px;
@@ -593,9 +573,7 @@
                     border-radius: 12px;
                 }
             }
-
         </style>
-
         <!-- Ceremony Banner End -->
 
         <!-- Inquiry Section Start -->
@@ -609,25 +587,21 @@
                     <input type="hidden" name="subject" value="Відповіді з весільної анкети">
                     <input type="hidden" name="from_name" value="Весільний сайт">
 
-                    <!-- Ім’я -->
                     <label class="question">Ваше ім’я:</label>
                     <input type="text" name="Ім’я" placeholder="Введіть ваше ім’я" required>
 
-                    <!-- Присутність на весіллі -->
                     <label class="question">Чи плануєте ви бути на весіллі?</label>
                     <div class="options">
                         <label><input type="radio" name="Чи плануєте ви бути на весіллі?" value="Так" required> Так</label>
                         <label><input type="radio" name="Чи плануєте ви бути на весіллі?" value="Ні"> Ні</label>
                     </div>
 
-                    <!-- Присутність у РАЦС -->
                     <label class="question">Чи плануєте ви бути на офіційній частині у РАЦС?</label>
                     <div class="options">
                         <label><input type="radio" name="Чи плануєте ви бути у РАЦС?" value="Так" required> Так</label>
                         <label><input type="radio" name="Чи плануєте ви бути у РАЦС?" value="Ні"> Ні</label>
                     </div>
 
-                    <!-- Алкогольні побажання -->
                     <label class="question">Ваші побажання по алкогольним напоям:</label>
                     <div class="options">
                         <label><input type="checkbox" name="Алкоголь" value="Шампанське"> 🥂 Шампанське</label>
@@ -636,11 +610,9 @@
                         <label><input type="checkbox" name="Алкоголь" value="Горілка"> 🍾 Горілка</label>
                     </div>
 
-                    <!-- Побажання -->
                     <label class="question">Ваші побажання:</label>
                     <textarea name="Ваші побажання" placeholder="Напишіть тут будь-які додаткові побажання чи важливу інформацію. Якщо з вами буде дитина або діти, зазначте це, будь ласка." rows="4"></textarea>
 
-                    <!-- Кнопка -->
                     <button type="submit">Відправити 💌</button>
                 </form>
 
@@ -767,7 +739,6 @@
                 }
             });
         </script>
-
         <!-- Inquiry Section End -->
 
         <!-- Footer Section Start -->
@@ -790,7 +761,7 @@
             /* Fullscreen footer hero */
             .footer-hero{
                 position:relative;
-                min-height:100vh;             /* на весь екран */
+                min-height:100vh;
                 width:100%;
                 overflow:hidden;
                 display:grid;
@@ -805,7 +776,7 @@
                         linear-gradient(180deg, rgba(0,0,0,.20) 0%, rgba(0,0,0,.45) 100%),
                         url('assets-premium1/media/gallery/footer_image.jpeg') center/cover no-repeat;
                 z-index:-1;
-                transform:scale(1.02);        /* легке збільшення, щоб без просвітів */
+                transform:scale(1.02);
             }
 
             /* Content */
@@ -822,11 +793,11 @@
                 line-height: 1.1;
                 letter-spacing: .3px;
                 margin: 0 0 16px;
-                color: #fffefc; /* Чуть теплее и светлее белый */
+                color: #fffefc;
                 text-shadow:
-                        0 0 8px rgba(255, 255, 255, 0.4),   /* мягкое свечение вокруг */
-                        0 6px 24px rgba(0, 0, 0, 0.4),      /* глубокая тень вниз */
-                        0 2px 6px rgba(0, 0, 0, 0.35);      /* маленькая тень для читаемости */
+                        0 0 8px rgba(255, 255, 255, 0.4),
+                        0 6px 24px rgba(0, 0, 0, 0.4),
+                        0 2px 6px rgba(0, 0, 0, 0.35);
             }
 
 
@@ -842,19 +813,15 @@
                 opacity:.95;
             }
 
-            /* Дрібні покращення для дуже широких екранів */
             @media (min-width:1600px){
                 .footer-hero__bg{ transform:scale(1.04); }
             }
 
-            /* Безпечні поля на мобільних з “чолкою” */
             @supports (padding: max(0px)) {
                 .footer-hero__content{ padding-bottom: max(24px, env(safe-area-inset-bottom)); }
             }
         </style>
-
         <!-- Footer Main End -->
-
         </footer>
         <!-- Footer Section End -->
     </main>

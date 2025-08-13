@@ -34,26 +34,22 @@
     <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
 
     <style>
-        /* Делаем слайды с фоном */
         #wd-banner .carousel-inner .item {
-            height: 80vh; /* регулируй высоту под себя */
+            height: 80vh;
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
         }
 
-        /* Убираем img, но оставляем на десктопе для SEO, если нужно */
         #wd-banner .carousel-inner .item img {
             display: none;
         }
 
-        /* На мобильных можно чуть меньше высоту */
         @media (max-width: 768px) {
             #wd-banner .carousel-inner .item {
                 height: 60vh;
             }
 
-            /* Скрываем точки и стрелки только на мобильных */
             #wd-banner .carousel-indicators,
             #wd-banner .carousel-control {
                 display: none !important;
@@ -63,11 +59,11 @@
 
     <style>
         .banner_caption_text {
-            display: inline-block; /* чтобы фон был только под контентом */
-            background: rgba(0, 0, 0, 0.45); /* полупрозрачное затемнение */
+            display: inline-block;
+            background: rgba(0, 0, 0, 0.45);
             padding: 16px 24px;
             border-radius: 12px;
-            color: #fff; /* текст белый для контраста */
+            color: #fff;
             text-align: center;
         }
 
@@ -83,7 +79,7 @@
             font-weight: bold;
         }
         .text-date {
-            margin-top: -20px; /* поднимет вверх на 20px */
+            margin-top: -20px;
         }
 
     </style>
@@ -125,12 +121,10 @@
 
                 <div class="item" style="background-image: url('assets_premium2/images/slider/slider-2.jpg');">
                 </div>
-
                 <!-- End of Slide -->
+            </div>
+            <!-- End of Wrapper For Slides -->
 
-            </div><!-- End of Wrapper For Slides -->
-
-            <!-- Подключаем шрифты -->
             <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
 
             <div class="banner_caption_text wow fadeInDown" style="margin-top: -40px;">
@@ -173,11 +167,9 @@
     <!--/End Header -->
 
     <!--About Us section -->
-    <!-- Подключаем нужные шрифты -->
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
 
     <style>
-        /* Заголовок секции */
         #about-us .section-title h2 {
             font-family: 'Great Vibes', cursive;
             font-size: 40px;
@@ -185,7 +177,6 @@
             font-weight: normal;
         }
 
-        /* Текст внутри карточек */
         #about-us .cp-detail p {
             font-family: 'Playfair Display', serif;
             font-size: 17px;
@@ -196,11 +187,9 @@
 
 
 
-    <!--Таймінг весілля -->
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;700&family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
 
     <style>
-        /* Заголовок секции — рукописный, но крупный и читабельный */
         #our-story .section-title h2 {
             font-family: 'Great Vibes', cursive;
             font-size: 48px;
@@ -208,7 +197,6 @@
             color: #c59f8a;
         }
 
-        /* Заголовки событий — чёткие, элегантные */
         #our-story .story-head h3 {
             font-family: 'Playfair Display', serif;
             font-size: 28px;
@@ -217,7 +205,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* Время события */
         #our-story .story-head h6 {
             font-family: 'Playfair Display', serif;
             font-size: 18px;
@@ -225,7 +212,6 @@
             color: #333;
         }
 
-        /* Описание/адрес */
         #our-story .expand-story p,
         #our-story .map-addr {
             font-family: 'Cormorant Garamond', serif;
@@ -235,7 +221,6 @@
             margin: 0 0 10px;
         }
 
-        /* Карточка карты */
         #our-story .map-card{
             margin-top: 8px;
             border: 1px solid rgba(0,0,0,.08);
@@ -249,7 +234,7 @@
         }
         #our-story .map-card .map-iframe{
             width: 100%;
-            height: 120px;        /* можно изменить высоту */
+            height: 120px;
             border: 0;
             display: block;
         }
@@ -260,12 +245,11 @@
             padding: 10px 12px 12px;
         }
 
-        /* Кнопка «Маршрут» */
         #our-story .map-btn{
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 2px 12px; /* было 8px, стало 5px */
+            padding: 2px 12px;
             border-radius: 999px;
             border: 1px solid #c59f8a;
             color: #c59f8a;
@@ -280,12 +264,10 @@
             color: #fff;
         }
 
-        /* Иконка внутри кнопки */
         #our-story .map-btn svg{
             width: 16px; height: 16px; display: block;
         }
 
-        /* Mobile tweaks */
         @media (max-width: 768px){
             #our-story .map-card .map-iframe{ height: 160px; }
             #our-story .section-title h2{ font-size: 40px; }
@@ -312,7 +294,6 @@
                                             <h6>11:00</h6>
                                         </div>
 
-                                        <!-- Адрес + карта + кнопка -->
                                         <div class="map-card">
                                             <div class="map-inner">
                                                 <div class="map-addr">Центральний РАЦС м. Києва, вул. Прорізна, 4</div>
@@ -327,13 +308,11 @@
                                             <div class="map-actions">
                                                 <a class="map-btn" target="_blank" rel="noopener"
                                                    href="https://www.google.com/maps/dir/?api=1&destination=%D0%A6%D0%B5%D0%BD%D1%82%D1%80%D0%B0%D0%BB%D1%8C%D0%BD%D0%B8%D0%B9%20%D0%A0%D0%90%D0%A6%D0%A1%20%D0%BA%D0%B8%D1%97%D0%B2%20%D0%BF%D1%80%D0%BE%D1%80%D1%96%D0%B7%D0%BD%D0%B0%204">
-                                                    <!-- Иконка стрелки -->
                                                     <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
                                                     Маршрут
                                                 </a>
                                             </div>
                                         </div>
-                                        <!-- /Адрес + карта -->
                                     </div>
                                 </div>
                             </div>
@@ -435,7 +414,6 @@
                         </div>
                     </div>
 
-                    <!-- 4 (без адреса — оставил как есть) -->
                     <div class="col-sm-12">
                         <div class="row">
                             <div class="col-sm-6 col-xs-6">
@@ -462,7 +440,7 @@
                 </div>
             </div>
 
-            <!-- Mobile Ver (дублируем те же map-card) -->
+            <!-- Mobile Ver  -->
             <div class="story-timeline story-time-mb">
                 <div class="row">
                     <!-- 1 -->
@@ -582,7 +560,7 @@
                         </div>
                     </div>
 
-                    <!-- 4 (без карты) -->
+                    <!-- 4  -->
                     <div class="col-sm-12">
                         <div class="row">
                             <div class="col-sm-6 col-xs-6">
@@ -606,13 +584,12 @@
                         </div>
                     </div>
 
-                </div> <!-- /row -->
-            </div> <!-- /story-time-mb -->
+                </div>
+            </div>
         </div>
     </section>
     <!--End our story section -->
 
-    <!--Gift Registry -->
     <!-- rsvp section -->
     <section id="rsvp2" class="rsvp2-section">
 
@@ -622,21 +599,16 @@
                 <p>Відгукніться до <strong>10.06.2026</strong></p>
             </div>
 
-            <!-- Форма -->
             <form id="guestForm2" class="rsvp2-form" action="https://api.web3forms.com/submit" method="POST">
                 <input type="hidden" name="access_key" value="581eaf16-3866-475f-8020-0f5282f63bec">
-                <!-- Тема листа (опціонально, але корисно) -->
                 <input type="hidden" name="subject" value="Відповіді на опитування гостей">
-                <!-- Хто надіслав (опціонально) -->
                 <input type="hidden" name="from_name" value="Весільна форма RSVP">
 
-                <!-- Ім’я (UA назва поля) -->
                 <div class="rsvp2-group">
                     <label for="guestName2">Ваше ім’я *</label>
                     <input type="text" id="guestName2" name="Ім’я" placeholder="Введіть ім’я" required>
                 </div>
 
-                <!-- Радио: участь (UA назва поля через data-name) -->
                 <div class="rsvp2-group">
                     <label>Чи плануєте ви бути на весіллі?</label>
                     <div class="rsvp2-option-buttons" data-type="radio" data-name="Присутність на весіллі">
@@ -645,7 +617,6 @@
                     </div>
                 </div>
 
-                <!-- Радио: РАЦС (UA назва поля) -->
                 <div class="rsvp2-group">
                     <label>Чи будете на офіційній частині в РАЦС?</label>
                     <div class="rsvp2-option-buttons" data-type="radio" data-name="Присутність у РАЦС">
@@ -654,7 +625,6 @@
                     </div>
                 </div>
 
-                <!-- Чекбокси: напої (UA назва поля; масив значень) -->
                 <div class="rsvp2-group">
                     <label>Ваші побажання щодо напоїв:</label>
                     <div class="rsvp2-option-buttons" data-type="checkbox" data-name="Напої">
@@ -665,7 +635,6 @@
                     </div>
                 </div>
 
-                <!-- Побажання (UA назва поля) -->
                 <div class="rsvp2-group rsvp3-form textarea">
                     <label>Ваші побажання</label>
                     <textarea name="Побажання" rows="3" placeholder="Напишіть тут будь-які додаткові побажання чи важливу інформацію. Якщо з вами будуть діти, зазначте це, будь ласка"></textarea>
@@ -707,8 +676,8 @@
         }
         @media (max-width: 600px) {
             .rsvp2-header h2 {
-                font-size: 35px; /* меньше шрифт для 1 ряда */
-                white-space: nowrap; /* запретить перенос */
+                font-size: 35px;
+                white-space: nowrap;
             }
         }
 
@@ -808,7 +777,6 @@
                 const type = group.dataset.type;
                 const name = group.dataset.name || '';
 
-                // Для чекбоксов создаём одно скрытое поле сразу
                 let hidden = null;
                 if (type === 'checkbox') {
                     hidden = document.createElement('input');
@@ -913,14 +881,14 @@
     <style>
         .footer-widgets {
             position: relative;
-            padding-bottom: 0; /* мінімум відступу */
-            overflow: hidden;  /* обрізає все, що виходить за межі футера */
-            height: 300px;     /* ставимо потрібну висоту, щоб обрізати серце */
+            padding-bottom: 0;
+            overflow: hidden;
+            height: 300px;
         }
 
         .footer-note {
             position: absolute;
-            bottom: 0px; /* піднімає текст над низом серця */
+            bottom: 0px;
             width: 100%;
             text-align: center;
         }

@@ -9,11 +9,9 @@
 
   <title>Весільні запрошення | Всі шаблони</title>
 
-  <!-- Favicon -->
   <link rel="shortcut icon" type="image/x-icon" href="assets/media/favicon.png">
 
   <!-- All CSS files -->
-
   <link rel="stylesheet" href="assets/css/vendor/font-awesome.css">
   <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/vendor/slick.css">
@@ -24,11 +22,10 @@
   <style>
     @media (max-width: 576px) {
       .templates-sec .h2 {
-        font-size: 18px; /* уменьшение шрифта */
-        white-space: nowrap; /* запрет переноса */
+        font-size: 18px;
+        white-space: nowrap;
       }
     }
-
   </style>
 </head>
 
@@ -138,7 +135,6 @@
           </div>
         </div>
 
-        <!-- Фільтри -->
         <div class="tmpl-filters mb-32">
           <button class="tmpl-chip active" data-filter="all">Усі</button>
           <button class="tmpl-chip" data-filter="mini">Міні</button>
@@ -146,7 +142,6 @@
           <button class="tmpl-chip" data-filter="premium">Преміум</button>
         </div>
 
-        <!-- Сітка карток -->
         <div class="row row-gap-4" id="tmplGrid">
           <!-- Card 1 -->
           <div class="col-lg-4 col-md-6 tmpl-item" data-cat="mini">
@@ -208,7 +203,6 @@
             </article>
           </div>
 
-          <!-- Додавай нові: просто копіюй блок .tmpl-item і міняй data-cat/картинку/текст -->
         </div>
       </div>
     </section>
@@ -259,7 +253,6 @@
           const visibleBefore = items.filter(el => !el.classList.contains('hidden'));
           const firstRects = getRects(visibleBefore);
 
-          // Определяем, что показывать
           items.forEach(el => {
             const show = (cat === 'all') || (el.dataset.cat === cat);
             if (show) {
@@ -272,7 +265,6 @@
             }
           });
 
-          // Дождаться перестройки DOM
           await new Promise(r => requestAnimationFrame(r));
 
           const visibleAfter = items.filter(el => !el.classList.contains('hidden') && !el.classList.contains('fading-out'));
@@ -280,7 +272,6 @@
 
           await flip(firstRects, lastRects);
 
-          // Убираем исчезающие
           items.forEach(el => {
             if (el.classList.contains('fading-out')) {
               el.addEventListener('transitionend', () => {
@@ -296,7 +287,6 @@
           setTimeout(() => busy = false, 350);
         };
 
-        // Навешиваем обработчики на фильтры
         chips.forEach(ch => {
           ch.addEventListener('click', () => {
             chips.forEach(c => c.classList.remove('active'));
@@ -305,7 +295,6 @@
           });
         });
 
-        // Ждём загрузки изображений
         const imgs = Array.from(grid.querySelectorAll('img'));
         Promise.all(
                 imgs.map(img => img.complete ? Promise.resolve() :
@@ -324,16 +313,13 @@
     <!-- Footer Section Start -->
     <footer class="site-footer">
       <div class="container-fluid">
-        <!-- ЕДИНАЯ ПОЛОСА -->
         <div class="row align-items-start footer-top">
-          <!-- ЛОГО -->
           <div class="col-12 col-lg-3 mb-32 mb-lg-0">
             <a href="/" class="footer-logo d-inline-flex align-items-center">
               <img src="assets/media/footer-logo.png" alt="footer-logo">
             </a>
           </div>
 
-          <!-- Інформація -->
           <div class="col-12 col-sm-6 col-lg-3 mb-32 mb-lg-0">
             <div class="intro-block">
               <h6 class="mb-24 underline-title">Інформація</h6>
@@ -345,7 +331,6 @@
                       <path d="M12 0.5C7.58888 0.5 3.99998 4.08889 3.99998 8.50002C3.99998 9.82423 4.33106 11.1372 4.96045 12.3018L11.5625 24.2422C11.6504 24.4014 11.8179 24.5 12 24.5C12.1821 24.5 12.3496 24.4014 12.4375 24.2422L19.042 12.2978C19.6689 11.1372 20 9.82419 20 8.49997C20 4.08889 16.4111 0.5 12 0.5ZM12 12.5C9.79444 12.5 8.00002 10.7056 8.00002 8.50002C8.00002 6.29445 9.79444 4.50003 12 4.50003C14.2056 4.50003 16 6.29445 16 8.50002C16 10.7056 14.2056 12.5 12 12.5Z" fill="#878C53"/>
                     </g>
                     <defs>
-                      <!-- добавил id, чтобы работал clip-path -->
                       <clipPath id="clip0_13662_1525">
                         <rect width="24" height="24" fill="white" transform="translate(0 0.5)" />
                       </clipPath>
@@ -410,7 +395,6 @@
             </div>
           </div>
 
-          <!-- НИЖНЯЯ ПОЛОСА -->
           <div class="text-center pt-32">
             <p class="black privacy-text mb-0">© 2025. All rights reserved by My Wedding Ua</p>
           </div>
