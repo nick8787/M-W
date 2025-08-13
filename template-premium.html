@@ -378,7 +378,6 @@
                 filter: brightness(1.05);
             }
 
-            /* Heart dot — всегда по центру линии */
             .event .dot {
                 flex-shrink: 0;
                 width: 34px;
@@ -391,7 +390,7 @@
                 align-items: center;
                 justify-content: center;
                 z-index: 2;
-                margin: 0 20px; /* расстояние от сердечка до карточки */
+                margin: 0 20px;
             }
 
             .event.show .dot {
@@ -409,7 +408,6 @@
                     padding: 0 0 0 0;
                 }
 
-                /* Линия по центру */
                 .timeline::before {
                     display: block;
                     left: 50%;
@@ -419,7 +417,6 @@
                     border-radius: 999px;
                 }
 
-                /* Событие по центру */
                 .event {
                     flex-direction: column;
                     align-items: center;
@@ -427,7 +424,6 @@
                     position: relative;
                 }
 
-                /* Сердечко по центру */
                 .event .dot {
                     position: relative;
                     top: 0;
@@ -450,7 +446,6 @@
                     color: var(--primary);
                 }
 
-                /* Карточка по центру */
                 .event .card {
                     background: #fff;
                     border-radius: 16px;
@@ -465,7 +460,6 @@
                     display: none;
                 }
 
-                /* Текст */
                 .event .time {
                     font-size: 15px;
                     font-weight: 700;
