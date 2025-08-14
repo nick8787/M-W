@@ -331,21 +331,21 @@
     // =======================
     //  Coming Soon Countdown
     // =======================
-    countdownInit: function (countdownSelector, countdownTime) {
-      var eventCounter = $(countdownSelector);
-      if (eventCounter.length) {
-        eventCounter.countdown(countdownTime, function (e) {
-          $(this).html(
-            e.strftime(
-              '<li><h2>%D</h2><h6>Днів</h6></li>\
-              <li><h2>%H</h2><h6>Годин</h6></li>\
-              <li><h2>%M</h2><h6>Хвилин</h6></li>\
-              <li><h2>%S</h2><h6>Секунд</h6></li>'
-            )
-          );
-        });
-      }
-    },
+    // countdownInit: function (countdownSelector, countdownTime) {
+    //   var eventCounter = $(countdownSelector);
+    //   if (eventCounter.length) {
+    //     eventCounter.countdown(countdownTime, function (e) {
+    //       $(this).html(
+    //         e.strftime(
+    //           '<li><h2>%D</h2><h6>Днів</h6></li>\
+    //           <li><h2>%H</h2><h6>Годин</h6></li>\
+    //           <li><h2>%M</h2><h6>Хвилин</h6></li>\
+    //           <li><h2>%S</h2><h6>Секунд</h6></li>'
+    //         )
+    //       );
+    //     });
+    //   }
+    // },
 
     // =======================
     //  Wow
