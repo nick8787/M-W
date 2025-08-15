@@ -2849,7 +2849,7 @@ label.error {
 }
 
 .ceremony-banner .banner-wrapper {
-  background: url("../media/bg/inner-banner.png") no-repeat;
+  background: url("../media/bg/inner-banner.png");
   background-position: center;
   background-size: cover;
   padding: 5vw;

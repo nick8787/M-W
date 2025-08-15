@@ -682,7 +682,7 @@ permalink: /template-premium-3
 
 
                         <!-- Wedding Banner Area Start -->
-                            <section class="wedding-banner py-80" style="padding-top:0 !important;">
+                            <section class="wedding-banner py-80" style="padding-top:0 !important;" data-date="10·06·2026">
                                 <div class="container-fluid">
                                     <div class="row">
                                         <div class="col-xl-8 col-lg-9 col-md-11 mx-auto">
@@ -693,7 +693,9 @@ permalink: /template-premium-3
                                                 </header>
 
                                                 <div class="ic-divider" aria-hidden="true"></div>
-
+                                                <header class="ic-head">
+                                                    <h2 class="eyebrow">Зустрінемося на весіллі через...</h2>
+                                                </header>
                                                 <ul class="countdown">
                                                     <li><h2>303</h2><span>днів</span></li>
                                                     <li><h2>08</h2><span>год</span></li>
@@ -715,6 +717,56 @@ permalink: /template-premium-3
                                     </div>
                                 </div>
                             </section>
+
+                            <style>
+                                /* Общий стиль */
+                                .countdown {
+                                    display: flex;
+                                    justify-content: center;
+                                    gap: 12px;
+                                    list-style: none;
+                                    padding: 0;
+                                    margin: 0 0 20px;
+                                }
+                                .countdown li {
+                                    background: #fff;
+                                    border: 2px solid var(--primary);
+                                    border-radius: 8px;
+                                    padding: 8px 12px;
+                                    text-align: center;
+                                    min-width: 60px;
+                                }
+                                .countdown h2 {
+                                    margin: 0;
+                                    font-size: 20px;
+                                    color: var(--primary);
+                                }
+                                .countdown span {
+                                    font-size: 12px;
+                                    color: #666;
+                                }
+
+                                /* Мобильная версия: в один ряд и компактнее */
+                                @media (max-width: 480px) {
+                                    .countdown {
+                                        flex-wrap: nowrap;
+                                        overflow-x: auto;
+                                        -webkit-overflow-scrolling: touch;
+                                    }
+                                    .countdown li {
+                                        flex: 0 0 auto;
+                                        padding: 6px 8px;
+                                        min-width: 70px;
+                                    }
+                                    .countdown h2 {
+                                        font-size: 16px;
+                                    }
+                                    .countdown span {
+                                        font-size: 10px;
+                                    }
+                                }
+                            </style>
+
                             <!-- Wedding Banner Area End -->
 
 
@@ -723,8 +775,9 @@ permalink: /template-premium-3
                             <!-- Ceremony Banner Start -->
                             <section class="ceremony-banner py-80">
                                 <div class="container-fluid">
-                                    <div class="banner-wrapper">
-                                        <div class="content-block wow fadeInUp text-center" data-wow-delay="300ms">
+                                    <div class="banner-wrapper" style="background: url('../assets/media/images/banner2.jpg') center/cover no-repeat;">
+
+                                    <div class="content-block wow fadeInUp text-center" data-wow-delay="300ms">
                                             <h2 class="light-black mb-32 ceremony-title">Деталі</h2>
                                             <div class="mb-24">
                                                 <p class="ceremony-text">
@@ -1068,27 +1121,27 @@ permalink: /template-premium-3
                                     const wrap = document.querySelector('.wedding-banner');
                                     if (!wrap) return;
 
-                                    // 1) Берём дату из заголовка "05 · 09 · 2025"
-                                    const dateEl = wrap.querySelector('.date');
-                                    if (!dateEl) return;
+                                    // 1) Пробуємо взяти дату з data-атрибута, інакше — з .date (як було)
+                                    const raw = (wrap.getAttribute('data-date') || (wrap.querySelector('.date')?.textContent) || '').trim();
+                                    if (!raw) return;
 
-                                    const m = dateEl.textContent.trim().match(/(\d{2})\s*[\.\-·]\s*(\d{2})\s*[\.\-·]\s*(\d{4})/);
+                                    // Підтримка "10·06·2026", "10.06.2026", "10 - 06 - 2026"
+                                    const m = raw.match(/(\d{2})\s*[\.\-·]\s*(\d{2})\s*[\.\-·]\s*(\d{4})/);
                                     if (!m) return;
 
-                                    const [ , dd, mm, yyyy ] = m;
-                                    // создаём дату в локальном времени на 00:00
-                                    const target = new Date(Number(yyyy), Number(mm)-1, Number(dd), 0, 0, 0, 0);
+                                    const [, dd, mm, yyyy] = m;
 
-                                    // 2) Находим числа в списке
+                                    // Створюємо локальну дату на 00:00
+                                    const target = new Date(Number(yyyy), Number(mm) - 1, Number(dd), 0, 0, 0, 0);
+
                                     const counters = wrap.querySelectorAll('.countdown li h2');
                                     if (counters.length < 4) return;
 
-                                    function pad2(n){ return String(n).padStart(2, '0'); }
+                                    const pad2 = n => String(n).padStart(2, '0');
 
-                                    function tick(){
+                                    function tick() {
                                         const now = new Date();
                                         let diff = target - now;
-
                                         if (diff < 0) diff = 0;
 
                                         const sec = Math.floor(diff / 1000);
@@ -1103,10 +1156,17 @@ permalink: /template-premium-3
                                         counters[3].textContent = pad2(secs);
                                     }
 
-                                    tick();                 // первичный расчёт
-                                    setInterval(tick, 1000);// обновляем каждую секунду
+                                    tick();
+                                    const timer = setInterval(tick, 1000);
+
+                                    // На всяк випадок: очищення інтервалу при від’єднанні вузла
+                                    const obs = new MutationObserver(() => {
+                                        if (!document.body.contains(wrap)) { clearInterval(timer); obs.disconnect(); }
+                                    });
+                                    obs.observe(document.body, { childList: true, subtree: true });
                                 })();
                             </script>
+
                         </div>
                     </div>
                 </div>
