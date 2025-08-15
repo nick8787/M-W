@@ -2341,6 +2341,135 @@ label.error {
 .mobile-nav__overlay {
   transition: opacity 500ms ease 500ms, visibility 500ms ease 500ms, transform 500ms ease 500ms;
 }
+/* ===== Luxe invite card (без встроенной карты) ===== */
+:root{
+  --wed-ink:#222;
+  --wed-text:#6f676c;
+  --wed-line:#efe8ee;
+  --wed-primary:#b97ea3;   /* пудровий акцент */
+  --wed-gold:#c7a873;      /* делікатне золото */
+}
+
+.invite-card.luxe{
+  position:relative;
+  background:#fff;
+  border:1px solid var(--wed-line);
+  border-radius:24px;
+  padding:36px 28px 28px;
+  box-shadow:0 26px 60px rgba(23,16,22,.08);
+  text-align:center;
+}
+
+/* шапка */
+.ic-head .eyebrow{
+  font-family:'Shantell Sans',fantasy;
+  margin:0 0 6px;
+  font-weight:700;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  font-size:21px;
+  color:#8e4189;
+}
+.ic-head .date{
+  margin:0;
+  font-size:44px;
+  line-height:1.1;
+  color:var(--wed-ink);
+  letter-spacing:.06em;
+}
+
+/* тонкий «вензель»-разделитель */
+.ic-divider {
+  width: min(76%, 540px);
+  height: 1px;
+  margin: 18px auto 22px;
+  background: linear-gradient(
+          90deg,
+          transparent,
+          #c59acb 18%,      /* светлый розово-фиолетовый */
+          #8e4189 50%,      /* основной акцент */
+          #c59acb 82%,      /* симметричный возврат */
+          transparent
+  );
+  border-radius: 999px;
+}
+
+
+/* таймер */
+.countdown{
+  list-style:none; margin:0 0 18px; padding:0;
+  display:flex; gap:18px; justify-content:center; flex-wrap:wrap;
+}
+.countdown li{
+  min-width:96px;
+  background:#fff;
+  border:1px solid var(--wed-line);
+  border-radius:16px;
+  box-shadow:0 12px 26px rgba(0,0,0,.05);
+  padding:14px 12px;
+}
+.countdown h2{
+  margin:0; font-size:26px; font-weight:800; color:var(--wed-ink);
+}
+.countdown span{
+  display:block; margin-top:4px; font-size:12px; letter-spacing:.12em;
+  text-transform:uppercase; color:#7b6f76;
+}
+
+/* место */
+.place{
+  margin:14px 0 18px;
+  color:var(--wed-text);
+  line-height:1.5;
+}
+.place .place-name{
+  font-weight:700; color:var(--wed-ink);
+}
+
+/* кнопка – золота «таблетка» */
+.map-btn.gold {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  background: linear-gradient(
+          135deg,
+          #8e4189 0%,    /* основной глубокий */
+          #9c4f97 25%,   /* чуть теплее и мягче */
+          #b86ab2 50%,   /* светлый розово-фиолетовый блик */
+          #7a2d73 75%,   /* насыщенный тёмный акцент */
+          #8e4189 100%   /* возврат в основной */
+  );
+  box-shadow: 0 16px 34px rgba(142, 65, 137, 0.35);
+  transition: transform .15s ease, filter .15s ease, box-shadow .15s ease;
+  background-size: 200% 200%;
+  animation: gradientShift 6s ease infinite;
+}
+
+.map-btn.gold:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+  box-shadow: 0 20px 40px rgba(142, 65, 137, 0.45);
+}
+
+/* Плавное «переливание» */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+/* адаптив */
+@media (max-width: 768px){
+  .invite-card.luxe{ padding:26px 18px 22px; border-radius:20px; }
+  .ic-head .date{ font-size:32px; }
+  .countdown{ gap:12px; }
+  .countdown li{ min-width:82px; padding:12px 10px; border-radius:14px; }
+  .countdown h2{ font-size:22px; }
+}
 
 /*----------------------------------------*/
 /*  Banner CSS START
