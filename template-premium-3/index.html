@@ -9,9 +9,9 @@ permalink: /template-premium-3
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Олександр & Анастасія - Весільне запрошення">
+    <meta name="description" content="Олег & Настя - Весільне запрошення">
 
-    <title>Діма & Оля - Весільне запрошення</title>
+    <title>Олег & Настя - Весільне запрошення</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="../assets-premium1/media/favicon.png">
@@ -65,11 +65,11 @@ permalink: /template-premium-3
                                     <!-- Monogram -->
                                     <div class="monogram">
                                         <div class="badge" role="img" aria-label="Daria and Oleksandr Monogram">
-                                            <span class="init">Д</span>
-                                            <span class="amp">&amp;</span>
                                             <span class="init">О</span>
+                                            <span class="amp">&amp;</span>
+                                            <span class="init">Н</span>
                                         </div>
-                                        <div class="couple-names">Daria &amp; Oleksandr</div>
+                                        <div class="couple-names">Олег &amp; Настя</div>
                                     </div>
                                 </div>
 
@@ -241,7 +241,7 @@ permalink: /template-premium-3
 
                                 <header class="wt-head">
                                     <h2 class="wt-title">Таймінг дня</h2>
-                                    <p class="wt-sub">Все чітко, елегантно, без метушні</p>
+                                    <p class="wt-sub">З любов'ю - кожна мить</p>
                                 </header>
 
                                 <ol class="wt-list">
@@ -251,8 +251,11 @@ permalink: /template-premium-3
                                                 <div class="wt-icon">
                                                     <img src="https://img.icons8.com/ios/50/wine-glass.png" alt="" decoding="async">
                                                 </div>
-                                                <h3 class="wt-label">Збір гостей</h3>
-                                                <time class="wt-time">15:30</time>
+                                                <div class="wt-text">
+                                                    <h3 class="wt-label">Збір гостей</h3>
+                                                    <p class="wt-address">Центральний РАЦС м. Києва, вул. Прорізна, 4.</p>
+                                                </div>
+                                                <time class="wt-time">10:30</time>
                                             </div>
                                             <div class="wt-card-bottom">
                                                 <button class="wt-map" data-lat="50.4501" data-lng="30.5234">Відкрити на мапі</button>
@@ -266,8 +269,11 @@ permalink: /template-premium-3
                                                 <div class="wt-icon">
                                                     <img src="https://img.icons8.com/ios/50/wedding-rings.png" alt="" decoding="async">
                                                 </div>
-                                                <h3 class="wt-label">Виїздна церемонія</h3>
-                                                <time class="wt-time">16:00</time>
+                                                <div class="wt-text">
+                                                    <h3 class="wt-label">Церемонія у РАЦСі</h3>
+                                                    <p class="wt-address">Центральний РАЦС м. Києва, вул. Прорізна, 4.</p>
+                                                </div>
+                                                <time class="wt-time">11:00</time>
                                             </div>
                                             <div class="wt-card-bottom">
                                                 <button class="wt-map" data-place="Парк «Феофанія», Київ">Відкрити на мапі</button>
@@ -281,8 +287,11 @@ permalink: /template-premium-3
                                                 <div class="wt-icon">
                                                     <img src="https://img.icons8.com/ios/50/meal.png" alt="" decoding="async">
                                                 </div>
-                                                <h3 class="wt-label">Святковий банкет</h3>
-                                                <time class="wt-time">16:30</time>
+                                                <div class="wt-text">
+                                                    <h3 class="wt-label">Святковий банкет</h3>
+                                                    <p class="wt-address">Ресторан «Прага», просп. Академіка Глушкова, 1.</p>
+                                                </div>
+                                                <time class="wt-time">15:00</time>
                                             </div>
                                             <div class="wt-card-bottom">
                                                 <button class="wt-map" data-place="Ресторан Park Venue, Київ">Відкрити на мапі</button>
@@ -296,11 +305,11 @@ permalink: /template-premium-3
                                                 <div class="wt-icon">
                                                     <img src="https://img.icons8.com/ios/50/wedding-cake.png" alt="" decoding="async">
                                                 </div>
-                                                <h3 class="wt-label">Завершення вечора</h3>
-                                                <time class="wt-time">22:00</time>
-                                            </div>
-                                            <div class="wt-card-bottom">
-                                                <button class="wt-map" data-lat="50.4475" data-lng="30.5200">Відкрити на мапі</button>
+                                                <div class="wt-text">
+                                                    <h3 class="wt-label">Завершення вечора</h3>
+                                                    <p class="wt-address">Підсумок нашого особливого дня, прощання з гостями та теплі обійми наостанок.</p>
+                                                </div>
+                                                <time class="wt-time">23:00</time>
                                             </div>
                                         </div>
                                     </li>
@@ -410,6 +419,22 @@ permalink: /template-premium-3
                                     .wt-map:hover{ transform: translateY(-1px); background: rgba(0,0,0,.06); box-shadow: 0 8px 22px rgba(18,19,20,.08); }
                                     .wt-map:active{ transform:none; box-shadow:none; }
                                     @keyframes wtUp{ to { opacity:1; transform: translateY(0);} }
+                                    .wt-text{
+                                        display:flex;
+                                        flex-direction:column;
+                                        align-items:flex-start;
+                                        gap:2px;
+                                    }
+                                    .wt-address{
+                                        margin:0;
+                                        font-size: 13px;
+                                        color: var(--muted);
+                                        font-weight:400;
+                                        line-height:1.3;
+                                    }
+                                    @media (min-width: 900px){
+                                        .wt-address{ font-size: 14px; }
+                                    }
                                     @media (min-width: 900px){
                                         .wt-card{ padding: 16px 18px 14px; }
                                         .wt-label{ font-size: clamp(18px, 1.6vw, 22px); }
@@ -496,9 +521,9 @@ permalink: /template-premium-3
           <img src="https://img.icons8.com/ios/50/wine-bottle.png" alt="" decoding="async" />
         </span>
                                         </div>
-                                        <h3 class="wd-card-title">Замість квітів — пляшка</h3>
+                                        <h3 class="wd-card-title">Замість квітів - пляшка</h3>
                                         <p class="wd-card-text">
-                                            Приємним компліментом для нас буде, якщо замість квітів ви подаруєте пляшку алкогольного напою для нашої колекції — ми відкриємо її на найближчому спільному святі.
+                                            Приємним компліментом для нас буде, якщо замість квітів ви подаруєте пляшку алкогольного напою для нашої колекції - ми відкриємо її на найближчому спільному святі.
                                         </p>
                                     </article>
 
@@ -511,7 +536,7 @@ permalink: /template-premium-3
                                         </div>
                                         <h3 class="wd-card-title">Цінний подарунок</h3>
                                         <p class="wd-card-text">
-                                            Якщо ви хочете зробити потрібний та цінний подарунок — будемо дуже вдячні за вклад у бюджет нашої молодої сім’ї.
+                                            Якщо ви хочете зробити потрібний та цінний подарунок - будемо дуже вдячні за вклад у бюджет нашої молодої сім’ї.
                                         </p>
                                     </article>
                                 </div>
