@@ -104,70 +104,118 @@ permalink: /template-standard
 
     <!-- Start Header -->
     <section id="wd-banner" class="wd-slide wd-slider-ot">
-        <!-- Paradise Slider -->
-        <div id="kenburns_061" class="carousel slide ps_indicators_txt_icon ps_control_txt_icon kbrns_zoomInOut thumb_scroll_x swipe_x ps_easeOutQuart" data-ride="carousel" data-pause="hover" data-interval="10000" data-duration="2000">
-            <!-- Indicators -->
+        <div id="kenburns_061"
+             class="carousel slide ps_indicators_txt_icon ps_control_txt_icon kbrns_zoomInOut thumb_scroll_x swipe_x ps_easeOutQuart"
+             data-ride="carousel" data-pause="hover" data-interval="10000" data-duration="2000">
+
             <ol class="carousel-indicators">
                 <li data-target="#kenburns_061" data-slide-to="0" class="active"></li>
                 <li data-target="#kenburns_061" data-slide-to="1"></li>
                 <li data-target="#kenburns_061" data-slide-to="2"></li>
             </ol>
 
-            <!-- Wrapper For Slides -->
             <div class="carousel-inner" role="listbox">
-
-                <!-- First Slide -->
-                <div class="item active" style="background-image: url('../assets_premium2/images/slider/slider-2.jpg');">
-                </div>
-
-                <div class="item" style="background-image: url('../assets_premium2/images/slider/slider-2.jpg');">
-                </div>
-
-                <div class="item" style="background-image: url('../assets_premium2/images/slider/slider-2.jpg');">
-                </div>
-                <!-- End of Slide -->
+                <div class="item active" style="background-image:url('../assets_premium2/images/slider/slider-2.jpg');"></div>
+                <div class="item"        style="background-image:url('../assets_premium2/images/slider/slider-2.jpg');"></div>
+                <div class="item"        style="background-image:url('../assets_premium2/images/slider/slider-2.jpg');"></div>
             </div>
-            <!-- End of Wrapper For Slides -->
 
             <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
 
-            <div class="banner_caption_text wow fadeInDown" style="margin-top: -40px;">
-                <div class="heart-arrow">
-                    <span><i class="fa fa-heart"></i></span>
-                </div>
-                <div class="heart-arrow1">
-                    <span><i class="fa fa-heart"></i></span>
-                </div>
-                <div class="heart-arrow2">
-                    <span><i class="fa fa-heart"></i></span>
-                </div>
-                <h3 style="font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 500; margin-bottom: 15px;">
+            <!-- оставляем сердечки и красную дату как есть -->
+            <div class="banner_caption_text wow fadeInDown">
+                <div class="heart-arrow"><span><i class="fa fa-heart"></i></span></div>
+                <div class="heart-arrow1"><span><i class="fa fa-heart"></i></span></div>
+                <div class="heart-arrow2"><span><i class="fa fa-heart"></i></span></div>
+
+                <h3 style="font-family:'Montserrat',serif; font-size:18px; font-weight:500; margin-bottom:15px;">
                     Запрошуємо на весілля!
                 </h3>
-                <h2 style="font-family: 'Great Vibes', cursive; font-size: 64px; font-weight: normal; margin-bottom: 15px;">
+                <h2 style="font-family:'Great Vibes',cursive; font-size:45px; font-weight:normal; margin-bottom:15px;">
                     Денис & Анастасия
                 </h2>
-                <div class="text-date">
-                    <p><span>10.06.2026</span></p>
-                </div>
+                <div class="text-date"><p><span>10.06.2026</span></p></div>
             </div>
 
-            <!-- Left Control -->
             <a class="left carousel-control" href="#kenburns_061" role="button" data-slide="prev">
-                <span><i class="fa fa-angle-left"></i></span>
-                <span class="sr-only">Previous</span>
+                <span><i class="fa fa-angle-left"></i></span><span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#kenburns_061" role="button" data-slide="next">
+                <span><i class="fa fa-angle-right"></i></span><span class="sr-only">Next</span>
             </a>
 
-            <!-- Right Control -->
-            <a class="right carousel-control" href="#kenburns_061" role="button" data-slide="next">
-                <span><i class="fa fa-angle-right"></i></span>
-                <span class="sr-only">Next</span>
-            </a>
             <div class="seperator">
                 <img src="../assets_premium2/images/body/layer-5.png" alt="seperator">
             </div>
-        </div> <!-- End Paradise Slider -->
+        </div>
+
+        <style>
+            #kenburns_061{ position:relative; }
+
+            #wd-banner .carousel,
+            #wd-banner .carousel-inner,
+            #wd-banner .carousel .item{
+                height:72vh; min-height:520px;
+                background-position:center; background-size:cover;
+            }
+
+            #wd-banner .banner_caption_text{
+                position:absolute; z-index:5;
+                left:50%; top:auto !important; right:auto;
+                bottom:40px;
+                transform:translateX(-50%) !important;
+
+                background:rgba(0,0,0,.42);
+                -webkit-backdrop-filter:blur(4px); backdrop-filter:blur(4px);
+
+                margin:0 !important;
+
+                display:grid; justify-items:center;
+                row-gap:12px;
+                padding:14px 18px;
+                border-radius:18px;
+
+                width:fit-content; max-width:94vw;
+                text-align:center; color:#fff;
+            }
+
+            #wd-banner .banner_caption_text h3,
+            #wd-banner .banner_caption_text h2,
+            #wd-banner .banner_caption_text .heart-arrow,
+            #wd-banner .banner_caption_text .heart-arrow1,
+            #wd-banner .banner_caption_text .heart-arrow2,
+            #wd-banner .banner_caption_text .text-date p{
+                margin:0 !important;
+                line-height:1.25;
+            }
+
+            #wd-banner .banner_caption_text h3{ font-size:22px; margin-bottom:2px !important; }
+            #wd-banner .banner_caption_text h2{ font-size:45px; margin-bottom:4px !important; }
+            #wd-banner .banner_caption_text .text-date p{ margin-top:2px !important; }
+
+            #wd-banner .heart-arrow,
+            #wd-banner .heart-arrow1,
+            #wd-banner .heart-arrow2{ line-height:1; }
+
+            @media (max-width:767px){
+                #wd-banner .carousel,
+                #wd-banner .carousel-inner,
+                #wd-banner .carousel .item{ height:88vh; min-height:640px; }
+
+                #wd-banner .banner_caption_text{
+                    bottom:max(12px, env(safe-area-inset-bottom) + 12px);
+                    padding:12px 14px; border-radius:16px; row-gap:10px;
+                }
+            }
+
+            @media (max-width:380px){
+                #wd-banner .banner_caption_text{ padding:10px 12px; border-radius:14px; }
+            }
+
+        </style>
     </section>
+
     <!--/End Header -->
 
     <!--About Us section -->
