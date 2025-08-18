@@ -73,12 +73,19 @@ permalink: /template-premium
 
                             <div class="divider"></div>
 
-                            <ul class="countdown">
-                                <li><h2>303</h2><span>днів</span></li>
-                                <li><h2>08</h2><span>год</span></li>
-                                <li><h2>00</h2><span>хв</span></li>
-                                <li><h2>00</h2><span>сек</span></li>
+                            <!-- ДОДАНО id="countdown" + id для цифр -->
+                            <ul class="countdown" id="countdown">
+                                <li><h2 id="days">0</h2><span>днів</span></li>
+                                <li><h2 id="hours">00</h2><span>год</span></li>
+                                <li><h2 id="minutes">00</h2><span>хв</span></li>
+                                <li><h2 id="seconds">00</h2><span>сек</span></li>
                             </ul>
+
+                            <!-- не чіпаю стиль, лише додаю nowrap щоб завжди 1 ряд -->
+                            <style>
+                                .countdown { display:flex; flex-wrap:nowrap; justify-content:center; gap:16px; }
+                                .countdown li { text-align:center; }
+                            </style>
 
                             <p class="place">
                                 <span class="place-name">Ресторан «Прага»</span><br>
@@ -113,6 +120,48 @@ permalink: /template-premium
                 </div>
             </div>
         </section>
+
+        <script>
+            (function () {
+                // Локально для Києва (UTC+3 у червні)
+                const weddingDate = new Date("2026-06-10T00:00:00+03:00").getTime();
+
+                const countdownEl = document.getElementById("countdown");
+                const elDays     = document.getElementById("days");
+                const elHours    = document.getElementById("hours");
+                const elMinutes  = document.getElementById("minutes");
+                const elSeconds  = document.getElementById("seconds");
+
+                if (!countdownEl || !elDays || !elHours || !elMinutes || !elSeconds) return;
+
+                function update() {
+                    const now = Date.now();
+                    const diff = weddingDate - now;
+
+                    if (diff <= 0) {
+                        clearInterval(timer);
+                        countdownEl.innerHTML =
+                            "<li style='flex:1; background:#fff0f3; padding:20px; border-radius:16px;'>" +
+                            "<h2 style='font-size:20px;'>💍 Ми вже одружилися ✨</h2></li>";
+                        return;
+                    }
+
+                    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+                    const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+                    const m = Math.floor((diff / (1000 * 60)) % 60);
+                    const s = Math.floor((diff / 1000) % 60);
+
+                    elDays.textContent    = d;
+                    elHours.textContent   = String(h).padStart(2, "0");
+                    elMinutes.textContent = String(m).padStart(2, "0");
+                    elSeconds.textContent = String(s).padStart(2, "0");
+                }
+
+                update(); // первинний рендер без очікування 1с
+                const timer = setInterval(update, 1000);
+            })();
+        </script>
+
         <!-- Wedding Banner Area End -->
 
         <!-- Story Area Start  -->

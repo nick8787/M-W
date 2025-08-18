@@ -1,0 +1,811 @@
+---
+layout: null
+permalink: /template-premium-1.1
+---
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Олександр & Анастасія - Весільне запрошення">
+
+    <title>Олександр & Анастасія - Весільне запрошення</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="../assets-premium1/media/favicon.png">
+
+    <!-- All CSS files -->
+    <link rel="stylesheet" href="../assets-premium1/css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets-premium1/css/vendor/fontawsome.css">
+    <link rel="stylesheet" href="../assets-premium1/css/vendor/slick.css">
+    <link rel="stylesheet" href="../assets-premium1/css/vendor/animate.min.css">
+    <link rel="stylesheet" href="../assets-premium1/css/app.css">
+
+</head>
+
+<body >
+<main class="x-hidden">
+    <!-- Hero Section Start -->
+    <section class="hero-banner">
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="text-block mb-xxl-32 mb-0 wow fadeInUp" data-wow-delay="0.5s">
+                            <img src="../assets-premium1/media/banner/flower-text.png"
+                                 alt=""
+                                 class="flower-image mb-32"
+                                 style="width: 70%; max-width: none; height: auto;">
+                            <h1 class="title mb-32">
+                                Олександр <span class="font-sec-2 color-primary"> Та </span> <br> Анастасія
+                            </h1>
+                            <div class="wedding-date mb-32">
+                                <h4>10 . 06 . 2026</h4>
+                            </div>
+                            <p class="title-text wow fadeInUp" data-wow-delay="0.35s">
+                                Ми раді поділитися з вами особливим днем нашого життя.<br>
+                                Запрошуємо вас розділити з нами найважливіший день нашого життя.<br>
+                                Будьте поруч, щоб разом створити незабутні спогади.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-12">
+                        <div class="banner-image text-center">
+                            <img src="../assets-premium1/media/banner/banner-image-1.1.gif" class="wow fadeInUp" alt="" data-wow-delay="1s">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Hero Section End -->
+
+    <!-- Wedding Banner Area Start -->
+    <section class="wedding-banner py-80">
+        <div class="container-fluid">
+            <div class="row row-gap-5 align-items-stretch">
+                <div class="col-lg-6 col-md-12 d-flex">
+                    <div class="invite-card w-100">
+                        <h2 class="eyebrow">Ми одружуємося</h2>
+                        <h1 class="date">10 · 06 · 2026</h1>
+
+                        <div class="divider"></div>
+
+                        <!-- ДОДАНО id="countdown" + id для цифр -->
+                        <ul class="countdown" id="countdown">
+                            <li><h2 id="days">0</h2><span>днів</span></li>
+                            <li><h2 id="hours">00</h2><span>год</span></li>
+                            <li><h2 id="minutes">00</h2><span>хв</span></li>
+                            <li><h2 id="seconds">00</h2><span>сек</span></li>
+                        </ul>
+
+                        <!-- не чіпаю стиль, лише додаю nowrap щоб завжди 1 ряд -->
+                        <style>
+                            .countdown { display:flex; flex-wrap:nowrap; justify-content:center; gap:16px; }
+                            .countdown li { text-align:center; }
+                        </style>
+
+                        <p class="place">
+                            <span class="place-name">Ресторан «Прага»</span><br>
+                            просп. Академіка Глушкова, 1, Київ
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-12">
+                    <div class="map-card">
+                        <iframe
+                                class="map-frame"
+                                loading="lazy"
+                                allowfullscreen
+                                referrerpolicy="no-referrer-when-downgrade"
+                                src="https://www.google.com/maps?q=Ресторан%20Прага%20Київ&output=embed">
+                        </iframe>
+
+                        <div class="map-overlay">
+                            <div class="map-info">
+                                <h3>Локація церемонії</h3>
+                                <p>Ресторан «Прага», Київ</p>
+                            </div>
+                            <a class="map-btn"
+                               href="https://www.google.com/maps/place/Ресторан+Прага/@50.381533,30.47708,16z"
+                               target="_blank" rel="noopener">
+                                Відкрити в Google Maps
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        (function () {
+            // Локально для Києва (UTC+3 у червні)
+            const weddingDate = new Date("2026-06-10T00:00:00+03:00").getTime();
+
+            const countdownEl = document.getElementById("countdown");
+            const elDays     = document.getElementById("days");
+            const elHours    = document.getElementById("hours");
+            const elMinutes  = document.getElementById("minutes");
+            const elSeconds  = document.getElementById("seconds");
+
+            if (!countdownEl || !elDays || !elHours || !elMinutes || !elSeconds) return;
+
+            function update() {
+                const now = Date.now();
+                const diff = weddingDate - now;
+
+                if (diff <= 0) {
+                    clearInterval(timer);
+                    countdownEl.innerHTML =
+                        "<li style='flex:1; background:#fff0f3; padding:20px; border-radius:16px;'>" +
+                        "<h2 style='font-size:20px;'>💍 Ми вже одружилися ✨</h2></li>";
+                    return;
+                }
+
+                const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+                const m = Math.floor((diff / (1000 * 60)) % 60);
+                const s = Math.floor((diff / 1000) % 60);
+
+                elDays.textContent    = d;
+                elHours.textContent   = String(h).padStart(2, "0");
+                elMinutes.textContent = String(m).padStart(2, "0");
+                elSeconds.textContent = String(s).padStart(2, "0");
+            }
+
+            update(); // первинний рендер без очікування 1с
+            const timer = setInterval(update, 1000);
+        })();
+    </script>
+
+    <!-- Wedding Banner Area End -->
+
+    <!-- Story Area Start  -->
+    <section class="py-80" id="wedding-timeline">
+        <div class="container-fluid">
+            <div class="heading mb-48 text-center">
+                <p class="section-label">Таймінг весільного дня</p>
+                <h2>Наш <span>День Одруження</span></h2>
+            </div>
+
+
+            <div class="timeline" id="timeline">
+                <article class="event" data-side="left">
+                    <div class="dot"><span class="heart">❤</span></div>
+                    <div class="card">
+                        <div class="time">11:00</div>
+                        <h4>Церемонія у РАЦСі</h4>
+                        <p>Центральний РАЦС м. Києва, вул. Прорізна, 4.</p>
+                        <a class="maplink" target="_blank" rel="noopener"
+                           href="https://www.google.com/maps/search/?api=1&query=Центральний%20РАЦС%20Київ%20Прорізна%204">Відкрити на мапі</a>
+                    </div>
+                </article>
+
+                <article class="event" data-side="right">
+                    <div class="dot"><span class="heart">❤</span></div>
+                    <div class="card">
+                        <div class="time">13:00</div>
+                        <h4>Вінчання у соборі</h4>
+                        <p>Софійський собор, вул. Володимирська, 24.</p>
+                        <a class="maplink" target="_blank" rel="noopener"
+                           href="https://www.google.com/maps/search/?api=1&query=Софійський%20собор%20Київ">Відкрити на мапі</a>
+                    </div>
+                </article>
+
+                <article class="event" data-side="left">
+                    <div class="dot"><span class="heart">❤</span></div>
+                    <div class="card">
+                        <div class="time">15:00</div>
+                        <h4>Святкування у ресторані</h4>
+                        <p>Ресторан «Прага», просп. Академіка Глушкова, 1.</p>
+                        <a class="maplink" target="_blank" rel="noopener"
+                           href="https://www.google.com/maps/search/?api=1&query=Ресторан%20Прага%20Київ">Відкрити на мапі</a>
+                    </div>
+                </article>
+
+                <article class="event" data-side="right">
+                    <div class="dot"><span class="heart">❤</span></div>
+                    <div class="card">
+                        <div class="time">23:00</div>
+                        <h4>Завершення вечора</h4>
+                        <p>Підсумок нашого особливого дня, прощання з гостями та теплі обійми наостанок.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        :root {
+            --primary: #b04a8c;
+            --paper: #fff7fb;
+            --ink: #231f20;
+            --text: #6b5f66;
+            --line: #ead0e1;
+        }
+
+        .py-80 { padding: 80px 0; }
+        .mb-48 { margin-bottom: 48px; }
+        .mb-16 { margin-bottom: 16px; }
+        .color-primary { color: var(--primary); }
+        .text-uppercase { text-transform: uppercase; }
+        .heading h2 span { color: var(--primary); }
+
+        /* Timeline layout (desktop) */
+        .timeline {
+            position: relative;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 10px 0;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%) scaleY(0);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #f2d7e8, #b04a8c);
+            border-radius: 999px;
+            transform-origin: top;
+            transition: transform 1.2s ease .1s;
+        }
+
+        .timeline.ready::before {
+            transform: translateX(-50%) scaleY(1);
+        }
+
+        .event {
+            position: relative;
+            display: flex;
+            align-items: center;
+            margin: 0 0 56px;
+            opacity: 0;
+            transform: translateY(18px);
+            transition: .6s ease;
+        }
+
+        .event.show {
+            opacity: 1;
+            transform: none;
+        }
+
+        .event[data-side="left"] {
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+        }
+        .event[data-side="right"] {
+            flex-direction: row;
+            justify-content: flex-end;
+        }
+
+        .event .card {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            width: 44%;
+            padding: 22px 22px 20px;
+            box-shadow: 0 18px 36px rgba(0, 0, 0, .08);
+        }
+
+        .event .time {
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 6px;
+            letter-spacing: .5px;
+        }
+
+        .event h4 {
+            margin: 0 0 8px;
+            font-size: 22px;
+            color: var(--ink);
+        }
+
+        .event p {
+            margin: 0 0 12px;
+            color: var(--text);
+        }
+
+        .maplink {
+            font-weight: 700;
+            color: #fff;
+            background: var(--primary);
+            padding: 10px 14px;
+            border-radius: 999px;
+            text-decoration: none;
+        }
+
+        .maplink:hover {
+            filter: brightness(1.05);
+        }
+
+        .event .dot {
+            flex-shrink: 0;
+            width: 34px;
+            height: 34px;
+            border-radius: 999px;
+            background: #fff;
+            border: 2px solid var(--primary);
+            box-shadow: 0 10px 20px rgba(176, 74, 140, .25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            margin: 0 20px;
+        }
+
+        .event.show .dot {
+            animation: pop .45s ease both;
+        }
+
+        .heart {
+            font-size: 16px;
+            color: var(--primary);
+        }
+
+        /* Mobile design */
+        @media (max-width: 768px) {
+            .timeline {
+                padding: 0 0 0 0;
+            }
+
+            .timeline::before {
+                display: block;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 3px;
+                background: linear-gradient(180deg, var(--primary), var(--line));
+                border-radius: 999px;
+            }
+
+            .event {
+                flex-direction: column;
+                align-items: center;
+                margin: 0 0 40px;
+                position: relative;
+            }
+
+            .event .dot {
+                position: relative;
+                top: 0;
+                transform: none;
+                width: 30px;
+                height: 30px;
+                background: #fff;
+                border: 2px solid var(--primary);
+                border-radius: 50%;
+                box-shadow: 0 6px 14px rgba(176, 74, 140, .25);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 2;
+                margin-bottom: 14px;
+            }
+
+            .heart {
+                font-size: 15px;
+                color: var(--primary);
+            }
+
+            .event .card {
+                background: #fff;
+                border-radius: 16px;
+                box-shadow: 0 8px 18px rgba(0, 0, 0, .06);
+                padding: 16px;
+                width: 90%;
+                border: 1px solid var(--line);
+                text-align: center;
+            }
+
+            .event .card::before {
+                display: none;
+            }
+
+            .event .time {
+                font-size: 15px;
+                font-weight: 700;
+                color: var(--primary);
+                margin-bottom: 6px;
+            }
+
+            .event h4 {
+                font-size: 18px;
+                margin-bottom: 8px;
+            }
+
+            .event p {
+                font-size: 14px;
+                line-height: 1.45;
+                margin: 0;
+            }
+
+            .maplink {
+                margin-top: 10px;
+                display: inline-block;
+                padding: 6px 14px;
+                font-size: 13px;
+            }
+        }
+
+        /* Animations */
+        @keyframes pop {
+            0% { transform: scale(.8); }
+            60% { transform: scale(1.12); }
+            100% { transform: scale(1); }
+        }
+    </style>
+
+    <script>
+        (function(){
+            const tl = document.getElementById('timeline');
+            const io = new IntersectionObserver((entries)=>{
+                entries.forEach(e=>{
+                    if(e.isIntersecting){ tl.classList.add('ready'); }
+                });
+            }, {threshold:.2});
+            io.observe(tl);
+
+            const items = [...document.querySelectorAll('#wedding-timeline .event')];
+            const io2 = new IntersectionObserver((entries)=>{
+                entries.forEach(e=>{
+                    if(e.isIntersecting){ e.target.classList.add('show'); io2.unobserve(e.target); }
+                });
+            }, {threshold:.15});
+            items.forEach(i=>io2.observe(i));
+        })();
+    </script>
+    <!-- Story Area End  -->
+
+    <!-- Ceremony Banner Start -->
+    <section class="ceremony-banner py-80">
+        <div class="container-fluid">
+            <div class="banner-wrapper">
+                <div class="content-block wow fadeInUp text-center" data-wow-delay="300ms">
+                    <h2 class="light-black mb-32 ceremony-title">Деталі</h2>
+                    <div class="mb-24">
+                        <p class="ceremony-text">
+                            Друзі, дякуємо, що розділяєте з нами цей день 💕<br>
+                            Замість квітів, які швидко зів’януть, нам буде приємно отримати пляшечку улюбленого
+                            напою - алкогольного чи безалкогольного. Збережемо її для нашого спільного свята.
+                            Якщо бажаєте зробити подарунок - будемо вдячні за внесок у бюджет молодої сім’ї.
+                            Головне - ваша присутність, усмішки та гарний настрій!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .ceremony-banner .banner-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .ceremony-banner .banner-wrapper .content-block {
+            width: 100%;
+            max-width: 850px;
+            background: #fff;
+            padding: 32px 40px;
+            border-radius: 16px;
+            box-shadow: 0 8px 28px rgba(0,0,0,0.08);
+            box-sizing: border-box;
+        }
+
+        .ceremony-title {
+            color: #c06c84 !important;
+            font-size: clamp(26px, 3vw, 34px);
+        }
+
+        .ceremony-text {
+            font-size: clamp(15px, 2vw, 18px);
+            line-height: 1.7;
+            color: #333;
+            margin: 0;
+        }
+
+        @media (max-width: 992px) {
+            .ceremony-banner .banner-wrapper {
+                padding: 40px 20px;
+            }
+            .ceremony-banner .banner-wrapper .content-block {
+                max-width: 90%;
+                padding: 24px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .ceremony-banner .banner-wrapper {
+                padding: 50px 30px;
+            }
+            .ceremony-banner .banner-wrapper .content-block {
+                max-width: 100%;
+                padding: 18px 16px;
+                border-radius: 12px;
+            }
+        }
+    </style>
+    <!-- Ceremony Banner End -->
+
+    <!-- Inquiry Section Start -->
+    <section class="wedding-card-section">
+        <div class="wedding-card">
+            <h2>Опитування для гостей 💌</h2>
+
+            <form id="weddingForm" action="https://api.web3forms.com/submit" method="POST">
+                <!-- Web3Forms -->
+                <input type="hidden" name="access_key" value="581eaf16-3866-475f-8020-0f5282f63bec">
+                <input type="hidden" name="subject" value="Відповіді з весільної анкети">
+                <input type="hidden" name="from_name" value="Весільний сайт">
+
+                <label class="question">Ваше ім’я:</label>
+                <input type="text" name="Ім’я" placeholder="Введіть ваше ім’я" required>
+
+                <label class="question">Чи плануєте ви бути на весіллі?</label>
+                <div class="options">
+                    <label><input type="radio" name="Чи плануєте ви бути на весіллі?" value="Так" required> Так</label>
+                    <label><input type="radio" name="Чи плануєте ви бути на весіллі?" value="Ні"> Ні</label>
+                </div>
+
+                <label class="question">Чи плануєте ви бути на офіційній частині у РАЦС?</label>
+                <div class="options">
+                    <label><input type="radio" name="Чи плануєте ви бути у РАЦС?" value="Так" required> Так</label>
+                    <label><input type="radio" name="Чи плануєте ви бути у РАЦС?" value="Ні"> Ні</label>
+                </div>
+
+                <label class="question">Ваші побажання по алкогольним напоям:</label>
+                <div class="options">
+                    <label><input type="checkbox" name="Алкоголь" value="Шампанське"> 🥂 Шампанське</label>
+                    <label><input type="checkbox" name="Алкоголь" value="Вино"> 🍷 Вино</label>
+                    <label><input type="checkbox" name="Алкоголь" value="Коньяк"> 🥃 Коньяк</label>
+                    <label><input type="checkbox" name="Алкоголь" value="Горілка"> 🍾 Горілка</label>
+                </div>
+
+                <label class="question">Ваші побажання:</label>
+                <textarea name="Ваші побажання" placeholder="Напишіть тут будь-які додаткові побажання чи важливу інформацію. Якщо з вами буде дитина або діти, зазначте це, будь ласка." rows="4"></textarea>
+
+                <button type="submit">Відправити 💌</button>
+            </form>
+
+            <div id="formMessage" class="form-message"></div>
+        </div>
+    </section>
+
+    <style>
+        .wedding-card-section {
+            display: flex;
+            justify-content: center;
+            padding: 60px 15px;
+            background: #fef8f9;
+        }
+        .wedding-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            max-width: 1100px;
+            width: 100%;
+            font-family: 'Georgia', serif;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+        .wedding-card h2 {
+            text-align: center;
+            font-size: 28px;
+            color: #c06c84;
+            margin-bottom: 30px;
+        }
+        .question {
+            display: block;
+            margin: 18px 0 8px;
+            font-weight: bold;
+            color: #5d3a4a;
+        }
+        .options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+        .options label {
+            background: #fff0f3;
+            padding: 8px 14px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .options label:hover {
+            background: #ffe3e9;
+        }
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+        button {
+            width: 100%;
+            background: #c06c84;
+            color: white;
+            padding: 14px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background: #a44d69;
+        }
+        .form-message {
+            text-align: center;
+            margin-top: 15px;
+            font-weight: bold;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .wedding-card {
+                padding: 25px;
+                border-radius: 15px;
+            }
+            .wedding-card h2 {
+                font-size: 22px;
+            }
+            .options {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(20px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+    </style>
+
+    <script>
+        document.getElementById('weddingForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const form = e.target;
+            const formData = new FormData(form);
+
+            try {
+                const res = await fetch(form.action, { method: 'POST', body: formData });
+                const json = await res.json();
+
+                if (json.success) {
+                    document.getElementById('formMessage').textContent = '✅ Дякуємо! Ваші відповіді надіслані.';
+                    document.getElementById('formMessage').style.color = 'green';
+                    document.getElementById('formMessage').style.display = 'block';
+                    form.reset();
+                } else {
+                    throw new Error(json.message || 'Помилка відправки');
+                }
+            } catch (error) {
+                document.getElementById('formMessage').textContent = '❌ Сталася помилка. Спробуйте ще раз.';
+                document.getElementById('formMessage').style.color = 'red';
+                document.getElementById('formMessage').style.display = 'block';
+            }
+        });
+    </script>
+    <!-- Inquiry Section End -->
+
+    <!-- Footer Section Start -->
+    <footer>
+        <section class="footer-hero" id="footer">
+            <div class="footer-hero__bg" aria-hidden="true"></div>
+
+            <div class="footer-hero__content">
+                <h2 class="footer-hero__title">Святкуйте з нами!</h2>
+
+                <p class="footer-hero__subtitle">
+                    Будь ласка, відгукніться до <strong>10.06.2025</strong>
+                </p>
+
+                <p class="footer-hero__note">Чекаємо на вас</p>
+            </div>
+        </section>
+
+        <style>
+            /* Fullscreen footer hero */
+            .footer-hero{
+                position:relative;
+                min-height:100vh;
+                width:100%;
+                overflow:hidden;
+                display:grid;
+                place-items:center;
+                isolation:isolate;
+            }
+
+            /* BG image */
+            .footer-hero__bg{
+                position:absolute; inset:0;
+                background:
+                        linear-gradient(180deg, rgba(0,0,0,.20) 0%, rgba(0,0,0,.45) 100%),
+                        url('../assets-premium1/media/gallery/footer_image.jpeg') center/cover no-repeat;
+                z-index:-1;
+                transform:scale(1.02);
+            }
+
+            /* Content */
+            .footer-hero__content{
+                text-align:center;
+                color:#fff;
+                padding: clamp(24px, 4vw, 48px);
+                max-width: 1000px;
+            }
+
+            .footer-hero__title{
+                font-size: clamp(28px, 5vw, 64px);
+                font-weight: 800;
+                line-height: 1.1;
+                letter-spacing: .3px;
+                margin: 0 0 16px;
+                color: #fffefc;
+                text-shadow:
+                        0 0 8px rgba(255, 255, 255, 0.4),
+                        0 6px 24px rgba(0, 0, 0, 0.4),
+                        0 2px 6px rgba(0, 0, 0, 0.35);
+            }
+
+
+            .footer-hero__subtitle{
+                font-size: clamp(16px, 2.2vw, 24px);
+                margin: 0 0 8px;
+                text-shadow: 0 4px 16px rgba(0,0,0,.25);
+            }
+            .footer-hero__subtitle strong{ color:#ffe1ef; font-weight:800; }
+
+            .footer-hero__note{
+                font-size: clamp(15px, 2vw, 20px);
+                opacity:.95;
+            }
+
+            @media (min-width:1600px){
+                .footer-hero__bg{ transform:scale(1.04); }
+            }
+
+            @supports (padding: max(0px)) {
+                .footer-hero__content{ padding-bottom: max(24px, env(safe-area-inset-bottom)); }
+            }
+        </style>
+        <!-- Footer Main End -->
+    </footer>
+    <!-- Footer Section End -->
+</main>
+
+<!-- back-to-top-start -->
+<a href="#" class="scroll-top">
+    <svg class="scroll-top__circle" width="100%" height="100%" viewBox="-1 -1 102 102">
+        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+    </svg>
+</a>
+<!-- back-to-top-end -->
+
+<!-- Jquery Js -->
+<script src="../assets-premium1/js/vendor/jquery-3.6.3.min.js"></script>
+<script src="../assets-premium1/js/vendor/bootstrap.min.js"></script>
+<script src="../assets-premium1/js/vendor/jquery-appear.js"></script>
+<script src="../assets-premium1/js/vendor/jquery-validator.js"></script>
+<script src="../assets-premium1/js/vendor/jquery.nice-select.min.js"></script>
+<script src="../assets-premium1/js/vendor/slick.min.js"></script>
+<script src="../assets-premium1/js/vendor/jquery.countdown.min.js"></script>
+<script src="../assets-premium1/js/vendor/wow.js"></script>
+
+<script src="../assets-premium1/js/app.js"></script>
+
+</body>
+
+</html>
