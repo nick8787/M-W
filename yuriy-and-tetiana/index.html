@@ -504,8 +504,6 @@ Version : 1.0
                     }
                     #wdp_details{ margin-bottom:60px; }
                 </style>
-
-
                 <!-- END DETAILS -->
 
                 <!-- LOCATION -->
@@ -578,7 +576,7 @@ Version : 1.0
                     #wdp_location .wdp_map_wrap::before{
                         content:"";
                         display:block;
-                        padding-top:56.25%; /* 16:9 */
+                        padding-top:56.25%;
                     }
                     #wdp_location .wdp_map_wrap iframe{
                         position:absolute; inset:0;
@@ -599,7 +597,6 @@ Version : 1.0
                         filter: saturate(1.12) contrast(1.05);
                     }
 
-                    /* Бейдж поверх карти */
                     #wdp_location .wdp_map_badge{
                         position:absolute; left:16px; top:16px;
                         background: rgba(255,255,255,.92);
@@ -614,26 +611,20 @@ Version : 1.0
                     }
                     #wdp_location .wdp_map_badge .fa{ color:#c59f8a; margin-right:6px; }
 
-                    /* Кнопки під картою */
                     #wdp_location .wdp_map_actions{
-                        margin-top:18px;
+                        margin-top:32px;
+                        margin-bottom:24px;
                         display:flex; gap:12px; justify-content:center; flex-wrap:wrap;
                     }
-                    /* outline-варіант, якщо в темі нема */
-                    .wdp_btn_outline{
-                        background:#fff; color:#c59f8a; border:2px solid #c59f8a;
-                    }
-                    .wdp_btn_outline:hover{
-                        background:#c59f8a; color:#fff;
-                    }
 
-                    /* Відступ знизу, щоб секції не злипались */
-                    #wdp_location{ margin-bottom: 60px; }
+                    #wdp_location{
+                        margin-bottom:0;
+                        padding-bottom:120px !important;
+                    }
                     @media (max-width:767px){
-                        #wdp_location{ margin-bottom:40px; }
+                        #wdp_location{ padding-bottom:100px !important; }
                     }
 
-                    /* Кнопки у секції Локація */
                     #wdp_location .wdp_btn {
                         border: 2px solid #f7b49d !important;
                         color: #f7b49d !important;
@@ -646,7 +637,6 @@ Version : 1.0
                         border-color: #f7b49d !important;
                     }
 
-                    /* Outline-кнопка */
                     #wdp_location .wdp_btn_outline {
                         background: #fff !important;
                         color: #f7b49d !important;
@@ -658,60 +648,7 @@ Version : 1.0
                     }
                 </style>
 
-                <!-- CONTACT BAR -->
-                <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
-
-                <style>
-                    #wdp_contact_bar .wdp_section_title h2 {
-                        font-family: 'Great Vibes', cursive;
-                        font-weight: 400;
-                        color: #f7b49d;
-                        font-size: clamp(45px, 7vw, 64px);
-                        margin-bottom: 8px;
-                    }
-                    #wdp_contact_bar .wdp_section_title p {
-                        font-family: 'Playfair Display', serif;
-                        font-size: clamp(16px, 3.6vw, 20px);
-                        color: #444;
-                        margin-bottom: 28px;
-                    }
-                    .wdp_contact_bar_inner {
-                        background: #fff;
-                        padding: 30px;
-                        border-radius: 16px;
-                        box-shadow: 0 6px 18px rgba(0,0,0,.08);
-                    }
-                    .wdp_contact_bar_address p,
-                    .wdp_contact_bar_phone,
-                    .wdp_contact_bar_mail {
-                        font-family: 'Playfair Display', serif;
-                        font-size: 18px;
-                        margin: 10px 0;
-                        color: #555;
-                    }
-                    .wdp_contact_bar_mail a {
-                        color: #c59f8a;
-                        text-decoration: none;
-                    }
-                    .wdp_contact_bar_mail a:hover {
-                        text-decoration: underline;
-                    }
-                    .wdp_contact_icon {
-                        color: #c59f8a;
-                        margin-right: 8px;
-                    }
-
-                    #wdp_home_events {
-                        margin-bottom: 60px;
-                    }
-
-                    #wdp_home_events .container:last-child {
-                        padding-bottom: 60px;
-                    }
-
-                </style>
-
-<!--                <section id="wdp_contact_bar" class="text-center wdp_margin_top_10">-->
+                <!--                <section id="wdp_contact_bar" class="text-center wdp_margin_top_10">-->
 
 <!--                    <div class="container wdp_section_title">-->
 <!--                        <h2>Зв’яжіться з нами</h2>-->
@@ -749,91 +686,6 @@ Version : 1.0
 
     </div>
     <!-- END SITE-CONTENT -->
-
-    <!-- SITE-FOOTER -->
-    <footer>
-        <section class="footer-hero" id="footer">
-            <div class="footer-hero__bg" aria-hidden="true"></div>
-
-            <div class="footer-hero__content">
-                <h2 class="footer-hero__title">Святкуйте з нами!</h2>
-
-<!--                <p class="footer-hero__subtitle">-->
-<!--                    Будь ласка, відгукніться до <strong>10.06.2026</strong>-->
-<!--                </p>-->
-
-                <p class="footer-hero__note">Чекаємо на вас</p>
-            </div>
-        </section>
-
-        <style>
-            /* Fullscreen footer hero */
-            .footer-hero{
-                position:relative;
-                min-height:100vh;
-                width:100%;
-                overflow:hidden;
-                display:grid;
-                place-items:center;
-                isolation:isolate;
-            }
-
-            /* BG image */
-            .footer-hero__bg{
-                position:absolute; inset:0;
-                background:
-                        linear-gradient(180deg, rgba(0,0,0,.20) 0%, rgba(0,0,0,.45) 100%),
-                        url('../assets-premium1/media/gallery/footer_image.jpeg') center/cover no-repeat;
-                z-index:-1;
-                transform:scale(1.02);
-            }
-
-            /* Content */
-            .footer-hero__content{
-                text-align:center;
-                color:#fff;
-                padding: clamp(24px, 4vw, 48px);
-                max-width: 1000px;
-            }
-
-            .footer-hero__title{
-                font-size: clamp(28px, 5vw, 64px);
-                font-weight: 800;
-                line-height: 1.1;
-                letter-spacing: .3px;
-                margin: 0 0 16px;
-                color: #fffefc;
-                text-shadow:
-                        0 0 8px rgba(255, 255, 255, 0.4),
-                        0 6px 24px rgba(0, 0, 0, 0.4),
-                        0 2px 6px rgba(0, 0, 0, 0.35);
-            }
-
-
-            .footer-hero__subtitle{
-                font-size: clamp(16px, 2.2vw, 24px);
-                margin: 0 0 8px;
-                text-shadow: 0 4px 16px rgba(0,0,0,.25);
-            }
-            .footer-hero__subtitle strong{ color:#ffe1ef; font-weight:800; }
-
-            .footer-hero__note{
-                font-size: clamp(15px, 2vw, 20px);
-                opacity:.95;
-            }
-
-            @media (min-width:1600px){
-                .footer-hero__bg{ transform:scale(1.04); }
-            }
-
-            @supports (padding: max(0px)) {
-                .footer-hero__content{ padding-bottom: max(24px, env(safe-area-inset-bottom)); }
-            }
-        </style>
-        <!-- Footer Main End -->
-
-    </footer>
-    <!-- END SITE-FOOTER-->
 
 </div>
 <!-- END PAGE -->
