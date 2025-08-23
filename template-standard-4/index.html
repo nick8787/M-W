@@ -827,10 +827,27 @@ permalink: /template-standard-4
                                     position:absolute; inset:0;
                                     background:
                                             linear-gradient(180deg, rgba(0,0,0,.22) 0%, rgba(0,0,0,.5) 100%),
-                                            url('../assets-premium1/media/gallery/footer_image.jpeg') center/cover no-repeat;
+                                            url('../assets-premium1/media/gallery/footer_image-2.jpeg') center/cover no-repeat;
                                     z-index:-1; transform:scale(1.02);
                                 }
-                                .footer-hero__content{ text-align:center; color:#fff; padding: clamp(24px, 4vw, 48px); max-width: 1000px; }
+
+                                /* читабельність: акуратна «плашка» лише під текстом */
+                                .footer-hero__content{
+                                    position:relative; text-align:center; color:#fff;
+                                    padding: clamp(24px, 4vw, 48px); max-width: 920px;
+                                }
+                                .footer-hero__content::before{
+                                    content:""; position:absolute;
+                                    inset: clamp(6px, 1.6vw, 12px);
+                                    border-radius: 16px;
+                                    background: rgba(0,0,0,.32);
+                                    backdrop-filter: blur(6px);
+                                    -webkit-backdrop-filter: blur(6px);
+                                    border: 1px solid rgba(255,255,255,.16);
+                                    box-shadow: 0 18px 44px rgba(0,0,0,.28);
+                                    z-index:-1;
+                                }
+
                                 .footer-hero__title{
                                     margin:0 0 10px; font-family:'Great Vibes', cursive;
                                     font-size: clamp(36px, 6.4vw, 72px); line-height: 1.22; padding: .15em .25em .12em;
@@ -849,10 +866,12 @@ permalink: /template-standard-4
                                     text-shadow: 0 1px 10px rgba(0,0,0,.18);
                                 }
                                 .footer-hero__note{ font-size: clamp(13px, 2vw, 18px); opacity:.95; letter-spacing:.02em; }
+
                                 @media (min-width:1600px){ .footer-hero__bg{ transform:scale(1.04); } }
                                 @supports (padding: max(0px)) { .footer-hero__content{ padding-bottom: max(24px, env(safe-area-inset-bottom)); } }
                             </style>
                         </footer>
+
                         <!-- /FOOTER -->
 
                         <!-- back-to-top -->
