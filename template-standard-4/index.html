@@ -1,6 +1,6 @@
 ---
 layout: null
-permalink: /template-premium-5
+permalink: /template-standard-4
 ---
 <!DOCTYPE html>
 <html lang="uk">
@@ -85,136 +85,124 @@ permalink: /template-premium-5
                     <div class="et_builder_inner_content et_pb_gutters3">
 
                         <!-- HERO -->
-                        <section class="wedding-hero">
-                            <img class="hero-image" src="/assets/media/images/wedding_banner_736_850-1.jpg" alt="Wedding Background">
-                            <div class="overlay" aria-hidden="true"></div>
-
-                            <div class="hero-frame">
-                                <div class="monogram">
-                                    <div class="badge" role="img" aria-label="Олег та Настя">
-                                        <span class="init">О</span>
-                                        <span class="amp">&amp;</span>
-                                        <span class="init">Н</span>
-                                    </div>
-                                    <div class="couple-names">Олег &amp; Настя</div>
+                        <section class="hero-regal" aria-label="Весільне запрошення — Олег і Настя">
+                            <img class="hr-img" src="/assets/media/images/wedding_banner_736_850-1.jpg" alt="Олег і Настя — весільне фото">
+                            <div class="hr-center">
+                                <div class="hr-frame">
+                                    <h1 class="hr-names">Олег <span>&</span> Настя</h1>
+                                    <p class="hr-sub">Ми одружуємось!</p>
+                                    <time class="hr-date" datetime="2026-06-10">10&nbsp;&bull;&nbsp;06&nbsp;&bull;&nbsp;2026</time>
+                                    <p class="hr-note">Запрошуємо вас розділити з нами радість особливої для нас події</p>
                                 </div>
                             </div>
-
-                            <div class="save-card" role="group" aria-label="Save the date">
-                                <div class="save-title">МИ ОДРУЖУЄМОСЬ!</div>
-                                <div class="save-date">10&nbsp;&bull;&nbsp;06&nbsp;&bull;&nbsp;2026</div>
-                                <div class="save-sub">Запрошуємо вас розділити з нами радість особливої для нас події та стати частиною нашої історії</div>
-                            </div>
-
-                            <div class="scroll-cue" aria-hidden="true"><span></span></div>
+                            <div class="hr-scroll" aria-hidden="true"><span></span></div>
 
                             <style>
-                                :root{
-                                    --pad-x: clamp(16px, 4vw, 32px);
-                                    --pad-y: clamp(16px, 4vh, 32px);
-                                    --gap-2: clamp(12px, 1.8vh, 18px);
-                                    --card-w: min(92vw, 560px);
-                                    --save-lift: clamp(84px, 14vh, 140px);
+                                .hero-regal{
+                                    --rose:#d84f64;
+                                    --rose-2:#ffbfc7;
                                     --ink:#ffffff;
-                                    --frost: rgba(255,255,255,.14);
-                                    --frost-line: rgba(255,255,255,.26);
-                                }
-                                .wedding-hero{
+                                    --edge:rgba(255,255,255,.9);
                                     position:relative; width:100%;
-                                    min-height: clamp(640px, 100svh, 900px);
-                                    isolation:isolate; overflow:hidden;
-                                    font-family:'Montserrat',sans-serif;
-                                    padding-bottom: calc(env(safe-area-inset-bottom) + var(--pad-y));
-                                    /* Теплий рум’яний відблиск у верхній частині */
-                                    background: radial-gradient(1400px 700px at 50% -20%, color-mix(in srgb, var(--accent-1) 20%, transparent), transparent 60%);
+                                    min-height:clamp(620px, 100svh, 900px);
+                                    overflow:hidden; isolation:isolate;
+                                    color:var(--ink); font-family:'Montserrat', sans-serif;
+                                    background:#000;
                                 }
-                                .hero-image{
+
+                                .hr-img{
                                     position:absolute; inset:0; width:100%; height:100%;
-                                    object-fit:cover; opacity:0; animation:fadeIn 1.3s ease-in forwards; transform:scale(1.02);
+                                    object-fit:cover; object-position:center;
+                                    transform:translateZ(0);
+                                    opacity:0; animation:hrFade .7s ease forwards;
                                 }
-                                .overlay{
-                                    position:absolute; inset:0; z-index:1;
-                                    background:linear-gradient(to bottom, rgba(0,0,0,.18), rgba(0,0,0,.48));
-                                    opacity:0; animation:fadeOverlay .9s ease 1s forwards; pointer-events:none;
+
+                                .hr-center{
+                                    position:absolute;
+                                    left:clamp(16px, 4vw, 36px);
+                                    right:clamp(16px, 4vw, 36px);
+                                    bottom:max(100px, env(safe-area-inset-bottom));
+                                    top:auto;
+                                    display:grid; place-items:center; z-index:2; text-align:center;
                                 }
-                                .hero-frame{
-                                    position:absolute; inset: var(--pad-y) var(--pad-x) calc(var(--pad-y) + 0px) var(--pad-x);
-                                    z-index:2; display:grid; place-items:center; text-align:center;
-                                }
-                                .monogram{ display:flex; flex-direction:column; align-items:center; gap: var(--gap-2); color:var(--ink); }
-                                .badge{
-                                    display:grid; grid-auto-flow: column; justify-content: center; align-items: center;
-                                    column-gap: clamp(12px, 2vw, 24px);
-                                    padding: 14px 32px 8px 24px;
-                                    min-width: clamp(220px, 34vw, 300px);
-                                    border-radius:999px; background: rgba(0,0,0,.18); border:1px solid rgba(255,255,255,.22);
+
+                                .hr-frame{
+                                    position:relative; max-width:min(900px, 92vw); width:100%;
+                                    padding: clamp(18px, 4vh, 28px) clamp(16px, 4vw, 36px);
+                                    border-radius: 18px;
+                                    border:1px solid var(--edge);
+                                    background: rgba(255,255,255,.10);
                                     backdrop-filter: blur(6px);
-                                    opacity:0; animation:fadeUp .7s ease 1.2s forwards;
+                                    -webkit-backdrop-filter: blur(6px);
+                                    box-shadow: 0 14px 38px rgba(0,0,0,.28);
+                                    opacity:0; transform: translateY(10px);
+                                    animation: hrUp .5s ease .1s forwards;
                                 }
-                                .badge .init{
-                                    font-family:'Great Vibes', cursive;
-                                    font-size: clamp(44px, 7vw, 92px);
-                                    line-height: 1.12;
-                                    background: linear-gradient(130deg, var(--gold-2), var(--gold-1));
+                                .hr-frame::after{
+                                    content:""; position:absolute; inset:8px;
+                                    border-radius: 14px; border:1px solid rgba(255,255,255,.55);
+                                    pointer-events:none;
+                                }
+
+                                .hr-names{
+                                    margin: 2px 0 4px; font-family:'Great Vibes', cursive;
+                                    font-size: clamp(42px, 7.2vw, 76px); line-height:1.1; letter-spacing:.01em;
+                                    background: linear-gradient(115deg, #fff, #f4f4f4);
                                     -webkit-background-clip:text; background-clip:text; color:transparent;
-                                    text-shadow: 0 2px 14px rgba(0,0,0,.25);
-                                    padding: 0 .1em;
+                                    text-shadow: 0 2px 14px rgba(0,0,0,.24); white-space:nowrap;
                                 }
-                                .badge .amp{
-                                    font-size: clamp(18px, 2.6vw, 28px); font-weight:600; letter-spacing:.22em;
-                                    color:#fff; opacity:.92; line-height:1;
+                                .hr-names span{ color:inherit }
+
+                                .hr-sub{
+                                    margin:0 0 10px;
+                                    font-size: clamp(13px, 2.1vw, 16px);
+                                    font-weight:600; letter-spacing:.04em;
+                                    text-transform:uppercase;
+                                    text-shadow: 0 1px 8px rgba(0,0,0,.22);
                                 }
-                                .couple-names{
-                                    font-family:'Great Vibes', cursive;
-                                    font-size: clamp(30px, 6vw, 60px);
-                                    line-height:1.1;
-                                    background:linear-gradient(120deg, #fff, #f5f5f5);
-                                    -webkit-background-clip:text; background-clip:text; color:transparent;
-                                    text-shadow: 0 1px 10px rgba(0,0,0,.25);
-                                    opacity:0; animation:fadeUp .7s ease 1.8s forwards;
-                                    white-space:nowrap;
-                                    padding-top: 12px;
+
+                                .hr-date{
+                                    display:inline-block; margin: 0 0 8px;
+                                    font-size: clamp(16px, 1.9vw, 14px);
+                                    font-weight:700; letter-spacing:.28em; text-transform:uppercase;
+                                    padding:10px 14px; border-radius:999px;
+                                    color:#2a1f24;
+                                    background: linear-gradient(130deg, var(--rose-2), var(--rose));
+                                    border:1px solid color-mix(in srgb, var(--rose) 70%, #fff 30%);
+                                    text-shadow: none;
+                                    box-shadow: 0 10px 24px color-mix(in srgb, var(--rose) 35%, transparent);
                                 }
-                                .save-card{
-                                    position:absolute; left:0; right:0; margin-inline:auto; z-index:2;
-                                    bottom: calc(env(safe-area-inset-bottom) + var(--save-lift));
-                                    width: max-content; max-width: var(--card-w);
-                                    display:flex; flex-direction:column; align-items:center; gap:6px;
-                                    padding: clamp(12px, 1.8vh, 16px) clamp(18px, 2.6vh, 24px);
-                                    background: var(--frost); border: 1px solid var(--frost-line); backdrop-filter: blur(8px);
-                                    border-radius: 16px; text-align:center; box-shadow: 0 10px 32px rgba(0,0,0,.28);
-                                    opacity:0; animation:fadeUp .7s ease 2.2s forwards;
+
+                                .hr-note{
+                                    margin: 6px 0 0;
+                                    font-size: clamp(16px, 2.1vw, 16px);
+                                    opacity:.95; text-shadow: 0 1px 8px rgba(0,0,0,.22);
                                 }
-                                .save-title{
-                                    font-size: clamp(16px, 2.0vw, 19px);
-                                    letter-spacing:.35em; text-transform:uppercase;
-                                    color:#fff; opacity:.9;
+
+                                .hr-scroll{
+                                    position:absolute; left:0; right:0; bottom:max(14px, env(safe-area-inset-bottom));
+                                    margin-inline:auto; width:22px; height:34px; border-radius:16px;
+                                    border:1.5px solid rgba(255,255,255,.8); z-index:2; opacity:.95;
                                 }
-                                .save-date{
-                                    font-family:'Great Vibes', cursive; line-height:1;
-                                    font-size: clamp(32px, 6vw, 54px);
-                                    background:linear-gradient(120deg, var(--gold-2), var(--gold-1));
-                                    -webkit-background-clip:text; background-clip:text; color:transparent;
-                                    text-shadow: 0 2px 14px rgba(0,0,0,.25);
-                                }
-                                .save-sub{ font-size: clamp(15px, 2.4vw, 18px); color:#fff; opacity:.92; }
-                                .scroll-cue{
-                                    position:absolute; left:0; right:0; margin-inline:auto; z-index:2;
-                                    bottom: calc(env(safe-area-inset-bottom) + var(--pad-y));
-                                    width: 22px; height: 34px;
-                                    border:1.5px solid rgba(255,255,255,.7); border-radius:16px;
-                                    opacity:0; animation:fadeUp .7s ease 2.7s forwards;
-                                }
-                                .scroll-cue span{
+                                .hr-scroll span{
                                     position:absolute; left:50%; top:6px; width:4px; height:8px; border-radius:2px;
-                                    transform:translateX(-50%); background:#fff; opacity:.9; animation:wheel 1.8s ease-in-out infinite;
+                                    transform:translateX(-50%); background:#fff; opacity:.95; animation: hrWheel 1.8s ease-in-out infinite;
                                 }
-                                @keyframes fadeIn { to { opacity:1 } }
-                                @keyframes fadeOverlay { to { opacity:1 } }
-                                @keyframes fadeUp { from { opacity:0; transform: translate3d(0,10px,0);} to { opacity:1; transform: translate3d(0,0,0);} }
-                                @keyframes wheel { 0%{transform:translate(-50%,0);opacity:1;}60%{transform:translate(-50%,10px);opacity:.15;}100%{transform:translate(-50%,0);opacity:1;} }
-                                @media (max-width: 480px){
-                                    .save-card{ width: calc(100% - 2*var(--pad-x)); }
+
+                                @keyframes hrFade{ to{opacity:1} }
+                                @keyframes hrUp{ to{opacity:1; transform:none} }
+                                @keyframes hrWheel{
+                                    0%{transform:translate(-50%,0);opacity:1}
+                                    60%{transform:translate(-50%,10px);opacity:.2}
+                                    100%{transform:translate(-50%,0);opacity:1}
+                                }
+
+                                @media (max-width:540px){
+                                    .hr-frame{ padding:16px }
+                                }
+
+                                @media (prefers-reduced-motion:reduce){
+                                    .hr-img, .hr-frame, .hr-scroll span{ animation:none; opacity:1; transform:none }
                                 }
                             </style>
                         </section>
@@ -444,136 +432,136 @@ permalink: /template-premium-5
                         <!-- /TIMELINE -->
 
                         <!-- DETAILS -->
-                        <section class="wedding-details" aria-label="Деталі свята">
-                            <header class="wd-head">
-                                <h2 class="wd-title">Деталі</h2>
-                                <p class="wd-sub">Дякуємо за ваше тепло та розуміння</p>
-                                <div class="wd-ornament" aria-hidden="true"></div>
-                            </header>
+<!--                        <section class="wedding-details" aria-label="Деталі свята">-->
+<!--                            <header class="wd-head">-->
+<!--                                <h2 class="wd-title">Деталі</h2>-->
+<!--                                <p class="wd-sub">Дякуємо за ваше тепло та розуміння</p>-->
+<!--                                <div class="wd-ornament" aria-hidden="true"></div>-->
+<!--                            </header>-->
 
-                            <div class="wd-grid">
-                                <article class="wd-card wd-card--noflowers" data-anim>
-                                    <div class="wd-mark">
-                    <span class="wd-icon">
-                      <img src="https://img.icons8.com/ios/50/flower.png" alt="" decoding="async" />
-                    </span>
-                                    </div>
-                                    <h3 class="wd-card-title">Просимо без квітів</h3>
-                                    <p class="wd-card-text">
-                                        Просимо вас не дарувати нам квіти, ми не встигнемо насолодитися їх красою.
-                                    </p>
-                                </article>
+<!--                            <div class="wd-grid">-->
+<!--                                <article class="wd-card wd-card&#45;&#45;noflowers" data-anim>-->
+<!--                                    <div class="wd-mark">-->
+<!--                    <span class="wd-icon">-->
+<!--                      <img src="https://img.icons8.com/ios/50/flower.png" alt="" decoding="async" />-->
+<!--                    </span>-->
+<!--                                    </div>-->
+<!--                                    <h3 class="wd-card-title">Просимо без квітів</h3>-->
+<!--                                    <p class="wd-card-text">-->
+<!--                                        Просимо вас не дарувати нам квіти, ми не встигнемо насолодитися їх красою.-->
+<!--                                    </p>-->
+<!--                                </article>-->
 
-                                <article class="wd-card" data-anim>
-                                    <div class="wd-mark">
-                    <span class="wd-icon">
-                      <img src="https://img.icons8.com/ios/50/wine-bottle.png" alt="" decoding="async" />
-                    </span>
-                                    </div>
-                                    <h3 class="wd-card-title">Замість квітів - пляшка</h3>
-                                    <p class="wd-card-text">
-                                        Приємним компліментом для нас буде, якщо замість квітів ви подаруєте пляшку алкогольного напою для нашої колекції - ми відкриємо її на найближчому спільному святі.
-                                    </p>
-                                </article>
+<!--                                <article class="wd-card" data-anim>-->
+<!--                                    <div class="wd-mark">-->
+<!--                    <span class="wd-icon">-->
+<!--                      <img src="https://img.icons8.com/ios/50/wine-bottle.png" alt="" decoding="async" />-->
+<!--                    </span>-->
+<!--                                    </div>-->
+<!--                                    <h3 class="wd-card-title">Замість квітів - пляшка</h3>-->
+<!--                                    <p class="wd-card-text">-->
+<!--                                        Приємним компліментом для нас буде, якщо замість квітів ви подаруєте пляшку алкогольного напою для нашої колекції - ми відкриємо її на найближчому спільному святі.-->
+<!--                                    </p>-->
+<!--                                </article>-->
 
-                                <article class="wd-card" data-anim>
-                                    <div class="wd-mark">
-                    <span class="wd-icon">
-                      <img src="https://img.icons8.com/ios/50/gift.png" alt="" decoding="async" />
-                    </span>
-                                    </div>
-                                    <h3 class="wd-card-title">Цінний подарунок</h3>
-                                    <p class="wd-card-text">
-                                        Якщо ви хочете зробити потрібний та цінний подарунок - будемо дуже вдячні за вклад у бюджет нашої молодої сім’ї.
-                                    </p>
-                                </article>
-                            </div>
+<!--                                <article class="wd-card" data-anim>-->
+<!--                                    <div class="wd-mark">-->
+<!--                    <span class="wd-icon">-->
+<!--                      <img src="https://img.icons8.com/ios/50/gift.png" alt="" decoding="async" />-->
+<!--                    </span>-->
+<!--                                    </div>-->
+<!--                                    <h3 class="wd-card-title">Цінний подарунок</h3>-->
+<!--                                    <p class="wd-card-text">-->
+<!--                                        Якщо ви хочете зробити потрібний та цінний подарунок - будемо дуже вдячні за вклад у бюджет нашої молодої сім’ї.-->
+<!--                                    </p>-->
+<!--                                </article>-->
+<!--                            </div>-->
 
-                            <style>
-                                .wedding-details{
-                                    --px: clamp(16px, 4vw, 32px);
-                                    --py: clamp(28px, 8vh, 72px);
-                                    --gap: clamp(16px, 2.4vh, 24px);
-                                    --radius: 20px;
-                                    --maxw: min(980px, 94vw);
-                                    position:relative; isolation:isolate;
-                                    padding: var(--py) var(--px);
-                                    display:grid; place-items:center;
-                                    font-family:'Montserrat', sans-serif; color:var(--accent-ink);
-                                    background:
-                                            radial-gradient(1000px 520px at 50% -12%, color-mix(in srgb, var(--accent-1) 22%, transparent), transparent 55%),
-                                            linear-gradient(180deg, #f9f7f4, #fdfcfb);
-                                }
-                                .wd-head{ text-align:center; margin-bottom: clamp(24px, 6vh, 48px); max-width: var(--maxw); }
-                                .wd-title{
-                                    margin:0 0 6px; font-family:'Great Vibes', cursive;
-                                    font-size: clamp(40px, 6.6vw, 72px); line-height: 1.22;
-                                    padding:.2em .25em .15em;
-                                    background: linear-gradient(130deg, var(--gold-2), var(--gold-1));
-                                    -webkit-background-clip:text; background-clip:text; color:transparent;
-                                    text-shadow: 0 2px 16px rgba(0,0,0,.12);
-                                    display:inline-block;
-                                }
-                                .wd-sub{ margin:0; color:var(--accent-muted); font-size: clamp(13px, 2.2vw, 16px); }
-                                .wd-ornament{
-                                    width:min(180px, 40vw); height:2px; margin: 14px auto 0; border-radius:2px;
-                                    background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent-1) 85%, white 15%), transparent);
-                                    filter: drop-shadow(0 4px 10px color-mix(in srgb, var(--accent-1) 35%, transparent));
-                                }
-                                .wd-grid{
-                                    width:100%; max-width: var(--maxw);
-                                    display:grid; gap: var(--gap);
-                                    grid-template-columns: 1fr;
-                                }
-                                @media (min-width: 720px){ .wd-grid{ grid-template-columns: 1fr 1fr; } }
-                                @media (min-width: 1040px){ .wd-grid{ grid-template-columns: 1fr 1fr 1fr; } }
-                                .wd-card{
-                                    position:relative; background: #fff;
-                                    border: 1px solid var(--accent-line);
-                                    border-radius: var(--radius);
-                                    box-shadow: 0 16px 40px rgba(18,19,20,.06);
-                                    padding: clamp(16px, 2.4vh, 22px) clamp(16px, 2.6vw, 24px);
-                                    text-align:center;
-                                    opacity:0; transform: translateY(14px);
-                                }
-                                .wd-card::before{
-                                    content:""; position:absolute; left:12%; right:12%; top:-1px; height:3px; border-radius:2px;
-                                    background: linear-gradient(130deg, var(--gold-2), var(--gold-1)); opacity:.9;
-                                }
-                                .wd-mark{ display:flex; justify-content:center; margin-bottom: 12px; }
-                                .wd-icon{
-                                    position:relative; width: 56px; height: 56px; border-radius: 50%;
-                                    display:grid; place-items:center; background:#fff;
-                                    border: 1px solid color-mix(in srgb, var(--accent-1) 40%, transparent);
-                                    box-shadow: 0 10px 24px color-mix(in srgb, var(--accent-1) 26%, transparent);
-                                }
-                                .wd-icon img{ width: 24px; height: 24px; display:block; filter: grayscale(100%) brightness(0%); opacity:.9; }
-                                .wd-card--noflowers .wd-icon::after{
-                                    content:""; position:absolute; inset:0; margin:auto; width:70%; height:2px; border-radius:2px;
-                                    background: linear-gradient(130deg, var(--gold-2), var(--gold-1));
-                                    transform: rotate(-28deg); box-shadow: 0 0 0 1px rgba(255,255,255,.6) inset;
-                                }
-                                .wd-card-title{ margin: 4px 0 8px; font-weight:600; letter-spacing:.01em; font-size: clamp(16px, 2.6vw, 20px); }
-                                .wd-card-text{ margin:0; line-height:1.6; color: var(--accent-muted); font-size: clamp(14px, 2.4vw, 16px); }
-                                @keyframes fdUp { to { opacity:1; transform: translateY(0); } }
-                            </style>
+<!--                            <style>-->
+<!--                                .wedding-details{-->
+<!--                                    &#45;&#45;px: clamp(16px, 4vw, 32px);-->
+<!--                                    &#45;&#45;py: clamp(28px, 8vh, 72px);-->
+<!--                                    &#45;&#45;gap: clamp(16px, 2.4vh, 24px);-->
+<!--                                    &#45;&#45;radius: 20px;-->
+<!--                                    &#45;&#45;maxw: min(980px, 94vw);-->
+<!--                                    position:relative; isolation:isolate;-->
+<!--                                    padding: var(&#45;&#45;py) var(&#45;&#45;px);-->
+<!--                                    display:grid; place-items:center;-->
+<!--                                    font-family:'Montserrat', sans-serif; color:var(&#45;&#45;accent-ink);-->
+<!--                                    background:-->
+<!--                                            radial-gradient(1000px 520px at 50% -12%, color-mix(in srgb, var(&#45;&#45;accent-1) 22%, transparent), transparent 55%),-->
+<!--                                            linear-gradient(180deg, #f9f7f4, #fdfcfb);-->
+<!--                                }-->
+<!--                                .wd-head{ text-align:center; margin-bottom: clamp(24px, 6vh, 48px); max-width: var(&#45;&#45;maxw); }-->
+<!--                                .wd-title{-->
+<!--                                    margin:0 0 6px; font-family:'Great Vibes', cursive;-->
+<!--                                    font-size: clamp(40px, 6.6vw, 72px); line-height: 1.22;-->
+<!--                                    padding:.2em .25em .15em;-->
+<!--                                    background: linear-gradient(130deg, var(&#45;&#45;gold-2), var(&#45;&#45;gold-1));-->
+<!--                                    -webkit-background-clip:text; background-clip:text; color:transparent;-->
+<!--                                    text-shadow: 0 2px 16px rgba(0,0,0,.12);-->
+<!--                                    display:inline-block;-->
+<!--                                }-->
+<!--                                .wd-sub{ margin:0; color:var(&#45;&#45;accent-muted); font-size: clamp(13px, 2.2vw, 16px); }-->
+<!--                                .wd-ornament{-->
+<!--                                    width:min(180px, 40vw); height:2px; margin: 14px auto 0; border-radius:2px;-->
+<!--                                    background: linear-gradient(90deg, transparent, color-mix(in srgb, var(&#45;&#45;accent-1) 85%, white 15%), transparent);-->
+<!--                                    filter: drop-shadow(0 4px 10px color-mix(in srgb, var(&#45;&#45;accent-1) 35%, transparent));-->
+<!--                                }-->
+<!--                                .wd-grid{-->
+<!--                                    width:100%; max-width: var(&#45;&#45;maxw);-->
+<!--                                    display:grid; gap: var(&#45;&#45;gap);-->
+<!--                                    grid-template-columns: 1fr;-->
+<!--                                }-->
+<!--                                @media (min-width: 720px){ .wd-grid{ grid-template-columns: 1fr 1fr; } }-->
+<!--                                @media (min-width: 1040px){ .wd-grid{ grid-template-columns: 1fr 1fr 1fr; } }-->
+<!--                                .wd-card{-->
+<!--                                    position:relative; background: #fff;-->
+<!--                                    border: 1px solid var(&#45;&#45;accent-line);-->
+<!--                                    border-radius: var(&#45;&#45;radius);-->
+<!--                                    box-shadow: 0 16px 40px rgba(18,19,20,.06);-->
+<!--                                    padding: clamp(16px, 2.4vh, 22px) clamp(16px, 2.6vw, 24px);-->
+<!--                                    text-align:center;-->
+<!--                                    opacity:0; transform: translateY(14px);-->
+<!--                                }-->
+<!--                                .wd-card::before{-->
+<!--                                    content:""; position:absolute; left:12%; right:12%; top:-1px; height:3px; border-radius:2px;-->
+<!--                                    background: linear-gradient(130deg, var(&#45;&#45;gold-2), var(&#45;&#45;gold-1)); opacity:.9;-->
+<!--                                }-->
+<!--                                .wd-mark{ display:flex; justify-content:center; margin-bottom: 12px; }-->
+<!--                                .wd-icon{-->
+<!--                                    position:relative; width: 56px; height: 56px; border-radius: 50%;-->
+<!--                                    display:grid; place-items:center; background:#fff;-->
+<!--                                    border: 1px solid color-mix(in srgb, var(&#45;&#45;accent-1) 40%, transparent);-->
+<!--                                    box-shadow: 0 10px 24px color-mix(in srgb, var(&#45;&#45;accent-1) 26%, transparent);-->
+<!--                                }-->
+<!--                                .wd-icon img{ width: 24px; height: 24px; display:block; filter: grayscale(100%) brightness(0%); opacity:.9; }-->
+<!--                                .wd-card&#45;&#45;noflowers .wd-icon::after{-->
+<!--                                    content:""; position:absolute; inset:0; margin:auto; width:70%; height:2px; border-radius:2px;-->
+<!--                                    background: linear-gradient(130deg, var(&#45;&#45;gold-2), var(&#45;&#45;gold-1));-->
+<!--                                    transform: rotate(-28deg); box-shadow: 0 0 0 1px rgba(255,255,255,.6) inset;-->
+<!--                                }-->
+<!--                                .wd-card-title{ margin: 4px 0 8px; font-weight:600; letter-spacing:.01em; font-size: clamp(16px, 2.6vw, 20px); }-->
+<!--                                .wd-card-text{ margin:0; line-height:1.6; color: var(&#45;&#45;accent-muted); font-size: clamp(14px, 2.4vw, 16px); }-->
+<!--                                @keyframes fdUp { to { opacity:1; transform: translateY(0); } }-->
+<!--                            </style>-->
 
-                            <script>
-                                document.addEventListener('DOMContentLoaded', () => {
-                                    const cards = document.querySelectorAll('.wedding-details [data-anim]');
-                                    const io = new IntersectionObserver((entries) => {
-                                        entries.forEach((e, i) => {
-                                            if (e.isIntersecting) {
-                                                e.target.style.animation = 'fdUp .6s ease forwards';
-                                                e.target.style.animationDelay = `${0.06 * i}s`;
-                                                io.unobserve(e.target);
-                                            }
-                                        });
-                                    }, { threshold: .2 });
-                                    cards.forEach(c => io.observe(c));
-                                });
-                            </script>
-                        </section>
+<!--                            <script>-->
+<!--                                document.addEventListener('DOMContentLoaded', () => {-->
+<!--                                    const cards = document.querySelectorAll('.wedding-details [data-anim]');-->
+<!--                                    const io = new IntersectionObserver((entries) => {-->
+<!--                                        entries.forEach((e, i) => {-->
+<!--                                            if (e.isIntersecting) {-->
+<!--                                                e.target.style.animation = 'fdUp .6s ease forwards';-->
+<!--                                                e.target.style.animationDelay = `${0.06 * i}s`;-->
+<!--                                                io.unobserve(e.target);-->
+<!--                                            }-->
+<!--                                        });-->
+<!--                                    }, { threshold: .2 });-->
+<!--                                    cards.forEach(c => io.observe(c));-->
+<!--                                });-->
+<!--                            </script>-->
+<!--                        </section>-->
                         <!-- /DETAILS -->
 
                         <!-- COUNTDOWN -->
