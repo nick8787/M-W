@@ -73,7 +73,10 @@ permalink: /template-mini-2
 
                         <!-- HERO (заменено секцией из первой страницы) -->
                         <header id="home" class="hero" role="banner" aria-label="Hero">
-                            <div class="hero-bg" aria-hidden="true"></div>
+                            <!-- Фон как IMG, устойчиво на iOS -->
+                            <div class="hero-bg" aria-hidden="true">
+                                <img src="/assets/media/images/Lethe.jpeg" alt="" class="hero-bg-img" />
+                            </div>
                             <div class="hero-overlay" aria-hidden="true"></div>
 
                             <div class="hero-card">
@@ -82,79 +85,85 @@ permalink: /template-mini-2
                                 <div class="flourish">✶</div>
                                 <div class="hero-names">Олег & Настя</div>
                                 <p class="hero-sub">З радістю запрошуємо вас розділити з нами день нашого весілля.</p>
-<!--                                <div class="hero-cta">-->
-<!--                                    <a href="#" class="btn" data-scroll=".wt">Таймінг</a>-->
-<!--                                    <a href="#" class="btn primary" data-scroll="#weddingForm">Підтвердити</a>-->
-<!--                                </div>-->
+                                <!--
+                                <div class="hero-cta">
+                                  <a href="#" class="btn" data-scroll=".wt">Таймінг</a>
+                                  <a href="#" class="btn primary" data-scroll="#weddingForm">Підтвердити</a>
+                                </div>
+                                -->
                             </div>
 
-                            <!-- Стили HERO (локально, чтобы не затронуть остальное) -->
                             <style>
                                 .hero{
-                                    /* локальные CSS-переменные секции */
-                                    --ink:#1c1b1b;
-                                    --muted:#6a6a6a;
-                                    --paper:#fffaf7;
-                                    --rose:#c56c86;
-                                    --champagne:#c7a27e;
-                                    --line:rgba(0,0,0,.08);
-                                    --radius:22px;
-                                    --shadow:0 10px 30px rgba(0,0,0,.08), 0 2px 10px rgba(0,0,0,.06);
-
-                                    position:relative; min-height:100svh;
+                                    --ink:#1c1b1b; --muted:#6a6a6a; --paper:#fffaf7;
+                                    --rose:#c56c86; --champagne:#c7a27e; --line:rgba(0,0,0,.08);
+                                    --radius:22px; --shadow:0 10px 30px rgba(0,0,0,.08), 0 2px 10px rgba(0,0,0,.06);
+                                    position:relative; min-height:100dvh; /* устойчивей на iOS */
                                     display:flex; align-items:flex-end; justify-content:center;
                                     overflow:hidden; isolation:isolate; color:#fff; background-color:#0e0d0d;
                                     padding-bottom:clamp(24px, 6vw, 72px);
                                     font-family:'Montserrat', sans-serif;
                                 }
-                                .hero-bg{
-                                    position:absolute; inset:0; z-index:-2;
-                                    /* подставляем существующий бэкграунд сайта */
-                                    background:url('/assets/media/images/Lethe.jpeg') center/cover no-repeat fixed;
+                                /* Фон на IMG */
+                                .hero-bg{ position:absolute; inset:0; z-index:-2; overflow:hidden; }
+                                .hero-bg-img{
+                                    position:absolute; inset:0; width:100%; height:100%;
+                                    object-fit:cover; object-position:center;
+                                    will-change: transform; transform: translateZ(0)
+                                translateY(calc(var(--parallax, 0px)));
                                     filter:saturate(105%) contrast(102%);
                                 }
+                                /* На десктопах имитируем "fixed" настоящим fixed-слоем */
+                                @media (hover:hover) and (pointer:fine){
+                                    .hero-bg{ position:fixed; }
+                                }
+
                                 .hero-overlay{
                                     position:absolute; inset:0; z-index:-1;
                                     background:
                                             radial-gradient(1400px 60% at 50% -10%, rgba(199,162,126,.45), transparent 60%),
                                             linear-gradient(180deg, rgba(12,12,12,.35) 0%, rgba(12,12,12,.65) 70%, rgba(12,12,12,.85) 100%);
+                                    backdrop-filter: saturate(110%);
+                                    -webkit-backdrop-filter: saturate(110%);
                                 }
                                 .hero-card{
                                     width:min(680px, 92vw); text-align:center; color:#fff;
                                     padding:clamp(12px, 2.4vw, 18px) clamp(14px, 3vw, 22px);
                                     border-radius:var(--radius); box-shadow:var(--shadow);
                                     background:linear-gradient(to bottom right, rgba(255,255,255,.12), rgba(255,255,255,.06));
-                                    border:1px solid rgba(255,255,255,.24); backdrop-filter: blur(8px);
+                                    border:1px solid rgba(255,255,255,.24); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
                                 }
                                 .hero-date{
                                     font-weight:700; letter-spacing:.28em; text-transform:uppercase; opacity:.95;
                                     font-size:clamp(12px,1.6vw,14px)
                                 }
-                                .flourish { display:inline-block; position:relative; padding:0 26px; margin:12px 0 }
-                                .flourish::before,
-                                .flourish::after{
+
+                                /* центрированная звезда с линиями */
+                                .flourish{ display:inline-block; position:relative; padding:0 26px; margin:18px 0; }
+                                .flourish::before,.flourish::after{
                                     content:""; position:absolute; top:50%; width:86px; height:1px;
                                     background:linear-gradient(90deg, transparent, rgba(255,255,255,.7), transparent);
+                                    transform:translateY(-50%);
                                 }
                                 .flourish::before{ left:-86px }
                                 .flourish::after{ right:-86px }
+
                                 .hero-names{
-                                    font-family:'Great Vibes', cursive;
-                                    font-weight:700; font-size:clamp(34px, 7vw, 64px); line-height:1.08 !important;
-                                    margin:.10em 0 .10em !important;
-                                    padding:.10em 0 .14em !important;
+                                    font-family:'Great Vibes', cursive; font-weight:700;
+                                    font-size:clamp(34px, 7vw, 64px); line-height:1.08 !important;
+                                    margin:.10em 0 .10em !important; padding:.10em 0 .14em !important;
                                     background: linear-gradient(180deg, #fff, #f4f4f4);
                                     -webkit-background-clip:text; background-clip:text; color:transparent;
                                     text-shadow: 0 10px 40px rgba(0,0,0,.35);
+                                    display:inline-block;
                                 }
                                 .hero-sub{ font-size:clamp(15px, 1.3vw, 18px); opacity:.92; margin:6px 0 0 }
+
+                                /* Кнопки (если вернёшь CTA) — используют глобальные переменные */
                                 .hero-cta{ margin-top:clamp(16px, 2.2vw, 26px); display:flex; gap:12px; justify-content:center; flex-wrap:wrap }
-                                /* стиль кнопок внутри HERO (не перезаписывает глобальные) */
-                                /* стиль кнопок внутри HERO (не перезаписывает глобальные цвета) */
                                 .hero .btn{
                                     display:inline-flex; align-items:center; justify-content:center; gap:.6rem;
-                                    padding:14px 22px; border-radius:999px;
-                                    border:1px solid var(--accent-1);
+                                    padding:14px 22px; border-radius:999px; border:1px solid var(--accent-1);
                                     font-weight:700; letter-spacing:.3px; cursor:pointer; transition:.25s ease;
                                     background:transparent; color:var(--accent-1);
                                     box-shadow:0 10px 30px rgba(0,0,0,.08), 0 2px 10px rgba(0,0,0,.06);
@@ -163,24 +172,13 @@ permalink: /template-mini-2
                                     background:var(--accent-1); color:#fff; border-color:var(--accent-1);
                                     transform:translateY(-2px); box-shadow:0 14px 34px rgba(0,0,0,.12);
                                 }
-
-                                /* «Підтвердити»: сразу заливка лиловым */
-                                .hero .btn.primary{
-                                    background:var(--accent-1); color:#fff; border-color:var(--accent-1);
-                                }
-                                .hero .btn.primary:hover{
-                                    /* слегка затемняем при ховере */
-                                    filter:brightness(.95);
-                                    transform:translateY(-2px);
-                                }
-
-                                /* фокус для клавиатуры */
+                                .hero .btn.primary{ background:var(--accent-1); color:#fff; border-color:var(--accent-1); }
+                                .hero .btn.primary:hover{ filter:brightness(.95); transform:translateY(-2px); }
                                 .hero .btn:focus-visible{
-                                    outline:2px solid color-mix(in srgb, var(--accent-1) 55%, #fff 45%);
-                                    outline-offset:2px;
+                                    outline:2px solid color-mix(in srgb, var(--accent-1) 55%, #fff 45%); outline-offset:2px;
                                 }
 
-                                @media (max-width: 600px){
+                                @media (max-width:600px){
                                     .hero{ padding-bottom: clamp(18px, 6vh, 56px); }
                                     .hero-card{ max-width: 88vw; padding: 10px 12px; }
                                     .hero-date{ font-size:12px; letter-spacing:.18em; }
@@ -191,8 +189,7 @@ permalink: /template-mini-2
                                 }
                             </style>
 
-
-                            <!-- Плавный скролл из кнопок HERO к существующим секциям -->
+                            <!-- Плавный скролл (если CTA включишь) -->
                             <script>
                                 document.addEventListener('click', (e)=>{
                                     const a = e.target.closest('.hero a[data-scroll]');
@@ -202,6 +199,25 @@ permalink: /template-mini-2
                                     const target = document.querySelector(sel);
                                     if(target){ target.scrollIntoView({behavior:'smooth', block:'start'}); }
                                 });
+
+                                /* Лёгкий параллакс для мобильных (iOS/Android), где fixed не работает */
+                                (function(){
+                                    const img = document.querySelector('.hero-bg-img');
+                                    if(!img) return;
+                                    const prefersReduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                                    if(prefersReduce) return;
+
+                                    const isDesktop = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+                                    if(isDesktop) return; // на десктопах у нас position:fixed
+
+                                    const onScroll = () => {
+                                        const y = window.scrollY || window.pageYOffset || 0;
+                                        // небольшой сдвиг (15%) для аккуратного эффекта
+                                        img.style.setProperty('--parallax', (-y * 0.15) + 'px');
+                                    };
+                                    onScroll();
+                                    window.addEventListener('scroll', onScroll, {passive:true});
+                                })();
                             </script>
                         </header>
                         <!-- /HERO -->
