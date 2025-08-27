@@ -1119,8 +1119,8 @@ permalink: /iryna-and-vasyl
                                             <label class="pill"><input type="checkbox" name="Алкоголь[]" value="Не пʼю">🚫 Не пʼю</label>
                                         </div>
 
-                                        <label class="question">Ваші побажання:</label>
-                                        <textarea class="input" name="Ваші побажання" placeholder="Напишіть тут будь-які додаткові побажання. Якщо з вами буде дитина або діти, зазначте це, будь ласка." rows="4"></textarea>
+                                        <label class="question">Форма вільної відповіді:</label>
+                                        <textarea class="input" name="Ваші побажання" placeholder="Напишіть тут будь-які додаткові побажання. Якщо у когось є алергії на продукти, зазначте це, будь ласка." rows="4"></textarea>
 
                                         <button type="submit" class="btn-submit">Відправити 💌</button>
                                     </form>
@@ -1317,10 +1317,10 @@ permalink: /iryna-and-vasyl
 
                                             // 2) Присутність на весіллі
                                             const weddingWrap = form.querySelector('[data-group="wedding-presence"]');
-                                            const weddingRadios = form.querySelectorAll('input[name="Чи плануєте ви бути на весіллі?"]');
+                                            const weddingRadios = form.querySelectorAll('input[name="Чи плануєте ви бути на нашому дні?"]');
                                             if (![...weddingRadios].some(r=>r.checked)){
                                                 markInvalid(weddingWrap); weddingWrap.classList.add('pill-group');
-                                                missing.push('— Чи плануєте ви бути на весіллі?');
+                                                missing.push('— Чи плануєте ви бути на нашому дні?');
                                                 ok = false;
                                             }
 
