@@ -91,29 +91,6 @@ permalink: /iryna-and-vasyl
                                     </div>
                                 </section>
 
-                                <style>
-                                    @media (min-width:1024px){
-                                        .save-wrap { position:relative; min-height:100vh; }
-                                        .save-card{
-                                            position:absolute !important;
-                                            top:auto !important;
-                                            bottom:40px !important;
-                                            left:50%;
-                                            transform:translateX(-50%);
-                                        }
-                                    }
-
-                                    /* Мобилка: оставляем как было */
-                                    @media (max-width:1023px){
-                                        .save-card{
-                                            position:relative !important;
-                                            top:475px !important;
-                                            bottom:auto !important;
-                                            left:auto; transform:none;
-                                        }
-                                    }
-                                </style>
-
                                 <!-- Scroll cue -->
                                 <div class="scroll-cue" aria-hidden="true"><span></span></div>
 
@@ -133,13 +110,40 @@ permalink: /iryna-and-vasyl
                                         --ink:#ffffff; --frost: rgba(255,255,255,.14); --frost-line: rgba(255,255,255,.26);
                                     }
 
+                                    /* 1) Контейнер-опора: геро-секция даёт контекст для absolute */
                                     .wedding-hero{
-                                        position:relative; width:100%;
-                                        min-height: clamp(640px, 100svh, 900px);
-                                        isolation:isolate; overflow:hidden;
-                                        font-family:'Montserrat',sans-serif;
-                                        padding-bottom: calc(env(safe-area-inset-bottom) + var(--pad-y));
+                                        position: relative;
+                                        min-height: 100vh;           /* базовый фолбэк */
+                                        min-height: 100svh;          /* исправляет мобильную адресную строку */
                                     }
+                                    @supports (min-height: 100dvh){
+                                        .wedding-hero{ min-height: 100dvh; }  /* самый точный вариант */
+                                    }
+
+                                    /* 2) Жёстко прибиваем Save-card к низу и центрируем */
+                                    .wedding-hero .save-card{
+                                        position: absolute !important;        /* перебиваем любые инлайны/старые медиа */
+                                        left: 50% !important;
+                                        transform: translateX(-50%) !important;
+
+                                        /* Отступ от низа с учётом safe-area; можно подстроить */
+                                        bottom: max(env(safe-area-inset-bottom), 75px) !important;
+
+                                        /* Ширина и центрирование */
+                                        width: min(92vw, 560px) !important;
+                                        margin: 0 !important;
+
+                                        /* На случай если где-то задавали top */
+                                        top: auto !important;
+                                    }
+
+                                    /* 3) Если на мобиле хочется чуть выше от низа — подними на 8–16px */
+                                    @media (max-width: 410px){
+                                        .wedding-hero .save-card{
+                                            bottom: max(env(safe-area-inset-bottom), 32px) !important;
+                                        }
+                                    }
+
 
                                     .hero-image{
                                         position:absolute; inset:0; width:100%; height:100%;
