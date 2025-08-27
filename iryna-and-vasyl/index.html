@@ -71,11 +71,11 @@ permalink: /iryna-and-vasyl
                                 <div class="hero-frame">
                                     <!-- Monogram -->
                                     <div class="monogram">
-<!--                                        <div class="badge" role="img" aria-label="Daria and Oleksandr Monogram">-->
-<!--                                            <span class="init">І</span>-->
-<!--                                            <span class="amp">&amp;</span>-->
-<!--                                            <span class="init">В</span>-->
-<!--                                        </div>-->
+                                        <!-- <div class="badge" role="img" aria-label="Daria and Oleksandr Monogram">
+                                          <span class="init">І</span>
+                                          <span class="amp">&amp;</span>
+                                          <span class="init">В</span>
+                                        </div> -->
                                         <div class="couple-names">Ірина &amp; Василь</div>
                                     </div>
                                 </div>
@@ -110,7 +110,6 @@ permalink: /iryna-and-vasyl
                                         --ink:#ffffff; --frost: rgba(255,255,255,.14); --frost-line: rgba(255,255,255,.26);
                                     }
 
-                                    /* 1) Контейнер-опора: геро-секция даёт контекст для absolute */
                                     .wedding-hero{
                                         position: relative;
                                         min-height: 100vh;
@@ -125,18 +124,19 @@ permalink: /iryna-and-vasyl
                                         left: 50% !important;
                                         transform: translateX(-50%) !important;
 
-                                        /* Отступ bottom */
-                                        bottom: max(env(safe-area-inset-bottom), 85px) !important;
+                                        /* АДАПТИВНЫЙ ОТСТУП */
+                                        bottom: calc(env(safe-area-inset-bottom) + clamp(72px, 12vh, 120px)) !important;
 
                                         width: min(92vw, 560px) !important;
                                         margin: 0 !important;
 
                                         top: auto !important;
+                                        z-index: 2;
                                     }
 
                                     @media (max-width: 410px){
                                         .wedding-hero .save-card{
-                                            bottom: max(env(safe-area-inset-bottom), 32px) !important;
+                                            bottom: calc(env(safe-area-inset-bottom) + clamp(56px, 10vh, 96px)) !important;
                                         }
                                     }
 
@@ -261,6 +261,7 @@ permalink: /iryna-and-vasyl
                                     }
                                 </style>
                             </section>
+
 
 
                             <section class="wt" aria-label="Весільний таймінг (мобайл-ферст, рівно)">
