@@ -1088,28 +1088,29 @@ permalink: /iryna-and-vasyl
                                 <div class="survey-card">
                                     <h2 class="survey-title">Опитування для гостей</h2>
 
-                                    <form id="weddingForm" action="https://api.web3forms.com/submit" method="POST">
+                                    <!-- novalidate: керуємо валідацією самі -->
+                                    <form id="weddingForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
                                         <input type="hidden" name="access_key" value="581eaf16-3866-475f-8020-0f5282f63bec">
                                         <input type="hidden" name="subject" value="Відповіді з весільної анкети">
                                         <input type="hidden" name="from_name" value="Весільний сайт">
 
                                         <label class="question">Ваше ім’я:</label>
-                                        <input class="input" type="text" name="Ім’я" placeholder="Введіть ваше ім’я" required>
+                                        <input class="input" type="text" name="Ім’я" placeholder="Введіть ваше ім’я та призвіще">
 
                                         <label class="question">Чи плануєте ви бути на весіллі?</label>
-                                        <div class="options">
-                                            <label class="pill"><input type="radio" name="Чи плануєте ви бути на весіллі?" value="Так" required>Так</label>
+                                        <div class="options" data-group="wedding-presence">
+                                            <label class="pill"><input type="radio" name="Чи плануєте ви бути на весіллі?" value="Так">Так</label>
                                             <label class="pill"><input type="radio" name="Чи плануєте ви бути на весіллі?" value="Ні">Ні</label>
                                         </div>
 
                                         <label class="question">Чи плануєте ви бути на офіційній частині у РАЦС?</label>
-                                        <div class="options">
-                                            <label class="pill"><input type="radio" name="Чи плануєте ви бути у РАЦС?" value="Так" required>Так</label>
+                                        <div class="options" data-group="racs-presence">
+                                            <label class="pill"><input type="radio" name="Чи плануєте ви бути у РАЦС?" value="Так">Так</label>
                                             <label class="pill"><input type="radio" name="Чи плануєте ви бути у РАЦС?" value="Ні">Ні</label>
                                         </div>
 
                                         <label class="question">Ваші побажання по алкогольним напоям:</label>
-                                        <div class="options options-grid">
+                                        <div class="options options-grid" data-group="alcohol">
                                             <label class="pill"><input type="checkbox" name="Алкоголь[]" value="Коньяк">🥃 Коньяк</label>
                                             <label class="pill"><input type="checkbox" name="Алкоголь[]" value="Вино">🍷 Вино</label>
                                             <label class="pill"><input type="checkbox" name="Алкоголь[]" value="Шампанське">🥂 Шампанське</label>
@@ -1190,6 +1191,42 @@ permalink: /iryna-and-vasyl
                                     .btn-submit:active{ transform:none; box-shadow: 0 10px 28px rgba(214,184,137,.28); }
                                     .form-message{ text-align:center; margin-top:14px; font-weight:700; display:none; }
                                     @keyframes fadeIn{ from{opacity:0; transform: translateY(18px);} to{opacity:1; transform:none;} }
+
+                                    /* Тост-попап */
+                                    .form-toast {
+                                        position: fixed;
+                                        left: 50%;
+                                        top: max(16px, calc(env(safe-area-inset-top) + 12px));
+                                        transform: translate(-50%, -10px);
+                                        width: min(96vw, 780px);
+                                        background: #1f1f1f;
+                                        color: #fff;
+                                        border-radius: 14px;
+                                        border: 1px solid rgba(255,255,255,.18);
+                                        box-shadow: 0 20px 50px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.08);
+                                        padding: 14px 18px;
+                                        z-index: 999999;
+                                        opacity: 0;
+                                        pointer-events: none;
+                                        transition: opacity .22s ease, transform .22s ease;
+                                        font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Montserrat", sans-serif;
+                                    }
+                                    .form-toast.show { opacity: 1; pointer-events: auto; transform: translate(-50%, 0); }
+                                    .form-toast__title { font-weight: 800; margin: 0 0 6px; font-size: 16px; }
+                                    .form-toast__list { margin: 0; padding-left: 18px; font-size: 14px; line-height: 1.35; }
+                                    .form-toast__close {
+                                        appearance:none; border:none; background:transparent; color:#fff; opacity:.85; cursor:pointer;
+                                        position:absolute; right:12px; top:8px; font-size:18px; line-height:1;
+                                    }
+
+                                    /* Підсвітка помилкових полів/груп */
+                                    .input.invalid{
+                                        outline:2px solid #e74c3c; outline-offset:2px; border-color:#e74c3c; border-radius:12px;
+                                    }
+                                    .pill-group.invalid{
+                                        outline:2px solid #e74c3c; outline-offset:2px; border-radius:12px; padding:6px 8px;
+                                    }
+                                    .btn-submit[aria-busy="true"]{ opacity:.7; pointer-events:none; }
                                 </style>
 
                                 <script>
@@ -1197,7 +1234,7 @@ permalink: /iryna-and-vasyl
                                         const form = document.getElementById('weddingForm');
                                         const msg  = document.getElementById('formMessage');
 
-                                        // ---------- Toast ----------
+                                        // --- Toast ---
                                         function ensureToast(){
                                             let t = document.querySelector('.form-toast');
                                             if (!t){
@@ -1206,12 +1243,12 @@ permalink: /iryna-and-vasyl
                                                 t.setAttribute('role','alert');
                                                 t.setAttribute('aria-live','polite');
                                                 t.innerHTML = `
-        <button class="form-toast__close" aria-label="Закрити">×</button>
-        <div class="form-toast__title">Заповніть, будь ласка, обовʼязкові поля:</div>
-        <ul class="form-toast__list"></ul>
-      `;
+            <button class="form-toast__close" aria-label="Закрити">×</button>
+            <div class="form-toast__title">Заповніть, будь ласка, обовʼязкові поля:</div>
+            <ul class="form-toast__list"></ul>
+          `;
                                                 document.body.appendChild(t);
-                                                t.querySelector('.form-toast__close').addEventListener('click', ()=> hideToast());
+                                                t.querySelector('.form-toast__close').addEventListener('click', hideToast);
                                             }
                                             return t;
                                         }
@@ -1226,14 +1263,14 @@ permalink: /iryna-and-vasyl
                                             });
                                             t.classList.add('show');
                                             clearTimeout(showToast._timer);
-                                            showToast._timer = setTimeout(()=> hideToast(), autoHideMs);
+                                            showToast._timer = setTimeout(hideToast, autoHideMs);
                                         }
                                         function hideToast(){
                                             const t = document.querySelector('.form-toast');
                                             if (t) t.classList.remove('show');
                                         }
 
-                                        // ---------- Helpers ----------
+                                        // --- Helpers ---
                                         function clearErrors(){
                                             form.querySelectorAll('.invalid').forEach(el => el.classList.remove('invalid'));
                                         }
@@ -1242,21 +1279,25 @@ permalink: /iryna-and-vasyl
                                             if (bad){
                                                 bad.scrollIntoView({behavior:'smooth', block:'center'});
                                                 const focusEl = bad.querySelector('input,textarea,select') || bad;
-                                                focusEl.focus?.({preventScroll:true});
+                                                if (focusEl && focusEl.focus) focusEl.focus({preventScroll:true});
                                             }
                                         }
+                                        function markInvalid(el){ el.classList.add('invalid'); el.setAttribute('aria-invalid','true'); }
+                                        function unmark(el){ el.classList.remove('invalid'); el.removeAttribute('aria-invalid'); }
 
-                                        // Лайв-снятие подсветки при вводе/смене
+                                        // зняття підсвітки на льоту
                                         form.addEventListener('input', e=>{
                                             const wrap = e.target.closest('.input, .options') || e.target;
-                                            wrap.classList?.remove('invalid');
+                                            wrap && unmark(wrap);
+                                            e.target.classList?.remove('invalid');
                                         });
                                         form.addEventListener('change', e=>{
                                             const wrap = e.target.closest('.input, .options') || e.target;
-                                            wrap.classList?.remove('invalid');
+                                            wrap && unmark(wrap);
+                                            e.target.classList?.remove('invalid');
                                         });
 
-                                        // ---------- Submit ----------
+                                        // --- Submit ---
                                         form.addEventListener('submit', async function(e){
                                             e.preventDefault();
                                             hideToast();
@@ -1269,49 +1310,49 @@ permalink: /iryna-and-vasyl
                                             // 1) Ім’я
                                             const nameInput = form.querySelector('input[name="Ім’я"]');
                                             if (!nameInput.value.trim()){
-                                                nameInput.classList.add('invalid');
-                                                nameInput.setAttribute('aria-invalid','true');
+                                                markInvalid(nameInput);
                                                 missing.push('— Ваше ім’я');
                                                 ok = false;
-                                            } else {
-                                                nameInput.removeAttribute('aria-invalid');
                                             }
 
                                             // 2) Присутність на весіллі
-                                            const weddingWrap = form.querySelectorAll('.options')[0];
+                                            const weddingWrap = form.querySelector('[data-group="wedding-presence"]');
                                             const weddingRadios = form.querySelectorAll('input[name="Чи плануєте ви бути на весіллі?"]');
                                             if (![...weddingRadios].some(r=>r.checked)){
-                                                weddingWrap.classList.add('invalid','pill-group');
-                                                weddingWrap.setAttribute('aria-invalid','true');
+                                                markInvalid(weddingWrap); weddingWrap.classList.add('pill-group');
                                                 missing.push('— Чи плануєте ви бути на весіллі?');
                                                 ok = false;
-                                            } else {
-                                                weddingWrap.removeAttribute('aria-invalid');
                                             }
 
                                             // 3) Присутність у РАЦС
-                                            const racsWrap = form.querySelectorAll('.options')[1];
+                                            const racsWrap = form.querySelector('[data-group="racs-presence"]');
                                             const racsRadios = form.querySelectorAll('input[name="Чи плануєте ви бути у РАЦС?"]');
                                             if (![...racsRadios].some(r=>r.checked)){
-                                                racsWrap.classList.add('invalid','pill-group');
-                                                racsWrap.setAttribute('aria-invalid','true');
+                                                markInvalid(racsWrap); racsWrap.classList.add('pill-group');
                                                 missing.push('— Чи плануєте ви бути у РАЦС?');
                                                 ok = false;
-                                            } else {
-                                                racsWrap.removeAttribute('aria-invalid');
+                                            }
+
+                                            // 4) Алкоголь (ОБОВʼЯЗКОВО: хоча б один)
+                                            const alcoholWrap = form.querySelector('[data-group="alcohol"]');
+                                            const alcoholChecked = form.querySelectorAll('input[name="Алкоголь[]"]:checked');
+                                            if (alcoholChecked.length === 0){
+                                                markInvalid(alcoholWrap); alcoholWrap.classList.add('pill-group');
+                                                missing.push('— Оберіть хоча б один варіант у «Побажання по алкогольним напоям»');
+                                                ok = false;
                                             }
 
                                             if (!ok){
-                                                showToast(missing);         // велике спливаюче повідомлення
-                                                scrollToFirstInvalid();     // прокрутка до першої помилки
+                                                showToast(missing);
+                                                scrollToFirstInvalid();
                                                 return;
                                             }
 
-                                            // Збираємо чекбокси «Алкоголь»
+                                            // Формуємо дані (Алкоголь з чекбоксів)
                                             const formData = new FormData(form);
-                                            const drinks = Array.from(form.querySelectorAll('input[name="Алкоголь[]"]:checked')).map(i => i.value);
+                                            const drinks = Array.from(alcoholChecked).map(i => i.value);
                                             formData.delete('Алкоголь[]');
-                                            formData.append('Алкоголь', drinks.length ? drinks.join(', ') : '—');
+                                            formData.append('Алкоголь', drinks.join(', '));
 
                                             // Відправка
                                             const btn = form.querySelector('.btn-submit');
@@ -1339,128 +1380,76 @@ permalink: /iryna-and-vasyl
                                         });
                                     })();
                                 </script>
-
-                                <style>
-                                    /* Верхній тост-попап */
-                                    .form-toast {
-                                        position: fixed;
-                                        left: 50%;
-                                        top: max(16px, calc(env(safe-area-inset-top) + 12px));
-                                        transform: translateX(-50%);
-                                        width: min(96vw, 780px);
-                                        background: #1f1f1f;
-                                        color: #fff;
-                                        border-radius: 14px;
-                                        border: 1px solid rgba(255,255,255,.18);
-                                        box-shadow: 0 20px 50px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.08);
-                                        padding: 14px 18px;
-                                        z-index: 999999;
-                                        opacity: 0;
-                                        pointer-events: none;
-                                        transition: opacity .22s ease, transform .22s ease;
-                                        font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Montserrat", sans-serif;
-                                    }
-                                    .form-toast.show { opacity: 1; pointer-events: auto; transform: translate(-50%, 0); }
-                                    .form-toast__title { font-weight: 800; margin: 0 0 6px; font-size: 16px; }
-                                    .form-toast__list { margin: 0; padding-left: 18px; font-size: 14px; line-height: 1.35; }
-                                    .form-toast__close {
-                                        appearance:none; border:none; background:transparent; color:#fff; opacity:.85; cursor:pointer;
-                                        position:absolute; right:12px; top:8px; font-size:18px; line-height:1;
-                                    }
-                                    .form-toast a { color:#f1e0b3; text-decoration: underline; }
-
-                                    /* Видима підсвітка помилкових полів/груп */
-                                    .input.invalid{
-                                        outline:2px solid #e74c3c; outline-offset:2px; border-color:#e74c3c; border-radius:12px;
-                                    }
-                                    .pill-group.invalid{
-                                        outline:2px solid #e74c3c; outline-offset:2px; border-radius:12px; padding:6px 8px;
-                                    }
-                                    .btn-submit[aria-busy="true"]{ opacity:.7; pointer-events:none; }
-                                </style>
-
                             </section>
+
 
 
                             <!-- Footer Section Start -->
                             <footer>
                                 <section class="footer-hero" id="footer">
                                     <div class="footer-hero__bg" aria-hidden="true"></div>
-
                                     <div class="footer-hero__content">
                                         <h2 class="footer-hero__title">З любов’ю чекаємо на вас</h2>
-
                                         <p class="footer-hero__subtitle">
-                                            Будь ласка, підтвердьте присутність до <strong>10.06.2025</strong>
+                                            Будь ласка, підтвердьте присутність до <strong>12.09.2025</strong>
                                         </p>
-
                                         <p class="footer-hero__note">До зустрічі на святі</p>
                                     </div>
                                 </section>
 
                                 <style>
                                     .footer-hero{
-                                        position:relative;
-                                        min-height:100vh;
-                                        width:100%;
-                                        overflow:hidden;
-                                        display:grid;
-                                        place-items:center;
-                                        isolation:isolate;
+                                        position:relative; min-height:100vh; width:100%;
+                                        overflow:hidden; display:grid; place-items:center; isolation:isolate;
                                         font-family:'Montserrat',sans-serif;
+                                        background: radial-gradient(1200px 600px at 50% -20%, color-mix(in srgb, var(--accent-1) 18%, transparent), transparent 60%);
                                     }
                                     .footer-hero__bg{
                                         position:absolute; inset:0;
                                         background:
                                                 linear-gradient(180deg, rgba(0,0,0,.22) 0%, rgba(0,0,0,.5) 100%),
-                                                url('../assets-premium1/media/gallery/footer_image.jpeg') center/cover no-repeat;
-                                        z-index:-1;
-                                        transform:scale(1.02);
-                                    }
-                                    .footer-hero__content{
-                                        text-align:center;
-                                        color:#fff;
-                                        padding: clamp(24px, 4vw, 48px);
-                                        max-width: 1000px;
+                                                url('/assets/media/orders/IMG_6944.jpg') center/cover no-repeat;
+                                        z-index:-1; transform:scale(1.02);
                                     }
 
-                                    /* Елегантний єдиний стиль заголовків (як у розділах вище) */
+                                    /* читабельність: акуратна «плашка» лише під текстом */
+                                    .footer-hero__content{
+                                        position:relative; text-align:center; color:#fff;
+                                        padding: clamp(24px, 4vw, 48px); max-width: 920px;
+                                    }
+                                    .footer-hero__content::before{
+                                        content:""; position:absolute;
+                                        inset: clamp(6px, 1.6vw, 12px);
+                                        border-radius: 16px;
+                                        background: rgba(0,0,0,.32);
+                                        backdrop-filter: blur(6px);
+                                        -webkit-backdrop-filter: blur(6px);
+                                        border: 1px solid rgba(255,255,255,.16);
+                                        box-shadow: 0 18px 44px rgba(0,0,0,.28);
+                                        z-index:-1;
+                                    }
+
                                     .footer-hero__title{
-                                        margin:0 0 10px;
-                                        font-family:'Great Vibes', cursive;
-                                        font-size: clamp(36px, 6.4vw, 72px);
-                                        line-height: 1.22;          /* запас для завитків шрифту */
-                                        padding: .15em .25em .12em; /* захист від обрізання з усіх боків */
-                                        background: linear-gradient(130deg, #f1e0b3, #d6b889);
+                                        margin:0 0 10px; font-family:'Great Vibes', cursive;
+                                        font-size: clamp(36px, 6.4vw, 72px); line-height: 1.22; padding: .15em .25em .12em;
+                                        background: linear-gradient(130deg, var(--gold-2), var(--gold-1));
                                         -webkit-background-clip:text; background-clip:text; color:transparent;
                                         text-shadow: 0 2px 14px rgba(0,0,0,.12);
-                                        overflow: visible;
                                     }
-
                                     .footer-hero__subtitle{
                                         font-size: clamp(14px, 2.2vw, 20px);
-                                        margin: 0 0 8px;
-                                        text-shadow: 0 4px 16px rgba(0,0,0,.25);
-                                        letter-spacing:.01em;
+                                        margin: 0 0 8px; text-shadow: 0 4px 16px rgba(0,0,0,.25); letter-spacing:.01ем;
                                     }
                                     .footer-hero__subtitle strong{
                                         color:#fff; font-weight:700;
-                                        background: linear-gradient(130deg, #f1e0b3, #d6b889);
+                                        background: linear-gradient(130deg, var(--gold-2), var(--gold-1));
                                         -webkit-background-clip:text; background-clip:text; color:transparent;
                                         text-shadow: 0 1px 10px rgba(0,0,0,.18);
                                     }
+                                    .footer-hero__note{ font-size: clamp(13px, 2vw, 18px); opacity:.95; letter-spacing:.02em; }
 
-                                    .footer-hero__note{
-                                        font-size: clamp(13px, 2vw, 18px);
-                                        opacity:.95; letter-spacing:.02em;
-                                    }
-
-                                    @media (min-width:1600px){
-                                        .footer-hero__bg{ transform:scale(1.04); }
-                                    }
-                                    @supports (padding: max(0px)) {
-                                        .footer-hero__content{ padding-bottom: max(24px, env(safe-area-inset-bottom)); }
-                                    }
+                                    @media (min-width:1600px){ .footer-hero__bg{ transform:scale(1.04); } }
+                                    @supports (padding: max(0px)) { .footer-hero__content{ padding-bottom: max(24px, env(safe-area-inset-bottom)); } }
                                 </style>
                             </footer>
 
