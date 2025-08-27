@@ -102,8 +102,8 @@ permalink: /iryna-and-vasyl
                                         --gap-2: clamp(12px, 1.8vh, 18px);
                                         --card-w: min(92vw, 560px);
 
-                                        /* lift Save the Date higher (адаптивно) */
-                                        --save-lift: clamp(84px, 14vh, 140px);
+                                        /* lift Save the Date выше */
+                                        --save-lift: clamp(100px, 12vh, 160px);  /* ↑ поднял: было 84px → стало 100px */
 
                                         /* colors */
                                         --gold-1:#d6b889; --gold-2:#f1e0b3;
@@ -124,8 +124,8 @@ permalink: /iryna-and-vasyl
                                         left: 50% !important;
                                         transform: translateX(-50%) !important;
 
-                                        /* АДАПТИВНЫЙ ОТСТУП */
-                                        bottom: calc(env(safe-area-inset-bottom) + clamp(72px, 12vh, 120px)) !important;
+                                        /* АДАПТИВНЫЙ ОТСТУП: подняли чуть выше */
+                                        bottom: calc(env(safe-area-inset-bottom) + var(--save-lift)) !important;
 
                                         width: min(92vw, 560px) !important;
                                         margin: 0 !important;
@@ -136,9 +136,10 @@ permalink: /iryna-and-vasyl
 
                                     @media (max-width: 410px){
                                         .wedding-hero .save-card{
-                                            bottom: calc(env(safe-area-inset-bottom) + clamp(56px, 10vh, 96px)) !important;
+                                            bottom: calc(env(safe-area-inset-bottom) + clamp(72px, 12vh, 120px)) !important;
                                         }
                                     }
+
 
                                     .hero-image{
                                         position:absolute; inset:0; width:100%; height:100%;
