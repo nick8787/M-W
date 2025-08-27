@@ -76,7 +76,7 @@ permalink: /iryna-and-vasyl
 <!--                                            <span class="amp">&amp;</span>-->
 <!--                                            <span class="init">В</span>-->
 <!--                                        </div>-->
-                                        <div class="couple-names" style="margin-top:170px;">Ірина &amp; Василь</div>
+                                        <div class="couple-names">Ірина &amp; Василь</div>
                                     </div>
                                 </div>
 
@@ -113,37 +113,32 @@ permalink: /iryna-and-vasyl
                                     /* 1) Контейнер-опора: геро-секция даёт контекст для absolute */
                                     .wedding-hero{
                                         position: relative;
-                                        min-height: 100vh;           /* базовый фолбэк */
-                                        min-height: 100svh;          /* исправляет мобильную адресную строку */
+                                        min-height: 100vh;
+                                        min-height: 100svh;
                                     }
                                     @supports (min-height: 100dvh){
-                                        .wedding-hero{ min-height: 100dvh; }  /* самый точный вариант */
+                                        .wedding-hero{ min-height: 100dvh; }
                                     }
 
-                                    /* 2) Жёстко прибиваем Save-card к низу и центрируем */
                                     .wedding-hero .save-card{
-                                        position: absolute !important;        /* перебиваем любые инлайны/старые медиа */
+                                        position: absolute !important;
                                         left: 50% !important;
                                         transform: translateX(-50%) !important;
 
-                                        /* Отступ от низа с учётом safe-area; можно подстроить */
-                                        bottom: max(env(safe-area-inset-bottom), 75px) !important;
+                                        /* Отступ bottom */
+                                        bottom: max(env(safe-area-inset-bottom), 85px) !important;
 
-                                        /* Ширина и центрирование */
                                         width: min(92vw, 560px) !important;
                                         margin: 0 !important;
 
-                                        /* На случай если где-то задавали top */
                                         top: auto !important;
                                     }
 
-                                    /* 3) Если на мобиле хочется чуть выше от низа — подними на 8–16px */
                                     @media (max-width: 410px){
                                         .wedding-hero .save-card{
                                             bottom: max(env(safe-area-inset-bottom), 32px) !important;
                                         }
                                     }
-
 
                                     .hero-image{
                                         position:absolute; inset:0; width:100%; height:100%;
@@ -213,6 +208,7 @@ permalink: /iryna-and-vasyl
                                         opacity:0; animation:fadeUp .7s ease 1.8s forwards;
                                         white-space:nowrap;
                                         padding-top: 12px;
+                                        margin-top: 150px !important;
                                     }
 
                                     .save-card{
@@ -569,7 +565,7 @@ permalink: /iryna-and-vasyl
                                         </div>
                                         <h3 class="wd-card-title">Подарунки</h3>
                                         <p class="wd-card-text">
-                                            Приємним компліментом для нас буде, якщо замість квітів ви подаруєте пляшку алкогольного напою для нашої колекції - ми відкриємо її на найближчому спільному святі.
+                                            Якщо ви хочете зробити нам цінний подарунок, ми будемо дуже вдячними за ваш внесок у бюджет нашої молодої сімʼї.
                                         </p>
                                     </article>
 
