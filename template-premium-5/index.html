@@ -73,7 +73,20 @@ permalink: /template-premium-5
 
                         <!-- HERO (заменено секцией из первой страницы) -->
                         <header id="home" class="hero" role="banner" aria-label="Hero">
-                            <div class="hero-bg" aria-hidden="true"></div>
+                            <!-- Реальный фон-картинка заместо background fixed -->
+                            <picture class="hero-bg" aria-hidden="true">
+                                <!-- при желании добавь webp/avif -->
+                                <!-- <source srcset="/assets/media/images/wedding_banner_736_850-1.avif" type="image/avif"> -->
+                                <!-- <source srcset="/assets/media/images/wedding_banner_736_850-1.webp" type="image/webp"> -->
+                                <img
+                                        src="/assets/media/images/wedding_banner_736_850-1.jpg"
+                                        alt=""
+                                        loading="eager"
+                                        decoding="async"
+                                >
+                            </picture>
+
+                            <!-- затемнение/градиенты поверх фото -->
                             <div class="hero-overlay" aria-hidden="true"></div>
 
                             <div class="hero-card">
@@ -87,38 +100,44 @@ permalink: /template-premium-5
                                 </div>
                             </div>
 
-                            <!-- Стили HERO (локально, чтобы не затронуть остальное) -->
                             <style>
                                 .hero{
-                                    /* локальные CSS-переменные секции */
-                                    --ink:#1c1b1b;
-                                    --muted:#6a6a6a;
-                                    --paper:#fffaf7;
-                                    --rose:#c56c86;
-                                    --champagne:#c7a27e;
-                                    --line:rgba(0,0,0,.08);
+                                    --ink:#1c1b1b; --muted:#6a6a6a; --paper:#fffaf7;
+                                    --accent-1:#c56c86; /* если глобально уже есть — можно удалить */
                                     --radius:22px;
                                     --shadow:0 10px 30px rgba(0,0,0,.08), 0 2px 10px rgba(0,0,0,.06);
 
-                                    position:relative; min-height:100svh;
+                                    position:relative;
+                                    min-height:100dvh; /* стабильно на мобилках */
                                     display:flex; align-items:flex-end; justify-content:center;
                                     overflow:hidden; isolation:isolate; color:#fff; background-color:#0e0d0d;
                                     padding-bottom:clamp(24px, 6vw, 72px);
                                     font-family:'Montserrat', sans-serif;
                                 }
+
+                                /* Фон как IMG, без background-attachment:fixed */
                                 .hero-bg{
-                                    position:absolute; inset:0; z-index:-2;
-                                    /* подставляем существующий бэкграунд сайта */
-                                    background:url('/assets/media/images/wedding_banner_736_850-1.jpg') center/cover no-repeat fixed;
+                                    position:absolute; inset:0; z-index:0; display:block;
+                                    pointer-events:none; user-select:none;
+                                }
+                                .hero-bg > img{
+                                    position:absolute; inset:0;
+                                    width:100%; height:100%;
+                                    object-fit:cover; object-position:center;
+                                    transform:translateZ(0); will-change:transform;
                                     filter:saturate(105%) contrast(102%);
                                 }
+
                                 .hero-overlay{
-                                    position:absolute; inset:0; z-index:-1;
+                                    position:absolute; inset:0; z-index:1;
                                     background:
                                             radial-gradient(1400px 60% at 50% -10%, rgba(199,162,126,.45), transparent 60%),
                                             linear-gradient(180deg, rgba(12,12,12,.35) 0%, rgba(12,12,12,.65) 70%, rgba(12,12,12,.85) 100%);
+                                    pointer-events:none;
                                 }
+
                                 .hero-card{
+                                    position:relative; z-index:2; /* выше фона и оверлея */
                                     width:min(680px, 92vw); text-align:center; color:#fff;
                                     padding:clamp(12px, 2.4vw, 18px) clamp(14px, 3vw, 22px);
                                     border-radius:var(--radius); box-shadow:var(--shadow);
@@ -127,29 +146,27 @@ permalink: /template-premium-5
                                 }
                                 .hero-date{
                                     font-weight:700; letter-spacing:.28em; text-transform:uppercase; opacity:.95;
-                                    font-size:clamp(12px,1.6vw,14px)
+                                    font-size:clamp(12px,1.6vw,14px);
                                 }
                                 .flourish { display:inline-block; position:relative; padding:0 26px; margin:12px 0 }
-                                .flourish::before,
-                                .flourish::after{
+                                .flourish::before, .flourish::after{
                                     content:""; position:absolute; top:50%; width:86px; height:1px;
                                     background:linear-gradient(90deg, transparent, rgba(255,255,255,.7), transparent);
                                 }
-                                .flourish::before{ left:-86px }
-                                .flourish::after{ right:-86px }
+                                .flourish::before{ left:-86px } .flourish::after{ right:-86px }
+
                                 .hero-names{
                                     font-family:'Great Vibes', cursive;
                                     font-weight:700; font-size:clamp(34px, 7vw, 64px); line-height:1.08 !important;
-                                    margin:.10em 0 .10em !important;
-                                    padding:.10em 0 .14em !important;
+                                    margin:.10em 0 .10em !important; padding:.10em 0 .14em !important;
                                     background: linear-gradient(180deg, #fff, #f4f4f4);
                                     -webkit-background-clip:text; background-clip:text; color:transparent;
                                     text-shadow: 0 10px 40px rgba(0,0,0,.35);
                                 }
                                 .hero-sub{ font-size:clamp(15px, 1.3vw, 18px); opacity:.92; margin:6px 0 0 }
                                 .hero-cta{ margin-top:clamp(16px, 2.2vw, 26px); display:flex; gap:12px; justify-content:center; flex-wrap:wrap }
-                                /* стиль кнопок внутри HERO (не перезаписывает глобальные) */
-                                /* стиль кнопок внутри HERO (не перезаписывает глобальные цвета) */
+
+                                /* кнопки в HERO */
                                 .hero .btn{
                                     display:inline-flex; align-items:center; justify-content:center; gap:.6rem;
                                     padding:14px 22px; border-radius:999px;
@@ -162,23 +179,16 @@ permalink: /template-premium-5
                                     background:var(--accent-1); color:#fff; border-color:var(--accent-1);
                                     transform:translateY(-2px); box-shadow:0 14px 34px rgba(0,0,0,.12);
                                 }
-
-                                /* «Підтвердити»: сразу заливка лиловым */
                                 .hero .btn.primary{
                                     background:var(--accent-1); color:#fff; border-color:var(--accent-1);
                                 }
-                                .hero .btn.primary:hover{
-                                    /* слегка затемняем при ховере */
-                                    filter:brightness(.95);
-                                    transform:translateY(-2px);
-                                }
-
-                                /* фокус для клавиатуры */
+                                .hero .btn.primary:hover{ filter:brightness(.95); transform:translateY(-2px); }
                                 .hero .btn:focus-visible{
                                     outline:2px solid color-mix(in srgb, var(--accent-1) 55%, #fff 45%);
                                     outline-offset:2px;
                                 }
 
+                                /* мобильные фиксы */
                                 @media (max-width: 600px){
                                     .hero{ padding-bottom: clamp(18px, 6vh, 56px); }
                                     .hero-card{ max-width: 88vw; padding: 10px 12px; }
@@ -190,8 +200,7 @@ permalink: /template-premium-5
                                 }
                             </style>
 
-
-                            <!-- Плавный скролл из кнопок HERO к существующим секциям -->
+                            <!-- Плавный скролл -->
                             <script>
                                 document.addEventListener('click', (e)=>{
                                     const a = e.target.closest('.hero a[data-scroll]');
@@ -203,6 +212,7 @@ permalink: /template-premium-5
                                 });
                             </script>
                         </header>
+
                         <!-- /HERO -->
 
                         <!-- TIMELINE -->
@@ -534,6 +544,163 @@ permalink: /template-premium-5
                             </script>
                         </section>
                         <!-- /COUNTDOWN -->
+
+
+                        <section class="wedding-dresscode" aria-label="Дрес-код">
+                            <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet"/>
+
+                            <header class="dc-head">
+                                <h2 class="dc-title">Дрес-код</h2>
+                                <p class="dc-sub">Атмосфера тепла, єдності та української краси</p>
+                                <div class="dc-ornament" aria-hidden="true"></div>
+                            </header>
+
+                            <div class="dc-grid">
+                                <!-- Картка 1: стиль -->
+                                <article class="dc-card">
+                                    <p class="dc-text">
+                                        У цей день нам хочеться тепла, єдності та української краси. Будемо раді,
+                                        якщо ви підтримаєте атмосферу у <strong>вишиванках</strong> або вбранні
+                                        у світлих, природних відтінках (кремовий, беж, пастель).
+                                    </p>
+
+                                    <div class="dc-hint">
+                                        <div class="dc-hint-mark">✔</div>
+                                        <div class="dc-hint-text">Вишиванка / елементи національного вбрання</div>
+                                    </div>
+                                    <div class="dc-hint">
+                                        <div class="dc-hint-mark">✔</div>
+                                        <div class="dc-hint-text">Спокійні натуральні відтінки пасують до концепції</div>
+                                    </div>
+                                    <div class="dc-hint">
+                                        <div class="dc-hint-mark">✔</div>
+                                        <div class="dc-hint-text">Зручне взуття для танців і прогулянок</div>
+                                    </div>
+
+                                    <div class="dc-note">
+                                        Якщо вишиванки немає — оберіть лаконічний образ у світлих тонах: білий, кремовий, лляний, пісочний.
+                                    </div>
+                                </article>
+
+                                <!-- Картка 2: контакти -->
+                                <article class="dc-card">
+                                    <p class="dc-text">
+                                        Будемо раді допомогти з будь-якими уточненнями. <br>
+                                        З усіх питань можна звертатися до нареченого:
+                                    </p>
+
+                                    <div class="dc-actions">
+                                        <a class="dc-btn" href="tel:+380631231212">📞 Подзвонити</a>
+                                        <a class="dc-btn dc-btn--light" href="sms:+380631231212">✉️ Написати SMS</a>
+                                    </div>
+
+                                    <div class="dc-contact">
+                                        Телефон: <a href="tel:+380631231212">+380&nbsp;63&nbsp;123&nbsp;12&nbsp;12</a>
+                                    </div>
+                                </article>
+                            </div>
+
+                            <!-- стилі збережено -->
+                            <style>
+                                .wedding-dresscode{
+                                    --gold-1:#d6b889; --gold-2:#f1e0b3;
+                                    --ink:#2b2a2a; --muted:#6f6f6f; --soft:#ffffff;
+                                    --line: rgba(0,0,0,.10);
+                                    --px: clamp(16px, 4vw, 32px);
+                                    --py: clamp(28px, 8vh, 72px);
+                                    --radius: 20px;
+                                    --maxw: min(1000px, 94vw);
+
+                                    position:relative; isolation:isolate;
+                                    padding: var(--py) var(--px);
+                                    display:grid; place-items:center;
+                                    font-family:'Montserrat', sans-serif; color:var(--ink);
+                                    background:
+                                            radial-gradient(1000px 520px at 50% -12%, rgba(214,184,137,.16), transparent 55%),
+                                            linear-gradient(180deg, #f9f7f4, #fdfcfb);
+                                }
+                                .dc-head{ text-align:center; margin-bottom: clamp(24px, 6vh, 48px); max-width: var(--maxw); }
+                                .dc-title{
+                                    margin:0 0 6px;
+                                    font-family:'Great Vibes', cursive;
+                                    font-size: clamp(40px, 6.4vw, 72px);
+                                    line-height:1.22;
+                                    padding:.18em .25em .12em;
+                                    background: linear-gradient(130deg, var(--gold-2), var(--gold-1));
+                                    -webkit-background-clip:text; background-clip:text; color:transparent;
+                                    text-shadow: 0 2px 14px rgba(0,0,0,.12);
+                                    overflow:visible;
+                                    display:inline-block;
+                                }
+                                .dc-sub{ margin:0; color:var(--muted); font-size: clamp(13px, 2.2vw, 16px); }
+                                .dc-ornament{
+                                    width:min(180px, 40vw); height:2px; margin: 14px auto 0;
+                                    border-radius:2px;
+                                    background: linear-gradient(90deg, transparent, rgba(214,184,137,.85), transparent);
+                                    filter: drop-shadow(0 4px 10px rgba(214,184,137,.25));
+                                }
+                                .dc-grid{
+                                    width:100%; max-width: var(--maxw);
+                                    display:grid; gap: clamp(16px, 3vw, 26px);
+                                    grid-template-columns: 1fr;
+                                }
+                                @media (min-width: 920px){
+                                    .dc-grid{ grid-template-columns: 1fr 1fr; }
+                                }
+                                .dc-card{
+                                    background: var(--soft);
+                                    border: 1px solid var(--line);
+                                    border-radius: var(--radius);
+                                    box-shadow: 0 16px 40px rgba(18,19,20,.06);
+                                    padding: clamp(16px, 2.4vh, 22px) clamp(16px, 2.6vw, 24px);
+                                    position:relative;
+                                }
+                                .dc-card::before{
+                                    content:"";
+                                    position:absolute; left:12%; right:12%; top:-1px; height:3px; border-radius:2px;
+                                    background: linear-gradient(130deg, var(--gold-2), var(--gold-1));
+                                    opacity:.9;
+                                }
+                                .dc-text{ margin:0 0 12px; line-height:1.65; color:var(--muted); font-size: clamp(14px, 2.4vw, 16px); }
+                                .dc-actions{ display:flex; flex-wrap:wrap; gap:10px; margin-top: 10px; }
+                                .dc-btn{
+                                    display:inline-flex; align-items:center; justify-content:center;
+                                    gap:8px; padding:10px 16px; font-weight:700; letter-spacing:.02em;
+                                    border-radius:999px; text-decoration:none;
+                                    background: linear-gradient(130deg, var(--gold-2), var(--gold-1)); color:#1d1c16;
+                                    border:1px solid rgba(214,184,137,.55);
+                                    box-shadow: 0 12px 28px rgba(214,184,137,.26);
+                                    transition: transform .15s ease, box-shadow .2s ease, filter .2s ease;
+                                }
+                                .dc-btn:hover{ transform: translateY(-1px); box-shadow: 0 18px 36px rgba(214,184,137,.34); }
+                                .dc-btn:active{ transform:none; box-shadow: 0 10px 24px rgba(214,184,137,.24); }
+                                .dc-btn--light{ background:#fff; color:#2f2f2f; border-color: rgba(0,0,0,.08); box-shadow: 0 10px 24px rgba(18,19,20,.06); }
+                                .dc-contact{ margin-top: 8px; font-size: 14px; color: var(--muted); }
+                                .dc-contact a{ color: inherit; text-decoration: underline; text-decoration-color: rgba(214,184,137,.6); }
+                                .dc-hint{
+                                    display:grid; grid-template-columns: 28px 1fr; gap:10px; align-items:flex-start;
+                                    padding:10px 0; border-bottom: 1px dashed rgba(0,0,0,.08);
+                                }
+                                .dc-hint:last-child{ border-bottom:none; }
+                                .dc-hint-mark{
+                                    width:28px; height:28px; border-radius:50%;
+                                    display:grid; place-items:center;
+                                    background:#fff; border:1px solid rgba(214,184,137,.45);
+                                    box-shadow: 0 8px 20px rgba(214,184,137,.14);
+                                    font-weight:700; color:#1e1c16;
+                                }
+                                .dc-hint-text{ font-size: clamp(14px, 2.3vw, 15.5px); color:var(--ink); line-height:1.55; }
+                                .dc-note{
+                                    margin-top: 10px;
+                                    font-size: 13.5px; line-height:1.55; color:var(--muted);
+                                    background: rgba(214,184,137,.08);
+                                    border: 1px dashed rgba(214,184,137,.40);
+                                    border-radius: 12px;
+                                    padding: 10px 12px;
+                                }
+                            </style>
+                        </section>
+
 
                         <section id="details" class="wedding-details" aria-label="Деталі свята">
                             <header class="wd-head">
