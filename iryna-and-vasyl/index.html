@@ -998,13 +998,15 @@ permalink: /iryna-and-vasyl
                                 </header>
 
                                 <div class="dc-grid">
-                                    <!-- Картка 1: стиль -->
-                                    <article class="dc-card">
-                                        <p class="dc-text">
-                                            Ми мріємо, щоб у цей день панувала атмосфера тепла, єдності та української краси.
-                                            Тому будемо щасливі бачити вас у <strong>вишиванках</strong> — вони стануть особливою частинкою нашого спільного свята.
-                                        </p>
-                                    </article>
+                                    <!-- Картка 1: стиль у фоторамці -->
+                                    <div class="dc-frame">
+                                        <article class="dc-card dc-card--inside">
+                                            <p class="dc-text">
+                                                Ми мріємо, щоб у цей день панувала атмосфера тепла, єдності та української краси.
+                                                Тому будемо щасливі бачити вас у <strong>вишиванках</strong> — вони стануть особливою частинкою нашого спільного свята.
+                                            </p>
+                                        </article>
+                                    </div>
 
                                     <!-- Картка 2: контакти -->
                                     <article class="dc-card">
@@ -1034,6 +1036,10 @@ permalink: /iryna-and-vasyl
                                         --radius: 20px;
                                         --maxw: min(1000px, 94vw);
 
+                                        /* рамка-переменные */
+                                        --frame-pad: clamp(18px, 3.2vw, 28px);      /* отступ для рамки на десктопе */
+                                        --strip-h: clamp(32px, 15vw, 60px);          /* высота верх/низ полос на мобиле */
+
                                         position:relative; isolation:isolate;
                                         padding: var(--py) var(--px);
                                         display:grid; place-items:center;
@@ -1042,6 +1048,7 @@ permalink: /iryna-and-vasyl
                                                 radial-gradient(1000px 520px at 50% -12%, rgba(214,184,137,.16), transparent 55%),
                                                 linear-gradient(180deg, #f9f7f4, #fdfcfb);
                                     }
+
                                     .dc-head{ text-align:center; margin-bottom: clamp(24px, 6vh, 48px); max-width: var(--maxw); }
                                     .dc-title{
                                         margin:0 0 6px;
@@ -1052,7 +1059,6 @@ permalink: /iryna-and-vasyl
                                         background: linear-gradient(130deg, var(--gold-2), var(--gold-1));
                                         -webkit-background-clip:text; background-clip:text; color:transparent;
                                         text-shadow: 0 2px 14px rgba(0,0,0,.12);
-                                        overflow:visible;
                                         display:inline-block;
                                     }
                                     .dc-sub{ margin:0; color:var(--muted); font-size: clamp(13px, 2.2vw, 16px); }
@@ -1062,14 +1068,18 @@ permalink: /iryna-and-vasyl
                                         background: linear-gradient(90deg, transparent, rgba(214,184,137,.85), transparent);
                                         filter: drop-shadow(0 4px 10px rgba(214,184,137,.25));
                                     }
+
                                     .dc-grid{
                                         width:100%; max-width: var(--maxw);
                                         display:grid; gap: clamp(16px, 3vw, 26px);
                                         grid-template-columns: 1fr;
+                                        overflow:visible;
                                     }
                                     @media (min-width: 920px){
                                         .dc-grid{ grid-template-columns: 1fr 1fr; }
                                     }
+
+                                    /* Базові картки */
                                     .dc-card{
                                         background: var(--soft);
                                         border: 1px solid var(--line);
@@ -1085,6 +1095,7 @@ permalink: /iryna-and-vasyl
                                         opacity:.9;
                                     }
                                     .dc-text{ margin:0 0 12px; line-height:1.65; color:var(--muted); font-size: clamp(14px, 2.4vw, 16px); }
+
                                     .dc-actions{ display:flex; flex-wrap:wrap; gap:10px; margin-top: 10px; }
                                     .dc-btn{
                                         display:inline-flex; align-items:center; justify-content:center;
@@ -1100,8 +1111,75 @@ permalink: /iryna-and-vasyl
                                     .dc-btn--light{ background:#fff; color:#2f2f2f; border-color: rgba(0,0,0,.08); box-shadow: 0 10px 24px rgba(18,19,20,.06); }
                                     .dc-contact{ margin-top: 8px; font-size: 14px; color: var(--muted); }
                                     .dc-contact a{ color: inherit; text-decoration: underline; text-decoration-color: rgba(214,184,137,.6); }
+
+                                    /* ===== ФОТО-РАМКА ===== */
+                                    .dc-frame{
+                                        position: relative;
+                                        border-radius: calc(var(--radius) + 12px);
+                                        padding: var(--frame-pad);
+                                        z-index:0; /* создаём контекст для псевдоэлементов */
+                                    }
+                                    /* Десктоп: рамка по периметру (одним слоем) */
+                                    .dc-frame::after{
+                                        content:"";
+                                        position:absolute; inset:0;
+                                        border-radius: inherit;
+                                        background-image: url('/assets/media/orders/ornament.png');
+                                        background-repeat:no-repeat;
+                                        background-size: 100% 100%;
+                                        background-position: center;
+                                        pointer-events:none; user-select:none;
+                                        filter: drop-shadow(0 18px 42px rgba(18,19,20,.10));
+                                        z-index:0;
+                                    }
+                                    /* Внутренняя карточка над рамкой */
+                                    .dc-card--inside{
+                                        position: relative;
+                                        z-index:1;
+                                        background: var(--soft);
+                                        border: 1px solid var(--line);
+                                        border-radius: var(--radius);
+                                        box-shadow: 0 12px 32px rgba(18,19,20,.08);
+                                    }
+
+                                    /* ===== Мобилка: только верх и низ, боков НЕ видно ===== */
+                                    @media (max-width: 600px){
+                                        .dc-frame{
+                                            /* больше отступов чтобы фото-орнамент был заметнее */
+                                            padding-block: calc(var(--strip-h) + 10px);
+                                            padding-inline: clamp(8px, 2.6vw, 14px);
+                                            border-radius: calc(var(--radius) + 10px);
+                                        }
+                                        /* нижняя полоса */
+                                        .dc-frame::after{
+                                            inset: auto 0 0 0;               /* приклеиваем к низу */
+                                            height: var(--strip-h);
+                                            background-size: 100% auto;
+                                            background-position: bottom center;
+                                            border-bottom-left-radius: calc(var(--radius) + 10px);
+                                            border-bottom-right-radius: calc(var(--radius) + 10px);
+                                            filter: drop-shadow(0 10px 24px rgba(18,19,20,.10));
+                                        }
+                                        /* верхняя полоса */
+                                        .dc-frame::before{
+                                            content:"";
+                                            position:absolute; left:0; right:0; top:0;
+                                            height: var(--strip-h);
+                                            background-image: url('/assets/media/orders/ornament.png');
+                                            background-repeat: no-repeat;
+                                            background-size: 100% auto;
+                                            background-position: top center;
+                                            border-top-left-radius: calc(var(--radius) + 10px);
+                                            border-top-right-radius: calc(var(--radius) + 10px);
+                                            pointer-events:none; user-select:none;
+                                            z-index:0;
+                                            filter: drop-shadow(0 10px 24px rgba(18,19,20,.10));
+                                        }
+                                    }
                                 </style>
                             </section>
+
+
 
 
                             <section class="survey-elegant" aria-label="Опитування для гостей">
