@@ -72,7 +72,7 @@ permalink: /template-premium-5
                     <div class="et_builder_inner_content et_pb_gutters3">
 
                         <!-- HERO (заменено секцией из первой страницы) -->
-                        <header id="home" class="hero" role="banner" aria-label="Hero">
+                        <header id="home" class="hero" role="banner" aria-label="Hero" data-fade="on">
                             <picture class="hero-bg" aria-hidden="true">
                                 <img
                                         src="/assets/media/images/wedding_banner5.jpg"
@@ -98,20 +98,20 @@ permalink: /template-premium-5
                             <style>
                                 .hero{
                                     --ink:#1c1b1b; --muted:#6a6a6a; --paper:#fffaf7;
-                                    --accent-1:#afa064;   /* mauve */
-                                    --accent-2:#f4e6ee;   /* dusty pink */
-                                    --accent-ink:#1F2023;
+                                    --accent-1:#afa064; --accent-2:#f4e6ee; --accent-ink:#1F2023;
                                     --radius:22px;
                                     --shadow:0 10px 30px rgba(0,0,0,.08), 0 2px 10px rgba(0,0,0,.06);
 
                                     position:relative;
-                                    min-height:100dvh;
+                                    /* 100svh/100dvh стабільні на мобі; ставимо жорстку висоту, щоб фон не “дихав” */
+                                    height: 100svh;
                                     display:flex; align-items:flex-end; justify-content:center;
                                     overflow:hidden; isolation:isolate; color:#fff; background-color:#0e0d0d;
                                     padding-bottom:clamp(24px, 6vw, 72px);
                                     font-family:'Montserrat', sans-serif;
                                 }
 
+                                /* Фон-картинка: без fixed, без transform, без will-change */
                                 .hero-bg{
                                     position:absolute; inset:0; z-index:0; display:block;
                                     pointer-events:none; user-select:none;
@@ -120,7 +120,7 @@ permalink: /template-premium-5
                                     position:absolute; inset:0;
                                     width:100%; height:100%;
                                     object-fit:cover; object-position:center;
-                                    transform:translateZ(0); will-change:transform;
+                                    /* ніяких translateZ / will-change — щоб не чіпати композитинг на скролі */
                                     filter:saturate(105%) contrast(102%);
                                 }
 
@@ -130,6 +130,7 @@ permalink: /template-premium-5
                                             radial-gradient(1400px 60% at 50% -10%, rgba(175,160,100,.45), transparent 60%),
                                             linear-gradient(180deg, rgba(12,12,12,.35) 0%, rgba(12,12,12,.65) 70%, rgba(12,12,12,.85) 100%);
                                     pointer-events:none;
+                                    transition: opacity .25s ease; /* для опційного fade */
                                 }
 
                                 .hero-card{
@@ -162,7 +163,7 @@ permalink: /template-premium-5
                                 .hero-sub{ font-size:clamp(15px, 1.3vw, 18px); opacity:.92; margin:6px 0 0 }
                                 .hero-cta{ margin-top:clamp(16px, 2.2vw, 26px); display:flex; gap:12px; justify-content:center; flex-wrap:wrap }
 
-                                /* кнопки */
+                                /* кнопки у твоїх кольорах */
                                 .hero .btn{
                                     display:inline-flex; align-items:center; justify-content:center; gap:.6rem;
                                     padding:14px 22px; border-radius:999px;
@@ -184,6 +185,7 @@ permalink: /template-premium-5
                                     outline-offset:2px;
                                 }
 
+                                /* мобільні */
                                 @media (max-width: 600px){
                                     .hero{ padding-bottom: clamp(18px, 6vh, 56px); }
                                     .hero-card{ max-width: 88vw; padding: 10px 12px; }
@@ -193,9 +195,19 @@ permalink: /template-premium-5
                                     .hero-cta{ gap:8px }
                                     .hero .btn{ padding:10px 14px; font-size:14px }
                                 }
+
+                                /* опційний fade ефект для фону/оверлею при скролі */
+                                .hero[data-fade="on"] .hero-overlay{ opacity: var(--fade, 1); }
+                                .hero[data-fade="on"] .hero-bg > img{ opacity: var(--fade, 1); transition: opacity .25s ease; }
+                                @media (prefers-reduced-motion: reduce){
+                                    .hero .btn, .hero .btn:hover{ transition:none; transform:none; }
+                                    .hero[data-fade="on"] .hero-overlay,
+                                    .hero[data-fade="on"] .hero-bg > img{ transition:none; }
+                                }
                             </style>
 
                             <script>
+                                // Плавний скрол до секцій
                                 document.addEventListener('click', (e)=>{
                                     const a = e.target.closest('.hero a[data-scroll]');
                                     if(!a) return;
@@ -204,8 +216,31 @@ permalink: /template-premium-5
                                     const target = document.querySelector(sel);
                                     if(target){ target.scrollIntoView({behavior:'smooth', block:'start'}); }
                                 });
+
+                                // Опційний fade: додай атрибут data-fade="on" на <header>
+                                (function(){
+                                    const hero = document.querySelector('#home.hero');
+                                    if(!hero || hero.getAttribute('data-fade') !== 'on') return;
+
+                                    let ticking = false;
+                                    const max = Math.max(1, window.innerHeight); // нормалізуємо
+                                    function onScroll(){
+                                        if (ticking) return;
+                                        ticking = true;
+                                        requestAnimationFrame(()=>{
+                                            const y = window.scrollY || window.pageYOffset || 0;
+                                            // 0..1 -> 1..0 (починає з 1 і плавно зникає до 0 на перший екран)
+                                            const fade = Math.max(0, Math.min(1, 1 - y / max));
+                                            hero.style.setProperty('--fade', fade.toFixed(3));
+                                            ticking = false;
+                                        });
+                                    }
+                                    window.addEventListener('scroll', onScroll, {passive:true});
+                                    onScroll();
+                                })();
                             </script>
                         </header>
+
                         <!-- /HERO -->
 
                         <!-- TIMELINE -->
