@@ -15,7 +15,7 @@ permalink: /template-premium-5
     <meta property="og:url" content="https://my-wedding.com.ua/template-premium-5" />
     <meta property="og:title" content="Олег & Настя - Весільне запрошення" />
     <meta property="og:type" content="https://my-wedding.com.ua/template-premium-5" />
-    <meta property="og:image" content="https://my-wedding.com.ua/assets/media/images/wedding_banner_736_850-1.jpg" />
+    <meta property="og:image" content="https://my-wedding.com.ua/assets/media/images/wedding_banner5.jpg" />
     <link rel="canonical" href="https://my-wedding.com.ua/template-premium-5">
     <!--/metatextblock-->
 
@@ -73,24 +73,19 @@ permalink: /template-premium-5
 
                         <!-- HERO (заменено секцией из первой страницы) -->
                         <header id="home" class="hero" role="banner" aria-label="Hero">
-                            <!-- Реальный фон-картинка заместо background fixed -->
                             <picture class="hero-bg" aria-hidden="true">
-                                <!-- при желании добавь webp/avif -->
-                                <!-- <source srcset="/assets/media/images/wedding_banner_736_850-1.avif" type="image/avif"> -->
-                                <!-- <source srcset="/assets/media/images/wedding_banner_736_850-1.webp" type="image/webp"> -->
                                 <img
-                                        src="/assets/media/images/wedding_banner_736_850-1.jpg"
+                                        src="/assets/media/images/wedding_banner5.jpg"
                                         alt=""
                                         loading="eager"
                                         decoding="async"
                                 >
                             </picture>
 
-                            <!-- затемнение/градиенты поверх фото -->
                             <div class="hero-overlay" aria-hidden="true"></div>
 
                             <div class="hero-card">
-                                <div class="hero-date">Субота, 12 липня 2025 • Київ</div>
+                                <div class="hero-date">Субота, 10 червня 2026 • Київ</div>
                                 <div class="flourish">✶</div>
                                 <div class="hero-names">Олег & Настя</div>
                                 <p class="hero-sub">З радістю запрошуємо вас розділити з нами день нашого весілля.</p>
@@ -103,19 +98,20 @@ permalink: /template-premium-5
                             <style>
                                 .hero{
                                     --ink:#1c1b1b; --muted:#6a6a6a; --paper:#fffaf7;
-                                    --accent-1:#c56c86; /* если глобально уже есть — можно удалить */
+                                    --accent-1:#afa064;   /* mauve */
+                                    --accent-2:#f4e6ee;   /* dusty pink */
+                                    --accent-ink:#1F2023;
                                     --radius:22px;
                                     --shadow:0 10px 30px rgba(0,0,0,.08), 0 2px 10px rgba(0,0,0,.06);
 
                                     position:relative;
-                                    min-height:100dvh; /* стабильно на мобилках */
+                                    min-height:100dvh;
                                     display:flex; align-items:flex-end; justify-content:center;
                                     overflow:hidden; isolation:isolate; color:#fff; background-color:#0e0d0d;
                                     padding-bottom:clamp(24px, 6vw, 72px);
                                     font-family:'Montserrat', sans-serif;
                                 }
 
-                                /* Фон как IMG, без background-attachment:fixed */
                                 .hero-bg{
                                     position:absolute; inset:0; z-index:0; display:block;
                                     pointer-events:none; user-select:none;
@@ -131,13 +127,13 @@ permalink: /template-premium-5
                                 .hero-overlay{
                                     position:absolute; inset:0; z-index:1;
                                     background:
-                                            radial-gradient(1400px 60% at 50% -10%, rgba(199,162,126,.45), transparent 60%),
+                                            radial-gradient(1400px 60% at 50% -10%, rgba(175,160,100,.45), transparent 60%),
                                             linear-gradient(180deg, rgba(12,12,12,.35) 0%, rgba(12,12,12,.65) 70%, rgba(12,12,12,.85) 100%);
                                     pointer-events:none;
                                 }
 
                                 .hero-card{
-                                    position:relative; z-index:2; /* выше фона и оверлея */
+                                    position:relative; z-index:2;
                                     width:min(680px, 92vw); text-align:center; color:#fff;
                                     padding:clamp(12px, 2.4vw, 18px) clamp(14px, 3vw, 22px);
                                     border-radius:var(--radius); box-shadow:var(--shadow);
@@ -166,7 +162,7 @@ permalink: /template-premium-5
                                 .hero-sub{ font-size:clamp(15px, 1.3vw, 18px); opacity:.92; margin:6px 0 0 }
                                 .hero-cta{ margin-top:clamp(16px, 2.2vw, 26px); display:flex; gap:12px; justify-content:center; flex-wrap:wrap }
 
-                                /* кнопки в HERO */
+                                /* кнопки */
                                 .hero .btn{
                                     display:inline-flex; align-items:center; justify-content:center; gap:.6rem;
                                     padding:14px 22px; border-radius:999px;
@@ -188,7 +184,6 @@ permalink: /template-premium-5
                                     outline-offset:2px;
                                 }
 
-                                /* мобильные фиксы */
                                 @media (max-width: 600px){
                                     .hero{ padding-bottom: clamp(18px, 6vh, 56px); }
                                     .hero-card{ max-width: 88vw; padding: 10px 12px; }
@@ -200,7 +195,6 @@ permalink: /template-premium-5
                                 }
                             </style>
 
-                            <!-- Плавный скролл -->
                             <script>
                                 document.addEventListener('click', (e)=>{
                                     const a = e.target.closest('.hero a[data-scroll]');
@@ -212,7 +206,6 @@ permalink: /template-premium-5
                                 });
                             </script>
                         </header>
-
                         <!-- /HERO -->
 
                         <!-- TIMELINE -->
@@ -438,6 +431,284 @@ permalink: /template-premium-5
                         </section>
                         <!-- /TIMELINE -->
 
+
+                        <section class="wedding-details" aria-label="Деталі свята">
+                            <!-- Шрифти -->
+                            <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet"/>
+
+                            <!-- Заголовок -->
+                            <header class="wd-head">
+                                <h2 class="wd-title">Деталі</h2>
+                                <p class="wd-sub">Дякуємо за ваше тепло та розуміння</p>
+                                <div class="wd-ornament" aria-hidden="true"></div>
+                            </header>
+
+                            <!-- Карточки деталей -->
+                            <div class="wd-grid">
+                                <!-- Без квітів -->
+                                <article class="wd-card wd-card--noflowers" data-anim>
+                                    <div class="wd-mark">
+        <span class="wd-icon">
+          <img src="https://img.icons8.com/ios/50/flower.png" alt="" decoding="async" />
+        </span>
+                                    </div>
+                                    <h3 class="wd-card-title">Квіти</h3>
+                                    <p class="wd-card-text">
+                                        Просимо вас не дарувати нам квіти, ми не встигнемо насолодитися їх красою.
+                                    </p>
+                                </article>
+
+                                <!-- Пляшка напою -->
+                                <article class="wd-card" data-anim>
+                                    <div class="wd-mark">
+        <span class="wd-icon">
+          <img src="https://img.icons8.com/ios/50/gift.png" alt="" decoding="async" />
+        </span>
+                                    </div>
+                                    <h3 class="wd-card-title">Подарунки</h3>
+                                    <p class="wd-card-text">
+                                        Якщо ви хочете зробити нам цінний подарунок, ми будемо дуже вдячними за ваш внесок у бюджет нашої молодої сімʼї.
+                                    </p>
+                                </article>
+
+                                <!-- Внесок у сімейний бюджет -->
+                                <article class="wd-card" data-anim>
+                                    <div class="wd-mark">
+    <span class="wd-icon">
+      <img src="https://img.icons8.com/ios/50/helping-hand.png" alt="" decoding="async" />
+    </span>
+                                    </div>
+                                    <h3 class="wd-card-title">Допомога</h3>
+                                    <p class="wd-card-text">
+                                        Найбільшою радістю для нас буде, якщо замість квітів ви підтримаєте збір на 3-тю штурмову бригаду.<br>
+                                        Ми залишимо QR-код — щоб кожен, хто захоче, міг долучитися до доброї справи.
+                                    </p>
+
+                                    <!-- QR-код -->
+                                    <div class="wd-qr" style="text-align:center; margin:16px 0;">
+                                        <img src="/assets/media/orders/qr-code-demo.png"
+                                             alt="QR-код Monobank" width="180" height="180"
+                                             style="border-radius:12px; box-shadow:0 4px 16px rgba(0,0,0,.15);" />
+                                    </div>
+
+                                    <!-- Номер картки -->
+                                    <div class="wd-card-number" style="text-align:center; margin-top:12px;">
+                                        <p style="margin:0 0 8px; font-weight:600; font-size:15px; color:#333;">
+                                            1234&nbsp;5678&nbsp;9123&nbsp;4567
+                                        </p>
+                                        <button onclick="copyCardNumber()"
+                                                style="padding:8px 14px; font-size:14px; font-weight:600; border:none; border-radius:8px;
+                   background:#d6b889; color:#fff; cursor:pointer;">
+                                            Скопіювати номер
+                                        </button>
+                                    </div>
+                                </article>
+
+                                <!-- Тост-попап -->
+                                <div id="toast" role="status" aria-live="polite" aria-atomic="true">Номер картки скопійовано ✅</div>
+
+                                <style>
+                                    #toast{
+                                        position: fixed;
+                                        left: 50%;
+                                        top: calc(env(safe-area-inset-top) + 18px);
+                                        transform: translate(-50%, -12px);
+                                        width: min(96vw, 720px);
+                                        max-width: 720px;
+                                        padding: 14px 18px;
+                                        text-align: center;
+
+                                        background: rgba(30,30,30,.92);
+                                        color: #fff;
+                                        font: 600 15px/1.35 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Montserrat", sans-serif;
+                                        border-radius: 12px;
+                                        box-shadow: 0 14px 34px rgba(0,0,0,.28), inset 0 0 0 1px rgba(255,255,255,.18);
+
+                                        opacity: 0;
+                                        pointer-events: none;
+                                        z-index: 99999;
+                                        transition: opacity .22s ease, transform .22s ease;
+                                    }
+                                    #toast.show{
+                                        opacity: 1;
+                                        transform: translate(-50%, 0);
+                                    }
+
+                                    @media (max-width: 360px){
+                                        #toast{ padding: 12px 14px; font-size: 14px; }
+                                    }
+                                </style>
+
+                                <script>
+                                    function showToast(msg, duration = 2000){
+                                        const el = document.getElementById('toast');
+                                        if (!el) return;
+                                        el.textContent = msg;
+                                        el.classList.add('show');
+                                        clearTimeout(showToast._t);
+                                        showToast._t = setTimeout(() => el.classList.remove('show'), duration);
+                                    }
+
+                                    function copyCardNumber() {
+                                        const cardNumber = "4874100028362898";
+                                        if (navigator.clipboard && navigator.clipboard.writeText){
+                                            navigator.clipboard.writeText(cardNumber)
+                                                .then(() => showToast("Номер картки скопійовано ✅"))
+                                                .catch(() => fallbackCopy(cardNumber));
+                                        } else {
+                                            fallbackCopy(cardNumber);
+                                        }
+                                    }
+
+                                    function fallbackCopy(text){
+                                        const ta = document.createElement('textarea');
+                                        ta.value = text;
+                                        ta.style.position = 'fixed';
+                                        ta.style.left = '-9999px';
+                                        document.body.appendChild(ta);
+                                        ta.select();
+                                        try { document.execCommand('copy'); } catch(e){}
+                                        document.body.removeChild(ta);
+                                        showToast("Номер картки скопійовано ✅");
+                                    }
+                                </script>
+                            </div>
+
+                            <style>
+                                /* Локальні змінні секції, щоб не конфліктувати з іншими блоками */
+                                .wedding-details{
+                                    --gold-1:#d6b889;
+                                    --gold-2:#f1e0b3;
+                                    --ink:#2b2a2a;
+                                    --muted:#6f6f6f;
+                                    --soft:#ffffff;
+                                    --line: rgba(0,0,0,.08);
+
+                                    --px: clamp(16px, 4vw, 32px);
+                                    --py: clamp(28px, 8vh, 72px);
+                                    --gap: clamp(16px, 2.4vh, 24px);
+                                    --radius: 20px;
+                                    --maxw: min(980px, 94vw);
+
+                                    position:relative; isolation:isolate;
+                                    padding: var(--py) var(--px);
+                                    display:grid; place-items:center;
+                                    font-family:'Montserrat', sans-serif; color:var(--ink);
+                                    background:
+                                            radial-gradient(1000px 520px at 50% -12%, rgba(214,184,137,.16), transparent 55%),
+                                            linear-gradient(180deg, #f9f7f4, #fdfcfb);
+                                }
+
+                                .wd-head{ text-align:center; margin-bottom: clamp(24px, 6vh, 48px); max-width: var(--maxw); }
+                                .wd-title{
+                                    margin:0 0 6px;
+                                    font-family:'Great Vibes', cursive;
+                                    font-size: clamp(40px, 6.6vw, 72px);
+                                    line-height: 1.22;
+                                    padding-top: 0.2em;
+                                    padding-bottom: 0.15em;
+                                    padding-inline: 0.25em;   /* ↑ невеликий запас зліва/справа */
+                                    background: linear-gradient(130deg, var(--gold-2), var(--gold-1));
+                                    -webkit-background-clip:text; background-clip:text; color:transparent;
+                                    text-shadow: 0 2px 16px rgba(0,0,0,.12);
+                                    overflow: visible;
+                                    display: inline-block;    /* гарантує, що падінги врахуються */
+                                }
+
+                                .wd-sub{ margin:0; color:var(--muted); font-size: clamp(13px, 2.2vw, 16px); }
+                                .wd-ornament{
+                                    width:min(180px, 40vw); height:2px; margin: 14px auto 0;
+                                    border-radius:2px;
+                                    background: linear-gradient(90deg, transparent, rgba(214,184,137,.85), transparent);
+                                    filter: drop-shadow(0 4px 10px rgba(214,184,137,.25));
+                                }
+
+                                /* Сітка карток: мобайл 1 кол., далі 2/3 */
+                                .wd-grid{
+                                    width:100%; max-width: var(--maxw);
+                                    display:grid; gap: var(--gap);
+                                    grid-template-columns: 1fr;
+                                }
+                                @media (min-width: 720px){
+                                    .wd-grid{ grid-template-columns: 1fr 1fr; }
+                                }
+                                @media (min-width: 1040px){
+                                    .wd-grid{ grid-template-columns: 1fr 1fr 1fr; }
+                                }
+
+                                .wd-card{
+                                    position:relative;
+                                    background: var(--soft);
+                                    border: 1px solid var(--line);
+                                    border-radius: var(--radius);
+                                    box-shadow: 0 16px 40px rgba(18,19,20,.06);
+                                    padding: clamp(16px, 2.4vh, 22px) clamp(16px, 2.6vw, 24px);
+                                    text-align:center;
+                                    opacity:0; transform: translateY(14px);
+                                }
+
+                                /* Тонка золота смужка вгорі */
+                                .wd-card::before{
+                                    content:"";
+                                    position:absolute; left:12%; right:12%; top:-1px; height:3px; border-radius:2px;
+                                    background: linear-gradient(130deg, var(--gold-2), var(--gold-1));
+                                    opacity:.9;
+                                }
+
+                                .wd-mark{ display:flex; justify-content:center; margin-bottom: 12px; }
+                                .wd-icon{
+                                    position:relative;
+                                    width: 56px; height: 56px; border-radius: 50%;
+                                    display:grid; place-items:center; background:#fff;
+                                    border: 1px solid rgba(214,184,137,.35);
+                                    box-shadow: 0 10px 24px rgba(214,184,137,.18);
+                                }
+                                .wd-icon img{
+                                    width: 24px; height: 24px; display:block;
+                                    filter: grayscale(100%) brightness(0%);
+                                    opacity:.9;
+                                }
+                                /* Перекреслення для "без квітів" (акуратно, золото) */
+                                .wd-card--noflowers .wd-icon::after{
+                                    content:""; position:absolute; inset:0; margin:auto;
+                                    width:70%; height:2px; border-radius:2px;
+                                    background: linear-gradient(130deg, var(--gold-2), var(--gold-1));
+                                    transform: rotate(-28deg);
+                                    box-shadow: 0 0 0 1px rgba(255,255,255,.6) inset;
+                                }
+
+                                .wd-card-title{
+                                    margin: 4px 0 8px;
+                                    font-weight:600; letter-spacing:.01em;
+                                    font-size: clamp(16px, 2.6vw, 20px);
+                                }
+                                .wd-card-text{
+                                    margin:0; line-height:1.6; color: var(--muted);
+                                    font-size: clamp(14px, 2.4vw, 16px);
+                                }
+
+                                /* Анімація появи (аккуратна) */
+                                @keyframes fdUp { to { opacity:1; transform: translateY(0); } }
+                            </style>
+
+                            <script>
+                                // Плавна поява карток при прокрутці
+                                document.addEventListener('DOMContentLoaded', () => {
+                                    const cards = document.querySelectorAll('.wedding-details [data-anim]');
+                                    const io = new IntersectionObserver((entries) => {
+                                        entries.forEach((e, i) => {
+                                            if (e.isIntersecting) {
+                                                e.target.style.animation = 'fdUp .6s ease forwards';
+                                                e.target.style.animationDelay = `${0.06 * i}s`;
+                                                io.unobserve(e.target);
+                                            }
+                                        });
+                                    }, { threshold: .2 });
+                                    cards.forEach(c => io.observe(c));
+                                });
+                            </script>
+                        </section>
+
                         <!-- COUNTDOWN -->
                         <section class="wedding-countdown" aria-label="Відлік до весілля">
                             <header class="wc-head">
@@ -556,37 +827,21 @@ permalink: /template-premium-5
                             </header>
 
                             <div class="dc-grid">
-                                <!-- Картка 1: стиль -->
-                                <article class="dc-card">
-                                    <p class="dc-text">
-                                        У цей день нам хочеться тепла, єдності та української краси. Будемо раді,
-                                        якщо ви підтримаєте атмосферу у <strong>вишиванках</strong> або вбранні
-                                        у світлих, природних відтінках (кремовий, беж, пастель).
-                                    </p>
-
-                                    <div class="dc-hint">
-                                        <div class="dc-hint-mark">✔</div>
-                                        <div class="dc-hint-text">Вишиванка / елементи національного вбрання</div>
-                                    </div>
-                                    <div class="dc-hint">
-                                        <div class="dc-hint-mark">✔</div>
-                                        <div class="dc-hint-text">Спокійні натуральні відтінки пасують до концепції</div>
-                                    </div>
-                                    <div class="dc-hint">
-                                        <div class="dc-hint-mark">✔</div>
-                                        <div class="dc-hint-text">Зручне взуття для танців і прогулянок</div>
-                                    </div>
-
-<!--                                    <div class="dc-note">-->
-<!--                                        Якщо вишиванки немає — оберіть лаконічний образ у світлих тонах: білий, кремовий, лляний, пісочний.-->
-<!--                                    </div>-->
-                                </article>
+                                <!-- Картка 1: стиль у фоторамці -->
+                                <div class="dc-frame">
+                                    <article class="dc-card dc-card--inside">
+                                        <p class="dc-text">
+                                            Ми мріємо, щоб у цей день панувала атмосфера тепла, єдності та української краси.
+                                            Тому будемо щасливі бачити вас у <strong>вишиванках</strong> — вони стануть особливою частинкою нашого спільного свята.
+                                        </p>
+                                    </article>
+                                </div>
 
                                 <!-- Картка 2: контакти -->
                                 <article class="dc-card">
                                     <p class="dc-text">
                                         Будемо раді допомогти з будь-якими уточненнями. <br>
-                                        З усіх питань можна звертатися до нареченого:
+                                        З усіх питань можна звертатися до нареченої:
                                     </p>
 
                                     <div class="dc-actions">
@@ -600,7 +855,6 @@ permalink: /template-premium-5
                                 </article>
                             </div>
 
-                            <!-- стилі збережено -->
                             <style>
                                 .wedding-dresscode{
                                     --gold-1:#d6b889; --gold-2:#f1e0b3;
@@ -611,6 +865,9 @@ permalink: /template-premium-5
                                     --radius: 20px;
                                     --maxw: min(1000px, 94vw);
 
+                                    --frame-pad: clamp(18px, 3.2vw, 28px);
+                                    --strip-h: clamp(32px, 15vw, 60px);
+
                                     position:relative; isolation:isolate;
                                     padding: var(--py) var(--px);
                                     display:grid; place-items:center;
@@ -619,6 +876,7 @@ permalink: /template-premium-5
                                             radial-gradient(1000px 520px at 50% -12%, rgba(214,184,137,.16), transparent 55%),
                                             linear-gradient(180deg, #f9f7f4, #fdfcfb);
                                 }
+
                                 .dc-head{ text-align:center; margin-bottom: clamp(24px, 6vh, 48px); max-width: var(--maxw); }
                                 .dc-title{
                                     margin:0 0 6px;
@@ -629,7 +887,6 @@ permalink: /template-premium-5
                                     background: linear-gradient(130deg, var(--gold-2), var(--gold-1));
                                     -webkit-background-clip:text; background-clip:text; color:transparent;
                                     text-shadow: 0 2px 14px rgba(0,0,0,.12);
-                                    overflow:visible;
                                     display:inline-block;
                                 }
                                 .dc-sub{ margin:0; color:var(--muted); font-size: clamp(13px, 2.2vw, 16px); }
@@ -639,14 +896,17 @@ permalink: /template-premium-5
                                     background: linear-gradient(90deg, transparent, rgba(214,184,137,.85), transparent);
                                     filter: drop-shadow(0 4px 10px rgba(214,184,137,.25));
                                 }
+
                                 .dc-grid{
                                     width:100%; max-width: var(--maxw);
                                     display:grid; gap: clamp(16px, 3vw, 26px);
                                     grid-template-columns: 1fr;
+                                    overflow:visible;
                                 }
                                 @media (min-width: 920px){
                                     .dc-grid{ grid-template-columns: 1fr 1fr; }
                                 }
+
                                 .dc-card{
                                     background: var(--soft);
                                     border: 1px solid var(--line);
@@ -662,6 +922,7 @@ permalink: /template-premium-5
                                     opacity:.9;
                                 }
                                 .dc-text{ margin:0 0 12px; line-height:1.65; color:var(--muted); font-size: clamp(14px, 2.4vw, 16px); }
+
                                 .dc-actions{ display:flex; flex-wrap:wrap; gap:10px; margin-top: 10px; }
                                 .dc-btn{
                                     display:inline-flex; align-items:center; justify-content:center;
@@ -677,208 +938,109 @@ permalink: /template-premium-5
                                 .dc-btn--light{ background:#fff; color:#2f2f2f; border-color: rgba(0,0,0,.08); box-shadow: 0 10px 24px rgba(18,19,20,.06); }
                                 .dc-contact{ margin-top: 8px; font-size: 14px; color: var(--muted); }
                                 .dc-contact a{ color: inherit; text-decoration: underline; text-decoration-color: rgba(214,184,137,.6); }
-                                .dc-hint{
-                                    display:grid; grid-template-columns: 28px 1fr; gap:10px; align-items:flex-start;
-                                    padding:10px 0; border-bottom: 1px dashed rgba(0,0,0,.08);
+
+                                /* ===== ФОТО-РАМКА ===== */
+                                .dc-frame{
+                                    position: relative;
+                                    border-radius: calc(var(--radius) + 12px);
+                                    padding: var(--frame-pad);
+                                    z-index:0;
                                 }
-                                .dc-hint:last-child{ border-bottom:none; }
-                                .dc-hint-mark{
-                                    width:28px; height:28px; border-radius:50%;
-                                    display:grid; place-items:center;
-                                    background:#fff; border:1px solid rgba(214,184,137,.45);
-                                    box-shadow: 0 8px 20px rgba(214,184,137,.14);
-                                    font-weight:700; color:#1e1c16;
+                                .dc-frame::after{
+                                    content:"";
+                                    position:absolute; inset:0;
+                                    border-radius: inherit;
+                                    background-image: url('/assets/media/orders/ornament.png');
+                                    background-repeat:no-repeat;
+                                    background-size: 100% 100%;
+                                    background-position: center;
+                                    pointer-events:none; user-select:none;
+                                    filter: drop-shadow(0 18px 42px rgba(18,19,20,.10));
+                                    z-index:0;
                                 }
-                                .dc-hint-text{ font-size: clamp(14px, 2.3vw, 15.5px); color:var(--ink); line-height:1.55; }
-                                .dc-note{
-                                    margin-top: 10px;
-                                    font-size: 13.5px; line-height:1.55; color:var(--muted);
-                                    background: rgba(214,184,137,.08);
-                                    border: 1px dashed rgba(214,184,137,.40);
-                                    border-radius: 12px;
-                                    padding: 10px 12px;
-                                }
-                            </style>
-                        </section>
-
-
-                        <section id="details" class="wedding-details" aria-label="Деталі свята">
-                            <header class="wd-head">
-                                <h2 class="wd-title">Деталі</h2>
-                                <p class="wd-sub">Дякуємо за ваше тепло та розуміння</p>
-                                <div class="wd-ornament" aria-hidden="true"></div>
-                            </header>
-
-                            <div class="wd-grid">
-                                <!-- Карточка 1 -->
-                                <article class="wd-card wd-card--noflowers" data-anim>
-                                    <div class="wd-mark">
-        <span class="wd-icon">
-          <img src="https://img.icons8.com/ios/50/flower.png" alt="" decoding="async" />
-        </span>
-                                    </div>
-                                    <h3 class="wd-card-title">Просимо без квітів</h3>
-                                    <p class="wd-card-text">
-                                        Просимо вас не дарувати нам квіти, ми не встигнемо насолодитися їх красою.
-                                    </p>
-                                </article>
-
-                                <!-- Карточка 2 -->
-                                <article class="wd-card" data-anim>
-                                    <div class="wd-mark">
-        <span class="wd-icon">
-          <img src="https://img.icons8.com/ios/50/wine-bottle.png" alt="" decoding="async" />
-        </span>
-                                    </div>
-                                    <h3 class="wd-card-title">Замість квітів — пляшка</h3>
-                                    <p class="wd-card-text">
-                                        Приємним компліментом для нас буде, якщо замість квітів ви подаруєте пляшку алкогольного напою для нашої колекції — ми відкриємо її на найближчому спільному святі.
-                                    </p>
-                                </article>
-
-                                <!-- Карточка 3 -->
-                                <article class="wd-card" data-anim>
-                                    <div class="wd-mark">
-        <span class="wd-icon">
-          <img src="https://img.icons8.com/ios/50/gift.png" alt="" decoding="async" />
-        </span>
-                                    </div>
-                                    <h3 class="wd-card-title">Цінний подарунок</h3>
-                                    <p class="wd-card-text">
-                                        Якщо ви хочете зробити потрібний та цінний подарунок — будемо дуже вдячні за вклад у бюджет нашої молодої сім’ї.
-                                    </p>
-                                </article>
-                            </div>
-
-                            <style>
-                                .wedding-details{
-                                    --px: clamp(16px, 4vw, 32px);
-                                    --py: clamp(28px, 8vh, 72px);
-                                    --gap: clamp(16px, 2.4vh, 24px);
-                                    --radius: 20px;
-                                    --maxw: min(1000px, 94vw);
-                                    position:relative; isolation:isolate;
-                                    padding: var(--py) var(--px);
-                                    display:grid; place-items:center;
-                                    font-family:'Montserrat', sans-serif; color:var(--accent-ink);
-                                    background:
-                                            radial-gradient(1000px 520px at 50% -12%, color-mix(in srgb, var(--accent-1) 22%, transparent), transparent 55%),
-                                            linear-gradient(180deg, #f9f7f4, #fdfcfb);
-                                }
-                                .wd-head{ text-align:center; margin-bottom: clamp(24px, 6vh, 48px); max-width: var(--maxw); }
-                                .wd-title{
-                                    margin:0 0 6px; font-family:'Great Vibes', cursive;
-                                    font-size: clamp(40px, 6.6vw, 72px); line-height: 1.22;
-                                    padding:.2em .25em .15em;
-                                    background: linear-gradient(130deg, var(--gold-2), var(--gold-1));
-                                    -webkit-background-clip:text; background-clip:text; color:transparent;
-                                    text-shadow: 0 2px 16px rgba(0,0,0,.12);
-                                    display:inline-block;
-                                }
-                                .wd-sub{ margin:0; color:var(--accent-muted); font-size: clamp(13px, 2.2vw, 16px); }
-                                .wd-ornament{
-                                    width:min(180px, 40vw); height:2px; margin: 14px auto 0; border-radius:2px;
-                                    background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent-1) 85%, white 15%), transparent);
-                                    filter: drop-shadow(0 4px 10px color-mix(in srgb, var(--accent-1) 35%, transparent));
-                                }
-
-                                .wd-grid{
-                                    width:100%; max-width: var(--maxw);
-                                    display:grid; gap: var(--gap);
-                                    grid-template-columns: 1fr;
-                                }
-                                @media (min-width: 720px){ .wd-grid{ grid-template-columns: 1fr 1fr; } }
-                                @media (min-width: 1040px){ .wd-grid{ grid-template-columns: 1fr 1fr 1fr; } }
-
-                                .wd-card{
-                                    position:relative; background: #fff;
-                                    border: 1px solid var(--accent-line);
+                                .dc-card--inside{
+                                    position: relative;
+                                    z-index:1;
+                                    background: var(--soft);
+                                    border: 1px solid var(--line);
                                     border-radius: var(--radius);
-                                    box-shadow: 0 16px 40px rgba(18,19,20,.06);
-                                    padding: clamp(16px, 2.4vh, 22px) clamp(16px, 2.6vw, 24px);
-                                    text-align:center;
-                                    opacity:0; transform: translateY(14px);
+                                    box-shadow: 0 12px 32px rgba(18,19,20,.08);
                                 }
-                                .wd-card::before{
-                                    content:""; position:absolute; left:12%; right:12%; top:-1px; height:3px; border-radius:2px;
-                                    background: linear-gradient(130deg, var(--gold-2), var(--gold-1)); opacity:.9;
-                                }
-                                .wd-mark{ display:flex; justify-content:center; margin-bottom: 12px; }
-                                .wd-icon{
-                                    position:relative; width: 56px; height: 56px; border-radius: 50%;
-                                    display:grid; place-items:center; background:#fff;
-                                    border: 1px solid color-mix(in srgb, var(--accent-1) 40%, transparent);
-                                    box-shadow: 0 10px 24px color-mix(in srgb, var(--accent-1) 26%, transparent);
-                                }
-                                .wd-icon img{ width: 24px; height: 24px; display:block; filter: grayscale(100%) brightness(0%); opacity:.9; }
-                                .wd-card--noflowers .wd-icon::after{
-                                    content:""; position:absolute; inset:0; margin:auto; width:70%; height:2px; border-radius:2px;
-                                    background: linear-gradient(130deg, var(--gold-2), var(--gold-1));
-                                    transform: rotate(-28deg); box-shadow: 0 0 0 1px rgba(255,255,255,.6) inset;
-                                }
-                                .wd-card-title{ margin: 4px 0 8px; font-weight:600; letter-spacing:.01em; font-size: clamp(16px, 2.6vw, 20px); }
-                                .wd-card-text{ margin:0; line-height:1.6; color: var(--accent-muted); font-size: clamp(14px, 2.4vw, 16px); }
 
-                                /* Анімація при появі */
-                                @keyframes fdUp { to { opacity:1; transform: translateY(0); } }
-                                .wedding-details .reveal{ animation: fdUp .6s ease forwards; }
-                                @media (prefers-reduced-motion: reduce){
-                                    .wd-card{ opacity:1; transform:none; }
-                                    .wedding-details .reveal{ animation: none; }
+                                /* ===== Мобилка ===== */
+                                @media (max-width: 600px){
+                                    .dc-frame{
+                                        padding-block: calc(var(--strip-h) + 10px);
+                                        padding-inline: clamp(8px, 2.6vw, 14px);
+                                        border-radius: calc(var(--radius) + 10px);
+                                    }
+                                    .dc-frame::after{
+                                        inset: auto 0 0 0;
+                                        height: var(--strip-h);
+                                        background-size: 100% auto;
+                                        background-position: bottom center;
+                                        border-bottom-left-radius: calc(var(--radius) + 10px);
+                                        border-bottom-right-radius: calc(var(--radius) + 10px);
+                                        filter: drop-shadow(0 10px 24px rgba(18,19,20,.10));
+                                    }
+                                    .dc-frame::before{
+                                        content:"";
+                                        position:absolute; left:0; right:0; top:0;
+                                        height: var(--strip-h);
+                                        background-image: url('/assets/media/orders/ornament.png');
+                                        background-repeat: no-repeat;
+                                        background-size: 100% auto;
+                                        background-position: top center;
+                                        border-top-left-radius: calc(var(--radius) + 10px);
+                                        border-top-right-radius: calc(var(--radius) + 10px);
+                                        pointer-events:none; user-select:none;
+                                        z-index:0;
+                                        filter: drop-shadow(0 10px 24px rgba(18,19,20,.10));
+                                    }
                                 }
                             </style>
-
-                            <script>
-                                document.addEventListener('DOMContentLoaded', () => {
-                                    const cards = document.querySelectorAll('.wedding-details [data-anim]');
-                                    const io = new IntersectionObserver((entries) => {
-                                        entries.forEach((e) => {
-                                            if (e.isIntersecting) {
-                                                e.target.classList.add('reveal');
-                                                io.unobserve(e.target);
-                                            }
-                                        });
-                                    }, { threshold: .2 });
-                                    cards.forEach(c => io.observe(c));
-                                });
-                            </script>
                         </section>
 
 
                         <!-- SURVEY -->
                         <section class="survey-elegant" aria-label="Опитування для гостей">
+                            <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet"/>
+
                             <div class="survey-card">
                                 <h2 class="survey-title">Опитування для гостей</h2>
 
-                                <form id="weddingForm" action="https://api.web3forms.com/submit" method="POST">
+                                <!-- novalidate: керуємо валідацією самі -->
+                                <form id="weddingForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
                                     <input type="hidden" name="access_key" value="581eaf16-3866-475f-8020-0f5282f63bec">
-                                    <input type="hidden" name="subject" value="Відповіді з весільної анкети">
+                                    <input type="hidden" name="subject" value="Відповіді з анкети">
                                     <input type="hidden" name="from_name" value="Весільний сайт">
 
                                     <label class="question">Ваше ім’я:</label>
-                                    <input class="input" type="text" name="Ім’я" placeholder="Введіть ваше ім’я" required>
+                                    <input class="input" type="text" name="Ім’я" placeholder="Введіть ваше ім’я та прізвище">
 
-                                    <label class="question">Чи плануєте ви бути на весіллі?</label>
-                                    <div class="options">
-                                        <label class="pill"><input type="radio" name="Чи плануєте ви бути на весіллі?" value="Так" required>Так</label>
-                                        <label class="pill"><input type="radio" name="Чи плануєте ви бути на весіллі?" value="Ні">Ні</label>
+                                    <label class="question">Чи плануєте ви бути на нашому святі?</label>
+                                    <div class="options" data-group="wedding-presence">
+                                        <label class="pill"><input type="radio" name="Чи плануєте ви бути на нашому святі?" value="Так">Так</label>
+                                        <label class="pill"><input type="radio" name="Чи плануєте ви бути на нашому святі?" value="Ні">Ні</label>
                                     </div>
 
                                     <label class="question">Чи плануєте ви бути на офіційній частині у РАЦС?</label>
-                                    <div class="options">
-                                        <label class="pill"><input type="radio" name="Чи плануєте ви бути у РАЦС?" value="Так" required>Так</label>
+                                    <div class="options" data-group="racs-presence">
+                                        <label class="pill"><input type="radio" name="Чи плануєте ви бути у РАЦС?" value="Так">Так</label>
                                         <label class="pill"><input type="radio" name="Чи плануєте ви бути у РАЦС?" value="Ні">Ні</label>
                                     </div>
 
-                                    <label class="question">Ваші побажання по алкогольним напоям:</label>
-                                    <div class="options options-grid">
-                                        <label class="pill"><input type="checkbox" name="Алкоголь[]" value="Шампанське">🥂 Шампанське</label>
-                                        <label class="pill"><input type="checkbox" name="Алкоголь[]" value="Вино">🍷 Вино</label>
+                                    <label class="question">Ваші побажання щодо алкогольних напоїв:</label>
+                                    <div class="options options-grid" data-group="alcohol">
                                         <label class="pill"><input type="checkbox" name="Алкоголь[]" value="Коньяк">🥃 Коньяк</label>
+                                        <label class="pill"><input type="checkbox" name="Алкоголь[]" value="Вино">🍷 Вино</label>
+                                        <label class="pill"><input type="checkbox" name="Алкоголь[]" value="Шампанське">🥂 Шампанське</label>
                                         <label class="pill"><input type="checkbox" name="Алкоголь[]" value="Горілка">🍾 Горілка</label>
+                                        <label class="pill"><input type="checkbox" name="Алкоголь[]" value="Віскі">🥃 Віскі</label>
+                                        <label class="pill"><input type="checkbox" name="Алкоголь[]" value="Не пʼю">🚫 Не пʼю</label>
                                     </div>
 
-                                    <label class="question">Ваші побажання:</label>
+                                    <label class="question">Форма вільної відповіді:</label>
                                     <textarea class="input" name="Ваші побажання" placeholder="Напишіть тут будь-які додаткові побажання. Якщо з вами буде дитина або діти, зазначте це, будь ласка." rows="4"></textarea>
 
                                     <button type="submit" class="btn-submit">Відправити 💌</button>
@@ -889,16 +1051,22 @@ permalink: /template-premium-5
 
                             <style>
                                 .survey-elegant{
-                                    padding: clamp(28px, 8vh, 72px) clamp(16px, 4vw, 32px);
+                                    --gold-1:#d6b889; --gold-2:#f1e0b3;
+                                    --ink:#2b2a2a; --muted:#6f6f6f; --soft:#ffffff;
+                                    --line: rgba(0,0,0,.10);
+                                    --px: clamp(16px, 4vw, 32px);
+                                    --py: clamp(28px, 8vh, 72px);
+                                    --radius: 20px;
+                                    padding: var(--py) var(--px);
                                     display:grid; place-items:center;
                                     background:
-                                            radial-gradient(1000px 520px at 50% -12%, color-mix(in srgb, var(--accent-1) 22%, transparent), transparent 55%),
+                                            radial-gradient(1000px 520px at 50% -12%, rgba(214,184,137,.16), transparent 55%),
                                             linear-gradient(180deg, #f9f7f4, #fdfcfb);
-                                    font-family:'Montserrat', sans-serif; color:var(--accent-ink);
+                                    font-family:'Montserrat', sans-serif; color:var(--ink);
                                 }
                                 .survey-card{
-                                    width:min(960px, 100%); background:#fff;
-                                    border:1px solid var(--accent-line); border-radius: 20px;
+                                    width:min(960px, 100%); background: var(--soft);
+                                    border:1px solid var(--line); border-radius: var(--radius);
                                     box-shadow: 0 24px 60px rgba(18,19,20,.07);
                                     padding: clamp(22px, 4vw, 40px); animation: fadeIn .6s ease;
                                 }
@@ -907,17 +1075,15 @@ permalink: /template-premium-5
                                     font-size: clamp(32px, 6vw, 52px); line-height:1.2; padding:.15em 0 .1em;
                                     background: linear-gradient(130deg, var(--gold-2), var(--gold-1));
                                     -webkit-background-clip:text; background-clip:text; color:transparent;
-                                    text-align:center; text-shadow: 0 2px 16px rgba(0,0,0,.10);
+                                    text-align:center; text-shadow: 0 2px 16px rgba(0,0,0,.10); overflow:visible;
                                 }
-                                .question{ display:block; margin:18px 0 10px; font-weight:600; color:var(--accent-ink); letter-spacing:.01em; }
+                                .question{ display:block; margin:18px 0 10px; font-weight:600; color:var(--ink); letter-spacing:.01em; }
                                 .input{
                                     width:100%; padding:14px 16px; border-radius:14px;
-                                    border:1px solid color-mix(in srgb, var(--accent-1) 40%, transparent);
-                                    background:#fff; font-size:16px;
-                                    transition:border-color .2s ease, box-shadow .2s ease;
-                                    box-shadow: 0 8px 24px color-mix(in srgb, var(--accent-1) 20%, transparent);
+                                    border:1px solid rgba(214,184,137,.35); background:#fff; font-size:16px;
+                                    transition:border-color .2s ease, box-shadow .2s ease; box-shadow: 0 8px 24px rgba(214,184,137,.10);
                                 }
-                                .input:focus{ outline:none; border-color: color-mix(in srgb, var(--accent-1) 90%, white 10%); box-shadow: 0 10px 28px color-mix(in srgb, var(--accent-1) 32%, transparent); }
+                                .input:focus{ outline:none; border-color: rgba(214,184,137,.9); box-shadow: 0 10px 28px rgba(214,184,137,.22); }
                                 .options{ display:flex; flex-wrap:wrap; gap:10px 10px; margin-bottom:14px; }
                                 .options-grid{ display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:10px; }
                                 @media (max-width:580px){ .options-grid{ grid-template-columns: 1fr 1fr; } }
@@ -925,54 +1091,215 @@ permalink: /template-premium-5
                                 .pill{
                                     display:inline-flex; align-items:center; justify-content:center;
                                     gap:8px; padding:10px 14px; font-weight:600; border-radius:999px;
-                                    background:#fff; border:1px solid color-mix(in srgb, var(--accent-1) 38%, transparent); color:#2f2f2f; cursor:pointer; user-select:none;
+                                    background:#fff; border:1px solid rgba(214,184,137,.35); color:#2f2f2f; cursor:pointer; user-select:none;
                                     transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
-                                    box-shadow: 0 8px 20px color-mix(in srgb, var(--accent-1) 20%, transparent);
+                                    box-shadow: 0 8px 20px rgba(214,184,137,.10);
                                 }
-                                .pill:hover{ transform: translateY(-1px); box-shadow: 0 12px 26px color-mix(in srgb, var(--accent-1) 30%, transparent); }
+                                .pill:hover{ transform: translateY(-1px); box-shadow: 0 12px 26px rgba(214,184,137,.18); }
                                 .pill input{ display:none; }
                                 .pill:has(input:checked){
                                     background: linear-gradient(130deg, var(--gold-2), var(--gold-1));
-                                    color:#2a1f24; border-color: color-mix(in srgb, var(--accent-1) 55%, transparent);
-                                    box-shadow: 0 12px 28px color-mix(in srgb, var(--accent-1) 40%, transparent);
+                                    color:#1d1c16; border-color: rgba(214,184,137,.55); box-shadow: 0 12px 28px rgba(214,184,137,.28);
                                 }
                                 .btn-submit{
                                     width:100%; margin-top:8px; appearance:none; border:none; cursor:pointer;
                                     padding:14px 18px; border-radius:999px; font-size:16px; font-weight:700; letter-spacing:.02em;
-                                    background: linear-gradient(130deg, var(--gold-2), var(--gold-1)); color:#2a1f24;
-                                    border:1px solid color-mix(in srgb, var(--accent-1) 55%, transparent);
-                                    box-shadow: 0 16px 36px color-mix(in srgb, var(--accent-1) 42%, transparent);
+                                    background: linear-gradient(130deg, var(--gold-2), var(--gold-1)); color:#1e1c16;
+                                    border:1px solid rgba(214,184,137,.55); box-shadow: 0 16px 36px rgba(214,184,137,.32);
                                     transition: transform .15s ease, box-shadow .2s ease, filter .2s ease;
                                 }
-                                .btn-submit:hover{ transform: translateY(-1px); box-shadow: 0 22px 48px color-mix(in srgb, var(--accent-1) 48%, transparent); }
-                                .btn-submit:active{ transform:none; box-shadow: 0 10px 28px color-mix(in srgb, var(--accent-1) 30%, transparent); }
+                                .btn-submit:hover{ transform: translateY(-1px); box-shadow: 0 22px 48px rgba(214,184,137,.4); }
+                                .btn-submit:active{ transform:none; box-shadow: 0 10px 28px rgba(214,184,137,.28); }
                                 .form-message{ text-align:center; margin-top:14px; font-weight:700; display:none; }
                                 @keyframes fadeIn{ from{opacity:0; transform: translateY(18px);} to{opacity:1; transform:none;} }
+
+                                /* Тост-попап */
+                                .form-toast {
+                                    position: fixed;
+                                    left: 50%;
+                                    top: max(16px, calc(env(safe-area-inset-top) + 12px));
+                                    transform: translate(-50%, -10px);
+                                    width: min(96vw, 780px);
+                                    background: #1f1f1f;
+                                    color: #fff;
+                                    border-radius: 14px;
+                                    border: 1px solid rgba(255,255,255,.18);
+                                    box-shadow: 0 20px 50px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.08);
+                                    padding: 14px 18px;
+                                    z-index: 999999;
+                                    opacity: 0;
+                                    pointer-events: none;
+                                    transition: opacity .22s ease, transform .22s ease;
+                                    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Montserrat", sans-serif;
+                                }
+                                .form-toast.show { opacity: 1; pointer-events: auto; transform: translate(-50%, 0); }
+                                .form-toast__title { font-weight: 800; margin: 0 0 6px; font-size: 16px; }
+                                .form-toast__list { margin: 0; padding-left: 18px; font-size: 14px; line-height: 1.35; }
+                                .form-toast__close {
+                                    appearance:none; border:none; background:transparent; color:#fff; opacity:.85; cursor:pointer;
+                                    position:absolute; right:12px; top:8px; font-size:18px; line-height:1;
+                                }
+
+                                /* Підсвітка помилкових полів/груп */
+                                .input.invalid{
+                                    outline:2px solid #e74c3c; outline-offset:2px; border-color:#e74c3c; border-radius:12px;
+                                }
+                                .pill-group.invalid{
+                                    outline:2px solid #e74c3c; outline-offset:2px; border-radius:12px; padding:6px 8px;
+                                }
+                                .btn-submit[aria-busy="true"]{ opacity:.7; pointer-events:none; }
                             </style>
 
                             <script>
-                                document.getElementById('weddingForm').addEventListener('submit', async function(e) {
-                                    e.preventDefault();
-                                    const form = e.target;
-                                    const formData = new FormData(form);
-                                    const drinksChecked = Array.from(form.querySelectorAll('input[name="Алкоголь[]"]:checked')).map(i => i.value);
-                                    formData.delete('Алкоголь[]');
-                                    formData.append('Алкоголь', drinksChecked.length ? drinksChecked.join(', ') : '—');
-                                    try {
-                                        const res = await fetch(form.action, { method: 'POST', body: formData });
-                                        const json = await res.json();
-                                        if (json.success) {
-                                            form.reset();
-                                            const m = document.getElementById('formMessage');
-                                            m.textContent = '✅ Дякуємо! Ваші відповіді надіслані.';
-                                            m.style.color = 'green'; m.style.display = 'block';
-                                        } else { throw new Error(json.message || 'Помилка відправки'); }
-                                    } catch (error) {
-                                        const m = document.getElementById('formMessage');
-                                        m.textContent = '❌ Сталася помилка. Спробуйте ще раз.';
-                                        m.style.color = 'red'; m.style.display = 'block';
+                                (function(){
+                                    const form = document.getElementById('weddingForm');
+                                    const msg  = document.getElementById('formMessage');
+
+                                    // --- Toast ---
+                                    function ensureToast(){
+                                        let t = document.querySelector('.form-toast');
+                                        if (!t){
+                                            t = document.createElement('div');
+                                            t.className = 'form-toast';
+                                            t.setAttribute('role','alert');
+                                            t.setAttribute('aria-live','polite');
+                                            t.innerHTML = `
+            <button class="form-toast__close" aria-label="Закрити">×</button>
+            <div class="form-toast__title">Заповніть, будь ласка, обовʼязкові поля:</div>
+            <ul class="form-toast__list"></ul>
+          `;
+                                            document.body.appendChild(t);
+                                            t.querySelector('.form-toast__close').addEventListener('click', hideToast);
+                                        }
+                                        return t;
                                     }
-                                });
+                                    function showToast(items, autoHideMs=4500){
+                                        const t = ensureToast();
+                                        const list = t.querySelector('.form-toast__list');
+                                        list.innerHTML = '';
+                                        items.forEach(txt => {
+                                            const li = document.createElement('li');
+                                            li.textContent = txt;
+                                            list.appendChild(li);
+                                        });
+                                        t.classList.add('show');
+                                        clearTimeout(showToast._timer);
+                                        showToast._timer = setTimeout(hideToast, autoHideMs);
+                                    }
+                                    function hideToast(){
+                                        const t = document.querySelector('.form-toast');
+                                        if (t) t.classList.remove('show');
+                                    }
+
+                                    // --- Helpers ---
+                                    function clearErrors(){
+                                        form.querySelectorAll('.invalid').forEach(el => el.classList.remove('invalid'));
+                                    }
+                                    function scrollToFirstInvalid(){
+                                        const bad = form.querySelector('.invalid');
+                                        if (bad){
+                                            bad.scrollIntoView({behavior:'smooth', block:'center'});
+                                            const focusEl = bad.querySelector('input,textarea,select') || bad;
+                                            if (focusEl && focusEl.focus) focusEl.focus({preventScroll:true});
+                                        }
+                                    }
+                                    function markInvalid(el){ el.classList.add('invalid'); el.setAttribute('aria-invalid','true'); }
+                                    function unmark(el){ el.classList.remove('invalid'); el.removeAttribute('aria-invalid'); }
+
+                                    // зняття підсвітки на льоту
+                                    form.addEventListener('input', e=>{
+                                        const wrap = e.target.closest('.input, .options') || e.target;
+                                        wrap && unmark(wrap);
+                                        e.target.classList?.remove('invalid');
+                                    });
+                                    form.addEventListener('change', e=>{
+                                        const wrap = e.target.closest('.input, .options') || e.target;
+                                        wrap && unmark(wrap);
+                                        e.target.classList?.remove('invalid');
+                                    });
+
+                                    // --- Submit ---
+                                    form.addEventListener('submit', async function(e){
+                                        e.preventDefault();
+                                        hideToast();
+                                        clearErrors();
+                                        msg.style.display = 'none';
+
+                                        let ok = true;
+                                        const missing = [];
+
+                                        // 1) Ім’я
+                                        const nameInput = form.querySelector('input[name="Ім’я"]');
+                                        if (!nameInput.value.trim()){
+                                            markInvalid(nameInput);
+                                            missing.push('— Ваше ім’я');
+                                            ok = false;
+                                        }
+
+                                        // 2) Присутність на весіллі
+                                        const weddingWrap = form.querySelector('[data-group="wedding-presence"]');
+                                        const weddingRadios = form.querySelectorAll('input[name="Чи плануєте ви бути на нашому святі?"]');
+                                        if (![...weddingRadios].some(r=>r.checked)){
+                                            markInvalid(weddingWrap); weddingWrap.classList.add('pill-group');
+                                            missing.push('— Чи плануєте ви бути на нашому святі?');
+                                            ok = false;
+                                        }
+
+                                        // 3) Присутність у РАЦС
+                                        const racsWrap = form.querySelector('[data-group="racs-presence"]');
+                                        const racsRadios = form.querySelectorAll('input[name="Чи плануєте ви бути у РАЦС?"]');
+                                        if (![...racsRadios].some(r=>r.checked)){
+                                            markInvalid(racsWrap); racsWrap.classList.add('pill-group');
+                                            missing.push('— Чи плануєте ви бути у РАЦС?');
+                                            ok = false;
+                                        }
+
+                                        // 4) Алкоголь (ОБОВʼЯЗКОВО: хоча б один)
+                                        const alcoholWrap = form.querySelector('[data-group="alcohol"]');
+                                        const alcoholChecked = form.querySelectorAll('input[name="Алкоголь[]"]:checked');
+                                        if (alcoholChecked.length === 0){
+                                            markInvalid(alcoholWrap); alcoholWrap.classList.add('pill-group');
+                                            missing.push('— Оберіть хоча б один варіант у «Побажання щодо алкогольних напоїв»');
+                                            ok = false;
+                                        }
+
+                                        if (!ok){
+                                            showToast(missing);
+                                            scrollToFirstInvalid();
+                                            return;
+                                        }
+
+                                        // Формуємо дані (Алкоголь з чекбоксів)
+                                        const formData = new FormData(form);
+                                        const drinks = Array.from(alcoholChecked).map(i => i.value);
+                                        formData.delete('Алкоголь[]');
+                                        formData.append('Алкоголь', drinks.join(', '));
+
+                                        // Відправка
+                                        const btn = form.querySelector('.btn-submit');
+                                        btn.setAttribute('aria-busy','true');
+                                        try {
+                                            const res  = await fetch(form.action, { method: 'POST', body: formData });
+                                            const json = await res.json();
+                                            if (json.success){
+                                                msg.textContent = '✅ Дякуємо! Ваші відповіді надіслані.';
+                                                msg.style.color = 'green';
+                                                msg.style.display = 'block';
+                                                form.reset();
+                                                clearErrors();
+                                                hideToast();
+                                            } else {
+                                                throw new Error(json.message || 'Помилка відправки');
+                                            }
+                                        } catch (err){
+                                            msg.textContent = '❌ Сталася помилка. Спробуйте ще раз.';
+                                            msg.style.color = 'red';
+                                            msg.style.display = 'block';
+                                        } finally {
+                                            btn.removeAttribute('aria-busy');
+                                        }
+                                    });
+                                })();
                             </script>
                         </section>
                         <!-- /SURVEY -->
@@ -984,7 +1311,7 @@ permalink: /template-premium-5
                                 <div class="footer-hero__content">
                                     <h2 class="footer-hero__title">З любов’ю чекаємо на вас</h2>
                                     <p class="footer-hero__subtitle">
-                                        Будь ласка, підтвердьте присутність до <strong>10.06.2025</strong>
+                                        Будь ласка, підтвердьте присутність до <strong>07.05.2026</strong>
                                     </p>
                                     <p class="footer-hero__note">До зустрічі на святі</p>
                                 </div>
@@ -992,20 +1319,27 @@ permalink: /template-premium-5
 
                             <style>
                                 .footer-hero{
-                                    position:relative; min-height:100vh; width:100%;
-                                    overflow:hidden; display:grid; place-items:center; isolation:isolate;
+                                    position:relative;
+                                    min-height:100vh;
+                                    width:100%;
+                                    overflow:hidden;
+                                    display:flex;
+                                    justify-content:center;
+                                    align-items:flex-end;         /* вниз */
+                                    padding-bottom: 30vh;          /* відступ знизу */
+                                    isolation:isolate;
                                     font-family:'Montserrat',sans-serif;
                                     background: radial-gradient(1200px 600px at 50% -20%, color-mix(in srgb, var(--accent-1) 18%, transparent), transparent 60%);
                                 }
+
                                 .footer-hero__bg{
                                     position:absolute; inset:0;
                                     background:
                                             linear-gradient(180deg, rgba(0,0,0,.22) 0%, rgba(0,0,0,.5) 100%),
-                                            url('../assets-premium1/media/gallery/footer_image-2.jpeg') center/cover no-repeat;
+                                            url('../assets/media/gallery/footer_image-5.jpeg') center/cover no-repeat;
                                     z-index:-1; transform:scale(1.02);
                                 }
 
-                                /* читабельність: акуратна «плашка» лише під текстом */
                                 .footer-hero__content{
                                     position:relative; text-align:center; color:#fff;
                                     padding: clamp(24px, 4vw, 48px); max-width: 920px;
@@ -1045,7 +1379,6 @@ permalink: /template-premium-5
                                 @supports (padding: max(0px)) { .footer-hero__content{ padding-bottom: max(24px, env(safe-area-inset-bottom)); } }
                             </style>
                         </footer>
-
                         <!-- /FOOTER -->
 
                         <!-- back-to-top -->
