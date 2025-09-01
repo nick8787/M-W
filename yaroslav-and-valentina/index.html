@@ -892,15 +892,41 @@ permalink: /yaroslav-and-valentina
                             </header>
 
                             <div class="dc-grid">
-                                <!-- Картка 1: стиль у фоторамці -->
-                                <div class="dc-frame">
-                                    <article class="dc-card dc-card--inside">
-                                        <p class="dc-text">
-                                            Ми мріємо, щоб у цей день панувала атмосфера тепла, єдності та української краси.
-                                            Тому будемо щасливі бачити вас у <strong>вишиванках</strong> — вони стануть особливою частинкою нашого спільного свята.
-                                        </p>
-                                    </article>
-                                </div>
+                                <!-- ПАЛІТРА -->
+                                <article class="dc-card">
+                                    <h3 class="dc-palette-title">Палітра події</h3>
+
+                                    <ul class="dc-swatches-tiles" role="list">
+                                        <li class="tile" aria-label="Світло-сірий">
+                                            <span class="tile-color"></span>
+                                            <span class="tile-name">Сірий</span>
+                                        </li>
+                                        <li class="tile" aria-label="Пилово-блакитний">
+                                            <span class="tile-color"></span>
+                                            <span class="tile-name">Пилово-блакитний</span>
+                                        </li>
+                                        <li class="tile" aria-label="Теплий бежевий">
+                                            <span class="tile-color"></span>
+                                            <span class="tile-name">Теплий бежевий</span>
+                                        </li>
+                                        <li class="tile" aria-label="Шавлієвий">
+                                            <span class="tile-color"></span>
+                                            <span class="tile-name">Шавлієвий</span>
+                                        </li>
+                                        <li class="tile" aria-label="Nude">
+                                            <span class="tile-color"></span>
+                                            <span class="tile-name">Nude</span>
+                                        </li>
+                                        <li class="tile" aria-label="Mauve">
+                                            <span class="tile-color"></span>
+                                            <span class="tile-name">Mauve</span>
+                                        </li>
+                                    </ul>
+
+                                    <p class="dc-palette-note">
+                                        Ми будемо раді, якщо ваші образи підтримають цю теплу палітру відтінків.
+                                    </p>
+                                </article>
 
                                 <!-- Картка 2: контакти -->
                                 <article class="dc-card">
@@ -929,11 +955,6 @@ permalink: /yaroslav-and-valentina
                                     --py: clamp(28px, 8vh, 72px);
                                     --radius: 20px;
                                     --maxw: min(1000px, 94vw);
-
-                                    --frame-pad: clamp(18px, 3.2vw, 28px);
-                                    --strip-h: clamp(32px, 15vw, 60px);
-
-                                    position:relative; isolation:isolate;
                                     padding: var(--py) var(--px);
                                     display:grid; place-items:center;
                                     font-family:'Montserrat', sans-serif; color:var(--ink);
@@ -941,23 +962,23 @@ permalink: /yaroslav-and-valentina
                                             radial-gradient(1000px 520px at 50% -12%, rgba(214,184,137,.16), transparent 55%),
                                             linear-gradient(180deg, #f9f7f4, #fdfcfb);
                                 }
-
                                 .dc-head{ text-align:center; margin-bottom: clamp(24px, 6vh, 48px); max-width: var(--maxw); }
+
+                                .dc-contact{ margin-top: 8px; font-size: 14px; color: var(--muted); }
+
                                 .dc-title{
                                     margin:0 0 6px;
                                     font-family:'Great Vibes', cursive;
                                     font-size: clamp(40px, 6.4vw, 72px);
                                     line-height:1.22;
-                                    padding:.18em .25em .12em;
                                     background: linear-gradient(130deg, var(--gold-2), var(--gold-1));
                                     -webkit-background-clip:text; background-clip:text; color:transparent;
                                     text-shadow: 0 2px 14px rgba(0,0,0,.12);
-                                    display:inline-block;
+                                    display:inline-block; padding-inline:.2em; overflow:visible;
                                 }
                                 .dc-sub{ margin:0; color:var(--muted); font-size: clamp(13px, 2.2vw, 16px); }
                                 .dc-ornament{
-                                    width:min(180px, 40vw); height:2px; margin: 14px auto 0;
-                                    border-radius:2px;
+                                    width:min(180px, 40vw); height:2px; margin: 14px auto 0; border-radius:2px;
                                     background: linear-gradient(90deg, transparent, rgba(214,184,137,.85), transparent);
                                     filter: drop-shadow(0 4px 10px rgba(214,184,137,.25));
                                 }
@@ -966,29 +987,62 @@ permalink: /yaroslav-and-valentina
                                     width:100%; max-width: var(--maxw);
                                     display:grid; gap: clamp(16px, 3vw, 26px);
                                     grid-template-columns: 1fr;
-                                    overflow:visible;
                                 }
-                                @media (min-width: 920px){
-                                    .dc-grid{ grid-template-columns: 1fr 1fr; }
-                                }
+                                @media (min-width:920px){ .dc-grid{ grid-template-columns: 1fr 1fr; } }
 
-                                /* Базові картки */
                                 .dc-card{
                                     background: var(--soft);
                                     border: 1px solid var(--line);
                                     border-radius: var(--radius);
                                     box-shadow: 0 16px 40px rgba(18,19,20,.06);
-                                    padding: clamp(16px, 2.4vh, 22px) clamp(16px, 2.6vw, 24px);
+                                    padding: clamp(18px, 3vh, 24px) clamp(16px, 3vw, 22px);
                                     position:relative;
                                 }
                                 .dc-card::before{
                                     content:"";
                                     position:absolute; left:12%; right:12%; top:-1px; height:3px; border-radius:2px;
-                                    background: linear-gradient(130deg, var(--gold-2), var(--gold-1));
-                                    opacity:.9;
+                                    background: linear-gradient(130deg, var(--gold-2), var(--gold-1)); opacity:.9;
                                 }
-                                .dc-text{ margin:0 0 12px; line-height:1.65; color:var(--muted); font-size: clamp(14px, 2.4vw, 16px); }
 
+                                /* Тайли палітри */
+                                .dc-palette-title{
+                                    margin:0 0 14px; font-weight:600; letter-spacing:.02em;
+                                    font-size: clamp(18px, 2.8vw, 22px); text-align:center; color: var(--ink);
+                                }
+                                .dc-swatches-tiles{
+                                    display:grid; grid-template-columns: repeat(2, minmax(0,1fr));
+                                    gap:14px; list-style:none; padding:0; margin:0 0 12px;
+                                }
+                                @media (min-width:640px){
+                                    .dc-swatches-tiles{ grid-template-columns: repeat(3, minmax(0,1fr)); }
+                                }
+                                .tile{
+                                    background:#fff; border:1px solid var(--line); border-radius:16px;
+                                    padding:12px; text-align:center; box-shadow: 0 10px 24px rgba(18,19,20,.06);
+                                    transition: transform .15s ease, box-shadow .2s ease;
+                                }
+                                .tile:hover{ transform: translateY(-2px); box-shadow: 0 16px 36px rgba(18,19,20,.10); }
+
+                                .tile-color{
+                                    display:block; width:64px; height:64px; margin:0 auto 8px; border-radius:50%;
+                                    box-shadow: inset 0 0 0 1px rgba(0,0,0,.06), 0 6px 18px rgba(0,0,0,.10);
+                                    background:#e0e0e0; /* fallback */
+                                }
+                                /* призначаємо відтінки через nth-child — без хексів у HTML */
+                                .dc-swatches-tiles .tile:nth-child(1) .tile-color{ background:#D4D4D4; } /* світло-сірий */
+                                .dc-swatches-tiles .tile:nth-child(2) .tile-color{ background:#9EB9D4; } /* пилово-блакитний */
+                                .dc-swatches-tiles .tile:nth-child(3) .tile-color{ background:#CBB9A8; } /* теплий бежевий */
+                                .dc-swatches-tiles .tile:nth-child(4) .tile-color{ background:#8FAA95; } /* шавлієвий */
+                                .dc-swatches-tiles .tile:nth-child(5) .tile-color{ background:#DCC9C6; } /* nude */
+                                .dc-swatches-tiles .tile:nth-child(6) .tile-color{ background:#C99A97; } /* mauve */
+
+                                .tile-name{ display:block; font-size:14px; color:#3a3939; font-weight:600; }
+
+                                .dc-palette-note{
+                                    margin:6px 0 0; font-size: 13px; line-height:1.5; color: var(--muted); text-align:center;
+                                }
+
+                                /* Контакти */
                                 .dc-actions{ display:flex; flex-wrap:wrap; gap:10px; margin-top: 10px; }
                                 .dc-btn{
                                     display:inline-flex; align-items:center; justify-content:center;
@@ -997,80 +1051,15 @@ permalink: /yaroslav-and-valentina
                                     background: linear-gradient(130deg, var(--gold-2), var(--gold-1)); color:#1d1c16;
                                     border:1px solid rgba(214,184,137,.55);
                                     box-shadow: 0 12px 28px rgba(214,184,137,.26);
-                                    transition: transform .15s ease, box-shadow .2s ease, filter .2s ease;
+                                    transition: transform .15s ease, box-shadow .2s ease;
                                 }
                                 .dc-btn:hover{ transform: translateY(-1px); box-shadow: 0 18px 36px rgba(214,184,137,.34); }
-                                .dc-btn:active{ transform:none; box-shadow: 0 10px 24px rgba(214,184,137,.24); }
-                                .dc-btn--light{ background:#fff; color:#2f2f2f; border-color: rgba(0,0,0,.08); box-shadow: 0 10px 24px rgba(18,19,20,.06); }
-                                .dc-contact{ margin-top: 8px; font-size: 14px; color: var(--muted); }
-                                .dc-contact a{ color: inherit; text-decoration: underline; text-decoration-color: rgba(214,184,137,.6); }
-
-                                /* ===== ФОТО-РАМКА ===== */
-                                .dc-frame{
-                                    position: relative;
-                                    border-radius: calc(var(--radius) + 12px);
-                                    padding: var(--frame-pad);
-                                    z-index:0;
-                                }
-                                .dc-frame::after{
-                                    content:"";
-                                    position:absolute; inset:0;
-                                    border-radius: inherit;
-                                    background-image: url('/assets/media/orders/ornament.png');
-                                    background-repeat:no-repeat;
-                                    background-size: 100% 100%;
-                                    background-position: center;
-                                    pointer-events:none; user-select:none;
-                                    filter: drop-shadow(0 18px 42px rgba(18,19,20,.10));
-                                    z-index:0;
-                                }
-                                /* Внутренняя карточка над рамкой */
-                                .dc-card--inside{
-                                    position: relative;
-                                    z-index:1;
-                                    background: var(--soft);
-                                    border: 1px solid var(--line);
-                                    border-radius: var(--radius);
-                                    box-shadow: 0 12px 32px rgba(18,19,20,.08);
-                                }
-
-                                @media (max-width: 600px){
-                                    .dc-frame{
-                                        padding-block: calc(var(--strip-h) + 10px);
-                                        padding-inline: clamp(8px, 2.6vw, 14px);
-                                        border-radius: calc(var(--radius) + 10px);
-                                    }
-                                    .dc-frame::after{
-                                        inset: auto 0 0 0;
-                                        height: var(--strip-h);
-                                        background-size: 100% auto;
-                                        background-position: bottom center;
-                                        border-bottom-left-radius: calc(var(--radius) + 10px);
-                                        border-bottom-right-radius: calc(var(--radius) + 10px);
-                                        filter: drop-shadow(0 10px 24px rgba(18,19,20,.10));
-                                    }
-                                    .dc-frame::before{
-                                        content:"";
-                                        position:absolute; left:0; right:0; top:0;
-                                        height: var(--strip-h);
-                                        background-image: url('/assets/media/orders/ornament.png');
-                                        background-repeat: no-repeat;
-                                        background-size: 100% auto;
-                                        background-position: top center;
-                                        border-top-left-radius: calc(var(--radius) + 10px);
-                                        border-top-right-radius: calc(var(--radius) + 10px);
-                                        pointer-events:none; user-select:none;
-                                        z-index:0;
-                                        filter: drop-shadow(0 10px 24px rgba(18,19,20,.10));
-                                    }
-                                }
-                            </style>
-                        </section>
+                                .dc-btn--light{ background:#fff; color:#2
 
 
 
 
-                        <section class="survey-elegant" aria-label="Опитування для гостей">
+                                <section class="survey-elegant" aria-label="Опитування для гостей">
                             <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet"/>
 
                             <div class="survey-card">
