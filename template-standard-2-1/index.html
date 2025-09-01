@@ -119,13 +119,13 @@ permalink: /template-standard-2-1
                                                 }
 
                                                 .locked-bg{
-                                                    background-image:url('../assets/media/hero/banner_image-1.jpg');
+                                                    background-image:url('../assets/media/hero/banner_image-4.jpg');
                                                     filter:brightness(45%) saturate(95%);
                                                     opacity:1;
                                                 }
 
                                                 .unlocked-bg{
-                                                    background-image:url('../assets/media/hero/banner_image-1-1.jpg');
+                                                    background-image:url('../assets/media/hero/banner_image-4-1.jpeg');
                                                     background-size:cover;
                                                     background-position:center;
                                                     opacity:0;
@@ -378,310 +378,325 @@ permalink: /template-standard-2-1
 
 
                             <!-- Story Area Start  -->
-                            <section class="py-80" id="wedding-timeline">
+                            <section class="py-80" id="wedding-timeline" aria-label="Таймінг весільного дня">
                                 <div class="container-fluid">
                                     <div class="heading mb-48 text-center">
                                         <p class="section-label">Таймінг весільного дня</p>
                                         <h2>Наш <span>День Одруження</span></h2>
                                     </div>
 
-
-                                    <div class="timeline" id="timeline">
-                                        <article class="event" data-side="left">
-                                            <div class="dot"><span class="heart">❤</span></div>
-                                            <div class="card">
-                                                <div class="time">11:00</div>
-                                                <h4>Церемонія у РАЦСі</h4>
-                                                <p>Центральний РАЦС м. Києва, вул. Прорізна, 4.</p>
-                                                <a class="maplink" target="_blank" rel="noopener"
-                                                   href="https://www.google.com/maps/search/?api=1&query=Центральний%20РАЦС%20Київ%20Прорізна%204">Відкрити на мапі</a>
+                                    <!-- Mobile-first carousel / Desktop grid -->
+                                    <div class="tt-track" id="ttTrack" tabindex="0" aria-roledescription="carousel">
+                                        <!-- Slide 1 -->
+                                        <article class="tt-slide" aria-label="Церемонія у РАЦСі">
+                                            <div class="tt-time">11:00</div>
+                                            <div class="tt-icon" aria-hidden="true">
+                                                <!-- rings -->
+                                                <svg viewBox="0 0 24 24" width="24" height="24" fill="none">
+                                                    <circle cx="8.5" cy="15" r="4.5" stroke="currentColor" stroke-width="1.6"/>
+                                                    <path d="M15.5 10.5a5 5 0 110 10 5 5 0 010-10z" stroke="currentColor" stroke-width="1.6"/>
+                                                    <path d="M12.5 7.5l1.6-1.6 2.4.4.4 2.4-1.6 1.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                                                </svg>
                                             </div>
+                                            <h4 class="tt-title">Церемонія у РАЦСі</h4>
+                                            <p class="tt-text">Центральний РАЦС м. Києва, вул. Прорізна, 4.</p>
+                                            <a class="tt-btn" target="_blank" rel="noopener"
+                                               href="https://www.google.com/maps/search/?api=1&query=Центральний%20РАЦС%20Київ%20Прорізна%204">Відкрити на мапі</a>
                                         </article>
 
-                                        <article class="event" data-side="right">
-                                            <div class="dot"><span class="heart">❤</span></div>
-                                            <div class="card">
-                                                <div class="time">13:00</div>
-                                                <h4>Вінчання у соборі</h4>
-                                                <p>Софійський собор, вул. Володимирська, 24.</p>
-                                                <a class="maplink" target="_blank" rel="noopener"
-                                                   href="https://www.google.com/maps/search/?api=1&query=Софійський%20собор%20Київ">Відкрити на мапі</a>
+                                        <!-- Slide 2 -->
+                                        <article class="tt-slide" aria-label="Вінчання у соборі">
+                                            <div class="tt-time">13:00</div>
+                                            <div class="tt-icon" aria-hidden="true">
+                                                <!-- church -->
+                                                <svg viewBox="0 0 24 24" width="24" height="24" fill="none">
+                                                    <path d="M12 2v4M9 9h6M6 11l6-4 6 4v9H6v-9z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
                                             </div>
+                                            <h4 class="tt-title">Вінчання у соборі</h4>
+                                            <p class="tt-text">Софійський собор, вул. Володимирська, 24.</p>
+                                            <a class="tt-btn" target="_blank" rel="noopener"
+                                               href="https://www.google.com/maps/search/?api=1&query=Софійський%20собор%20Київ">Відкрити на мапі</a>
                                         </article>
 
-                                        <article class="event" data-side="left">
-                                            <div class="dot"><span class="heart">❤</span></div>
-                                            <div class="card">
-                                                <div class="time">15:00</div>
-                                                <h4>Святкування у ресторані</h4>
-                                                <p>Ресторан «Прага», просп. Академіка Глушкова, 1.</p>
-                                                <a class="maplink" target="_blank" rel="noopener"
-                                                   href="https://www.google.com/maps/search/?api=1&query=Ресторан%20Прага%20Київ">Відкрити на мапі</a>
+                                        <!-- Slide 3 -->
+                                        <article class="tt-slide" aria-label="Святкування у ресторані">
+                                            <div class="tt-time">15:00</div>
+                                            <div class="tt-icon" aria-hidden="true">
+                                                <!-- cutlery -->
+                                                <svg viewBox="0 0 24 24" width="24" height="24" fill="none">
+                                                    <path d="M7 3v7M9 3v7M7 10c0 3 2 4 2 8v3M14 3v8a2 2 0 002 2h1v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
                                             </div>
+                                            <h4 class="tt-title">Святкування у ресторані</h4>
+                                            <p class="tt-text">Ресторан «Прага», просп. Академіка Глушкова, 1.</p>
+                                            <a class="tt-btn" target="_blank" rel="noopener"
+                                               href="https://www.google.com/maps/search/?api=1&query=Ресторан%20Прага%20Київ">Відкрити на мапі</a>
                                         </article>
 
-                                        <article class="event" data-side="right">
-                                            <div class="dot"><span class="heart">❤</span></div>
-                                            <div class="card">
-                                                <div class="time">23:00</div>
-                                                <h4>Завершення вечора</h4>
-                                                <p>Підсумок нашого особливого дня, прощання з гостями та теплі обійми наостанок.</p>
+                                        <!-- Slide 4 -->
+                                        <article class="tt-slide" aria-label="Завершення вечора">
+                                            <div class="tt-time">23:00</div>
+                                            <div class="tt-icon" aria-hidden="true">
+                                                <!-- moon -->
+                                                <svg viewBox="0 0 24 24" width="24" height="24" fill="none">
+                                                    <path d="M20 12.5A7.5 7.5 0 1111.5 4a6 6 0 008.5 8.5z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                                                    <circle cx="6" cy="6" r="1" fill="currentColor"/>
+                                                    <circle cx="18" cy="6" r="1" fill="currentColor"/>
+                                                    <circle cx="12" cy="8" r="1" fill="currentColor"/>
+                                                </svg>
                                             </div>
+                                            <h4 class="tt-title">Завершення вечора</h4>
+                                            <p class="tt-text">Підсумок нашого особливого дня, обійми та теплі слова наостанок.</p>
                                         </article>
+                                    </div>
+
+                                    <!-- Dots -->
+                                    <div class="tt-dots" id="ttDots" role="tablist" aria-label="Індикатор слайдів">
+                                        <button class="tt-dot is-active" role="tab" aria-selected="true" aria-controls="ttTrack" tabindex="0"></button>
+                                        <button class="tt-dot" role="tab" aria-selected="false" aria-controls="ttTrack" tabindex="-1"></button>
+                                        <button class="tt-dot" role="tab" aria-selected="false" aria-controls="ttTrack" tabindex="-1"></button>
+                                        <button class="tt-dot" role="tab" aria-selected="false" aria-controls="ttTrack" tabindex="-1"></button>
                                     </div>
                                 </div>
                             </section>
 
                             <style>
-                                :root {
-                                    --primary: #8e4189;
-                                    --paper: #fff7fb;
-                                    --ink: #231f20;
-                                    --text: #6b5f66;
-                                    --line: #ead0e1;
+                                /* ===== Premium Mobile Carousel / Desktop Grid ===== */
+                                :root{
+                                    --tt-ink: var(--ink, #231f20);
+                                    --tt-text: var(--text, #6b5f66);
+                                    --tt-line: var(--line, #ead0e1);
+                                    --tt-accent: var(--primary, #8e4189);
+                                    --tt-bg: #ffffff;
                                 }
 
-                                .py-80 { padding: 80px 0; }
-                                .mb-48 { margin-bottom: 48px; }
-                                .mb-16 { margin-bottom: 16px; }
-                                .color-primary { color: var(--primary); }
-                                .text-uppercase { text-transform: uppercase; }
-                                .heading h2 span { color: var(--primary); }
+                                #wedding-timeline .heading h2 span{ color: var(--tt-accent); }
 
-                                /* Timeline layout (desktop) */
-                                .timeline {
-                                    position: relative;
+                                .tt-track{
+                                    display: flex;
+                                    gap: 16px;
+                                    overflow-x: auto;
+                                    scroll-snap-type: x mandatory;
+                                    -webkit-overflow-scrolling: touch;
+                                    padding: 4px 8px 12px;
+                                    margin: 0 auto 14px;
                                     max-width: 1100px;
-                                    margin: 0 auto;
-                                    padding: 10px 0;
                                 }
-
-                                .timeline::before {
-                                    content: "";
-                                    position: absolute;
-                                    left: 50%;
-                                    top: 0;
-                                    transform: translateX(-50%) scaleY(0);
-                                    width: 4px;
-                                    height: 100%;
-                                    background: linear-gradient(180deg, #f2d7e8, #b04a8c);
+                                .tt-track::-webkit-scrollbar{ height: 8px; }
+                                .tt-track::-webkit-scrollbar-thumb{
+                                    background: linear-gradient(90deg, #f3d9e9, var(--tt-accent));
                                     border-radius: 999px;
-                                    transform-origin: top;
-                                    transition: transform 1.2s ease .1s;
                                 }
 
-                                .timeline.ready::before {
-                                    transform: translateX(-50%) scaleY(1);
-                                }
-
-                                .event {
+                                .tt-slide{
                                     position: relative;
-                                    display: flex;
-                                    align-items: center;
-                                    margin: 0 0 56px;
-                                    opacity: 0;
-                                    transform: translateY(18px);
-                                    transition: .6s ease;
+                                    flex: 0 0 clamp(260px, 86vw, 420px);
+                                    scroll-snap-align: center;
+                                    background: var(--tt-bg);
+                                    border-radius: 18px;
+                                    padding: 18px 16px 16px;
+                                    box-shadow: 0 14px 34px rgba(0,0,0,.08);
+                                    border: 1px solid transparent;
+                                    background-image:
+                                            linear-gradient(var(--tt-bg), var(--tt-bg)),
+                                            linear-gradient(135deg, #f4ddea, var(--tt-accent));
+                                    background-origin: border-box;
+                                    background-clip: padding-box, border-box;
                                 }
 
-                                .event.show {
-                                    opacity: 1;
-                                    transform: none;
-                                }
-
-                                .event[data-side="left"] {
-                                    flex-direction: row-reverse;
-                                    justify-content: flex-end;
-                                }
-                                .event[data-side="right"] {
-                                    flex-direction: row;
-                                    justify-content: flex-end;
-                                }
-
-                                .event .card {
+                                /* time badge */
+                                .tt-time{
+                                    position: absolute;
+                                    top: -14px; left: 16px;
                                     background: #fff;
-                                    border: 1px solid var(--line);
-                                    border-radius: 16px;
-                                    width: 44%;
-                                    padding: 22px 22px 20px;
-                                    box-shadow: 0 18px 36px rgba(0, 0, 0, .08);
-                                }
-
-                                .event .time {
+                                    color: var(--tt-accent);
                                     font-weight: 800;
-                                    color: var(--primary);
-                                    margin-bottom: 6px;
-                                    letter-spacing: .5px;
-                                }
-
-                                .event h4 {
-                                    margin: 0 0 8px;
-                                    font-size: 22px;
-                                    color: var(--ink);
-                                }
-
-                                .event p {
-                                    margin: 0 0 12px;
-                                    color: var(--text);
-                                }
-
-                                .maplink {
-                                    font-weight: 700;
-                                    color: #fff;
-                                    background: var(--primary);
+                                    letter-spacing: .4px;
+                                    border-radius: 999px;
                                     padding: 10px 14px;
-                                    border-radius: 999px;
-                                    text-decoration: none;
+                                    box-shadow: 0 10px 22px rgba(0,0,0,.08);
+                                    border: 2px solid rgba(0,0,0,.03);
                                 }
 
-                                .maplink:hover {
-                                    filter: brightness(1.05);
-                                }
-
-                                .event .dot {
-                                    flex-shrink: 0;
-                                    width: 34px;
-                                    height: 34px;
-                                    border-radius: 999px;
+                                .tt-icon{
+                                    position: absolute;
+                                    top: 12px; right: 12px;
+                                    width: 36px; height: 36px;
+                                    display: grid; place-items: center;
+                                    color: var(--tt-accent);
                                     background: #fff;
-                                    border: 2px solid var(--primary);
-                                    box-shadow: 0 10px 20px rgba(176, 74, 140, .25);
-                                    display: flex;
+                                    border: 1px solid var(--tt-line);
+                                    border-radius: 12px;
+                                    box-shadow: 0 6px 16px rgba(0,0,0,.06);
+                                }
+
+                                .tt-title{
+                                    margin: 18px 0 8px;
+                                    font-size: 20px;
+                                    color: var(--tt-ink);
+                                }
+                                .tt-text{
+                                    margin: 0 0 12px;
+                                    color: var(--tt-text);
+                                    line-height: 1.55;
+                                    font-size: 15px;
+                                }
+
+                                .tt-btn{
+                                    display: inline-flex;
                                     align-items: center;
                                     justify-content: center;
-                                    z-index: 2;
-                                    margin: 0 20px;
+                                    padding: 10px 14px;
+                                    border-radius: 999px;
+                                    background: var(--tt-accent);
+                                    color: #fff;
+                                    text-decoration: none;
+                                    font-weight: 700;
+                                    transition: transform .18s ease, filter .18s ease;
+                                }
+                                .tt-btn:hover{ filter: brightness(1.06); transform: translateY(-1px); }
+
+                                /* dots */
+                                /* Меньше точки + небольшой отступ */
+                                #wedding-timeline .tt-dots{
+                                    display:flex !important;
+                                    justify-content:center !important;
+                                    gap:6px !important;
+                                    margin:2px 0 12px !important; /* отступ после точек */
+                                }
+                                #wedding-timeline .tt-dots .tt-dot{
+                                    width:6px !important;
+                                    height:6px !important;
+                                    padding:0 !important;
+                                    margin:0 !important;
+                                    min-width:0 !important;
+                                    border:0 !important;
+                                    border-radius:999px !important;
+                                    background:#e9d7e5 !important;
+                                    line-height:0 !important;
+                                    box-shadow:none !important;
+                                    appearance:none !important;
+                                    -webkit-appearance:none !important;
+                                    cursor:pointer;
+                                }
+                                #wedding-timeline .tt-dots .tt-dot.is-active{
+                                    width:12px !important;
+                                    background:var(--tt-accent, #8e4189) !important;
                                 }
 
-                                .event.show .dot {
-                                    animation: pop .45s ease both;
+                                /* Очень узкие экраны — ещё компактнее */
+                                @media (max-width:360px){
+                                    #wedding-timeline .tt-dots{ gap:5px !important; margin:2px 0 10px !important; }
+                                    #wedding-timeline .tt-dots .tt-dot{ width:5px !important; height:5px !important; }
+                                    #wedding-timeline .tt-dots .tt-dot.is-active{ width:10px !important; }
                                 }
 
-                                .heart {
-                                    font-size: 16px;
-                                    color: var(--primary);
+                                /* Если вдруг точки где-то сделаны position:absolute – добавим чуть «воздуха» секции */
+                                @media (max-width:768px){
+                                    #wedding-timeline{ padding-bottom:24px !important; }
                                 }
+                                .tt-dot.is-active{ width: 24px; background: var(--tt-accent); }
 
-                                /* Mobile design */
-                                @media (max-width: 768px) {
-                                    .timeline {
-                                        padding: 0 0 0 0;
-                                    }
-
-                                    .timeline::before {
-                                        display: block;
-                                        left: 50%;
-                                        transform: translateX(-50%);
-                                        width: 3px;
-                                        background: linear-gradient(180deg, var(--primary), var(--line));
-                                        border-radius: 999px;
-                                    }
-
-                                    .event {
-                                        flex-direction: column;
-                                        align-items: center;
-                                        margin: 0 0 40px;
-                                        position: relative;
-                                    }
-
-                                    /* Кружок */
-                                    .event .dot {
-                                        flex-shrink: 0;
-                                        display: flex;                /* центрируем содержимое флексом */
-                                        align-items: center;          /* вертикально по центру */
-                                        justify-content: center;      /* горизонтально по центру */
-                                        width: 36px;
-                                        height: 36px;
-                                        border-radius: 50%;
-                                        background: #fff;
-                                        border: 2px solid var(--primary);
-                                        box-shadow: 0 10px 20px rgba(176, 74, 140, .25);
-                                        margin: 0 20px;
-                                    }
-
-                                    /* Сердечко */
-                                    .event .dot .heart {
-                                        font-size: 18px;
-                                        line-height: 1;
-                                        color: var(--primary);
-                                        margin: 0;                     /* убираем лишние отступы */
+                                /* ===== Desktop / tablets: neatly aligned grid ===== */
+                                @media (min-width: 992px){
+                                    .tt-track{
+                                        overflow: visible;
+                                        scroll-snap-type: none;
+                                        display: grid;
+                                        grid-template-columns: repeat(2, minmax(0, 1fr));
+                                        gap: 22px;
                                         padding: 0;
-                                        display: block;
                                     }
-
-
-                                    .event .card {
-                                        background: #fff;
-                                        border-radius: 16px;
-                                        box-shadow: 0 8px 18px rgba(0, 0, 0, .06);
-                                        padding: 16px;
-                                        width: 90%;
-                                        border: 1px solid var(--line);
-                                        text-align: center;
+                                    .tt-slide{
+                                        flex: none;
+                                        min-width: 0;
+                                        scroll-snap-align: none;
+                                        padding: 22px 22px 20px;
                                     }
-
-                                    .event .card::before {
-                                        display: none;
-                                    }
-
-                                    .event .time {
-                                        font-size: 15px;
-                                        font-weight: 700;
-                                        color: var(--primary);
-                                        margin-bottom: 6px;
-                                    }
-
-                                    .event h4 {
-                                        font-size: 18px;
-                                        margin-bottom: 8px;
-                                    }
-
-                                    .event p {
-                                        font-size: 14px;
-                                        line-height: 1.45;
-                                        margin: 0;
-                                    }
-
-                                    .maplink {
-                                        margin-top: 10px;
-                                        display: inline-block;
-                                        padding: 6px 14px;
-                                        font-size: 13px;
-                                    }
+                                    .tt-time{ top: -16px; left: 22px; }
+                                    .tt-icon{ top: 16px; right: 16px; }
+                                    .tt-title{ font-size: 22px; }
                                 }
 
-                                /* Animations */
-                                @keyframes pop {
-                                    0% { transform: scale(.8); }
-                                    60% { transform: scale(1.12); }
-                                    100% { transform: scale(1); }
+                                /* ultra-narrow phones */
+                                @media (max-width: 360px){
+                                    .tt-slide{ flex-basis: 92vw; }
+                                    .tt-title{ font-size: 18px; }
+                                    .tt-text{ font-size: 14px; }
                                 }
                             </style>
 
                             <script>
                                 (function(){
-                                    const tl = document.getElementById('timeline');
-                                    const io = new IntersectionObserver((entries)=>{
-                                        entries.forEach(e=>{
-                                            if(e.isIntersecting){ tl.classList.add('ready'); }
-                                        });
-                                    }, {threshold:.2});
-                                    io.observe(tl);
+                                    const track = document.getElementById('ttTrack');
+                                    const dots = Array.from(document.getElementById('ttDots').querySelectorAll('.tt-dot'));
+                                    if(!track || !dots.length) return;
 
-                                    const items = [...document.querySelectorAll('#wedding-timeline .event')];
-                                    const io2 = new IntersectionObserver((entries)=>{
-                                        entries.forEach(e=>{
-                                            if(e.isIntersecting){ e.target.classList.add('show'); io2.unobserve(e.target); }
+                                    // Update active dot on scroll (mobile)
+                                    function setActiveByScroll(){
+                                        const slides = Array.from(track.children);
+                                        if(!slides.length) return;
+                                        const scrollLeft = track.scrollLeft;
+                                        const vw = track.clientWidth;
+                                        // find the slide whose center is closest to track center
+                                        let bestIdx = 0, bestDist = Infinity;
+                                        slides.forEach((el, i)=>{
+                                            const rect = el.getBoundingClientRect();
+                                            const trackRect = track.getBoundingClientRect();
+                                            const elCenter = rect.left - trackRect.left + rect.width/2;
+                                            const dist = Math.abs(elCenter - vw/2);
+                                            if(dist < bestDist){ bestDist = dist; bestIdx = i; }
                                         });
-                                    }, {threshold:.15});
-                                    items.forEach(i=>io2.observe(i));
+                                        dots.forEach((d, i)=>{
+                                            d.classList.toggle('is-active', i === bestIdx);
+                                            d.setAttribute('aria-selected', i === bestIdx ? 'true' : 'false');
+                                            d.tabIndex = i === bestIdx ? 0 : -1;
+                                        });
+                                    }
+
+                                    // Snap to slide by dot click
+                                    dots.forEach((dot, i)=>{
+                                        dot.addEventListener('click', ()=>{
+                                            const slide = track.children[i];
+                                            if(slide && slide.scrollIntoView){
+                                                slide.scrollIntoView({behavior:'smooth', inline:'center', block:'nearest'});
+                                            }
+                                        });
+                                    });
+
+                                    let ticking = false;
+                                    track.addEventListener('scroll', ()=>{
+                                        if(!ticking){
+                                            window.requestAnimationFrame(()=>{ setActiveByScroll(); ticking = false; });
+                                            ticking = true;
+                                        }
+                                    }, {passive:true});
+
+                                    // initialize once
+                                    setActiveByScroll();
+
+                                    // keyboard support (left/right)
+                                    track.addEventListener('keydown', (e)=>{
+                                        const slides = Array.from(track.children);
+                                        const activeIndex = dots.findIndex(d=>d.classList.contains('is-active'));
+                                        if(e.key === 'ArrowRight' && activeIndex < slides.length - 1){
+                                            slides[activeIndex+1].scrollIntoView({behavior:'smooth', inline:'center'});
+                                            e.preventDefault();
+                                        }
+                                        if(e.key === 'ArrowLeft' && activeIndex > 0){
+                                            slides[activeIndex-1].scrollIntoView({behavior:'smooth', inline:'center'});
+                                            e.preventDefault();
+                                        }
+                                    });
                                 })();
                             </script>
                             <!-- Story Area End  -->
 
 
 
-                        <!-- Wedding Banner Area Start -->
+
+                            <!-- Wedding Banner Area Start -->
                             <section class="wedding-banner py-80" style="padding-top:0 !important;" data-date="10·06·2026">
                                 <div class="container-fluid">
                                     <div class="row">
@@ -769,6 +784,246 @@ permalink: /template-standard-2-1
 
                             <!-- Wedding Banner Area End -->
 
+                            <!-- Details Section Start -->
+                            <section class="details-section py-80" id="details" aria-label="Деталі весілля">
+                                <div class="container-fluid">
+                                    <header class="details-head text-center mb-48">
+                                        <span class="details-label">Деталі</span>
+                                        <h2 class="details-title">
+                                            <span class="swash">❦</span> Дякуємо за ваше тепло та розуміння
+                                        </h2>
+                                        <div class="details-ornament" aria-hidden="true"></div>
+                                    </header>
+
+                                    <div class="details-grid" id="detailsGrid">
+                                        <!-- Card 1 -->
+                                        <article class="d-card" aria-label="Головне для нас">
+                                            <div class="d-icon" aria-hidden="true">
+                                                <!-- heart -->
+                                                <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+                                                    <path d="M12 20s-6-3.7-6-8a3.5 3.5 0 016-2.4A3.5 3.5 0 0118 12c0 4.3-6 8-6 8z"
+                                                          stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
+                                            </div>
+                                            <h3 class="d-title">Головне для нас</h3>
+                                            <p class="d-text">
+                                                Для нас найважливіше – ваша присутність і щирі емоції у цей день.
+                                                Ми будемо раді, якщо ви розділите з нами атмосферу свята та підтримаєте
+                                                нас теплими словами й усмішками.
+                                            </p>
+                                        </article>
+
+                                        <!-- Card 2 -->
+                                        <article class="d-card" aria-label="Цінний подарунок">
+                                            <div class="d-icon" aria-hidden="true">
+                                                <!-- gift -->
+                                                <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+                                                    <path d="M3 8h18v4H3V8m2 4h14v8H5v-8zM12 8V5a2 2 0 10-4 0v3m4 0h4V5a2 2 0 10-4 0v3"
+                                                          stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
+                                            </div>
+                                            <h3 class="d-title">Цінний подарунок</h3>
+                                            <p class="d-text">
+                                                Якщо ви хочете зробити потрібний та цінний подарунок — будемо дуже
+                                                вдячні за вклад у бюджет нашої молодої сім’ї.
+                                            </p>
+                                        </article>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <style>
+                                /* ===== Details — deluxe styling + soft animations ===== */
+                                :root{
+                                    --det-accent: var(--primary, #8e4189);
+                                    --det-ink: var(--ink, #231f20);
+                                    --det-text: var(--text, #6b5f66);
+                                    --det-line: var(--line, #ead0e1);
+                                    --det-paper: #ffffff;
+                                }
+
+                                .details-section{
+                                    position: relative;
+                                    isolation: isolate;
+                                    overflow: hidden;
+                                    /* мягкая фоновая аура */
+                                    background:
+                                            radial-gradient(900px 450px at 50% -20%,
+                                            color-mix(in srgb, var(--det-accent) 12%, transparent),
+                                            transparent 60%),
+                                            #fff;
+                                }
+                                /* светящиеся пятна */
+                                .details-section::before,
+                                .details-section::after{
+                                    content:"";
+                                    position:absolute; inset:auto;
+                                    width:520px; height:520px; border-radius:50%;
+                                    filter: blur(68px);
+                                    pointer-events:none; z-index:0; opacity:.5;
+                                }
+                                .details-section::before{
+                                    left:-160px; top:-140px;
+                                    background: radial-gradient(circle at 40% 40%,
+                                    color-mix(in srgb, var(--det-accent) 22%, transparent),
+                                    transparent 60%);
+                                }
+                                .details-section::after{
+                                    right:-180px; bottom:-160px;
+                                    background: radial-gradient(circle at 60% 60%,
+                                    color-mix(in srgb, var(--det-accent) 16%, transparent),
+                                    transparent 60%);
+                                }
+
+                                /* header */
+                                .details-head{ position: relative; z-index:1; }
+                                .details-label{
+                                    display:inline-block;
+                                    padding:6px 12px;
+                                    border-radius:999px;
+                                    font-weight:700;
+                                    letter-spacing:.12em;
+                                    text-transform:uppercase;
+                                    color: var(--det-accent);
+                                    background: color-mix(in srgb, var(--det-accent) 8%, #ffffff);
+                                    border: 1px solid color-mix(in srgb, var(--det-accent) 22%, #ffffff);
+                                }
+                                .details-title{
+                                    margin: 10px 0 8px;
+                                    font-size: clamp(22px, 3.4vw, 38px);
+                                    line-height:1.2;
+                                    font-weight:800;
+                                    color: transparent;
+                                    background: linear-gradient(90deg, #2d2a2b, color-mix(in srgb, var(--det-accent) 80%, #5c2b52));
+                                    -webkit-background-clip:text; background-clip:text;
+                                }
+                                .details-title .swash{ color: var(--det-accent); filter: drop-shadow(0 2px 6px rgba(0,0,0,.1)); }
+                                .details-ornament{
+                                    position: relative; width: 100%; height: 22px; margin: 10px auto 0;
+                                }
+                                .details-ornament::before,
+                                .details-ornament::after{
+                                    content:""; position:absolute; top:50%; width:40%; height:2px; border-radius:2px;
+                                    background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--det-accent) 55%, #f2d7e8));
+                                }
+                                .details-ornament::before{ left:0; transform: translateY(-50%); }
+                                .details-ornament::after{
+                                    right:0; transform: translateY(-50%) scaleX(-1);
+                                }
+                                .details-ornament span{ display:none; } /* на случай, если решишь вставить текст внутрь */
+
+                                /* grid */
+                                .details-grid{
+                                    position: relative; z-index:1;
+                                    max-width:1100px; margin:0 auto;
+                                    display:grid; grid-template-columns:1fr; gap:20px; padding:0 12px;
+
+                                    /* контейнер плавного появления */
+                                    opacity:0; transform: translateY(12px);
+                                    transition: opacity .6s ease, transform .6s ease;
+                                }
+                                .details-grid.reveal-ready{ opacity:1; transform:none; }
+
+                                /* card */
+                                .d-card{
+                                    position: relative;
+                                    border-radius:20px;
+                                    padding: 24px 20px 22px;
+                                    background: color-mix(in srgb, #ffffff 86%, transparent);
+                                    border:1px solid rgba(255,255,255,.6);
+                                    box-shadow:
+                                            0 18px 40px rgba(0,0,0,.08),
+                                            inset 0 1px 0 rgba(255,255,255,.7);
+                                    backdrop-filter: blur(6px);
+                                    -webkit-backdrop-filter: blur(6px);
+
+                                    /* градиентная рамка */
+                                    background-image:
+                                            linear-gradient(var(--det-paper), var(--det-paper)),
+                                            linear-gradient(135deg, #f4ddea, var(--det-accent));
+                                    background-origin: border-box;
+                                    background-clip: padding-box, border-box;
+
+                                    /* item-reveal */
+                                    opacity:0; transform: translateY(18px);
+                                    animation: d-rise .7s ease forwards;
+                                    animation-delay: var(--delay, 0s);
+                                }
+                                .details-grid:not(.reveal-ready) .d-card{ animation:none; }
+
+                                .d-icon{
+                                    width:44px; height:44px; border-radius:14px;
+                                    display:grid; place-items:center;
+                                    color: var(--det-accent);
+                                    background:#fff;
+                                    border:1px solid var(--det-line);
+                                    box-shadow: 0 10px 22px rgba(0,0,0,.06);
+                                    margin-bottom:12px;
+                                    transition: transform .25s ease;
+                                }
+                                .d-card:hover .d-icon{ transform: translateY(-2px) scale(1.02); }
+
+                                .d-title{
+                                    margin:0 0 8px; font-size:20px; color: var(--det-ink);
+                                    letter-spacing:.2px;
+                                }
+                                .d-text{
+                                    margin:0; color: var(--det-text); line-height:1.7; font-size:15.5px;
+                                }
+
+                                .d-card:hover{
+                                    box-shadow: 0 22px 46px rgba(0,0,0,.10);
+                                    transform: translateY(-2px);
+                                    transition: transform .22s ease, box-shadow .22s ease;
+                                }
+
+                                /* desktop */
+                                @media (min-width: 992px){
+                                    .details-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); gap:24px; padding:0; }
+                                    .d-card{ padding: 26px 24px 24px; }
+                                    .d-title{ font-size:22px; }
+                                }
+
+                                /* tiny phones */
+                                @media (max-width: 380px){
+                                    .d-text{ font-size:14.5px; }
+                                    .d-icon{ width:40px; height:40px; border-radius:12px; }
+                                }
+
+                                /* animations */
+                                @keyframes d-rise{
+                                    0%{ opacity:0; transform: translateY(18px); filter: blur(2px); }
+                                    60%{ opacity:1; transform: translateY(0); filter: blur(0); }
+                                    100%{ opacity:1; transform: translateY(0); }
+                                }
+
+                                /* reduced motion */
+                                @media (prefers-reduced-motion: reduce){
+                                    .details-grid, .d-card{ transition:none !important; animation:none !important; opacity:1 !important; transform:none !important; }
+                                }
+                            </style>
+
+                            <script>
+                                // плавное поочерёдное появление
+                                (function(){
+                                    const grid = document.getElementById('detailsGrid');
+                                    if(!grid) return;
+
+                                    const cards = Array.from(grid.querySelectorAll('.d-card'));
+                                    cards.forEach((card, i)=> card.style.setProperty('--delay', (0.14 * i) + 's'));
+
+                                    const io = new IntersectionObserver((entries)=>{
+                                        entries.forEach(e=>{
+                                            if(e.isIntersecting){
+                                                grid.classList.add('reveal-ready');
+                                                io.unobserve(grid);
+                                            }
+                                        });
+                                    }, {threshold:.18});
+                                    io.observe(grid);
+                                })();
+                            </script>
+                            <!-- Details Section End -->
 
 
 
@@ -1045,7 +1300,7 @@ permalink: /template-standard-2-1
                                         position:absolute; inset:0;
                                         background:
                                                 linear-gradient(180deg, rgba(0,0,0,.20) 0%, rgba(0,0,0,.45) 100%),
-                                                url('../assets/media/hero/footer_image-1.jpeg') center/cover no-repeat;
+                                                url('../assets/media/hero/footer_image-4-2.jpeg') center/cover no-repeat;
                                         z-index:-1;
                                         transform:scale(1.02);
                                     }
