@@ -887,7 +887,6 @@ permalink: /yaroslav-and-valentina
 
                             <header class="dc-head">
                                 <h2 class="dc-title">Дрес-код</h2>
-                                <p class="dc-sub">Атмосфера тепла, єдності та української краси</p>
                                 <div class="dc-ornament" aria-hidden="true"></div>
                             </header>
 
@@ -1075,12 +1074,6 @@ permalink: /yaroslav-and-valentina
                                     <div class="options" data-group="wedding-presence">
                                         <label class="pill"><input type="radio" name="Чи плануєте ви бути на нашому святі?" value="Так">Так</label>
                                         <label class="pill"><input type="radio" name="Чи плануєте ви бути на нашому святі?" value="Ні">Ні</label>
-                                    </div>
-
-                                    <label class="question">Чи плануєте ви бути на офіційній частині у РАЦС?</label>
-                                    <div class="options" data-group="racs-presence">
-                                        <label class="pill"><input type="radio" name="Чи плануєте ви бути у РАЦС?" value="Так">Так</label>
-                                        <label class="pill"><input type="radio" name="Чи плануєте ви бути у РАЦС?" value="Ні">Ні</label>
                                     </div>
 
                                     <label class="question">Ваші побажання щодо алкогольних напоїв:</label>
@@ -1298,16 +1291,7 @@ permalink: /yaroslav-and-valentina
                                             ok = false;
                                         }
 
-                                        // 3) Присутність у РАЦС
-                                        const racsWrap = form.querySelector('[data-group="racs-presence"]');
-                                        const racsRadios = form.querySelectorAll('input[name="Чи плануєте ви бути у РАЦС?"]');
-                                        if (![...racsRadios].some(r=>r.checked)){
-                                            markInvalid(racsWrap); racsWrap.classList.add('pill-group');
-                                            missing.push('— Чи плануєте ви бути у РАЦС?');
-                                            ok = false;
-                                        }
-
-                                        // 4) Алкоголь (ОБОВʼЯЗКОВО: хоча б один)
+                                        // 3) Алкоголь (ОБОВʼЯЗКОВО: хоча б один)
                                         const alcoholWrap = form.querySelector('[data-group="alcohol"]');
                                         const alcoholChecked = form.querySelectorAll('input[name="Алкоголь[]"]:checked');
                                         if (alcoholChecked.length === 0){
