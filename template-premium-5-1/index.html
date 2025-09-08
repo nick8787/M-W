@@ -1,1274 +1,705 @@
----
-layout: null
-permalink: /template-premium-5-1
----
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Олег & Настя - Весільне запрошення">
-
-    <!--metatextblock-->
-    <title>Олег & Настя - Весільне запрошення</title>
-    <meta property="og:url" content="https://my-wedding.com.ua/template-premium-5" />
-    <meta property="og:title" content="Олег & Настя - Весільне запрошення" />
-    <meta property="og:type" content="https://my-wedding.com.ua/template-premium-5" />
-    <meta property="og:image" content="https://my-wedding.com.ua/assets/media/images/wedding_banner5.jpg" />
-    <link rel="canonical" href="https://my-wedding.com.ua/template-premium-5">
-    <!--/metatextblock-->
-
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="../assets-premium1/media/favicon.png">
-
-    <!-- Core CSS -->
-    <link rel="stylesheet" href="../assets-premium1/css/vendor/bootstrap.min.css">
-    <link rel="stylesheet" href="../assets-premium1/css/vendor/fontawsome.css">
-    <link rel="stylesheet" href="../assets-premium1/css/vendor/slick.css">
-    <link rel="stylesheet" href="../assets-premium1/css/vendor/animate.min.css">
-    <link rel="stylesheet" href="../assets-premium1/css/app.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Олег & Настя — Весільне запрошення</title>
+    <meta name="description" content="Олег & Настя — весільне запрошення та деталі свята.">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Глобальные переменные (не меняем остальной сайт) -->
     <style>
         :root{
-            --accent-1: #C3AED6;   /* pastel lavender (для тех мест, где уже используется :root) */
-            --accent-2: #F5F5F7;   /* light silver */
-            --accent-ink: #2B2B2B;
-            --accent-soft: #ffffff;
-            --accent-muted: #7C7C85;
-            --accent-line: rgba(0,0,0,.06);
-            --gold-1:#d6b889;      /* золото для остальных секций как было */
-            --gold-2:#f1e0b3;
+            --rose:#E8A2A2;
+            --rose-2:#FADADA;
+            --silver:#F7F7F8;
+            --ink:#1C1D20;
+            --muted:#6C6F78;
+            --paper:#FFFFFF;
+            --line:rgba(0,0,0,.08);
+            --radius:22px;
+            --shadow:0 24px 70px rgba(13,14,18,.12);
+            --maxw:1080px;
         }
 
-        /* базовые кнопки (в других секциях останутся как были) */
-        .btn, .wdp_btn {
-            border: 1px solid var(--accent-1);
-            color: var(--accent-1);
-            background: var(--accent-2);
-            transition: all .25s ease;
-            border-radius: 999px;
-            padding: 12px 20px;
-            font-weight: 600;
-            letter-spacing: .3px;
-            cursor: pointer;
-            box-shadow: 0 4px 14px rgba(195,174,214,.25);
+        *,*::before,*::after{ box-sizing:border-box }
+        html,body{ margin:0; padding:0 }
+        img{ max-width:100%; display:block }
+        a{ color:inherit; text-decoration:none }
+        button,input,textarea{ font:inherit; color:inherit }
+
+        body{
+            color:var(--ink);
+            font-family:'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+            background:
+                    radial-gradient(1200px 700px at -10% -10%, rgba(232,162,162,.22), transparent 40%),
+                    radial-gradient(1000px 600px at 110% 0%, rgba(232,162,162,.18), transparent 45%),
+                    linear-gradient(180deg, #fff, #fbfbfe);
         }
-        .btn:hover, .wdp_btn:hover {
-            background: var(--accent-1);
-            color: #fff;
-            border-color: var(--accent-1);
-            box-shadow: 0 12px 28px rgba(195,174,214,.45);
-            transform: translateY(-2px);
+
+        /* ===== Section spacing (уменьшено) ===== */
+        .section{ position:relative; padding: clamp(24px, 6vh, 80px) 0; }
+        .container{ width:min(var(--maxw), 92vw); margin:0 auto; }
+
+        /* Заголовки по умолчанию — обычные */
+        h1,h2,h3,h4{ font-family:'Montserrat', sans-serif; font-weight:700; margin:0 0 .4rem; line-height:1.25 }
+
+        /* Секційні заголовки (тільки перелік) — Great Vibes + менші, але з запасом */
+        .section-title{
+            font-family:'Great Vibes', cursive !important;
+            font-weight:700;
+            font-size: clamp(40px, 8.5vw, 90px);
+            line-height:1.08;
+            margin: clamp(18px, 5vh, 32px) 0 clamp(12px, 3vh, 22px);
+            padding: .12em .18em .1em;
+            background: linear-gradient(135deg, #2a2a31 0%, #b06565 55%, var(--rose) 100%);
+            -webkit-background-clip:text; background-clip:text; color:transparent;
+            text-shadow: 0 10px 40px rgba(0,0,0,.08);
+            text-align:left;
+            overflow:visible;
+        }
+        @media (max-width: 780px){
+            .section-title{ text-align:center; margin-left:auto; margin-right:auto }
+        }
+
+        .lead{ margin:.25rem 0 0; color:var(--muted); max-width:780px; font-size: clamp(14px, 2.2vw, 16px) }
+
+        .orn{
+            margin: 14px 0 0; height:10px; width: 140px; position:relative;
+            mask: radial-gradient(10px 10px at 10px 50%,#000 99%,#0000),
+            radial-gradient(10px 10px at 50% 50%,#000 99%,#0000),
+            radial-gradient(10px 10px at 130px 50%,#000 99%,#0000);
+            -webkit-mask: radial-gradient(10px 10px at 10px 50%,#000 99%,#0000),
+            radial-gradient(10px 10px at 50% 50%,#000 99%,#0000),
+            radial-gradient(10px 10px at 130px 50%,#000 99%,#0000);
+            background: linear-gradient(90deg, transparent, var(--rose), transparent);
+            filter: drop-shadow(0 10px 24px rgba(232,162,162,.5));
+        }
+        @media (max-width: 780px){ .lead,.orn{ margin-left:auto; margin-right:auto; text-align:center } }
+
+        /* ===== HERO ===== */
+        .hero{
+            position:relative; min-height: 92svh; display:grid; place-items:end center;
+            overflow:hidden; isolation:isolate; padding-bottom: clamp(18px, 7vh, 64px);
+        }
+        .hero__bg{
+            position:absolute; inset:0;
+            background:
+                    radial-gradient(900px 520px at 50% -10%, rgba(232,162,162,.35), transparent 55%),
+                    linear-gradient(180deg, rgba(5,6,10,.45) 0%, rgba(5,6,10,.78) 100%),
+                    url('/assets/media/images/wedding_banner5-1.jpeg') center/cover no-repeat;
+            z-index:-2;
+        }
+        .hero__wave{ position:absolute; left:0; right:0; bottom:-1px; z-index:-1 }
+
+        .glass{
+            width:min(980px, 92vw); text-align:center; color:#fff;
+            background: linear-gradient(180deg, rgba(255,255,255,.16), rgba(255,255,255,.08));
+            border:1px solid rgba(255,255,255,.22);
+            backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+            border-radius: 28px; box-shadow: 0 32px 90px rgba(0,0,0,.38);
+            padding: clamp(16px, 4vw, 28px);
+        }
+        .hero__date{
+            letter-spacing:.28em; text-transform:uppercase; font-weight:700; opacity:.95;
+            font-size: clamp(12px, 1.7vw, 14px);
+        }
+        .hero__names{
+            font-family:'Great Vibes', cursive;
+            font-size: clamp(45px, 13vw, 120px);
+            line-height:1.02;
+            margin: .45em 0 .20em;   /* ↑ больше места сверху/снизу */
+            padding: .05em 0;
+            background: linear-gradient(180deg, #fff, #f4f4f4);
+            -webkit-background-clip:text; background-clip:text; color:transparent;
+            text-shadow: 0 16px 46px rgba(0,0,0,.35);
+        }
+        .hero__sub{ max-width:820px; margin:0 auto; opacity:.96; font-size: clamp(15px, 2.3vw, 18px) }
+
+        .cta{ margin-top: clamp(12px, 2.2vw, 22px); display:flex; gap:10px; justify-content:center; flex-wrap:wrap }
+        .btn{
+            display:inline-flex; align-items:center; justify-content:center; gap:.6rem;
+            padding: 12px 18px; border-radius: 14px; cursor:pointer; font-weight:700; letter-spacing:.02em;
+            border:1px solid rgba(232,162,162,.55);
+            background: linear-gradient(135deg, var(--silver), #fff);
+            color:#2b2b31; box-shadow: 0 16px 38px rgba(232,162,162,.28);
+            transition: transform .18s ease, box-shadow .22s ease, background .2s ease, filter .2s ease;
+            font-size: 14px;
+        }
+        .btn:hover{ transform: translateY(-2px); box-shadow: 0 24px 56px rgba(232,162,162,.42); }
+        .btn--primary{
+            background: linear-gradient(135deg, var(--rose-2), var(--rose));
+            color:#fff; border-color: rgba(232,162,162,.65);
+        }
+
+        /* ===== INTRO ===== */
+        .intro .grid{ display:grid; gap: clamp(12px, 3vw, 24px); grid-template-columns: 1fr; margin-top: clamp(8px, 2.4vh, 16px) }
+        @media (min-width: 920px){ .intro .grid{ grid-template-columns: 1.2fr .8fr; align-items:center } }
+
+        .card{
+            background: var(--paper); border:1px solid var(--line);
+            border-radius: var(--radius); box-shadow: var(--shadow);
+            padding: clamp(14px, 3vw, 24px);
+        }
+        .card h3{ margin:0 0 6px; font-size: clamp(18px, 2.6vw, 22px); font-weight:700; color:#2a2a31; }
+        .card p{ margin:.2rem 0 0; color:var(--muted); line-height:1.7; font-size: 15px }
+
+        .img-mask{
+            border-radius: 24px; box-shadow: 0 24px 70px rgba(31,32,35,.16);
+            overflow:hidden; background: linear-gradient(180deg, #fff, #fafafe); border:1px solid var(--line);
+        }
+
+        /* ===== TIMELINE ===== */
+        .timeline{ margin-top: clamp(10px, 2.6vh, 18px) }
+        .steps{ display:grid; gap: 10px }
+        .step{
+            display:grid; gap:10px; grid-template-columns: auto 1fr auto; align-items:center;
+            background:#fff; border:1px solid var(--line); border-radius:18px;
+            padding: 12px 12px; box-shadow: 0 16px 40px rgba(232,162,162,.18);
+        }
+        .dot{
+            width:40px; height:40px; border-radius:12px; display:grid; place-items:center;
+            background: linear-gradient(135deg, var(--silver), #fff);
+            border:1px solid rgba(232,162,162,.45); box-shadow: 0 12px 24px rgba(232,162,162,.25);
+        }
+        .dot img{ width:20px; height:20px; filter: grayscale(100%) brightness(0%); opacity:.9 }
+        .t-text h4{ margin:0 0 4px; font-size: clamp(16px, 2.4vw, 19px); font-weight:700; color:#2a2a31; }
+        .t-text p{ margin:0 0 8px; color:var(--muted); font-size:13px }
+        .badge{
+            font-size:12px; font-weight:800; white-space:nowrap; letter-spacing:.02em;
+            padding:8px 10px; border-radius:999px; color:#fff;
+            background: linear-gradient(135deg, var(--rose-2), var(--rose));
+            border:1px solid rgba(232,162,162,.6);
+            box-shadow: 0 14px 32px rgba(232,162,162,.32);
+        }
+        .maplink{
+            display:inline-flex; align-items:center; gap:6px; font-weight:700; font-size:12px;
+            padding:8px 10px; border-radius:999px; border:1px solid rgba(232,162,162,.45);
+            background:linear-gradient(135deg, var(--silver), #fff);
+            box-shadow: 0 10px 22px rgba(232,162,162,.18);
+        }
+
+        /* ===== COUNTDOWN ===== */
+        .count .grid{ display:grid; gap:10px; grid-template-columns: repeat(4, 1fr); margin-top: clamp(8px, 2.4vh, 16px) }
+        .cube{
+            text-align:center; background:#fff; border:1px solid var(--line);
+            border-radius:16px; padding:12px 8px; box-shadow: 0 18px 42px rgba(31,32,35,.08);
+        }
+        .num{
+            display:block; font-weight:800; font-size: clamp(22px, 6vw, 42px);
+            background: linear-gradient(135deg, var(--rose-2), var(--rose));
+            -webkit-background-clip:text; background-clip:text; color:transparent;
+            text-shadow: 0 8px 24px rgba(232,162,162,.4);
+        }
+        .lab{ font-weight:600; color:#2c2c31; opacity:.9; font-size:11px }
+        @media (max-width:560px){
+            .count .grid{ gap:8px; grid-template-columns: repeat(4, 1fr); } /* 4 в ряд на мобиле */
+            .cube{ padding:10px 6px; border-radius:14px }
+            .num{ font-size: 22px }
+            .lab{ font-size: 10px }
+        }
+
+        /* ===== DRESS ===== */
+        .dress .panel{
+            margin-top: clamp(10px, 2.8vh, 18px);
+            border-radius: 22px; padding: clamp(12px, 3vw, 20px);
+            background: linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,.7));
+            border:1px solid rgba(232,162,162,.35); box-shadow: 0 24px 64px rgba(31,32,35,.12);
+        }
+        .dress p{ margin:0; color:var(--muted); line-height:1.8; font-size:15px }
+
+        /* ===== DETAILS ===== */
+        .tiles{ display:grid; gap:12px; grid-template-columns: 1fr; margin-top: clamp(10px, 2.6vh, 16px) }
+        @media (min-width:860px){ .tiles{ grid-template-columns: repeat(3, 1fr) } }
+        .tile{
+            background:#fff; border:1px solid var(--line); border-radius:18px; padding:14px;
+            box-shadow: 0 16px 40px rgba(31,32,35,.08); text-align:center;
+        }
+        .mark{
+            width:52px; height:52px; border-radius:16px; display:grid; place-items:center; margin: 2px auto 6px;
+            background: linear-gradient(135deg, var(--silver), #fff); border:1px solid rgba(232,162,162,.45);
+            box-shadow: 0 12px 24px rgba(232,162,162,.22);
+        }
+        .mark img{ width:22px; height:22px; filter: grayscale(100%) brightness(0%); opacity:.92 }
+        .tile h4{ margin:4px 0 6px; font-size: clamp(16px, 2.4vw, 19px); font-weight:700; color:#2a2a31; }
+        .tile p{ margin:0; color:var(--muted); font-size:13px }
+        .cardnum{ margin-top:8px; display:flex; flex-direction:column; align-items:center; gap:8px }
+        .chip{ font-weight:700; letter-spacing:.04em; padding:10px 12px; border-radius:12px; background:var(--silver); border:1px dashed rgba(232,162,162,.6); font-size:13px }
+        .copy-btn{
+            border:1px solid rgba(232,162,162,.55); border-radius:999px; padding:10px 12px;
+            background: linear-gradient(135deg, var(--rose-2), var(--rose)); color:#fff; font-weight:700; cursor:pointer;
+            box-shadow: 0 14px 30px rgba(232,162,162,.4); font-size:13px;
+        }
+
+        /* ===== SURVEY (увеличили отступ ПЕРЕД самой формой) ===== */
+        .survey{
+            background:
+                    radial-gradient(900px 520px at 50% -10%, rgba(232,162,162,.16), transparent 55%),
+                    linear-gradient(180deg, #fdfcfe, #ffffff);
+        }
+        .survey .orn{ margin-top:14px; }                 /* полоски */
+        .survey .survey-card{ margin-top: clamp(18px, 4.5vh, 36px); } /* дополнительный отступ перед формой */
+
+        .survey-card{
+            width:min(960px, 100%); margin:0 auto;
+            background:#fff; border:1px solid var(--line); border-radius:22px;
+            padding: clamp(14px, 4vw, 24px); box-shadow: 0 24px 60px rgba(18,19,20,.08);
+        }
+        .survey .question{
+            display:block; margin:10px 0 6px;
+            font: 600 clamp(12px, 1.7vw, 14px)/1.35 'Montserrat', sans-serif; /* меньше */
+            color:#2b2b31;
+        }
+        .survey .input, .survey textarea{
+            width:100%; border:1px solid rgba(232,162,162,.45); border-radius:12px; background:#fff;
+            padding:10px 12px; box-shadow: 0 8px 22px rgba(232,162,162,.08);
+            font-size:13px;
+        }
+        .survey .options{ display:flex; flex-wrap:wrap; gap:8px }
+        .survey .pill{
+            display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px;
+            background: #fff; border:1px solid rgba(232,162,162,.35); cursor:pointer; user-select:none; font-weight:600;
+            font-size:12px;
+        }
+        .survey .pill input{ display:none }
+        .survey .pill input:checked + span{
+            background: linear-gradient(135deg, var(--rose-2), var(--rose));
+            -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:800;
+        }
+        .survey .btn-submit{
+            width:100%; margin-top:10px; border:1px solid rgba(232,162,162,.6);
+            border-radius:999px; padding:12px 16px; font-weight:800; cursor:pointer;
+            background: linear-gradient(135deg, var(--rose-2), var(--rose)); color:#fff;
+            box-shadow: 0 18px 42px rgba(232,162,162,.34); font-size:14px;
+        }
+
+        /* ===== FOOTER ===== */
+        footer{ text-align:center }
+        .mini{ margin-top:12px; color:var(--muted); font-size:13px }
+
+        /* RSVP modal (stub) */
+        .modal{ position: fixed; inset:0; display:none; place-items:center; z-index:100; background: rgba(8,10,12,.55); backdrop-filter: blur(6px) }
+        .modal.open{ display:grid }
+        .sheet{
+            width:min(560px, 92vw); background:#fff; border:1px solid var(--line);
+            border-radius: 18px; box-shadow: 0 28px 80px rgba(0,0,0,.28);
+            padding: clamp(14px, 3.4vw, 22px); text-align:center; animation: pop .28s ease;
+        }
+        .sheet h3{ margin:0 0 6px; font-size: clamp(18px, 2.6vw, 22px); font-weight:700; color:#2a2a31; }
+        .sheet p{ margin:0; color:var(--muted); font-size:14px }
+        .close{ margin-top:10px }
+        .close .btn{ width:100% }
+        @keyframes pop{ from{transform:translateY(8px); opacity:0} to{transform:none; opacity:1} }
+
+        /* Reveal on scroll */
+        [data-reveal]{ opacity:0; transform: translateY(14px) }
+        .revealed{ opacity:1; transform:none; transition: opacity .6s ease, transform .6s ease }
+        @media (prefers-reduced-motion: reduce){
+            .revealed{ transition:none }
+            .btn:hover{ transform:none }
         }
     </style>
 </head>
+<body>
 
-<body data-spy="scroll" data-target=".navbar-fixed-top" class="home-3">
-<!-- Preloader -->
-<div class="preloader-area">
-    <div class="loader loader-13">
-        <div class="css-heart heart1"></div>
-        <div class="css-heart heart2"></div>
-        <div class="css-heart heart3"></div>
-        <div class="css-heart heart4"></div>
+<!-- HERO -->
+<header class="hero" id="home" aria-label="Головний екран">
+    <div class="hero__bg" aria-hidden="true"></div>
+
+    <svg class="hero__wave" viewBox="0 0 1440 120" preserveAspectRatio="none" height="120" aria-hidden="true">
+        <path fill="url(#g1)" d="M0,64L60,74.7C120,85,240,107,360,106.7C480,107,600,85,720,80C840,75,960,85,1080,85.3C1200,85,1320,75,1380,69.3L1440,64L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z"></path>
+        <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#F2E6E6"/>
+                <stop offset="100%" stop-color="#FFFFFF"/>
+            </linearGradient>
+        </defs>
+    </svg>
+
+    <div class="glass" data-reveal>
+        <div class="hero__date">Субота, 10 червня 2026 • Київ</div>
+        <div class="hero__names">Олег & Настя</div>
+        <p class="hero__sub">З радістю запрошуємо вас розділити з нами день нашого весілля.</p>
+        <div class="cta">
+            <a class="btn" href="#timeline">Таймінг</a>
+            <button class="btn btn--primary" id="rsvpOpen1">Підтвердити</button>
+        </div>
     </div>
-</div>
-
-<div id="et-main-area">
-    <div id="main-content">
-        <article id="post-1458" class="post-1458 page type-page status-publish hentry">
-            <div class="entry-content">
-                <div class="et-l et-l--post">
-                    <div class="et_builder_inner_content et_pb_gutters3">
-
-                        <!-- HERO -->
-                        <header id="home" class="hero" role="banner" aria-label="Hero" data-fade="on">
-                            <picture class="hero-bg" aria-hidden="true">
-                                <img src="/assets/media/images/wedding_banner5-1.jpeg" alt="" loading="eager" decoding="async">
-                            </picture>
-
-                            <div class="hero-overlay" aria-hidden="true"></div>
-
-                            <div class="hero-card">
-                                <div class="hero-date">Субота, 10 червня 2026 • Київ</div>
-                                <div class="flourish">✶</div>
-                                <div class="hero-names">Олег & Настя</div>
-                                <p class="hero-sub">З радістю запрошуємо вас розділити з нами день нашого весілля.</p>
-                                <div class="hero-cta">
-                                    <a href="#" class="btn" data-scroll=".wt">Таймінг</a>
-                                    <a href="#" class="btn primary" data-scroll="#weddingForm">Підтвердити</a>
-                                </div>
-                            </div>
-
-                            <!-- Исходные стили HERO (как у тебя) -->
-                            <style>
-                                .hero{
-                                    --ink:#1c1b1b; --muted:#6a6a6a; --paper:#fffaf7;
-                                    --accent-1:#afa064; --accent-2:#f4e6ee; --accent-ink:#1F2023;
-                                    --radius:22px;
-                                    --shadow:0 10px 30px rgba(0,0,0,.08), 0 2px 10px rgba(0,0,0,.06);
-
-                                    position:relative;
-                                    height: 100svh;
-                                    display:flex; align-items:flex-end; justify-content:center;
-                                    overflow:hidden; isolation:isolate; color:#fff; background-color:#0e0d0d;
-                                    padding-bottom:clamp(24px, 6vw, 72px);
-                                    font-family:'Montserrat', sans-serif;
-                                }
-                                .hero-bg{ position:absolute; inset:0; z-index:0; display:block; pointer-events:none; user-select:none; }
-                                .hero-bg > img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; filter:saturate(105%) contrast(102%); }
-                                .hero-overlay{
-                                    position:absolute; inset:0; z-index:1;
-                                    background:
-                                            radial-gradient(1400px 60% at 50% -10%, rgba(175,160,100,.45), transparent 60%),
-                                            linear-gradient(180deg, rgba(12,12,12,.35) 0%, rgba(12,12,12,.65) 70%, rgba(12,12,12,.85) 100%);
-                                    pointer-events:none; transition: opacity .25s ease;
-                                }
-                                .hero-card{
-                                    position:relative; z-index:2; width:min(680px, 92vw); text-align:center; color:#fff;
-                                    padding:clamp(12px, 2.4vw, 18px) clamp(14px, 3vw, 22px);
-                                    border-radius:var(--radius); box-shadow:var(--shadow);
-                                    background:linear-gradient(to bottom right, rgba(255,255,255,.12), rgba(255,255,255,.06));
-                                    border:1px solid rgba(255,255,255,.24); backdrop-filter: blur(8px);
-                                }
-                                .hero-date{ font-weight:700; letter-spacing:.28em; text-transform:uppercase; opacity:.95; font-size:clamp(12px,1.6vw,14px); }
-                                .flourish { display:inline-block; position:relative; padding:0 26px; margin:12px 0 }
-                                .flourish::before, .flourish::after{
-                                    content:""; position:absolute; top:50%; width:86px; height:1px;
-                                    background:linear-gradient(90deg, transparent, rgba(255,255,255,.7), transparent);
-                                }
-                                .flourish::before{ left:-86px } .flourish::after{ right:-86px }
-                                .hero-names{
-                                    font-family:'Great Vibes', cursive; font-weight:700; font-size:clamp(34px, 7vw, 64px); line-height:1.08 !important;
-                                    margin:.10em 0 .10em !important; padding:.10em 0 .14em !important;
-                                    background: linear-gradient(180deg, #fff, #f4f4f4);
-                                    -webkit-background-clip:text; background-clip:text; color:transparent;
-                                    text-shadow: 0 10px 40px rgba(0,0,0,.35);
-                                }
-                                .hero-sub{ font-size:clamp(15px, 1.3vw, 18px); opacity:.92; margin:6px 0 0 }
-                                .hero-cta{ margin-top:clamp(16px, 2.2vw, 26px); display:flex; gap:12px; justify-content:center; flex-wrap:wrap }
-
-                                /* исходные стили кнопок (останутся, но ниже мы их переопределим только для HERO) */
-                                .hero .btn{
-                                    display:inline-flex; align-items:center; justify-content:center; gap:.6rem;
-                                    padding:14px 22px; border-radius:999px;
-                                    border:1px solid var(--accent-1);
-                                    font-weight:700; letter-spacing:.3px; cursor:pointer; transition:.25s ease;
-                                    background:transparent; color:var(--accent-1);
-                                    box-shadow:0 10px 30px rgba(0,0,0,.08), 0 2px 10px rgba(0,0,0,.06);
-                                }
-                                .hero .btn:hover{
-                                    background:var(--accent-1); color:#fff; border-color:var(--accent-1);
-                                    transform:translateY(-2px); box-shadow:0 14px 34px rgba(0,0,0,.12);
-                                }
-                                .hero .btn.primary{ background:var(--accent-1); color:#fff; border-color:var(--accent-1); }
-                                .hero .btn.primary:hover{ filter:brightness(.95); transform:translateY(-2px); }
-
-                                @media (max-width: 600px){
-                                    .hero{ padding-bottom: clamp(18px, 6vh, 56px); }
-                                    .hero-card{ max-width: 88vw; padding: 10px 12px; }
-                                    .hero-date{ font-size:12px; letter-spacing:.18em; }
-                                    .hero-names{ font-size: clamp(28px, 9.6vw, 44px); }
-                                    .hero-sub{ font-size:14px; }
-                                    .hero-cta{ gap:8px }
-                                    .hero .btn{ padding:10px 14px; font-size:14px }
-                                }
-                                .hero[data-fade="on"] .hero-overlay{ opacity: var(--fade, 1); }
-                                .hero[data-fade="on"] .hero-bg > img{ opacity: var(--fade, 1); transition: opacity .25s ease; }
-                                @media (prefers-reduced-motion: reduce){
-                                    .hero .btn, .hero .btn:hover{ transition:none; transform:none; }
-                                    .hero[data-fade="on"] .hero-overlay, .hero[data-fade="on"] .hero-bg > img{ transition:none; }
-                                }
-                            </style>
-
-                            <!-- ПЕРЕОПРЕДЕЛЕНИЕ ТОЛЬКО КНОПОК HERO на лаванду -->
-                            <style>
-                                /* Таймінг (контурная) + Підтвердити (заливка) — только в HERO */
-                                #home.hero .btn{
-                                    border:1px solid #C3AED6;
-                                    color:#C3AED6;
-                                    background:#F5F5F7;
-                                    box-shadow:0 4px 14px rgba(195,174,214,.25);
-                                    transition:all .25s ease; border-radius:999px;
-                                }
-                                #home.hero .btn:hover{
-                                    background:#C3AED6; color:#fff; border-color:#C3AED6;
-                                    box-shadow:0 12px 28px rgba(195,174,214,.45);
-                                    transform:translateY(-2px);
-                                }
-                                #home.hero .btn.primary{
-                                    background:#C3AED6; color:#fff; border-color:#C3AED6;
-                                }
-                                #home.hero .btn.primary:hover{ filter:brightness(.96); transform:translateY(-2px); }
-                            </style>
-
-                            <script>
-                                // Плавний скрол до секцій
-                                document.addEventListener('click', (e)=>{
-                                    const a = e.target.closest('.hero a[data-scroll]');
-                                    if(!a) return;
-                                    e.preventDefault();
-                                    const sel = a.getAttribute('data-scroll');
-                                    const target = document.querySelector(sel);
-                                    if(target){ target.scrollIntoView({behavior:'smooth', block:'start'}); }
-                                });
-
-                                // Опційний fade
-                                (function(){
-                                    const hero = document.querySelector('#home.hero');
-                                    if(!hero || hero.getAttribute('data-fade') !== 'on') return;
-                                    let ticking = false;
-                                    const max = Math.max(1, window.innerHeight);
-                                    function onScroll(){
-                                        if (ticking) return;
-                                        ticking = true;
-                                        requestAnimationFrame(()=>{
-                                            const y = window.scrollY || window.pageYOffset || 0;
-                                            const fade = Math.max(0, Math.min(1, 1 - y / max));
-                                            hero.style.setProperty('--fade', fade.toFixed(3));
-                                            ticking = false;
-                                        });
-                                    }
-                                    window.addEventListener('scroll', onScroll, {passive:true});
-                                    onScroll();
-                                })();
-                            </script>
-                        </header>
-                        <!-- /HERO -->
-
-                        <!-- TIMELINE -->
-                        <section class="wt" aria-label="Весільний таймінг">
-                            <header class="wt-head">
-                                <h2 class="wt-title">Таймінг дня</h2>
-                                <p class="wt-sub">З любов'ю - кожна мить</p>
-                            </header>
-
-                            <ol class="wt-list">
-                                <li class="wt-row">
-                                    <div class="wt-card">
-                                        <div class="wt-card-top">
-                                            <div class="wt-icon">
-                                                <img src="https://img.icons8.com/ios/50/wine-glass.png" alt="" decoding="async">
-                                            </div>
-                                            <div class="wt-text">
-                                                <h3 class="wt-label">Збір гостей</h3>
-                                                <p class="wt-address">Центральний РАЦС м. Києва, вул. Прорізна, 4.</p>
-                                            </div>
-                                            <time class="wt-time">10:30</time>
-                                        </div>
-                                        <div class="wt-card-bottom">
-                                            <button class="wt-map" data-lat="50.4501" data-lng="30.5234">Відкрити на мапі</button>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li class="wt-row">
-                                    <div class="wt-card">
-                                        <div class="wt-card-top">
-                                            <div class="wt-icon">
-                                                <img src="https://img.icons8.com/ios/50/wedding-rings.png" alt="" decoding="async">
-                                            </div>
-                                            <div class="wt-text">
-                                                <h3 class="wt-label">Церемонія у РАЦСі</h3>
-                                                <p class="wt-address">Центральний РАЦС м. Києва, вул. Прорізна, 4.</p>
-                                            </div>
-                                            <time class="wt-time">11:00</time>
-                                        </div>
-                                        <div class="wt-card-bottom">
-                                            <button class="wt-map" data-place="Парк «Феофанія», Київ">Відкрити на мапі</button>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li class="wt-row">
-                                    <div class="wt-card">
-                                        <div class="wt-card-top">
-                                            <div class="wt-icon">
-                                                <img src="https://img.icons8.com/ios/50/meal.png" alt="" decoding="async">
-                                            </div>
-                                            <div class="wt-text">
-                                                <h3 class="wt-label">Святковий банкет</h3>
-                                                <p class="wt-address">Ресторан «Прага», просп. Академіка Глушкова, 1.</p>
-                                            </div>
-                                            <time class="wt-time">15:00</time>
-                                        </div>
-                                        <div class="wt-card-bottom">
-                                            <button class="wt-map" data-place="Ресторан Park Venue, Київ">Відкрити на мапі</button>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li class="wt-row">
-                                    <div class="wt-card">
-                                        <div class="wt-card-top">
-                                            <div class="wt-icon">
-                                                <img src="https://img.icons8.com/ios/50/wedding-cake.png" alt="" decoding="async">
-                                            </div>
-                                            <div class="wt-text">
-                                                <h3 class="wt-label">Завершення вечора</h3>
-                                                <p class="wt-address">Підсумок нашого особливого дня, прощання з гостями та теплі обійми наостанок.</p>
-                                            </div>
-                                            <time class="wt-time">23:00</time>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ol>
-
-                            <style>
-                                .wt{
-                                    isolation:isolate; position:relative;
-                                    padding: clamp(22px, 6vh, 56px) clamp(16px, 4vw, 28px);
-                                    font-family:'Montserrat',sans-serif; color:var(--accent-ink);
-                                    background:
-                                            radial-gradient(900px 520px at 50% -10%, color-mix(in srgb, var(--accent-1) 22%, transparent), transparent 55%),
-                                            linear-gradient(180deg, #f9f7f4, #fdfcfb);
-                                }
-                                .wt-head{ text-align:center; margin-bottom: clamp(20px, 6vh, 44px); }
-                                .wt-title{
-                                    margin:0 0 6px; font-family:'Great Vibes',cursive;
-                                    font-size: clamp(38px, 6.2vw, 68px); line-height:1.05;
-                                    background: linear-gradient(130deg, var(--accent-2), var(--accent-1));
-                                    -webkit-background-clip:text; background-clip:text; color:transparent;
-                                    text-shadow: 0 2px 14px rgba(0,0,0,.12);
-                                }
-                                .wt-sub{ margin:0; font-size: clamp(13px, 2.2vw, 16px); color:var(--accent-muted); }
-                                .wt-list{
-                                    list-style:none; margin:0 auto; padding: 0;
-                                    max-width: 860px; width: 100%;
-                                    position:relative;
-                                }
-                                .wt-list::before{
-                                    content:"";
-                                    position:absolute; top:0; bottom:0; left: 22px;
-                                    width:2px; background: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,.12), rgba(0,0,0,0));
-                                    pointer-events:none;
-                                }
-                                .wt-row{
-                                    position:relative;
-                                    padding-left: calc(22px + 18px);
-                                    margin: clamp(10px, 1.8vh, 14px) 0;
-                                }
-                                .wt-row::before{
-                                    content:"";
-                                    position:absolute; left: 22px; top: 50%;
-                                    transform: translate(-50%, -50%);
-                                    width:14px; height:14px; border-radius:50%;
-                                    background: #fff;
-                                    border: 2px solid transparent;
-                                    background-origin: border-box; background-clip: padding-box, border-box;
-                                    background-image:
-                                            linear-gradient(#fff,#fff),
-                                            linear-gradient(130deg, var(--accent-2), var(--accent-1));
-                                    box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent-1) 18%, transparent);
-                                }
-                                .wt-card{
-                                    background: var(--accent-soft);
-                                    border: 1px solid var(--accent-line);
-                                    border-radius: 18px;
-                                    box-shadow: 0 16px 40px rgba(18,19,20,.06);
-                                    padding: 14px 14px 12px;
-                                    opacity:0; transform: translateY(14px);
-                                }
-                                .wt-row.reveal .wt-card{ animation: wtUp .6s ease forwards var(--delay, 0s); }
-                                .wt-card-top{
-                                    display:grid;
-                                    grid-template-columns: 40px 1fr auto;
-                                    align-items:center; column-gap: 12px;
-                                }
-                                .wt-icon{
-                                    width:40px; height:40px; border-radius:12px;
-                                    display:grid; place-items:center;
-                                    background:#fff; border:1px solid color-mix(in srgb, var(--accent-1) 40%, transparent);
-                                    box-shadow: 0 8px 20px color-mix(in srgb, var(--accent-1) 20%, transparent);
-                                }
-                                .wt-icon img{ width:22px; height:22px; filter: grayscale(100%) brightness(0%); opacity:.9; }
-                                .wt-label{ margin:0; font-size: clamp(16px, 2.6vw, 20px); font-weight:600; letter-spacing:.01em; }
-                                .wt-time{
-                                    font-size: 14px; font-weight:600; white-space:nowrap;
-                                    padding: 6px 10px; border-radius:999px;
-                                    background: linear-gradient(130deg, var(--accent-2), var(--accent-1));
-                                    color:#2a1f24; border:1px solid color-mix(in srgb, var(--accent-1) 50%, transparent);
-                                    box-shadow: 0 10px 24px color-mix(in srgb, var(--accent-1) 30%, transparent);
-                                }
-                                .wt-card-bottom{ margin-top: 10px; display:flex; justify-content:flex-start; }
-                                .wt-map{
-                                    appearance:none; border:none; cursor:pointer;
-                                    padding: 10px 14px; border-radius:999px;
-                                    font-size:14px; font-weight:600; letter-spacing:.02em;
-                                    background: var(--accent-2); color:#2f2f2f;
-                                    border: 1px solid var(--accent-line);
-                                    transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
-                                }
-                                .wt-map:hover{ transform: translateY(-1px); background: #fff; box-shadow: 0 8px 22px rgba(18,19,20,.08); }
-                                .wt-map:active{ transform:none; box-shadow:none; }
-                                @keyframes wtUp{ to { opacity:1; transform: translateY(0);} }
-                                .wt-text{ display:flex; flex-direction:column; align-items:flex-start; gap:2px; }
-                                .wt-address{ margin:0; font-size: 13px; color: var(--accent-muted); font-weight:400; line-height:1.3; }
-                                @media (min-width: 900px){
-                                    .wt-address{ font-size: 14px; }
-                                    .wt-card{ padding: 16px 18px 14px; }
-                                    .wt-label{ font-size: clamp(18px, 1.6vw, 22px); }
-                                    .wt-time{ font-size: 15px; }
-                                    .wt-list{ max-width: 900px; }
-                                    .wt-row{ padding-left: calc(22px + 22px); }
-                                }
-                                @media (prefers-reduced-motion: reduce){
-                                    .wt-card{ animation: none; opacity:1; transform:none; }
-                                }
-                            </style>
-
-                            <script>
-                                function openMap(btn){
-                                    const lat = btn.getAttribute('data-lat');
-                                    const lng = btn.getAttribute('data-lng');
-                                    const place = btn.getAttribute('data-place');
-                                    const isiOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-                                    let url = '';
-                                    if (lat && lng){
-                                        url = isiOS
-                                            ? `https://maps.apple.com/?ll=${lat},${lng}&q=${lat},${lng}`
-                                            : `https://www.google.com/maps?q=${lat},${lng}`;
-                                    } else if (place){
-                                        const q = encodeURIComponent(place);
-                                        url = isiOS ? `https://maps.apple.com/?q=${q}` : `https://www.google.com/maps?q=${q}`;
-                                    }
-                                    if (url) window.open(url, '_blank', 'noopener');
-                                }
-                                document.addEventListener('click', (e) => {
-                                    const btn = e.target.closest('.wt-map');
-                                    if (!btn) return;
-                                    openMap(btn);
-                                });
-                                document.addEventListener('DOMContentLoaded', () => {
-                                    const rows = Array.from(document.querySelectorAll('.wt-row'));
-                                    const io = new IntersectionObserver((entries) => {
-                                        entries.forEach((entry) => {
-                                            if (!entry.isIntersecting) return;
-                                            const el = entry.target;
-                                            const index = rows.indexOf(el);
-                                            el.style.setProperty('--delay', `${index * 0.1}s`);
-                                            el.classList.add('reveal');
-                                            io.unobserve(el);
-                                        });
-                                    }, { threshold: 0.2 });
-                                    rows.forEach(r => io.observe(r));
-                                });
-                            </script>
-                        </section>
-                        <!-- /TIMELINE -->
-
-                        <!-- DETAILS -->
-                        <section class="wedding-details" aria-label="Деталі свята">
-                            <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet"/>
-
-                            <header class="wd-head">
-                                <h2 class="wd-title">Деталі</h2>
-                                <p class="wd-sub">Дякуємо за ваше тепло та розуміння</p>
-                                <div class="wd-ornament" aria-hidden="true"></div>
-                            </header>
-
-                            <div class="wd-grid">
-                                <!-- Без квітів -->
-                                <article class="wd-card wd-card--noflowers" data-anim>
-                                    <div class="wd-mark">
-                    <span class="wd-icon">
-                      <img src="https://img.icons8.com/ios/50/flower.png" alt="" decoding="async" />
-                    </span>
-                                    </div>
-                                    <h3 class="wd-card-title">Квіти</h3>
-                                    <p class="wd-card-text">
-                                        Просимо вас не дарувати нам квіти, ми не встигнемо насолодитися їх красою.
-                                    </p>
-                                </article>
-
-                                <!-- Подарунки -->
-                                <article class="wd-card" data-anim>
-                                    <div class="wd-mark">
-                    <span class="wd-icon">
-                      <img src="https://img.icons8.com/ios/50/gift.png" alt="" decoding="async" />
-                    </span>
-                                    </div>
-                                    <h3 class="wd-card-title">Подарунки</h3>
-                                    <p class="wd-card-text">
-                                        Якщо ви хочете зробити нам цінний подарунок, ми будемо дуже вдячними за ваш внесок у бюджет нашої молодої сімʼї.
-                                    </p>
-                                </article>
-
-                                <!-- Допомога -->
-                                <article class="wd-card" data-anim>
-                                    <div class="wd-mark">
-                    <span class="wd-icon">
-                      <img src="https://img.icons8.com/ios/50/helping-hand.png" alt="" decoding="async" />
-                    </span>
-                                    </div>
-                                    <h3 class="wd-card-title">Допомога</h3>
-                                    <p class="wd-card-text">
-                                        Найбільшою радістю для нас буде, якщо замість квітів ви підтримаєте збір на 3-тю штурмову бригаду.<br>
-                                        Ми залишимо QR-код — щоб кожен, хто захоче, міг долучитися до доброї справи.
-                                    </p>
-
-                                    <!-- QR-код -->
-                                    <div class="wd-qr" style="text-align:center; margin:16px 0;">
-                                        <img src="/assets/media/orders/qr-code-demo.png"
-                                             alt="QR-код Monobank" width="180" height="180"
-                                             style="border-radius:12px; box-shadow:0 4px 16px rgba(0,0,0,.15);" />
-                                    </div>
-
-                                    <!-- Номер картки -->
-                                    <div class="wd-card-number" style="text-align:center; margin-top:12px;">
-                                        <p style="margin:0 0 8px; font-weight:600; font-size:15px; color:#333;">
-                                            1234&nbsp;5678&nbsp;9123&nbsp;4567
-                                        </p>
-                                        <button onclick="copyCardNumber()"
-                                                style="padding:8px 14px; font-size:14px; font-weight:600; border:none; border-radius:8px;
-                                   background:#C3AED6; color:#fff; cursor:pointer;">
-                                            Скопіювати номер
-                                        </button>
-                                    </div>
-                                </article>
-
-                                <!-- Тост-попап -->
-                                <div id="toast" role="status" aria-live="polite" aria-atomic="true">Номер картки скопійовано ✅</div>
-
-                                <style>
-                                    #toast{
-                                        position: fixed;
-                                        left: 50%;
-                                        top: calc(env(safe-area-inset-top) + 18px);
-                                        transform: translate(-50%, -12px);
-                                        width: min(96vw, 720px);
-                                        max-width: 720px;
-                                        padding: 14px 18px;
-                                        text-align: center;
-                                        background: rgba(30,30,30,.92);
-                                        color: #fff;
-                                        font: 600 15px/1.35 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Montserrat", sans-serif;
-                                        border-radius: 12px;
-                                        box-shadow: 0 14px 34px rgba(0,0,0,.28), inset 0 0 0 1px rgba(255,255,255,.18);
-                                        opacity: 0;
-                                        pointer-events: none;
-                                        z-index: 99999;
-                                        transition: opacity .22s ease, transform .22s ease;
-                                    }
-                                    #toast.show{ opacity: 1; transform: translate(-50%, 0); }
-                                    @media (max-width: 360px){ #toast{ padding: 12px 14px; font-size: 14px; } }
-                                </style>
-
-                                <script>
-                                    function showToast(msg, duration = 2000){
-                                        const el = document.getElementById('toast');
-                                        if (!el) return;
-                                        el.textContent = msg;
-                                        el.classList.add('show');
-                                        clearTimeout(showToast._t);
-                                        showToast._t = setTimeout(() => el.classList.remove('show'), duration);
-                                    }
-                                    function copyCardNumber() {
-                                        const cardNumber = "4874100028362898";
-                                        if (navigator.clipboard && navigator.clipboard.writeText){
-                                            navigator.clipboard.writeText(cardNumber)
-                                                .then(() => showToast("Номер картки скопійовано ✅"))
-                                                .catch(() => fallbackCopy(cardNumber));
-                                        } else {
-                                            fallbackCopy(cardNumber);
-                                        }
-                                    }
-                                    function fallbackCopy(text){
-                                        const ta = document.createElement('textarea');
-                                        ta.value = text;
-                                        ta.style.position = 'fixed';
-                                        ta.style.left = '-9999px';
-                                        document.body.appendChild(ta);
-                                        ta.select();
-                                        try { document.execCommand('copy'); } catch(e){}
-                                        document.body.removeChild(ta);
-                                        showToast("Номер картки скопійовано ✅");
-                                    }
-                                </script>
-                            </div>
-
-                            <style>
-                                .wedding-details{
-                                    --ink:#2b2a2a; --muted:#6f6f6f; --soft:#ffffff; --line: var(--accent-line);
-                                    --px: clamp(16px, 4vw, 32px);
-                                    --py: clamp(28px, 8vh, 72px);
-                                    --gap: clamp(16px, 2.4vh, 24px);
-                                    --radius: 20px;
-                                    --maxw: min(980px, 94vw);
-                                    position:relative; isolation:isolate;
-                                    padding: var(--py) var(--px);
-                                    display:grid; place-items:center;
-                                    font-family:'Montserrat', sans-serif; color:var(--ink);
-                                    background:
-                                            radial-gradient(1000px 520px at 50% -12%, rgba(195,174,214,.16), transparent 55%),
-                                            linear-gradient(180deg, #f9f7f4, #fdfcfb);
-                                }
-                                .wd-head{ text-align:center; margin-bottom: clamp(24px, 6vh, 48px); max-width: var(--maxw); }
-                                .wd-title{
-                                    margin:0 0 6px;
-                                    font-family:'Great Vibes', cursive;
-                                    font-size: clamp(40px, 6.6vw, 72px);
-                                    line-height: 1.22;
-                                    padding:.2em .25em .15em;
-                                    background: linear-gradient(130deg, var(--accent-2), var(--accent-1));
-                                    -webkit-background-clip:text; background-clip:text; color:transparent;
-                                    text-shadow: 0 2px 16px rgba(0,0,0,.12);
-                                    display:inline-block;
-                                }
-                                .wd-sub{ margin:0; color:var(--muted); font-size: clamp(13px, 2.2vw, 16px); }
-                                .wd-ornament{
-                                    width:min(180px, 40vw); height:2px; margin: 14px auto 0; border-radius:2px;
-                                    background: linear-gradient(90deg, transparent, rgba(195,174,214,.85), transparent);
-                                    filter: drop-shadow(0 4px 10px rgba(195,174,214,.25));
-                                }
-                                .wd-grid{ width:100%; max-width: var(--maxw); display:grid; gap: var(--gap); grid-template-columns: 1fr; }
-                                @media (min-width: 720px){ .wd-grid{ grid-template-columns: 1fr 1fr; } }
-                                @media (min-width: 1040px){ .wd-grid{ grid-template-columns: 1fr 1fr 1fr; } }
-
-                                .wd-card{
-                                    position:relative; background: var(--soft); border: 1px solid var(--line);
-                                    border-radius: var(--radius); box-shadow: 0 16px 40px rgba(18,19,20,.06);
-                                    padding: clamp(16px, 2.4vh, 22px) clamp(16px, 2.6vw, 24px);
-                                    text-align:center; opacity:0; transform: translateY(14px);
-                                }
-                                .wd-card::before{
-                                    content:""; position:absolute; left:12%; right:12%; top:-1px; height:3px; border-radius:2px;
-                                    background: linear-gradient(130deg, var(--accent-2), var(--accent-1)); opacity:.9;
-                                }
-                                .wd-mark{ display:flex; justify-content:center; margin-bottom: 12px; }
-                                .wd-icon{
-                                    position:relative; width: 56px; height: 56px; border-radius: 50%;
-                                    display:grid; place-items:center; background:#fff;
-                                    border: 1px solid rgba(195,174,214,.35);
-                                    box-shadow: 0 10px 24px rgba(195,174,214,.18);
-                                }
-                                .wd-icon img{ width: 24px; height: 24px; filter: grayscale(100%) brightness(0%); opacity:.9; }
-                                .wd-card--noflowers .wd-icon::after{
-                                    content:""; position:absolute; inset:0; margin:auto; width:70%; height:2px; border-radius:2px;
-                                    background: linear-gradient(130deg, var(--accent-2), var(--accent-1));
-                                    transform: rotate(-28deg);
-                                    box-shadow: 0 0 0 1px rgba(255,255,255,.6) inset;
-                                }
-                                .wd-card-title{ margin: 4px 0 8px; font-weight:600; letter-spacing:.01em; font-size: clamp(16px, 2.6vw, 20px); }
-                                .wd-card-text{ margin:0; line-height:1.6; color: var(--muted); font-size: clamp(14px, 2.4vw, 16px); }
-                                @keyframes fdUp { to { opacity:1; transform: translateY(0); } }
-                            </style>
-
-                            <script>
-                                document.addEventListener('DOMContentLoaded', () => {
-                                    const cards = document.querySelectorAll('.wedding-details [data-anim]');
-                                    const io = new IntersectionObserver((entries) => {
-                                        entries.forEach((e, i) => {
-                                            if (e.isIntersecting) {
-                                                e.target.style.animation = 'fdUp .6s ease forwards';
-                                                e.target.style.animationDelay = `${0.06 * i}s`;
-                                                io.unobserve(e.target);
-                                            }
-                                        });
-                                    }, { threshold: .2 });
-                                    cards.forEach(c => io.observe(c));
-                                });
-                            </script>
-                        </section>
-
-                        <!-- COUNTDOWN -->
-                        <section class="wedding-countdown" aria-label="Відлік до весілля">
-                            <header class="wc-head">
-                                <h2 class="wc-title">Чекаємо на вас</h2>
-                                <p class="wc-sub">До нашого свята залишилось</p>
-                                <div class="wc-ornament" aria-hidden="true"></div>
-                            </header>
-
-                            <div class="wc-timer" id="countdown">
-                                <div class="wc-box">
-                                    <span class="wc-num" id="days">0</span>
-                                    <span class="wc-label">Днів</span>
-                                </div>
-                                <div class="wc-box">
-                                    <span class="wc-num" id="hours">0</span>
-                                    <span class="wc-label">Годин</span>
-                                </div>
-                                <div class="wc-box">
-                                    <span class="wc-num" id="minutes">0</span>
-                                    <span class="wc-label">Хвилин</span>
-                                </div>
-                                <div class="wc-box">
-                                    <span class="wc-num" id="seconds">0</span>
-                                    <span class="wc-label">Секунд</span>
-                                </div>
-                            </div>
-
-                            <style>
-                                .wedding-countdown{
-                                    position:relative; isolation:isolate;
-                                    padding: clamp(28px, 8vh, 72px) clamp(16px, 4vw, 32px);
-                                    display:grid; place-items:center;
-                                    font-family:'Montserrat', sans-serif; color:var(--accent-ink);
-                                    background:
-                                            radial-gradient(1000px 520px at 50% -12%, color-mix(in srgb, var(--accent-1) 22%, transparent), transparent 55%),
-                                            linear-gradient(180deg, #f9f7f4, #fdfcfb);
-                                }
-                                .wc-head{ text-align:center; margin-bottom: clamp(20px, 5vh, 40px); }
-                                .wc-title{
-                                    margin:0 0 8px; font-family:'Great Vibes', cursive;
-                                    font-size: clamp(32px, 7vw, 52px); line-height:1.2; padding: 4px 0;
-                                    background: linear-gradient(130deg, var(--accent-2), var(--accent-1));
-                                    -webkit-background-clip:text; background-clip:text; color:transparent;
-                                    text-shadow: 0 2px 12px rgba(0,0,0,.10);
-                                }
-                                .wc-sub{ margin:0; font-size: clamp(13px, 2.4vw, 17px); color:var(--accent-muted); }
-                                .wc-ornament{
-                                    width:min(160px, 40vw); height:2px; margin: 14px auto 0; border-radius:2px;
-                                    background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent-1) 85%, white 15%), transparent);
-                                    filter: drop-shadow(0 3px 8px color-mix(in srgb, var(--accent-1) 30%, transparent));
-                                }
-                                .wc-timer{ display:grid; grid-template-columns: repeat(4, 1fr); gap: clamp(10px, 3.6vw, 20px); width: min(940px, 100%); }
-                                .wc-box{
-                                    background: #fff; border:1px solid color-mix(in srgb, var(--accent-1) 30%, transparent);
-                                    border-radius: 18px; box-shadow: 0 14px 36px rgba(18,19,20,.06);
-                                    text-align:center; padding: clamp(12px, 2.6vh, 18px) clamp(10px, 2.6vw, 18px);
-                                }
-                                .wc-num{
-                                    display:block; font-size: clamp(24px, 6.6vw, 50px); line-height:1.3; padding: 4px 0; font-weight:700;
-                                    background: linear-gradient(130deg, var(--accent-2), var(--accent-1));
-                                    -webkit-background-clip:text; background-clip:text; color:transparent;
-                                    text-shadow: 0 1px 10px rgba(0,0,0,.10);
-                                }
-                                .wc-label{ display:block; font-size: clamp(11px, 2.6vw, 15px); font-weight:600; color:#2c2b2b; opacity:.85; letter-spacing:.03em; }
-                                @media (max-width: 420px){
-                                    .wc-title{ font-size: 34px; line-height:1.25; }
-                                    .wc-box{ padding: 10px 6px; border-radius: 14px; }
-                                    .wc-num{ font-size: 26px; line-height:1.25; }
-                                    .wc-label{ font-size: 11px; }
-                                    .wc-timer{ gap: 8px; }
-                                }
-                            </style>
-
-                            <script>
-                                document.addEventListener('DOMContentLoaded', () => {
-                                    const targetDate = new Date("2026-06-10T00:00:00");
-                                    const daysEl = document.getElementById("days");
-                                    const hoursEl = document.getElementById("hours");
-                                    const minutesEl = document.getElementById("minutes");
-                                    const secondsEl = document.getElementById("seconds");
-
-                                    function updateCountdown(){
-                                        const now = new Date();
-                                        const diff = targetDate - now;
-                                        if(diff <= 0){
-                                            daysEl.textContent = hoursEl.textContent = minutesEl.textContent = secondsEl.textContent = "0";
-                                            return;
-                                        }
-                                        const days = Math.floor(diff / (1000*60*60*24));
-                                        const hours = Math.floor((diff / (1000*60*60)) % 24);
-                                        const minutes = Math.floor((diff / (1000*60)) % 60);
-                                        const seconds = Math.floor((diff / 1000) % 60);
-                                        daysEl.textContent = days;
-                                        hoursEl.textContent = hours.toString().padStart(2,'0');
-                                        minutesEl.textContent = minutes.toString().padStart(2,'0');
-                                        secondsEl.textContent = seconds.toString().padStart(2,'0');
-                                    }
-                                    updateCountdown();
-                                    setInterval(updateCountdown, 1000);
-                                });
-                            </script>
-                        </section>
-                        <!-- /COUNTDOWN -->
-
-                        <!-- DRESSCODE -->
-                        <section class="wedding-dresscode" aria-label="Дрес-код">
-                            <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet"/>
-
-                            <header class="dc-head">
-                                <h2 class="dc-title">Дрес-код</h2>
-                                <p class="dc-sub">Атмосфера тепла, єдності та української краси</p>
-                                <div class="dc-ornament" aria-hidden="true"></div>
-                            </header>
-
-                            <div class="dc-grid">
-                                <div class="dc-frame">
-                                    <article class="dc-card dc-card--inside">
-                                        <p class="dc-text">
-                                            Ми мріємо, щоб у цей день панувала атмосфера тепла, єдності та української краси.
-                                            Тому будемо щасливі бачити вас у <strong>вишиванках</strong> — вони стануть особливою частинкою нашого спільного свята.
-                                        </p>
-                                    </article>
-                                </div>
-
-                                <article class="dc-card">
-                                    <p class="dc-text">
-                                        Будемо раді допомогти з будь-якими уточненнями. <br>
-                                        З усіх питань можна звертатися до нареченої:
-                                    </p>
-
-                                    <div class="dc-actions">
-                                        <a class="dc-btn" href="tel:+380631231212">📞 Подзвонити</a>
-                                        <a class="dc-btn dc-btn--light" href="sms:+380631231212">✉️ Написати SMS</a>
-                                    </div>
-
-                                    <div class="dc-contact">
-                                        Телефон: <a href="tel:+380631231212">+380&nbsp;63&nbsp;123&nbsp;12&nbsp;12</a>
-                                    </div>
-                                </article>
-                            </div>
-
-                            <style>
-                                .wedding-dresscode{
-                                    --ink:#2b2a2a; --muted:#6f6f6f; --soft:#ffffff; --line: var(--accent-line);
-                                    --px: clamp(16px, 4vw, 32px);
-                                    --py: clamp(28px, 8vh, 72px);
-                                    --radius: 20px;
-                                    --maxw: min(1000px, 94vw);
-                                    --frame-pad: clamp(18px, 3.2vw, 28px);
-                                    --strip-h: clamp(32px, 15vw, 60px);
-                                    position:relative; isolation:isolate; padding: var(--py) var(--px);
-                                    display:grid; place-items:center; font-family:'Montserrat', sans-serif; color:var(--ink);
-                                    background:
-                                            radial-gradient(1000px 520px at 50% -12%, rgba(195,174,214,.16), transparent 55%),
-                                            linear-gradient(180deg, #f9f7f4, #fdfcfb);
-                                }
-                                .dc-head{ text-align:center; margin-bottom: clamp(24px, 6vh, 48px); max-width: var(--maxw); }
-                                .dc-title{
-                                    margin:0 0 6px; font-family:'Great Vibes', cursive;
-                                    font-size: clamp(40px, 6.4vw, 72px); line-height:1.22; padding:.18em .25em .12em;
-                                    background: linear-gradient(130deg, var(--accent-2), var(--accent-1));
-                                    -webkit-background-clip:text; background-clip:text; color:transparent;
-                                    text-shadow: 0 2px 14px rgba(0,0,0,.12); display:inline-block;
-                                }
-                                .dc-sub{ margin:0; color:var(--muted); font-size: clamp(13px, 2.2vw, 16px); }
-                                .dc-ornament{
-                                    width:min(180px, 40vw); height:2px; margin: 14px auto 0; border-radius:2px;
-                                    background: linear-gradient(90deg, transparent, rgba(195,174,214,.85), transparent);
-                                    filter: drop-shadow(0 4px 10px rgba(195,174,214,.25));
-                                }
-                                .dc-grid{ width:100%; max-width: var(--maxw); display:grid; gap: clamp(16px, 3vw, 26px); grid-template-columns: 1fr; }
-                                @media (min-width: 920px){ .dc-grid{ grid-template-columns: 1fr 1fr; } }
-                                .dc-card{
-                                    background: var(--soft); border: 1px solid var(--line);
-                                    border-radius: var(--radius); box-shadow: 0 16px 40px rgba(18,19,20,.06);
-                                    padding: clamp(16px, 2.4vh, 22px) clamp(16px, 2.6vw, 24px); position:relative;
-                                }
-                                .dc-card::before{
-                                    content:""; position:absolute; left:12%; right:12%; top:-1px; height:3px; border-radius:2px;
-                                    background: linear-gradient(130deg, var(--accent-2), var(--accent-1)); opacity:.9;
-                                }
-                                .dc-text{ margin:0 0 12px; line-height:1.65; color:var(--muted); font-size: clamp(14px, 2.4vw, 16px); }
-                                .dc-actions{ display:flex; flex-wrap:wrap; gap:10px; margin-top: 10px; }
-                                .dc-btn{
-                                    display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:10px 16px;
-                                    font-weight:700; letter-spacing:.02em; border-radius:999px; text-decoration:none;
-                                    background: linear-gradient(130deg, var(--accent-2), var(--accent-1)); color:#1d1c16;
-                                    border:1px solid rgba(195,174,214,.55);
-                                    box-shadow: 0 12px 28px rgba(195,174,214,.26);
-                                    transition: transform .15s ease, box-shadow .2s ease, filter .2s ease;
-                                }
-                                .dc-btn:hover{ transform: translateY(-1px); box-shadow: 0 18px 36px rgba(195,174,214,.34); }
-                                .dc-btn:active{ transform:none; box-shadow: 0 10px 24px rgba(195,174,214,.24); }
-                                .dc-btn--light{ background:#fff; color:#2f2f2f; border-color: var(--accent-line); box-shadow: 0 10px 24px rgba(18,19,20,.06); }
-                                .dc-contact{ margin-top: 8px; font-size: 14px; color: var(--muted); }
-                                .dc-contact a{ color: inherit; text-decoration: underline; text-decoration-color: rgba(195,174,214,.6); }
-
-                                /* ФОТО-РАМКА */
-                                .dc-frame{ position: relative; border-radius: calc(var(--radius) + 12px); padding: var(--frame-pad); z-index:0; }
-                                .dc-frame::after{
-                                    content:""; position:absolute; inset:0; border-radius: inherit;
-                                    background-image: url('/assets/media/orders/ornament.png');
-                                    background-repeat:no-repeat; background-size: 100% 100%; background-position: center;
-                                    pointer-events:none; user-select:none; filter: drop-shadow(0 18px 42px rgba(18,19,20,.10)); z-index:0;
-                                }
-                                .dc-card--inside{
-                                    position: relative; z-index:1; background: var(--soft); border: 1px solid var(--line);
-                                    border-radius: var(--radius); box-shadow: 0 12px 32px rgba(18,19,20,.08);
-                                }
-
-                                @media (max-width: 600px){
-                                    .dc-frame{
-                                        padding-block: calc(var(--strip-h) + 10px);
-                                        padding-inline: clamp(8px, 2.6vw, 14px);
-                                        border-radius: calc(var(--radius) + 10px);
-                                    }
-                                    .dc-frame::after{
-                                        inset: auto 0 0 0; height: var(--strip-h);
-                                        background-size: 100% auto; background-position: bottom center;
-                                        border-bottom-left-radius: calc(var(--radius) + 10px);
-                                        border-bottom-right-radius: calc(var(--radius) + 10px);
-                                        filter: drop-shadow(0 10px 24px rgba(18,19,20,.10));
-                                    }
-                                    .dc-frame::before{
-                                        content:""; position:absolute; left:0; right:0; top:0; height: var(--strip-h);
-                                        background-image: url('/assets/media/orders/ornament.png');
-                                        background-repeat: no-repeat; background-size: 100% auto; background-position: top center;
-                                        border-top-left-radius: calc(var(--radius) + 10px);
-                                        border-top-right-radius: calc(var(--radius) + 10px);
-                                        pointer-events:none; user-select:none; z-index:0;
-                                        filter: drop-shadow(0 10px 24px rgba(18,19,20,.10));
-                                    }
-                                }
-                            </style>
-                        </section>
-
-                        <!-- SURVEY -->
-                        <section class="survey-elegant" aria-label="Опитування для гостей">
-                            <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet"/>
-
-                            <div class="survey-card">
-                                <h2 class="survey-title">Опитування для гостей</h2>
-
-                                <form id="weddingForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
-                                    <input type="hidden" name="access_key" value="581eaf16-3866-475f-8020-0f5282f63bec">
-                                    <input type="hidden" name="subject" value="Відповіді з анкети">
-                                    <input type="hidden" name="from_name" value="Весільний сайт">
-
-                                    <label class="question">Ваше ім’я:</label>
-                                    <input class="input" type="text" name="Ім’я" placeholder="Введіть ваше ім’я та прізвище">
-
-                                    <label class="question">Чи плануєте ви бути на нашому святі?</label>
-                                    <div class="options" data-group="wedding-presence">
-                                        <label class="pill"><input type="radio" name="Чи плануєте ви бути на нашому святі?" value="Так">Так</label>
-                                        <label class="pill"><input type="radio" name="Чи плануєте ви бути на нашому святі?" value="Ні">Ні</label>
-                                    </div>
-
-                                    <label class="question">Чи плануєте ви бути на офіційній частині у РАЦС?</label>
-                                    <div class="options" data-group="racs-presence">
-                                        <label class="pill"><input type="radio" name="Чи плануєте ви бути у РАЦС?" value="Так">Так</label>
-                                        <label class="pill"><input type="radio" name="Чи плануєте ви бути у РАЦС?" value="Ні">Ні</label>
-                                    </div>
-
-                                    <label class="question">Ваші побажання щодо алкогольних напоїв:</label>
-                                    <div class="options options-grid" data-group="alcohol">
-                                        <label class="pill"><input type="checkbox" name="Алкоголь[]" value="Коньяк">🥃 Коньяк</label>
-                                        <label class="pill"><input type="checkbox" name="Алкоголь[]" value="Вино">🍷 Вино</label>
-                                        <label class="pill"><input type="checkbox" name="Алкоголь[]" value="Шампанське">🥂 Шампанське</label>
-                                        <label class="pill"><input type="checkbox" name="Алкоголь[]" value="Горілка">🍾 Горілка</label>
-                                        <label class="pill"><input type="checkbox" name="Алкоголь[]" value="Віскі">🥃 Віскі</label>
-                                        <label class="pill"><input type="checkbox" name="Алкоголь[]" value="Не пʼю">🚫 Не пʼю</label>
-                                    </div>
-
-                                    <label class="question">Форма вільної відповіді:</label>
-                                    <textarea class="input" name="Ваші побажання" placeholder="Напишіть тут будь-які додаткові побажання. Якщо з вами буде дитина або діти, зазначте це, будь ласка." rows="4"></textarea>
-
-                                    <button type="submit" class="btn-submit">Відправити 💌</button>
-                                </form>
-
-                                <div id="formMessage" class="form-message"></div>
-                            </div>
-
-                            <style>
-                                .survey-elegant{
-                                    --ink:#2b2a2a; --muted:#6f6f6f; --soft:#ffffff; --line: var(--accent-line);
-                                    --px: clamp(16px, 4vw, 32px);
-                                    --py: clamp(28px, 8vh, 72px);
-                                    --radius: 20px;
-                                    padding: var(--py) var(--px);
-                                    display:grid; place-items:center;
-                                    background:
-                                            radial-gradient(1000px 520px at 50% -12%, rgba(195,174,214,.16), transparent 55%),
-                                            linear-gradient(180deg, #f9f7f4, #fdfcfb);
-                                    font-family:'Montserrat', sans-serif; color:var(--ink);
-                                }
-                                .survey-card{
-                                    width:min(960px, 100%); background: var(--soft);
-                                    border:1px solid var(--line); border-radius: var(--radius);
-                                    box-shadow: 0 24px 60px rgba(18,19,20,.07);
-                                    padding: clamp(22px, 4vw, 40px); animation: fadeIn .6s ease;
-                                }
-                                .survey-title{
-                                    margin:0 0 18px; font-family:'Great Vibes', cursive;
-                                    font-size: clamp(32px, 6vw, 52px); line-height:1.2; padding:.15em 0 .1em;
-                                    background: linear-gradient(130deg, var(--accent-2), var(--accent-1));
-                                    -webkit-background-clip:text; background-clip:text; color:transparent;
-                                    text-align:center; text-shadow: 0 2px 16px rgba(0,0,0,.10); overflow:visible;
-                                }
-                                .question{ display:block; margin:18px 0 10px; font-weight:600; color:var(--ink); letter-spacing:.01em; }
-                                .input{
-                                    width:100%; padding:14px 16px; border-radius:14px;
-                                    border:1px solid rgba(195,174,214,.35); background:#fff; font-size:16px;
-                                    transition:border-color .2s ease, box-shadow .2s ease; box-shadow: 0 8px 24px rgba(195,174,214,.10);
-                                }
-                                .input:focus{ outline:none; border-color: rgba(195,174,214,.9); box-shadow: 0 10px 28px rgba(195,174,214,.22); }
-                                .options{ display:flex; flex-wrap:wrap; gap:10px 10px; margin-bottom:14px; }
-                                .options-grid{ display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:10px; }
-                                @media (max-width:580px){ .options-grid{ grid-template-columns: 1fr 1fr; } }
-                                @media (max-width:420px){ .options-grid{ grid-template-columns: 1fr; } }
-                                .pill{
-                                    display:inline-flex; align-items:center; justify-content:center;
-                                    gap:8px; padding:10px 14px; font-weight:600; border-radius:999px;
-                                    background:#fff; border:1px solid rgba(195,174,214,.35); color:#2f2f2f; cursor:pointer; user-select:none;
-                                    transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
-                                    box-shadow: 0 8px 20px rgba(195,174,214,.10);
-                                }
-                                .pill:hover{ transform: translateY(-1px); box-shadow: 0 12px 26px rgba(195,174,214,.18); }
-                                .pill input{ display:none; }
-                                .pill:has(input:checked){
-                                    background: linear-gradient(130deg, var(--accent-2), var(--accent-1));
-                                    color:#1d1c16; border-color: rgba(195,174,214,.55); box-shadow: 0 12px 28px rgba(195,174,214,.28);
-                                }
-                                .btn-submit{
-                                    width:100%; margin-top:8px; appearance:none; border:none; cursor:pointer;
-                                    padding:14px 18px; border-radius:999px; font-size:16px; font-weight:700; letter-spacing:.02em;
-                                    background: linear-gradient(130deg, var(--accent-2), var(--accent-1)); color:#1e1c16;
-                                    border:1px solid rgba(195,174,214,.55); box-shadow: 0 16px 36px rgba(195,174,214,.32);
-                                    transition: transform .15s ease, box-shadow .2s ease, filter .2s ease;
-                                }
-                                .btn-submit:hover{ transform: translateY(-1px); box-shadow: 0 22px 48px rgba(195,174,214,.4); }
-                                .btn-submit:active{ transform:none; box-shadow: 0 10px 28px rgba(195,174,214,.28); }
-                                .form-message{ text-align:center; margin-top:14px; font-weight:700; display:none; }
-                                @keyframes fadeIn{ from{opacity:0; transform: translateY(18px);} to{opacity:1; transform:none;} }
-
-                                /* Тост-попап (для валідації) */
-                                .form-toast {
-                                    position: fixed; left: 50%; top: max(16px, calc(env(safe-area-inset-top) + 12px));
-                                    transform: translate(-50%, -10px);
-                                    width: min(96vw, 780px);
-                                    background: #1f1f1f; color: #fff; border-radius: 14px;
-                                    border: 1px solid rgba(255,255,255,.18);
-                                    box-shadow: 0 20px 50px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.08);
-                                    padding: 14px 18px; z-index: 999999; opacity: 0; pointer-events: none;
-                                    transition: opacity .22s ease, transform .22s ease;
-                                    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Montserrat", sans-serif;
-                                }
-                                .form-toast.show { opacity: 1; pointer-events: auto; transform: translate(-50%, 0); }
-                                .form-toast__title { font-weight: 800; margin: 0 0 6px; font-size: 16px; }
-                                .form-toast__list { margin: 0; padding-left: 18px; font-size: 14px; line-height: 1.35; }
-                                .form-toast__close { appearance:none; border:none; background:transparent; color:#fff; opacity:.85; cursor:pointer; position:absolute; right:12px; top:8px; font-size:18px; line-height:1; }
-
-                                .input.invalid{ outline:2px solid #e74c3c; outline-offset:2px; border-color:#e74c3c; border-radius:12px; }
-                                .pill-group.invalid{ outline:2px solid #e74c3c; outline-offset:2px; border-radius:12px; padding:6px 8px; }
-                                .btn-submit[aria-busy="true"]{ opacity:.7; pointer-events:none; }
-                            </style>
-
-                            <script>
-                                (function(){
-                                    const form = document.getElementById('weddingForm');
-                                    const msg  = document.getElementById('formMessage');
-
-                                    function ensureToast(){
-                                        let t = document.querySelector('.form-toast');
-                                        if (!t){
-                                            t = document.createElement('div');
-                                            t.className = 'form-toast';
-                                            t.setAttribute('role','alert');
-                                            t.setAttribute('aria-live','polite');
-                                            t.innerHTML = `
-                        <button class="form-toast__close" aria-label="Закрити">×</button>
-                        <div class="form-toast__title">Заповніть, будь ласка, обовʼязкові поля:</div>
-                        <ul class="form-toast__list"></ul>`;
-                                            document.body.appendChild(t);
-                                            t.querySelector('.form-toast__close').addEventListener('click', hideToast);
-                                        }
-                                        return t;
-                                    }
-                                    function showToast(items, autoHideMs=4500){
-                                        const t = ensureToast();
-                                        const list = t.querySelector('.form-toast__list');
-                                        list.innerHTML = '';
-                                        items.forEach(txt => {
-                                            const li = document.createElement('li');
-                                            li.textContent = txt;
-                                            list.appendChild(li);
-                                        });
-                                        t.classList.add('show');
-                                        clearTimeout(showToast._timer);
-                                        showToast._timer = setTimeout(hideToast, autoHideMs);
-                                    }
-                                    function hideToast(){
-                                        const t = document.querySelector('.form-toast');
-                                        if (t) t.classList.remove('show');
-                                    }
-
-                                    function clearErrors(){ form.querySelectorAll('.invalid').forEach(el => el.classList.remove('invalid')); }
-                                    function scrollToFirstInvalid(){
-                                        const bad = form.querySelector('.invalid');
-                                        if (bad){
-                                            bad.scrollIntoView({behavior:'smooth', block:'center'});
-                                            const focusEl = bad.querySelector('input,textarea,select') || bad;
-                                            if (focusEl && focusEl.focus) focusEl.focus({preventScroll:true});
-                                        }
-                                    }
-                                    function markInvalid(el){ el.classList.add('invalid'); el.setAttribute('aria-invalid','true'); }
-                                    function unmark(el){ el.classList.remove('invalid'); el.removeAttribute('aria-invalid'); }
-
-                                    form.addEventListener('input', e=>{
-                                        const wrap = e.target.closest('.input, .options') || e.target;
-                                        wrap && unmark(wrap);
-                                        e.target.classList?.remove('invalid');
-                                    });
-                                    form.addEventListener('change', e=>{
-                                        const wrap = e.target.closest('.input, .options') || e.target;
-                                        wrap && unmark(wrap);
-                                        e.target.classList?.remove('invalid');
-                                    });
-
-                                    form.addEventListener('submit', async function(e){
-                                        e.preventDefault();
-                                        hideToast(); clearErrors(); msg.style.display = 'none';
-
-                                        let ok = true;
-                                        const missing = [];
-
-                                        const nameInput = form.querySelector('input[name="Ім’я"]');
-                                        if (!nameInput.value.trim()){
-                                            markInvalid(nameInput);
-                                            missing.push('— Ваше ім’я');
-                                            ok = false;
-                                        }
-
-                                        const weddingWrap = form.querySelector('[data-group="wedding-presence"]');
-                                        const weddingRadios = form.querySelectorAll('input[name="Чи плануєте ви бути на нашому святі?"]');
-                                        if (![...weddingRadios].some(r=>r.checked)){
-                                            markInvalid(weddingWrap); weddingWrap.classList.add('pill-group');
-                                            missing.push('— Чи плануєте ви бути на нашому святі?');
-                                            ok = false;
-                                        }
-
-                                        const racsWrap = form.querySelector('[data-group="racs-presence"]');
-                                        const racsRadios = form.querySelectorAll('input[name="Чи плануєте ви бути у РАЦС?"]');
-                                        if (![...racsRadios].some(r=>r.checked)){
-                                            markInvalid(racsWrap); racsWrap.classList.add('pill-group');
-                                            missing.push('— Чи плануєте ви бути у РАЦС?');
-                                            ok = false;
-                                        }
-
-                                        const alcoholWrap = form.querySelector('[data-group="alcohol"]');
-                                        const alcoholChecked = form.querySelectorAll('input[name="Алкоголь[]"]:checked');
-                                        if (alcoholChecked.length === 0){
-                                            markInvalid(alcoholWrap); alcoholWrap.classList.add('pill-group');
-                                            missing.push('— Оберіть хоча б один варіант у «Побажання щодо алкогольних напоїв»');
-                                            ok = false;
-                                        }
-
-                                        if (!ok){
-                                            showToast(missing);
-                                            scrollToFirstInvalid();
-                                            return;
-                                        }
-
-                                        const formData = new FormData(form);
-                                        const drinks = Array.from(alcoholChecked).map(i => i.value);
-                                        formData.delete('Алкоголь[]');
-                                        formData.append('Алкоголь', drinks.join(', '));
-
-                                        const btn = form.querySelector('.btn-submit');
-                                        btn.setAttribute('aria-busy','true');
-                                        try {
-                                            const res  = await fetch(form.action, { method: 'POST', body: formData });
-                                            const json = await res.json();
-                                            if (json.success){
-                                                msg.textContent = '✅ Дякуємо! Ваші відповіді надіслані.';
-                                                msg.style.color = 'green';
-                                                msg.style.display = 'block';
-                                                form.reset();
-                                                clearErrors();
-                                                hideToast();
-                                            } else {
-                                                throw new Error(json.message || 'Помилка відправки');
-                                            }
-                                        } catch (err){
-                                            msg.textContent = '❌ Сталася помилка. Спробуйте ще раз.';
-                                            msg.style.color = 'red';
-                                            msg.style.display = 'block';
-                                        } finally {
-                                            btn.removeAttribute('aria-busy');
-                                        }
-                                    });
-                                })();
-                            </script>
-                        </section>
-                        <!-- /SURVEY -->
-
-                        <!-- FOOTER -->
-                        <footer>
-                            <section class="footer-hero" id="footer">
-                                <div class="footer-hero__bg" aria-hidden="true"></div>
-                                <div class="footer-hero__content">
-                                    <h2 class="footer-hero__title">З любов’ю чекаємо на вас</h2>
-                                    <p class="footer-hero__subtitle">
-                                        Будь ласка, підтвердьте присутність до <strong>07.05.2026</strong>
-                                    </p>
-                                    <p class="footer-hero__note">До зустрічі на святі</p>
-                                </div>
-                            </section>
-
-                            <style>
-                                .footer-hero{
-                                    position:relative; min-height:100vh; width:100%; overflow:hidden;
-                                    display:flex; justify-content:center; align-items:flex-end;
-                                    padding-bottom: 30vh; isolation:isolate;
-                                    font-family:'Montserrat',sans-serif;
-                                    background: radial-gradient(1200px 600px at 50% -20%, color-mix(in srgb, var(--accent-1) 18%, transparent), transparent 60%);
-                                }
-                                .footer-hero__bg{
-                                    position:absolute; inset:0;
-                                    background:
-                                            linear-gradient(180deg, rgba(0,0,0,.22) 0%, rgba(0,0,0,.5) 100%),
-                                            url('../assets/media/gallery/footer_image-5-1.jpeg') center/cover no-repeat;
-                                    z-index:-1; transform:scale(1.02);
-                                }
-                                .footer-hero__content{
-                                    position:relative; text-align:center; color:#fff;
-                                    padding: clamp(24px, 4vw, 48px); max-width: 920px;
-                                }
-                                .footer-hero__content::before{
-                                    content:""; position:absolute; inset: clamp(6px, 1.6vw, 12px);
-                                    border-radius: 16px; background: rgba(0,0,0,.32);
-                                    backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
-                                    border: 1px solid rgba(255,255,255,.16);
-                                    box-shadow: 0 18px 44px rgba(0,0,0,.28); z-index:-1;
-                                }
-                                .footer-hero__title{
-                                    margin:0 0 10px; font-family:'Great Vibes', cursive;
-                                    font-size: clamp(36px, 6.4vw, 72px); line-height: 1.22; padding: .15em .25em .12em;
-                                    background: linear-gradient(130deg, var(--accent-2), var(--accent-1));
-                                    -webkit-background-clip:text; background-clip:text; color:transparent;
-                                    text-shadow: 0 2px 14px rgba(0,0,0,.12);
-                                }
-                                .footer-hero__subtitle{
-                                    font-size: clamp(14px, 2.2vw, 20px);
-                                    margin: 0 0 8px; text-shadow: 0 4px 16px rgba(0,0,0,.25); letter-spacing:.01em;
-                                }
-                                .footer-hero__subtitle strong{
-                                    color:#fff; font-weight:700;
-                                    background: linear-gradient(130deg, var(--accent-2), var(--accent-1));
-                                    -webkit-background-clip:text; background-clip:text; color:transparent;
-                                    text-shadow: 0 1px 10px rgba(0,0,0,.18);
-                                }
-                                .footer-hero__note{ font-size: clamp(13px, 2vw, 18px); opacity:.95; letter-spacing:.02em; }
-                                @media (min-width:1600px){ .footer-hero__bg{ transform:scale(1.04); } }
-                                @supports (padding: max(0px)) { .footer-hero__content{ padding-bottom: max(24px, env(safe-area-inset-bottom)); } }
-                            </style>
-                        </footer>
-                        <!-- /FOOTER -->
-
-                        <!-- back-to-top -->
-                        <a href="#" class="scroll-top">
-                            <svg class="scroll-top__circle" width="100%" height="100%" viewBox="-1 -1 102 102">
-                                <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
-                            </svg>
-                        </a>
-
-                        <!-- JS -->
-                        <script src="../assets-premium1/js/vendor/jquery-3.6.3.min.js"></script>
-                        <script src="../assets-premium1/js/vendor/bootstrap.min.js"></script>
-                        <script src="../assets-premium1/js/vendor/jquery-appear.js"></script>
-                        <script src="../assets-premium1/js/vendor/jquery-validator.js"></script>
-                        <script src="../assets-premium1/js/vendor/jquery.nice-select.min.js"></script>
-                        <script src="../assets-premium1/js/vendor/slick.min.js"></script>
-                        <script src="../assets-premium1/js/vendor/jquery.countdown.min.js"></script>
-                        <script src="../assets-premium1/js/vendor/wow.js"></script>
-                        <script src="../assets-premium1/js/app.js"></script>
-
+</header>
+
+<!-- INTRO -->
+<section class="section intro" id="intro">
+    <div class="container">
+        <h2 class="section-title" data-reveal>Наша історія</h2>
+        <p class="lead" data-reveal>Ми довго йшли до цієї миті — і хочемо прожити її разом з вами. Дякуємо, що ви поруч.</p>
+        <div class="orn"></div>
+
+        <div class="grid">
+            <article class="card" data-reveal>
+                <h3>Трохи про день</h3>
+                <p>Святкування відбудеться у колі рідних та друзів. Ми підготували камерну церемонію, атмосферний банкет та дуже багато обіймів. Дитячі посмішки — завжди бажані 😊</p>
+                <p style="margin-top:8px">Локації зручні для пересування, поруч паркінг. Нижче — точні адреси і таймінг.</p>
+            </article>
+
+            <figure class="img-mask" data-reveal>
+                <img src="/assets/media/images/wedding_banner5-1.jpeg" alt="Фото з нашої історії кохання">
+            </figure>
+        </div>
+    </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="section" id="timeline" aria-label="Таймінг">
+    <div class="container">
+        <h2 class="section-title" data-reveal>Таймінг дня</h2>
+        <p class="lead" data-reveal>З любов'ю — кожна мить</p>
+        <div class="orn"></div>
+
+        <div class="timeline">
+            <div class="steps">
+
+                <div class="step" data-reveal>
+                    <div class="dot"><img src="https://img.icons8.com/ios/50/wine-glass.png" alt=""></div>
+                    <div class="t-text">
+                        <h4>Збір гостей</h4>
+                        <p>Центральний РАЦС м. Києва, вул. Прорізна, 4.</p>
+                        <a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps?q=%D0%A6%D0%B5%D0%BD%D1%82%D1%80%D0%B0%D0%BB%D1%8C%D0%BD%D0%B8%D0%B9%20%D0%A0%D0%90%D0%A6%D0%A1%20%D0%9A%D0%B8%D1%97%D0%B2%2C%20%D0%9F%D1%80%D0%BE%D1%80%D1%96%D0%B7%D0%BD%D0%B0%204">Відкрити на мапі</a>
                     </div>
+                    <div class="badge">10:30</div>
                 </div>
+
+                <div class="step" data-reveal>
+                    <div class="dot"><img src="https://img.icons8.com/ios/50/wedding-rings.png" alt=""></div>
+                    <div class="t-text">
+                        <h4>Церемонія у РАЦСі</h4>
+                        <p>Центральний РАЦС м. Києва, вул. Прорізна, 4.</p>
+                        <a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps?q=%D0%A6%D0%B5%D0%BD%D1%82%D1%80%D0%B0%D0%BB%D1%8C%D0%BD%D0%B8%D0%B9%20%D0%A0%D0%90%D0%A6%D0%A1%20%D0%9A%D0%B8%D1%97%D0%B2%2C%20%D0%9F%D1%80%D0%BE%D1%80%D1%96%D0%B7%D0%BD%D0%B0%204">Відкрити на мапі</a>
+                    </div>
+                    <div class="badge">11:00</div>
+                </div>
+
+                <div class="step" data-reveal>
+                    <div class="dot"><img src="https://img.icons8.com/ios/50/meal.png" alt=""></div>
+                    <div class="t-text">
+                        <h4>Святковий банкет</h4>
+                        <p>Ресторан «Прага», просп. Академіка Глушкова, 1.</p>
+                        <a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps?q=%D0%A0%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%20%D0%9F%D1%80%D0%B0%D0%B3%D0%B0%20%D0%9A%D0%B8%D1%97%D0%B2">Відкрити на мапі</a>
+                    </div>
+                    <div class="badge">15:00</div>
+                </div>
+
+                <div class="step" data-reveal>
+                    <div class="dot"><img src="https://img.icons8.com/ios/50/wedding-cake.png" alt=""></div>
+                    <div class="t-text">
+                        <h4>Завершення вечора</h4>
+                        <p>Прощання з гостями та теплі обійми наостанок.</p>
+                        <a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps?q=%D1%80%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%20%D0%9F%D1%80%D0%B0%D0%B3%D0%B0%20%D0%9A%D0%B8%D1%97%D0%B2">Відкрити на мапі</a>
+                    </div>
+                    <div class="badge">23:00</div>
+                </div>
+
             </div>
-        </article>
+        </div>
+    </div>
+</section>
+
+<!-- COUNTDOWN -->
+<section class="section count" aria-label="Відлік">
+    <div class="container">
+        <h2 class="section-title" data-reveal>Чекаємо на вас</h2>
+        <p class="lead" data-reveal>До нашого свята залишилось</p>
+        <div class="orn"></div>
+
+        <div class="grid" id="countdown">
+            <div class="cube" data-reveal><span class="num" id="d">0</span><span class="lab">Днів</span></div>
+            <div class="cube" data-reveal><span class="num" id="h">0</span><span class="lab">Годин</span></div>
+            <div class="cube" data-reveal><span class="num" id="m">0</span><span class="lab">Хвилин</span></div>
+            <div class="cube" data-reveal><span class="num" id="s">0</span><span class="lab">Секунд</span></div>
+        </div>
+    </div>
+</section>
+
+<!-- DRESS CODE -->
+<section class="section dress" id="dresscode">
+    <div class="container">
+        <h2 class="section-title" data-reveal>Дрес-код</h2>
+        <p class="lead" data-reveal>Атмосфера тепла, єдності та української краси</p>
+        <div class="orn"></div>
+
+        <div class="panel" data-reveal>
+            <p>Ми мріємо, щоб у цей день панувала атмосфера тепла, єдності та української краси. Тому будемо щасливі бачити вас у <strong>вишиванках</strong> — вони стануть особливою частинкою нашого спільного свята.</p>
+            <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;">
+                <a class="btn" href="tel:+380631231212">📞 Подзвонити</a>
+                <a class="btn btn--primary" href="sms:+380631231212">✉️ Написати SMS</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- DETAILS -->
+<section class="section" id="details">
+    <div class="container">
+        <h2 class="section-title" data-reveal>Деталі</h2>
+        <p class="lead" data-reveal>Дякуємо за ваше тепло та розуміння</p>
+        <div class="orn"></div>
+
+        <div class="tiles">
+            <article class="tile" data-reveal>
+                <div class="mark"><img src="https://img.icons8.com/ios/50/flower.png" alt=""></div>
+                <h4>Квіти</h4>
+                <p>Просимо вас не дарувати нам квіти, ми не встигнемо насолодитися їх красою.</p>
+            </article>
+
+            <article class="tile" data-reveal>
+                <div class="mark"><img src="https://img.icons8.com/ios/50/gift.png" alt=""></div>
+                <h4>Подарунки</h4>
+                <p>Якщо ви хочете зробити нам цінний подарунок, будемо вдячні за внесок у бюджет нашої молодої сімʼї.</p>
+            </article>
+
+            <article class="tile" data-reveal>
+                <div class="mark"><img src="https://img.icons8.com/ios/50/helping-hand.png" alt=""></div>
+                <h4>Допомога</h4>
+                <p>Будемо раді, якщо замість квітів ви підтримаєте збір на 3-тю штурмову бригаду.</p>
+
+                <div class="cardnum">
+                    <div class="chip">1234&nbsp;5678&nbsp;9123&nbsp;4567</div>
+                    <button class="copy-btn" id="copyCard">Скопіювати номер</button>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- SURVEY -->
+<section class="section survey" id="survey">
+    <div class="container">
+        <h2 class="section-title" data-reveal>Опитування для гостей</h2>
+        <p class="lead" data-reveal>Будь ласка, заповніть кілька полів, щоб нам було легше все організувати.</p>
+        <div class="orn"></div>
+
+        <form class="survey-card" action="https://api.web3forms.com/submit" method="POST" data-reveal>
+            <input type="hidden" name="access_key" value="581eaf16-3866-475f-8020-0f5282f63bec">
+            <input type="hidden" name="subject" value="Відповіді з анкети">
+            <input type="hidden" name="from_name" value="Весільний сайт">
+
+            <label class="question" for="name">Ваше ім’я</label>
+            <input id="name" class="input" type="text" name="Ім’я" placeholder="Введіть ваше ім’я та прізвище" required>
+
+            <label class="question">Чи плануєте ви бути на нашому святі?</label>
+            <div class="options">
+                <label class="pill"><input type="radio" name="Присутність" value="Так" required><span>Так</span></label>
+                <label class="pill"><input type="radio" name="Присутність" value="Ні" required><span>Ні</span></label>
+            </div>
+
+            <label class="question">Чи плануєте ви бути на офіційній частині у РАЦС?</label>
+            <div class="options">
+                <label class="pill"><input type="radio" name="РАЦС" value="Так" required><span>Так</span></label>
+                <label class="pill"><input type="radio" name="РАЦС" value="Ні" required><span>Ні</span></label>
+            </div>
+
+            <label class="question">Ваші побажання щодо алкогольних напоїв</label>
+            <div class="options">
+                <label class="pill"><input type="checkbox" name="Алкоголь[]" value="Коньяк"><span>Коньяк</span></label>
+                <label class="pill"><input type="checkbox" name="Алкоголь[]" value="Вино"><span>Вино</span></label>
+                <label class="pill"><input type="checkbox" name="Алкоголь[]" value="Шампанське"><span>Шампанське</span></label>
+                <label class="pill"><input type="checkbox" name="Алкоголь[]" value="Горілка"><span>Горілка</span></label>
+                <label class="pill"><input type="checkbox" name="Алкоголь[]" value="Віскі"><span>Віскі</span></label>
+                <label class="pill"><input type="checkbox" name="Алкоголь[]" value="Не пʼю"><span>Не пʼю</span></label>
+            </div>
+
+            <label class="question" for="wish">Форма вільної відповіді</label>
+            <textarea id="wish" name="Ваші побажання" rows="4" placeholder="Напишіть тут будь-які додаткові побажання. Якщо з вами буде дитина, зазначте це."></textarea>
+
+            <button class="btn-submit" type="submit">Відправити 💌</button>
+        </form>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <section class="footer-hero" id="footer">
+        <div class="footer-hero__bg" aria-hidden="true"></div>
+        <div class="footer-hero__content">
+            <h2 class="footer-hero__title">З любов’ю чекаємо на вас</h2>
+            <p class="footer-hero__subtitle">
+                Будь ласка, підтвердьте присутність до <strong>07.05.2026</strong>
+            </p>
+            <p class="footer-hero__note">До зустрічі на святі</p>
+        </div>
+    </section>
+
+    <style>
+        .footer-hero {
+            position:relative;
+            min-height:100vh;
+            width:100%;
+            overflow:hidden;
+            display:flex;
+            justify-content:center;
+            align-items:flex-end;   /* вниз */
+            padding-bottom: 30vh;   /* огромный отступ снизу */
+            isolation:isolate;
+            font-family:'Montserrat',sans-serif;
+            background: radial-gradient(1200px 600px at 50% -20%, color-mix(in srgb, var(--accent-1) 18%, transparent), transparent 60%);
+        }
+
+
+        .footer-hero__bg{
+            position:absolute; inset:0;
+            background:
+                    linear-gradient(180deg, rgba(0,0,0,.22) 0%, rgba(0,0,0,.5) 100%),
+                    url('../assets/media/gallery/footer_image-5-2.jpeg') center/cover no-repeat;
+            z-index:-1; transform:scale(1.02);
+        }
+
+        .footer-hero__content{
+            position:relative; text-align:center; color:#fff;
+            padding: clamp(24px, 4vw, 48px); max-width: 920px;
+        }
+        .footer-hero__content::before{
+            content:""; position:absolute;
+            inset: clamp(6px, 1.6vw, 12px);
+            border-radius: 16px;
+            background: rgba(0,0,0,.32);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            border: 1px solid rgba(255,255,255,.16);
+            box-shadow: 0 18px 44px rgba(0,0,0,.28);
+            z-index:-1;
+        }
+
+        .footer-hero__title{
+            margin:0 0 10px;
+            font-family:'Great Vibes', cursive;
+            font-size: clamp(36px, 6.4vw, 72px);
+            line-height: 1.22;
+            padding: .15em .25em .12em;
+            background: linear-gradient(
+                    130deg,
+                    var(--gold-2, #FADADA),   /* fallback светло-розовый */
+                    var(--gold-1, #E8A2A2)    /* fallback нежно-красный */
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: #fff;  /* fallback для Safari/старых браузеров */
+            text-shadow: 0 2px 14px rgba(0,0,0,.12);
+        }
+
+        .footer-hero__subtitle{
+            font-size: clamp(14px, 2.2vw, 20px);
+            margin: 0 0 8px;
+            text-shadow: 0 4px 16px rgba(0,0,0,.25);
+            letter-spacing:.01em;
+        }
+        .footer-hero__subtitle strong{
+            font-weight:700;
+            background: linear-gradient(
+                    130deg,
+                    var(--gold-2, #FADADA),
+                    var(--gold-1, #E8A2A2)
+            );
+            -webkit-background-clip:text;
+            background-clip:text;
+            color:transparent;
+            -webkit-text-fill-color: #fff;  /* fallback */
+            text-shadow: 0 1px 10px rgba(0,0,0,.18);
+        }
+
+        .footer-hero__note{
+            font-size: clamp(13px, 2vw, 18px);
+            opacity:.95;
+            letter-spacing:.02em;
+        }
+
+
+        @media (min-width:1600px){ .footer-hero__bg{ transform:scale(1.04); } }
+        @supports (padding: max(0px)) { .footer-hero__content{ padding-bottom: max(24px, env(safe-area-inset-bottom)); } }
+    </style>
+</footer>
+
+<!-- RSVP MODAL (заглушка) -->
+<div class="modal" id="rsvpModal" aria-hidden="true" role="dialog" aria-label="RSVP">
+    <div class="sheet" role="document">
+        <h3>RSVP скоро буде доступний 💌</h3>
+        <p>Онлайн-підтвердження ми додамо найближчим часом. А поки — зателефонуйте нам або напишіть повідомлення.</p>
+        <div style="display:flex; gap:10px; margin-top:12px; flex-wrap:wrap; justify-content:center;">
+            <a class="btn" href="tel:+380631231212">📞 Подзвонити</a>
+            <a class="btn btn--primary" href="sms:+380631231212">✉️ Написати SMS</a>
+        </div>
+        <div class="close"><button class="btn" id="rsvpClose">Закрити</button></div>
     </div>
 </div>
+
+<script>
+    // Reveal on scroll
+    (function(){
+        const els = document.querySelectorAll('[data-reveal]');
+        const io = new IntersectionObserver((entries)=>{
+            for (const e of entries){
+                if(e.isIntersecting){ e.target.classList.add('revealed'); io.unobserve(e.target); }
+            }
+        }, {threshold:.2});
+        els.forEach(el=>io.observe(el));
+    })();
+
+    // Countdown
+    (function(){
+        const T = new Date("2026-06-10T00:00:00");
+        const d=document.getElementById('d'), h=document.getElementById('h'),
+            m=document.getElementById('m'), s=document.getElementById('s');
+        if(!d||!h||!m||!s) return;
+        function tick(){
+            const now = new Date(), diff = T - now;
+            if (diff <= 0){ d.textContent=h.textContent=m.textContent=s.textContent='0'; return; }
+            const dd = Math.floor(diff/86400000),
+                hh = Math.floor(diff/3600000)%24,
+                mm = Math.floor(diff/60000)%60,
+                ss = Math.floor(diff/1000)%60;
+            d.textContent = dd;
+            h.textContent = String(hh).padStart(2,'0');
+            m.textContent = String(mm).padStart(2,'0');
+            s.textContent = String(ss).padStart(2,'0');
+        }
+        tick(); setInterval(tick, 1000);
+    })();
+
+    // Copy card number
+    (function(){
+        const btn = document.getElementById('copyCard');
+        if(!btn) return;
+        btn.addEventListener('click', async ()=>{
+            const val = "4874100028362898";
+            try{
+                await navigator.clipboard.writeText(val);
+                btn.textContent = 'Скопійовано ✅';
+            }catch(e){
+                const ta = document.createElement('textarea');
+                ta.value = val; ta.style.position='fixed'; ta.style.left='-9999px';
+                document.body.appendChild(ta); ta.select();
+                try{ document.execCommand('copy'); }catch(e){}
+                document.body.removeChild(ta);
+                btn.textContent = 'Скопійовано ✅';
+            }
+            setTimeout(()=>btn.textContent='Скопіювати номер', 1600);
+        });
+    })();
+
+    // RSVP modal (stub)
+    (function(){
+        const modal = document.getElementById('rsvpModal');
+        const openers = [document.getElementById('rsvpOpen1'), document.getElementById('rsvpOpen2')].filter(Boolean);
+        const closeBtn = document.getElementById('rsvpClose');
+
+        openers.forEach(o => o.addEventListener('click', (e)=>{ e.preventDefault(); modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); }));
+        closeBtn.addEventListener('click', ()=>{ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); });
+
+        modal.addEventListener('click', (e)=>{ if(e.target === modal){ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); }});
+        document.addEventListener('keydown', (e)=>{ if(e.key==='Escape'){ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); }});
+    })();
+</script>
 </body>
 </html>
