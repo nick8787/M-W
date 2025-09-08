@@ -539,26 +539,33 @@ permalink: /andrii-and-lidia
                             <div class="survey-card">
                                 <h2 class="survey-title">Опитування для гостей</h2>
 
-                                <form id="weddingForm" action="https://api.web3forms.com/submit" method="POST">
+                                <form id="weddingForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
                                     <input type="hidden" name="access_key" value="581eaf16-3866-475f-8020-0f5282f63bec">
                                     <input type="hidden" name="subject" value="Відповіді з весільної анкети">
                                     <input type="hidden" name="from_name" value="Весільний сайт">
 
+                                    <!-- Ім’я -->
                                     <label class="question">Ваше ім’я:</label>
-                                    <input class="input" type="text" name="Ім’я" placeholder="Введіть ваше ім’я" required>
+                                    <input class="input" type="text" name="Ваше ім’я" placeholder="Введіть ваше ім’я" required>
+                                    <div class="error-message"></div>
 
+                                    <!-- Весілля -->
                                     <label class="question">Чи плануєте ви бути на весіллі?</label>
                                     <div class="options">
                                         <label class="pill"><input type="radio" name="Чи плануєте ви бути на весіллі?" value="Так" required>Так</label>
                                         <label class="pill"><input type="radio" name="Чи плануєте ви бути на весіллі?" value="Ні" required>Ні</label>
                                     </div>
+                                    <div class="error-message"></div>
 
-                                    <label class="question">Чи плануєте ви бути на церемонії вінчання?</label>
+                                    <!-- Вінчання -->
+                                    <label class="question">Чи будете ви на церемонії вінчання?</label>
                                     <div class="options">
-                                        <label class="pill"><input type="radio" name="Чи плануєте ви бути на вінчанні?" value="Так" required>Так</label>
-                                        <label class="pill"><input type="radio" name="Чи плануєте ви бути на вінчанні?" value="Ні" required>Ні</label>
+                                        <label class="pill"><input type="radio" name="Чи будете ви на вінчанні?" value="Так" required>Так</label>
+                                        <label class="pill"><input type="radio" name="Чи будете ви на вінчанні?" value="Ні" required>Ні</label>
                                     </div>
+                                    <div class="error-message"></div>
 
+                                    <!-- Алкоголь -->
                                     <label class="question">Ваші побажання по алкогольним напоям:</label>
                                     <div class="options options-grid">
                                         <label class="pill"><input type="checkbox" name="Алкоголь[]" value="Шампанське">🥂 Шампанське</label>
@@ -567,8 +574,9 @@ permalink: /andrii-and-lidia
                                         <label class="pill"><input type="checkbox" name="Алкоголь[]" value="Горілка">🍾 Горілка</label>
                                     </div>
 
+                                    <!-- Побажання -->
                                     <label class="question">Ваші побажання:</label>
-                                    <textarea class="input" name="Ваші побажання" placeholder="Напишіть тут будь-які додаткові побажання. Якщо з вами буде дитина або діти, зазначте це, будь ласка." rows="4"></textarea>
+                                    <textarea class="input" name="Ваші побажання" rows="4" placeholder="Напишіть тут будь-які додаткові побажання. Якщо з вами буде дитина або діти, зазначте це, будь ласка."></textarea>
 
                                     <button type="submit" class="btn-submit">Відправити 💌</button>
                                 </form>
@@ -639,27 +647,71 @@ permalink: /andrii-and-lidia
                                 @keyframes fadeIn{ from{opacity:0; transform: translateY(18px);} to{opacity:1; transform:none;} }
                             </style>
 
+                            <style>
+                                .error-message { color:red; font-size:13px; margin-top:4px; display:none; }
+                            </style>
+
                             <script>
                                 document.getElementById('weddingForm').addEventListener('submit', async function(e) {
                                     e.preventDefault();
                                     const form = e.target;
+                                    let valid = true;
+
+                                    // прибираємо старі помилки
+                                    form.querySelectorAll('.error-message').forEach(el => { el.textContent = ''; el.style.display = 'none'; });
+
+                                    // ім’я
+                                    const nameInput = form.querySelector('input[name="Ваше ім’я"]');
+                                    if (!nameInput.value.trim()) {
+                                        const err = nameInput.nextElementSibling;
+                                        err.textContent = "Будь ласка, введіть ім’я";
+                                        err.style.display = 'block';
+                                        valid = false;
+                                    }
+
+                                    // весілля
+                                    const wedding = form.querySelectorAll('input[name="Чи плануєте ви бути на весіллі?"]:checked');
+                                    if (wedding.length === 0) {
+                                        const err = form.querySelectorAll('.error-message')[1];
+                                        err.textContent = "Оберіть відповідь";
+                                        err.style.display = 'block';
+                                        valid = false;
+                                    }
+
+                                    // вінчання
+                                    const church = form.querySelectorAll('input[name="Чи будете ви на вінчанні?"]:checked');
+                                    if (church.length === 0) {
+                                        const err = form.querySelectorAll('.error-message')[2];
+                                        err.textContent = "Оберіть відповідь";
+                                        err.style.display = 'block';
+                                        valid = false;
+                                    }
+
+                                    if (!valid) return;
+
+                                    // формуємо дані
                                     const formData = new FormData(form);
-                                    const drinksChecked = Array.from(form.querySelectorAll('input[name="Алкоголь[]"]:checked')).map(i => i.value);
+
+                                    // збираємо всі алкогольні вибори
+                                    const alcohol = Array.from(form.querySelectorAll('input[name="Алкоголь[]"]:checked')).map(i => i.value);
                                     formData.delete('Алкоголь[]');
-                                    formData.append('Алкоголь', drinksChecked.length ? drinksChecked.join(', ') : '—');
+                                    formData.append('Алкоголь', alcohol.length ? alcohol.join(', ') : '—');
+
                                     try {
                                         const res = await fetch(form.action, { method: 'POST', body: formData });
                                         const json = await res.json();
+                                        const m = document.getElementById('formMessage');
                                         if (json.success) {
                                             form.reset();
-                                            const m = document.getElementById('formMessage');
-                                            m.textContent = '✅ Дякуємо! Ваші відповіді надіслані.';
-                                            m.style.color = 'green'; m.style.display = 'block';
-                                        } else { throw new Error(json.message || 'Помилка відправки'); }
-                                    } catch (error) {
+                                            m.textContent = "✅ Дякуємо! Ваші відповіді надіслані.";
+                                            m.style.color = "green"; m.style.display = "block";
+                                        } else {
+                                            throw new Error();
+                                        }
+                                    } catch {
                                         const m = document.getElementById('formMessage');
-                                        m.textContent = '❌ Сталася помилка. Спробуйте ще раз.';
-                                        m.style.color = 'red'; m.style.display = 'block';
+                                        m.textContent = "❌ Сталася помилка. Спробуйте ще раз.";
+                                        m.style.color = "red"; m.style.display = "block";
                                     }
                                 });
                             </script>
