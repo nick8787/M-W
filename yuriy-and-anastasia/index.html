@@ -97,7 +97,7 @@ permalink: /yuriy-and-anastasia
                                         Ми одружуємось!
                                     </p>
                                     <time class="hr-date" datetime="2025-10-11">11&nbsp;&bull;&nbsp;10&nbsp;&bull;&nbsp;2025</time>
-<!--                                    <p class="hr-note">Запрошуємо вас розділити з нами радість особливої для нас події</p>-->
+                                    <p class="hr-note">Запрошуємо вас розділити з нами радість особливої для нас події</p>
                                 </div>
                             </div>
                             <div class="hr-scroll" aria-hidden="true"><span></span></div>
@@ -229,23 +229,23 @@ permalink: /yuriy-and-anastasia
                             </header>
 
                             <ol class="wt-list">
-                                <li class="wt-row">
-                                    <div class="wt-card">
-                                        <div class="wt-card-top">
-                                            <div class="wt-icon">
-                                                <img src="https://img.icons8.com/ios/50/wine-glass.png" alt="" decoding="async">
-                                            </div>
-                                            <div class="wt-text">
-                                                <h3 class="wt-label">Збір гостей</h3>
-                                                <p class="wt-address">Центральний РАЦС м. Києва, вул. Прорізна, 4.</p>
-                                            </div>
-                                            <time class="wt-time">10:30</time>
-                                        </div>
-                                        <div class="wt-card-bottom">
-                                            <button class="wt-map" data-lat="50.4501" data-lng="30.5234">Відкрити на мапі</button>
-                                        </div>
-                                    </div>
-                                </li>
+<!--                                <li class="wt-row">-->
+<!--                                    <div class="wt-card">-->
+<!--                                        <div class="wt-card-top">-->
+<!--                                            <div class="wt-icon">-->
+<!--                                                <img src="https://img.icons8.com/ios/50/wine-glass.png" alt="" decoding="async">-->
+<!--                                            </div>-->
+<!--                                            <div class="wt-text">-->
+<!--                                                <h3 class="wt-label">Збір гостей</h3>-->
+<!--                                                <p class="wt-address">Центральний РАЦС м. Києва, вул. Прорізна, 4.</p>-->
+<!--                                            </div>-->
+<!--                                            <time class="wt-time">10:30</time>-->
+<!--                                        </div>-->
+<!--                                        <div class="wt-card-bottom">-->
+<!--                                            <button class="wt-map" data-lat="50.4501" data-lng="30.5234">Відкрити на мапі</button>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </li>-->
 
                                 <li class="wt-row">
                                     <div class="wt-card">
@@ -255,12 +255,41 @@ permalink: /yuriy-and-anastasia
                                             </div>
                                             <div class="wt-text">
                                                 <h3 class="wt-label">Церемонія у РАЦСі</h3>
-                                                <p class="wt-address">Центральний РАЦС м. Києва, вул. Прорізна, 4.</p>
+                                                <p class="wt-address">Рожнятів, вул.Шкільна 1.</p>
                                             </div>
-                                            <time class="wt-time">11:00</time>
+                                            <time class="wt-time">12:00</time>
                                         </div>
                                         <div class="wt-card-bottom">
-                                            <button class="wt-map" data-place="Парк «Феофанія», Київ">Відкрити на мапі</button>
+                                            <button class="wt-map"
+                                                    data-gmaps="https://www.google.com/maps/place/%D0%A0%D0%BE%D0%B6%D0%BD%D1%8F%D1%82%D1%96%D0%B2%D1%81%D1%8C%D0%BA%D0%B0+%D1%81%D0%B5%D0%BB%D0%B8%D1%89%D0%BD%D0%B0+%D1%80%D0%B0%D0%B4%D0%B0,+%D0%B2%D1%83%D0%BB%D0%B8%D1%86%D1%8F+%D0%A8%D0%BA%D1%96%D0%BB%D1%8C%D0%BD%D0%B0,+1,+%D0%A0%D0%BE%D0%B6%D0%BD%D1%8F%D1%82%D1%96%D0%B2,+%D0%86%D0%B2%D0%B0%D0%BD%D0%BE-%D0%A4%D1%80%D0%B0%D0%BD%D0%BA%D1%96%D0%B2%D1%81%D1%8C%D0%BA%D0%B0+%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C,+77600/@48.9392557,24.1527857,17z/data=!3m1!4b1!4m6!3m5!1s0x4730a7360de56cbf:0x43d5f5d8c21ca09b!8m2!3d48.9392522!4d24.1553606!16s%2Fg%2F11wt_5q2zp?entry=ttu&g_ep=EgoyMDI1MDkxNS4wIKXMDSoASAFQAw%3D%3D">
+                                                Відкрити на мапі
+                                            </button>
+
+                                            <script>
+                                                document.addEventListener('click', (e) => {
+                                                    const btn = e.target.closest('.wt-map');
+                                                    if (!btn) return;
+                                                    const url = btn.getAttribute('data-gmaps');
+                                                    if (url) window.open(url, '_blank', 'noopener');
+                                                });
+                                            </script>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li class="wt-row">
+                                    <div class="wt-card">
+                                        <div class="wt-card-top">
+                                            <div class="wt-icon">
+                                                <img src="https://img.icons8.com/ios/50/meal.png" alt="" decoding="async">
+                                            </div>
+                                            <div class="wt-text">
+                                                <h3 class="wt-label">Таїнство вінчання</h3>
+                                                <p class="wt-address">Храм Святого Миколая.</p>
+                                            </div>
+                                            <time class="wt-time">13:30</time>
+                                        </div>
+                                        <div class="wt-card-bottom">
                                         </div>
                                     </div>
                                 </li>
@@ -273,12 +302,15 @@ permalink: /yuriy-and-anastasia
                                             </div>
                                             <div class="wt-text">
                                                 <h3 class="wt-label">Святковий банкет</h3>
-                                                <p class="wt-address">Ресторан «Прага», просп. Академіка Глушкова, 1.</p>
+                                                <p class="wt-address">Ресторан «Замок Б&О», смт. Перегінське, вул.Січових стрільців 285.</p>
                                             </div>
                                             <time class="wt-time">15:00</time>
                                         </div>
                                         <div class="wt-card-bottom">
-                                            <button class="wt-map" data-place="Ресторан Park Venue, Київ">Відкрити на мапі</button>
+                                            <button class="wt-map"
+                                                    data-gmaps="https://www.google.com/maps/place/%D0%97%D0%90%D0%9C%D0%9E%D0%9A+%D0%91%26%D0%9E/@48.839118,24.1951572,17z/data=!3m1!4b1!4m6!3m5!1s0x4730ad0066738ead:0x7c16332722fd363c!8m2!3d48.8391145!4d24.1977321!16s%2Fg%2F11wbd0hd30?entry=ttu&g_ep=EgoyMDI1MDkxNS4wIKXMDSoASAFQAw%3D%3D">
+                                                Відкрити на мапі
+                                            </button>
                                         </div>
                                     </div>
                                 </li>
@@ -655,7 +687,7 @@ permalink: /yuriy-and-anastasia
 
                             <script>
                                 document.addEventListener('DOMContentLoaded', () => {
-                                    const targetDate = new Date("2026-06-10T00:00:00");
+                                    const targetDate = new Date("2025-10-11T00:00:00");
                                     const daysEl = document.getElementById("days");
                                     const hoursEl = document.getElementById("hours");
                                     const minutesEl = document.getElementById("minutes");
@@ -823,7 +855,7 @@ permalink: /yuriy-and-anastasia
                                 <div class="footer-hero__content">
                                     <h2 class="footer-hero__title">З любов’ю чекаємо на вас</h2>
                                     <p class="footer-hero__subtitle">
-                                        Будь ласка, підтвердьте присутність до <strong>10.06.2025</strong>
+                                        Будь ласка, підтвердьте присутність до <strong>04.10.2025</strong>
                                     </p>
                                     <p class="footer-hero__note">До зустрічі на святі</p>
                                 </div>
