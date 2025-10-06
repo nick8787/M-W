@@ -1071,7 +1071,7 @@ permalink: /artem-and-larisa
                                     </div>
 
                                     <label class="question">Чи плануєте залишатися на ночівлю в готелі при ресторані?</label>
-                                    <p class="question-note">ціна номеру біля 1400 грн</p>
+                                    <p class="question-note">*ціна номеру біля 1400 грн</p>
                                     <div class="options">
                                         <label class="pill"><input type="radio" name="Чи плануєте залишатися на ночівлю в готелі при ресторані?" value="Так" required>Так</label>
                                         <label class="pill"><input type="radio" name="Чи плануєте залишатися на ночівлю в готелі при ресторані?" value="Ні">Ні</label>
@@ -1083,6 +1083,8 @@ permalink: /artem-and-larisa
                                         <label class="pill"><input type="checkbox" name="Алкоголь[]" value="Вино">🍷 Вино</label>
                                         <label class="pill"><input type="checkbox" name="Алкоголь[]" value="Коньяк">🥃 Коньяк</label>
                                         <label class="pill"><input type="checkbox" name="Алкоголь[]" value="Горілка">🍾 Горілка</label>
+                                        <label class="pill"><input type="checkbox" name="Алкоголь[]" value="Віскі">🥃 Віскі</label>
+                                        <label class="pill"><input type="checkbox" name="Алкоголь[]" value="Ром">🍸 Ром</label>
                                     </div>
 
                                     <label class="question">Ваші побажання:</label>
@@ -1171,7 +1173,7 @@ permalink: /artem-and-larisa
                                     const form = e.target;
                                     const formData = new FormData(form);
 
-                                    // Объединяем алкогольные пожелания в одно поле
+                                    // Об'єднуємо алкогольні побажання в одне поле
                                     const drinksChecked = Array.from(form.querySelectorAll('input[name="Алкоголь[]"]:checked'))
                                         .map(i => i.value);
                                     formData.delete('Алкоголь[]');
@@ -1196,6 +1198,7 @@ permalink: /artem-and-larisa
                                 });
                             </script>
                         </section>
+
 
 
 
