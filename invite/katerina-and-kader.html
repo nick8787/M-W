@@ -766,27 +766,27 @@
                             <div class="survey-card">
                                 <h2 class="survey-title">Опитування для гостей</h2>
 
-                                <!-- Скрытый iframe: принимаем ответ FormSubmit, не покидая страницу -->
+                                <!-- Скрытый iframe: принимаем ответ FormSubmit, остаёмся на странице -->
                                 <iframe name="fs-transport" id="fs-transport" style="display:none;width:0;height:0;border:0;"></iframe>
 
-                                <!-- ВАЖНО: action = адрес получателя -->
+                                <!-- ВАЖНО: ваш email получателя -->
                                 <form id="weddingForm"
                                       action="https://formsubmit.co/nickolaynick87@gmail.com"
                                       method="POST"
                                       accept-charset="UTF-8"
-                                      target="fs-transport"> <!-- всегда шлём в скрытый iframe -->
+                                      target="fs-transport"
+                                      autocomplete="off">
 
                                     <!-- Опции FormSubmit -->
                                     <input type="hidden" name="_subject"  value="Анкета гостя ✉️">
                                     <input type="hidden" name="_template" value="table">
                                     <input type="hidden" name="_captcha"  value="false">
-                                    <!-- чтобы FormSubmit не уводил пользователя на свою “Thanks” -->
-                                    <input type="hidden" name="_next"     value="about:blank">
+                                    <input type="hidden" name="_next"     value="about:blank"><!-- без редиректа -->
 
                                     <!-- Антиспам -->
                                     <input type="text" name="_honey" style="display:none">
 
-                                    <!-- Служебные поля -->
+                                    <!-- Служебные поля (заполняем на submit) -->
                                     <input type="hidden" id="guestNameField" name="Ім’я гостей" value="">
                                     <input type="hidden" id="pageTitle"      name="Сторінка"    value="">
                                     <input type="hidden" id="pageUrl"        name="Посилання"   value="">
@@ -822,22 +822,17 @@
                                     --gold-1:#d6b889; --gold-2:#f1e0b3; --ink:#2b2a2a; --soft:#fff; --line:rgba(0,0,0,.10);
                                     --px:clamp(16px,4vw,32px); --py:clamp(28px,8vh,72px); --radius:20px;
                                     padding:var(--py) var(--px); display:grid; place-items:center;
-                                    background: radial-gradient(1000px 520px at 50% -12%, rgba(214,184,137,.16), transparent 55%),
-                                    linear-gradient(180deg,#f9f7f4,#fdfcfb);
+                                    background: radial-gradient(1000px 520px at 50% -12%, rgba(214,184,137,.16), transparent 55%), linear-gradient(180deg,#f9f7f4,#fdfcfb);
                                     font-family:'Montserrat',sans-serif; color:var(--ink);
                                 }
                                 .survey-card{ width:min(960px,100%); background:var(--soft); border:1px solid var(--line); border-radius:var(--radius);
-                                    box-shadow:0 24px 60px rgba(18,19,20,.07); padding:clamp(22px,4vw,40px); animation:fadeIn .6s ease;
-                                }
+                                    box-shadow:0 24px 60px rgba(18,19,20,.07); padding:clamp(22px,4vw,40px); animation:fadeIn .6s ease; }
                                 .survey-title{ margin:0 0 18px; font-family:'Great Vibes',cursive; font-size:clamp(32px,6vw,52px);
-                                    background:linear-gradient(130deg,var(--gold-2),var(--gold-1));
-                                    -webkit-background-clip:text; background-clip:text; color:transparent; text-align:center; text-shadow:0 2px 16px rgba(0,0,0,.10);
-                                }
+                                    background:linear-gradient(130deg,var(--gold-2),var(--gold-1)); -webkit-background-clip:text; background-clip:text; color:transparent;
+                                    text-align:center; text-shadow:0 2px 16px rgba(0,0,0,.10); }
                                 .question{ display:block; margin:18px 0 6px; font-weight:600; }
-                                .input{ width:100%; padding:14px 16px; border-radius:14px; border:1px solid rgba(214,184,137,.35);
-                                    background:#fff; font-size:16px; box-shadow:0 8px 24px rgba(214,184,137,.10);
-                                    transition:border-color .2s, box-shadow .2s;
-                                }
+                                .input{ width:100%; padding:14px 16px; border-radius:14px; border:1px solid rgba(214,184,137,.35); background:#fff; font-size:16px;
+                                    box-shadow:0 8px 24px rgba(214,184,137,.10); transition:border-color .2s, box-shadow .2s; }
                                 .input:focus{ outline:none; border-color:rgba(214,184,137,.9); box-shadow:0 10px 28px rgba(214,184,137,.22); }
                                 .options{ display:flex; flex-wrap:wrap; gap:10px; margin-bottom:14px; }
                                 .options-grid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
@@ -845,19 +840,14 @@
                                 @media (max-width:420px){ .options-grid{ grid-template-columns:1fr; } }
                                 .pill{ display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:10px 14px; font-weight:600; border-radius:999px;
                                     background:#fff; border:1px solid rgba(214,184,137,.35); cursor:pointer; box-shadow:0 8px 20px rgba(214,184,137,.10);
-                                    transition:transform .15s, box-shadow .2s, border-color .2s, background .2s;
-                                }
+                                    transition:transform .15s, box-shadow .2s, border-color .2s, background .2s; }
                                 .pill:hover{ transform:translateY(-1px); box-shadow:0 12px 26px rgba(214,184,137,.18); }
                                 .pill input{ display:none; }
-                                .pill:has(input:checked){ background:linear-gradient(130deg,var(--gold-2),var(--gold-1));
-                                    color:#1d1c16; border-color:rgba(214,184,137,.55); box-shadow:0 12px 28px rgba(214,184,137,.28);
-                                }
-                                .btn-submit{ width:100%; margin-top:8px; appearance:none; border:none; cursor:pointer; padding:14px 18px; border-radius:999px;
-                                    font-size:16px; font-weight:700; letter-spacing:.02em;
-                                    background:linear-gradient(130deg,var(--gold-2),var(--gold-1)); color:#1e1c16;
-                                    border:1px solid rgba(214,184,137,.55); box-shadow:0 16px 36px rgba(214,184,137,.32);
-                                    transition:transform .15s, box-shadow .2s, filter .2s;
-                                }
+                                .pill:has(input:checked){ background:linear-gradient(130deg,var(--gold-2),var(--gold-1)); color:#1d1c16; border-color:rgba(214,184,137,.55);
+                                    box-shadow:0 12px 28px rgba(214,184,137,.28); }
+                                .btn-submit{ width:100%; margin-top:8px; appearance:none; border:none; cursor:pointer; padding:14px 18px; border-radius:999px; font-size:16px; font-weight:700; letter-spacing:.02em;
+                                    background:linear-gradient(130deg,var(--gold-2),var(--gold-1)); color:#1e1c16; border:1px solid rgba(214,184,137,.55); box-shadow:0 16px 36px rgba(214,184,137,.32);
+                                    transition:transform .15s, box-shadow .2s, filter .2s; }
                                 .btn-submit:hover{ transform:translateY(-1px); box-shadow:0 22px 48px rgba(214,184,137,.4); }
                                 .btn-submit:active{ transform:none; box-shadow:0 10px 28px rgba(214,184,137,.28); }
                                 .form-message{ text-align:center; margin-top:14px; font-weight:700; display:none; }
@@ -865,57 +855,54 @@
                             </style>
 
                             <script>
-                                // Автозаполнение служебных полей + склейка алкоголю
-                                document.addEventListener('DOMContentLoaded', () => {
-                                    const infoNamesEl = document.querySelector('.info-names');
-                                    const guestNameField = document.getElementById('guestNameField');
-                                    if (infoNamesEl && guestNameField) guestNameField.value = infoNamesEl.textContent.trim();
+                                (function(){
+                                    const form    = document.getElementById('weddingForm');
+                                    const iframe  = document.getElementById('fs-transport');
+                                    const msg     = document.getElementById('formMessage');
+                                    const btn     = document.getElementById('submitBtn');
+                                    const section = form.closest('section') || document;
 
-                                    document.getElementById('pageTitle').value = document.title;
-                                    document.getElementById('pageUrl').value   = window.location.href;
-
+                                    // склейка алкоголю (в реальном времени)
                                     const alcoholGroup  = document.getElementById('alcoholGroup');
                                     const alcoholMerged = document.getElementById('alcoholMerged');
-                                    const updateAlcohol = () => {
-                                        const sel = Array.from(alcoholGroup.querySelectorAll('input[name="Алкоголь[]"]:checked')).map(i => i.value);
-                                        alcoholMerged.value = sel.length ? sel.join(', ') : '—';
-                                    };
-                                    alcoholGroup.addEventListener('change', updateAlcohol);
-                                    updateAlcohol();
-                                });
+                                    if (alcoholGroup && alcoholMerged) {
+                                        const updateAlcohol = () => {
+                                            const sel = Array.from(alcoholGroup.querySelectorAll('input[name="Алкоголь[]"]:checked')).map(i => i.value);
+                                            alcoholMerged.value = sel.length ? sel.join(', ') : '—';
+                                        };
+                                        alcoholGroup.addEventListener('change', updateAlcohol);
+                                        updateAlcohol();
+                                    }
 
-                                // Сообщение «успішно» после ответа из iframe
-                                (function(){
-                                    const form = document.getElementById('weddingForm');
-                                    const iframe = document.getElementById('fs-transport');
-                                    const msg = document.getElementById('formMessage');
-                                    const btn = document.getElementById('submitBtn');
+                                    function fillMetaFromPage(){
+                                        // имя ищем рядом с формой; если нет — по документу
+                                        const namesEl = section.querySelector('.info-names') || document.querySelector('.info-names');
+                                        document.getElementById('guestNameField').value = namesEl ? namesEl.textContent.trim() : '';
+                                        document.getElementById('pageTitle').value = document.title;
+                                        document.getElementById('pageUrl').value   = window.location.href;
+                                    }
 
                                     form.addEventListener('submit', () => {
+                                        // ОБНОВЛЯЕМ ПЕРЕД КАЖДОЙ ОТПРАВКОЙ
+                                        fillMetaFromPage();
+
                                         msg.style.display='block';
                                         msg.style.color='#555';
                                         msg.textContent='⏳ Надсилаємо...';
                                         btn.disabled = true;
 
-                                        // когда FormSubmit вернёт свою "Thanks" в iframe — считаем успешным
                                         const done = () => {
                                             msg.textContent='✅ Дякуємо! Ваші відповіді надіслані.';
                                             msg.style.color='green';
                                             btn.disabled = false;
                                             form.reset();
                                         };
-
-                                        // страховка: если onload не сработал — покажем успех через 1.2с
                                         const t = setTimeout(done, 1200);
                                         iframe.addEventListener('load', () => { clearTimeout(t); done(); }, { once:true });
                                     });
                                 })();
                             </script>
                         </section>
-
-
-
-
 
 
 
