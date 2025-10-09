@@ -767,11 +767,8 @@
                                 <h2 class="survey-title">Опитування для гостей</h2>
 
                                 <form id="weddingForm" action="https://api.web3forms.com/submit" method="POST">
-                                    <input type="hidden" name="access_key" value="aec9d2a2-209d-4f54-ab60-b4961bedb8a0">
-
+                                    <input type="hidden" name="access_key" value="581eaf16-3866-475f-8020-0f5282f63bec">
                                     <input type="hidden" name="subject" value="Відповідь від гостя 📝">
-
-                                    <!-- 📝 Ім’я гостей з .info-names -->
                                     <input type="hidden" id="guestNameField" name="Ім’я гостей" value="">
 
                                     <label class="question">Чи плануєте ви бути на весіллі?</label>
@@ -815,25 +812,40 @@
                                     font-family:'Montserrat', sans-serif; color:var(--ink);
                                 }
                                 .survey-card{
-                                    width:min(960px, 100%); background: var(--soft);
-                                    border:1px solid var(--line); border-radius: var(--radius);
+                                    width:min(960px, 100%);
+                                    background: var(--soft);
+                                    border:1px solid var(--line);
+                                    border-radius: var(--radius);
                                     box-shadow: 0 24px 60px rgba(18,19,20,.07);
-                                    padding: clamp(22px, 4vw, 40px); animation: fadeIn .6s ease;
+                                    padding: clamp(22px, 4vw, 40px);
+                                    animation: fadeIn .6s ease;
                                 }
                                 .survey-title{
-                                    margin:0 0 18px; font-family:'Great Vibes', cursive;
-                                    font-size: clamp(32px, 6vw, 52px); line-height:1.2; padding:.15em 0 .1em;
+                                    margin:0 0 18px;
+                                    font-family:'Great Vibes', cursive;
+                                    font-size: clamp(32px, 6vw, 52px);
+                                    line-height:1.2;
+                                    padding:.15em 0 .1em;
                                     background: linear-gradient(130deg, var(--gold-2), var(--gold-1));
-                                    -webkit-background-clip:text; background-clip:text; color:transparent;
-                                    text-align:center; text-shadow: 0 2px 16px rgba(0,0,0,.10); overflow:visible;
+                                    -webkit-background-clip:text;
+                                    background-clip:text;
+                                    color:transparent;
+                                    text-align:center;
+                                    text-shadow: 0 2px 16px rgba(0,0,0,.10);
+                                    overflow:visible;
                                 }
-                                .question{ display:block; margin:18px 0 6px; font-weight:600; color:var(--ink); letter-spacing:.01em; }
+                                .question{ display:block; margin:18px 0 6px; font-weight:600; color:var(--ink); }
                                 .input{
                                     width:100%; padding:14px 16px; border-radius:14px;
-                                    border:1px solid rgba(214,184,137,.35); background:#fff; font-size:16px;
-                                    transition:border-color .2s ease, box-shadow .2s ease; box-shadow: 0 8px 24px rgba(214,184,137,.10);
+                                    border:1px solid rgba(214,184,137,.35);
+                                    background:#fff; font-size:16px;
+                                    transition:border-color .2s ease, box-shadow .2s ease;
+                                    box-shadow: 0 8px 24px rgba(214,184,137,.10);
                                 }
-                                .input:focus{ outline:none; border-color: rgba(214,184,137,.9); box-shadow: 0 10px 28px rgba(214,184,137,.22); }
+                                .input:focus{
+                                    outline:none; border-color: rgba(214,184,137,.9);
+                                    box-shadow: 0 10px 28px rgba(214,184,137,.22);
+                                }
                                 .options{ display:flex; flex-wrap:wrap; gap:10px 10px; margin-bottom:14px; }
                                 .options-grid{ display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:10px; }
                                 @media (max-width:580px){ .options-grid{ grid-template-columns: 1fr 1fr; } }
@@ -841,7 +853,8 @@
                                 .pill{
                                     display:inline-flex; align-items:center; justify-content:center;
                                     gap:8px; padding:10px 14px; font-weight:600; border-radius:999px;
-                                    background:#fff; border:1px solid rgba(214,184,137,.35); color:#2f2f2f; cursor:pointer; user-select:none;
+                                    background:#fff; border:1px solid rgba(214,184,137,.35); color:#2f2f2f;
+                                    cursor:pointer; user-select:none;
                                     transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
                                     box-shadow: 0 8px 20px rgba(214,184,137,.10);
                                 }
@@ -849,13 +862,17 @@
                                 .pill input{ display:none; }
                                 .pill:has(input:checked){
                                     background: linear-gradient(130deg, var(--gold-2), var(--gold-1));
-                                    color:#1d1c16; border-color: rgba(214,184,137,.55); box-shadow: 0 12px 28px rgba(214,184,137,.28);
+                                    color:#1d1c16;
+                                    border-color: rgba(214,184,137,.55);
+                                    box-shadow: 0 12px 28px rgba(214,184,137,.28);
                                 }
                                 .btn-submit{
                                     width:100%; margin-top:8px; appearance:none; border:none; cursor:pointer;
-                                    padding:14px 18px; border-radius:999px; font-size:16px; font-weight:700; letter-spacing:.02em;
+                                    padding:14px 18px; border-radius:999px;
+                                    font-size:16px; font-weight:700; letter-spacing:.02em;
                                     background: linear-gradient(130deg, var(--gold-2), var(--gold-1)); color:#1e1c16;
-                                    border:1px solid rgba(214,184,137,.55); box-shadow: 0 16px 36px rgba(214,184,137,.32);
+                                    border:1px solid rgba(214,184,137,.55);
+                                    box-shadow: 0 16px 36px rgba(214,184,137,.32);
                                     transition: transform .15s ease, box-shadow .2s ease, filter .2s ease;
                                 }
                                 .btn-submit:hover{ transform: translateY(-1px); box-shadow: 0 22px 48px rgba(214,184,137,.4); }
@@ -877,32 +894,44 @@
                                     e.preventDefault();
                                     const form = e.target;
                                     const formData = new FormData(form);
+                                    const msg = document.getElementById('formMessage');
+                                    msg.style.display = 'block';
+                                    msg.style.color = '#555';
+                                    msg.textContent = '⏳ Надсилаємо...';
 
-                                    // Об'єднуємо алкогольні побажання в одне поле
-                                    const drinksChecked = Array.from(form.querySelectorAll('input[name="Алкоголь[]"]:checked'))
-                                        .map(i => i.value);
+                                    // Об'єднуємо алкогольні побажання
+                                    const drinksChecked = Array.from(form.querySelectorAll('input[name="Алкоголь[]"]:checked')).map(i => i.value);
                                     formData.delete('Алкоголь[]');
                                     formData.append('Алкоголь', drinksChecked.length ? drinksChecked.join(', ') : '—');
 
+                                    const controller = new AbortController();
+                                    const timeout = setTimeout(() => controller.abort(), 8000); // 8 секунд таймаут
+
                                     try {
-                                        const res = await fetch(form.action, { method: 'POST', body: formData });
+                                        const res = await fetch(form.action, {
+                                            method: 'POST',
+                                            body: formData,
+                                            mode: 'cors',
+                                            referrerPolicy: 'no-referrer',
+                                            signal: controller.signal
+                                        });
+                                        clearTimeout(timeout);
                                         const json = await res.json();
-                                        const msg = document.getElementById('formMessage');
                                         if (json.success) {
                                             msg.textContent = '✅ Дякуємо! Ваші відповіді надіслані.';
                                             msg.style.color = 'green';
-                                            msg.style.display = 'block';
                                             form.reset();
-                                        } else throw new Error(json.message || 'Помилка відправки');
+                                        } else {
+                                            throw new Error(json.message || 'Помилка відправки');
+                                        }
                                     } catch (error) {
-                                        const msg = document.getElementById('formMessage');
-                                        msg.textContent = '❌ Сталася помилка. Спробуйте ще раз.';
+                                        msg.textContent = '❌ Сталася помилка при надсиланні. Спробуйте ще раз.';
                                         msg.style.color = 'red';
-                                        msg.style.display = 'block';
                                     }
                                 });
                             </script>
                         </section>
+
 
 
                         <!-- Footer Section Start -->
