@@ -766,48 +766,50 @@
                             <div class="survey-card">
                                 <h2 class="survey-title">Опитування для гостей</h2>
 
-                                <form id="weddingForm"
-                                      action="https://formsubmit.co/kolyakol8787@gmail.com"
-                                      method="POST"
-                                      accept-charset="UTF-8"
-                                      target="_blank">
-                                    <!-- FormSubmit опції -->
-                                    <input type="hidden" name="_subject"  value="Анкета гостя ✉️">
-                                    <input type="hidden" name="_template" value="table">
-                                    <input type="hidden" name="_captcha"  value="false">
-                                    <!-- опційно: сторінка подяки після класичного POST -->
-                                    <!-- <input type="hidden" name="_next" value="https://my-wedding.com.ua/thank-you"> -->
+                                <!-- ВАЖНО: action = адрес получателя -->
+                                <form
+                                        action="https://formsubmit.co/mykola.shchypailo@gmail.com"
+                                        method="POST"
+                                        accept-charset="UTF-8"
+                                        target="_blank">
 
-                                    <!-- антиспам -->
-                                    <input type="text" name="_honey" style="display:none">
+                                <!-- Опции FormSubmit -->
+                                <input type="hidden" name="_subject"  value="Анкета гостя ✉️">
+                                <input type="hidden" name="_template" value="table">
+                                <input type="hidden" name="_captcha"  value="false">
+<!--                                <input type="hidden" name="_next"     value="https://my-wedding.com.ua/thank-you">-->
+                                <!-- Можно добавить временный дубль для проверки доставки -->
+                                <!-- <input type="hidden" name="_cc" value="ВАШ_ВТОРОЙ_EMAIL@outlook.com"> -->
 
-                                    <!-- службові поля для листа -->
-                                    <input type="hidden" id="guestNameField" name="Ім’я гостей" value="">
-                                    <input type="hidden" id="pageTitle"      name="Сторінка"    value="">
-                                    <input type="hidden" id="pageUrl"        name="Посилання"   value="">
-                                    <!-- зведене поле алкоголю для фолбеку -->
-                                    <input type="hidden" id="alcoholMerged"  name="Алкоголь"    value="—">
+                                <!-- Антиспам -->
+                                <input type="text" name="_honey" style="display:none">
 
-                                    <label class="question">Чи плануєте ви бути на весіллі?</label>
-                                    <div class="options">
-                                        <label class="pill"><input type="radio" name="Чи плануєте ви бути на весіллі?" value="Так" required>Так</label>
-                                        <label class="pill"><input type="radio" name="Чи плануєте ви бути на весіллі?" value="Ні">Ні</label>
-                                    </div>
+                                <!-- Служебные поля (пополняются JS) -->
+                                <input type="hidden" id="guestNameField" name="Ім’я гостей" value="">
+                                <input type="hidden" id="pageTitle"      name="Сторінка"    value="">
+                                <input type="hidden" id="pageUrl"        name="Посилання"   value="">
+                                <input type="hidden" id="alcoholMerged"  name="Алкоголь"    value="—">
 
-                                    <label class="question">Ваші побажання по алкогольним напоям:</label>
-                                    <div class="options options-grid">
-                                        <label class="pill"><input type="checkbox" name="Алкоголь[]" value="🥂 Шампанське">🥂 Шампанське</label>
-                                        <label class="pill"><input type="checkbox" name="Алкоголь[]" value="🍷 Вино">🍷 Вино</label>
-                                        <label class="pill"><input type="checkbox" name="Алкоголь[]" value="🥃 Коньяк">🥃 Коньяк</label>
-                                        <label class="pill"><input type="checkbox" name="Алкоголь[]" value="🍾 Горілка">🍾 Горілка</label>
-                                        <label class="pill"><input type="checkbox" name="Алкоголь[]" value="🥃 Віскі">🥃 Віскі</label>
-                                        <label class="pill"><input type="checkbox" name="Алкоголь[]" value="🍸 Ром">🍸 Ром</label>
-                                    </div>
+                                <label class="question">Чи плануєте ви бути на весіллі?</label>
+                                <div class="options">
+                                    <label class="pill"><input type="radio" name="Чи плануєте ви бути на весіллі?" value="Так" required>Так</label>
+                                    <label class="pill"><input type="radio" name="Чи плануєте ви бути на весіллі?" value="Ні">Ні</label>
+                                </div>
 
-                                    <label class="question">Ваші побажання:</label>
-                                    <textarea class="input" name="Ваші побажання" placeholder="Напишіть тут будь-які додаткові побажання чи важливу інформацію. Якщо з вами буде дитина або діти, зазначте це, будь ласка." rows="4"></textarea>
+                                <label class="question">Ваші побажання по алкогольним напоям:</label>
+                                <div class="options options-grid" id="alcoholGroup">
+                                    <label class="pill"><input type="checkbox" name="Алкоголь[]" value="🥂 Шампанське">🥂 Шампанське</label>
+                                    <label class="pill"><input type="checkbox" name="Алкоголь[]" value="🍷 Вино">🍷 Вино</label>
+                                    <label class="pill"><input type="checkbox" name="Алкоголь[]" value="🥃 Коньяк">🥃 Коньяк</label>
+                                    <label class="pill"><input type="checkbox" name="Алкоголь[]" value="🍾 Горілка">🍾 Горілка</label>
+                                    <label class="pill"><input type="checkbox" name="Алкоголь[]" value="🥃 Віскі">🥃 Віскі</label>
+                                    <label class="pill"><input type="checkbox" name="Алкоголь[]" value="🍸 Ром">🍸 Ром</label>
+                                </div>
 
-                                    <button type="submit" class="btn-submit" id="submitBtn">Відправити 💌</button>
+                                <label class="question">Ваші побажання:</label>
+                                <textarea class="input" name="Ваші побажання" placeholder="Напишіть тут будь-які додаткові побажання чи важливу інформацію. Якщо з вами буде дитина або діти, зазначте це, будь ласка." rows="4"></textarea>
+
+                                <button type="submit" class="btn-submit">Відправити 💌</button>
                                 </form>
 
                                 <div id="formMessage" class="form-message" style="display:none;"></div>
@@ -815,36 +817,25 @@
 
                             <style>
                                 .survey-elegant{
-                                    --gold-1:#d6b889; --gold-2:#f1e0b3;
-                                    --ink:#2b2a2a; --muted:#6f6f6f; --soft:#ffffff;
-                                    --line: rgba(0,0,0,.10);
-                                    --px: clamp(16px, 4vw, 32px);
-                                    --py: clamp(28px, 8vh, 72px);
-                                    --radius: 20px;
-                                    padding: var(--py) var(--px);
-                                    display:grid; place-items:center;
-                                    background:
-                                            radial-gradient(1000px 520px at 50% -12%, rgba(214,184,137,.16), transparent 55%),
-                                            linear-gradient(180deg, #f9f7f4, #fdfcfb);
+                                    --gold-1:#d6b889; --gold-2:#f1e0b3; --ink:#2b2a2a; --muted:#6f6f6f; --soft:#ffffff;
+                                    --line: rgba(0,0,0,.10); --px: clamp(16px, 4vw, 32px); --py: clamp(28px, 8vh, 72px); --radius: 20px;
+                                    padding: var(--py) var(--px); display:grid; place-items:center;
+                                    background: radial-gradient(1000px 520px at 50% -12%, rgba(214,184,137,.16), transparent 55%),
+                                    linear-gradient(180deg, #f9f7f4, #fdfcfb);
                                     font-family:'Montserrat', sans-serif; color:var(--ink);
                                 }
                                 .survey-card{
-                                    width:min(960px, 100%); background: var(--soft);
-                                    border:1px solid var(--line); border-radius: var(--radius);
-                                    box-shadow: 0 24px 60px rgba(18,19,20,.07);
-                                    padding: clamp(22px, 4vw, 40px); animation: fadeIn .6s ease;
+                                    width:min(960px, 100%); background: var(--soft); border:1px solid var(--line); border-radius: var(--radius);
+                                    box-shadow: 0 24px 60px rgba(18,19,20,.07); padding: clamp(22px, 4vw, 40px); animation: fadeIn .6s ease;
                                 }
                                 .survey-title{
-                                    margin:0 0 18px; font-family:'Great Vibes', cursive;
-                                    font-size: clamp(32px, 6vw, 52px); line-height:1.2; padding:.15em 0 .1em;
-                                    background: linear-gradient(130deg, var(--gold-2), var(--gold-1));
-                                    -webkit-background-clip:text; background-clip:text; color:transparent;
-                                    text-align:center; text-shadow: 0 2px 16px rgba(0,0,0,.10); overflow:visible;
+                                    margin:0 0 18px; font-family:'Great Vibes', cursive; font-size: clamp(32px, 6vw, 52px); line-height:1.2;
+                                    padding:.15em 0 .1em; background: linear-gradient(130deg, var(--gold-2), var(--gold-1));
+                                    -webkit-background-clip:text; background-clip:text; color:transparent; text-align:center; text-shadow: 0 2px 16px rgba(0,0,0,.10);
                                 }
                                 .question{ display:block; margin:18px 0 6px; font-weight:600; color:var(--ink); }
                                 .input{
-                                    width:100%; padding:14px 16px; border-radius:14px;
-                                    border:1px solid rgba(214,184,137,.35); background:#fff; font-size:16px;
+                                    width:100%; padding:14px 16px; border-radius:14px; border:1px solid rgba(214,184,137,.35); background:#fff; font-size:16px;
                                     transition:border-color .2s ease, box-shadow .2s ease; box-shadow: 0 8px 24px rgba(214,184,137,.10);
                                 }
                                 .input:focus{ outline:none; border-color: rgba(214,184,137,.9); box-shadow: 0 10px 28px rgba(214,184,137,.22); }
@@ -853,8 +844,7 @@
                                 @media (max-width:580px){ .options-grid{ grid-template-columns: 1fr 1fr; } }
                                 @media (max-width:420px){ .options-grid{ grid-template-columns: 1fr; } }
                                 .pill{
-                                    display:inline-flex; align-items:center; justify-content:center;
-                                    gap:8px; padding:10px 14px; font-weight:600; border-radius:999px;
+                                    display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:10px 14px; font-weight:600; border-radius:999px;
                                     background:#fff; border:1px solid rgba(214,184,137,.35); color:#2f2f2f; cursor:pointer; user-select:none;
                                     transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
                                     box-shadow: 0 8px 20px rgba(214,184,137,.10);
@@ -862,15 +852,13 @@
                                 .pill:hover{ transform: translateY(-1px); box-shadow: 0 12px 26px rgba(214,184,137,.18); }
                                 .pill input{ display:none; }
                                 .pill:has(input:checked){
-                                    background: linear-gradient(130deg, var(--gold-2), var(--gold-1));
-                                    color:#1d1c16; border-color: rgba(214,184,137,.55); box-shadow: 0 12px 28px rgba(214,184,137,.28);
+                                    background: linear-gradient(130deg, var(--gold-2), var(--gold-1)); color:#1d1c16; border-color: rgba(214,184,137,.55);
+                                    box-shadow: 0 12px 28px rgba(214,184,137,.28);
                                 }
                                 .btn-submit{
-                                    width:100%; margin-top:8px; appearance:none; border:none; cursor:pointer;
-                                    padding:14px 18px; border-radius:999px; font-size:16px; font-weight:700; letter-spacing:.02em;
-                                    background: linear-gradient(130deg, var(--gold-2), var(--gold-1)); color:#1e1c16;
-                                    border:1px solid rgba(214,184,137,.55); box-shadow: 0 16px 36px rgba(214,184,137,.32);
-                                    transition: transform .15s ease, box-shadow .2s ease, filter .2s ease;
+                                    width:100%; margin-top:8px; appearance:none; border:none; cursor:pointer; padding:14px 18px; border-radius:999px;
+                                    font-size:16px; font-weight:700; letter-spacing:.02em; background: linear-gradient(130deg, var(--gold-2), var(--gold-1)); color:#1e1c16;
+                                    border:1px solid rgba(214,184,137,.55); box-shadow: 0 16px 36px rgba(214,184,137,.32); transition: transform .15s ease, box-shadow .2s ease, filter .2s ease;
                                 }
                                 .btn-submit:hover{ transform: translateY(-1px); box-shadow: 0 22px 48px rgba(214,184,137,.4); }
                                 .btn-submit:active{ transform:none; box-shadow: 0 10px 28px rgba(214,184,137,.28); }
@@ -879,7 +867,7 @@
                             </style>
 
                             <script>
-                                // Заповнюємо службові поля
+                                // Автозаполнение служебных полей + склейка алкоголя (без перехвата submit)
                                 document.addEventListener('DOMContentLoaded', () => {
                                     const infoNamesEl = document.querySelector('.info-names');
                                     const guestNameField = document.getElementById('guestNameField');
@@ -887,71 +875,19 @@
 
                                     document.getElementById('pageTitle').value = document.title;
                                     document.getElementById('pageUrl').value   = window.location.href;
-                                });
 
-                                // Відправка з "парашутом"
-                                document.getElementById('weddingForm').addEventListener('submit', async function(e){
-                                    e.preventDefault();
-                                    const form = e.target;
-                                    const btn  = document.getElementById('submitBtn');
-                                    const msg  = document.getElementById('formMessage');
-                                    msg.style.display = 'block';
-                                    msg.style.color   = '#555';
-                                    msg.textContent   = '⏳ Надсилаємо...';
-                                    btn.disabled = true;
-
-                                    // Звести алкоголь у одне поле (працює і для AJAX, і для фолбеку)
-                                    const drinks = Array.from(form.querySelectorAll('input[name="Алкоголь[]"]:checked')).map(i => i.value);
-                                    document.getElementById('alcoholMerged').value = drinks.length ? drinks.join(', ') : '—';
-
-                                    // Якщо файл-протокол — одразу класичний POST (FormSubmit цього вимагає)
-                                    if (location.protocol === 'file:') {
-                                        form.submit(); // відкриється нова вкладка через target=_blank
-                                        msg.textContent = '✅ Відправлено (перевірте нову вкладку/пошту).';
-                                        msg.style.color = 'green';
-                                        btn.disabled = false;
-                                        return;
-                                    }
-
-                                    // Спроба AJAX
-                                    const ajaxUrl  = form.action.replace('https://formsubmit.co/', 'https://formsubmit.co/ajax/');
-                                    const formData = new FormData(form);
-                                    formData.delete('Алкоголь[]'); // зайвий масив прибираємо
-
-                                    const controller = new AbortController();
-                                    const timer = setTimeout(() => controller.abort(), 10000);
-
-                                    try {
-                                        const res  = await fetch(ajaxUrl, {
-                                            method: 'POST',
-                                            body: formData,
-                                            headers: { 'Accept': 'application/json' },
-                                            mode: 'cors',
-                                            referrerPolicy: 'no-referrer',
-                                            signal: controller.signal
-                                        });
-                                        clearTimeout(timer);
-                                        const json = await res.json();
-                                        if (res.ok && json.success) {
-                                            msg.textContent = '✅ Дякуємо! Ваші відповіді надіслані.'; msg.style.color = 'green';
-                                            form.reset(); btn.disabled = false; return;
-                                        }
-                                        throw new Error('AJAX blocked');
-                                    } catch (err) {
-                                        // Падіння у класичний POST у нову вкладку — це проходить скрізь
-                                        msg.textContent = '⏳ Відправляємо альтернативним способом…';
-                                        msg.style.color = '#555';
-                                        form.removeEventListener('submit', arguments.callee);
-                                        form.submit(); // відкриється вкладка з формою-підтвердженням FormSubmit
-                                        setTimeout(() => {
-                                            msg.textContent = '✅ Надіслано (перевірте пошту).';
-                                            msg.style.color = 'green';
-                                            btn.disabled = false;
-                                        }, 800);
-                                    }
+                                    const alcoholGroup = document.getElementById('alcoholGroup');
+                                    const alcoholMerged = document.getElementById('alcoholMerged');
+                                    const updateAlcohol = () => {
+                                        const sel = Array.from(alcoholGroup.querySelectorAll('input[name="Алкоголь[]"]:checked')).map(i => i.value);
+                                        alcoholMerged.value = sel.length ? sel.join(', ') : '—';
+                                    };
+                                    alcoholGroup.addEventListener('change', updateAlcohol);
+                                    updateAlcohol(); // начальное значение
                                 });
                             </script>
                         </section>
+
 
 
 
