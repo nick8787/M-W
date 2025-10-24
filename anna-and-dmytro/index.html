@@ -811,50 +811,21 @@ permalink: /anna-and-dmytro
                                 </header>
 
                                 <div class="dc-grid">
-                                    <!-- ПАЛІТРА -->
-                                    <article class="dc-card">
-                                        <h3 class="dc-palette-title">Палітра події (спокійні відтінки)</h3>
-
-                                        <ul class="dc-swatches-tiles" role="list">
-                                            <li class="tile" aria-label="Світло-сірий">
-                                                <span class="tile-color"></span>
-                                                <span class="tile-name">Світло-сірий</span>
-                                            </li>
-                                            <li class="tile" aria-label="Пилово-блакитний">
-                                                <span class="tile-color"></span>
-                                                <span class="tile-name">Пилово-блакитний</span>
-                                            </li>
-                                            <li class="tile" aria-label="Теплий бежевий">
-                                                <span class="tile-color"></span>
-                                                <span class="tile-name">Теплий бежевий</span>
-                                            </li>
-                                            <li class="tile" aria-label="Шавлієвий">
-                                                <span class="tile-color"></span>
-                                                <span class="tile-name">Шавлієвий</span>
-                                            </li>
-                                            <li class="tile" aria-label="Нюдовий">
-                                                <span class="tile-color"></span>
-                                                <span class="tile-name">Нюдовий</span>
-                                            </li>
-                                            <li class="tile" aria-label="Ніжна пудра">
-                                                <span class="tile-color"></span>
-                                                <span class="tile-name">Ніжна пудра</span>
-                                            </li>
-                                        </ul>
-
-                                        <p class="dc-palette-note">
-                                            Просимо обирати спокійні, м’які тони без яскравих акцентів — ця палітра ідеально підтримує атмосферу свята.
+                                    <!-- ОПИС БЕЗ ПАЛІТРИ -->
+                                    <article class="dc-card" aria-labelledby="dc-desc-title">
+                                        <h3 id="dc-desc-title" class="dc-desc-title">Спокійні відтінки</h3>
+                                        <p class="dc-desc-text">
+                                            Просимо обирати <strong>стримані, м’які тони</strong> без яскравих акцентів.
+                                            Головне — комфорт і гармонія в образах 🌿
                                         </p>
                                     </article>
 
                                     <!-- КОНТАКТИ -->
                                     <article class="dc-card">
-                                        <p class="dc-text">
-                                            Якщо виникнуть будь-які питання — з радістю допоможемо.
-                                        </p>
+                                        <p class="dc-text">Якщо виникнуть будь-які питання — з радістю допоможемо.</p>
 
                                         <div class="dc-actions">
-                                            <a class="dc-btn" href="tel:+380666137612" aria-label="Подзвонити нареченій за номером +380 66 613 76 12">📞 Подзвонити</a>
+                                            <a class="dc-btn" href="tel:+380666137612" aria-label="Подзвонити за номером +380 66 613 76 12">📞 Подзвонити</a>
                                             <a class="dc-btn dc-btn--light" href="https://t.me/Kasanica" target="_blank" rel="noopener" aria-label="Відкрити Telegram @Kasanica">💬 Telegram&nbsp;@Kasanica</a>
                                         </div>
 
@@ -889,7 +860,7 @@ permalink: /anna-and-dmytro
                                         background: linear-gradient(130deg, var(--gold-2), var(--gold-1));
                                         -webkit-background-clip:text; background-clip:text; color:transparent;
                                         text-shadow: 0 2px 14px rgba(0,0,0,.12);
-                                        display:inline-block; padding-inline:.2em; overflow:visible;
+                                        display:inline-block; padding-inline:.2em;
                                     }
                                     .dc-ornament{
                                         width:min(180px, 40vw); height:2px; margin: 14px auto 0; border-radius:2px;
@@ -918,43 +889,16 @@ permalink: /anna-and-dmytro
                                         background: linear-gradient(130deg, var(--gold-2), var(--gold-1)); opacity:.9;
                                     }
 
-                                    /* Тайли палітри */
-                                    .dc-palette-title{
-                                        margin:0 0 14px; font-weight:600; letter-spacing:.02em;
-                                        font-size: clamp(18px, 2.8vw, 22px); text-align:center; color: var(--ink);
+                                    /* Текстовий опис */
+                                    .dc-desc-title{
+                                        margin:0 0 10px; font-weight:600; letter-spacing:.02em;
+                                        font-size: clamp(18px, 2.8vw, 22px); text-align:left; color: var(--ink);
                                     }
-                                    .dc-swatches-tiles{
-                                        display:grid; grid-template-columns: repeat(2, minmax(0,1fr));
-                                        gap:14px; list-style:none; padding:0; margin:0 0 12px;
+                                    .dc-desc-text{
+                                        margin:0; font-size: clamp(14px, 2.2vw, 16px); line-height:1.55; color: var(--ink);
                                     }
-                                    @media (min-width:640px){
-                                        .dc-swatches-tiles{ grid-template-columns: repeat(3, minmax(0,1fr)); }
-                                    }
-                                    .tile{
-                                        background:#fff; border:1px solid var(--line); border-radius:16px;
-                                        padding:12px; text-align:center; box-shadow: 0 10px 24px rgba(18,19,20,.06);
-                                        transition: transform .15s ease, box-shadow .2s ease;
-                                    }
-                                    .tile:hover{ transform: translateY(-2px); box-shadow: 0 16px 36px rgba(18,19,20,.10); }
-
-                                    .tile-color{
-                                        display:block; width:64px; height:64px; margin:0 auto 8px; border-radius:50%;
-                                        box-shadow: inset 0 0 0 1px rgba(0,0,0,.06), 0 6px 18px rgba(0,0,0,.10);
-                                        background:#e0e0e0; /* fallback */
-                                    }
-
-                                    /* Спокійні відтінки (оновлено) */
-                                    .dc-swatches-tiles .tile:nth-child(1) .tile-color{ background:#D9D9DE; } /* Світло-сірий */
-                                    .dc-swatches-tiles .tile:nth-child(2) .tile-color{ background:#AFC3D9; } /* Пилово-блакитний */
-                                    .dc-swatches-tiles .tile:nth-child(3) .tile-color{ background:#D7C7B6; } /* Теплий бежевий */
-                                    .dc-swatches-tiles .tile:nth-child(4) .tile-color{ background:#9DB6A8; } /* Шавлієвий */
-                                    .dc-swatches-tiles .tile:nth-child(5) .tile-color{ background:#E3D6CF; } /* Нюдовий */
-                                    .dc-swatches-tiles .tile:nth-child(6) .tile-color{ background:#E7C9CE; } /* Ніжна пудра */
-
-                                    .tile-name{ display:block; font-size:14px; color:#3a3939; font-weight:600; }
-
-                                    .dc-palette-note{
-                                        margin:6px 0 0; font-size: 13px; line-height:1.5; color: var(--muted); text-align:center;
+                                    .dc-desc-note{
+                                        margin:10px 0 0; font-size: 13px; line-height:1.5; color: var(--muted);
                                     }
 
                                     /* Контакти */
@@ -979,6 +923,7 @@ permalink: /anna-and-dmytro
                             </section>
 
 
+
                             <section class="survey-elegant" aria-label="Опитування для гостей">
                                 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet"/>
 
@@ -986,15 +931,15 @@ permalink: /anna-and-dmytro
                                     <h2 class="survey-title">Опитування для гостей</h2>
 
                                     <form id="weddingForm" action="https://api.web3forms.com/submit" method="POST" accept-charset="UTF-8" autocomplete="off">
-                                        <!-- Web3Forms обовʼязкові поля -->
+                                        <!-- Web3Forms -->
                                         <input type="hidden" name="access_key" value="857d03e7-e83d-4530-8459-dc277a2d8450">
                                         <input type="hidden" name="subject"    value="Відповіді з весільної анкети">
                                         <input type="hidden" name="from_name"  value="Весільний сайт">
-                                        <!-- honeypot для антиспаму -->
+                                        <!-- антиспам -->
                                         <input type="checkbox" name="botcheck" id="botcheck" style="display:none">
 
-                                        <!-- зведене поле для напоїв (JS оновлює перед відправкою) -->
-                                        <input type="hidden" id="drinksMerged" name="Напої" value="—">
+                                        <!-- зведене поле для вибору напоїв (оновлюється JS-ом) -->
+                                        <input type="hidden" id="drinksChoice" name="Напої" value="—">
 
                                         <!-- 1) Імʼя та прізвище -->
                                         <label class="question" for="fullName">Ім’я та прізвище:</label>
@@ -1014,21 +959,11 @@ permalink: /anna-and-dmytro
                                             <label class="pill"><input type="radio" name="Присутність на барбекю 22.11.2025" value="Ні">Ні</label>
                                         </div>
 
-                                        <!-- 4) Побажання по напоям -->
+                                        <!-- 4) Побажання по напоям (спрощено) -->
                                         <label class="question">Побажання по напоям:</label>
-                                        <div class="options options-grid" id="drinksGroup">
-                                            <!-- Без алкоголю вимикає інші -->
-                                            <label class="pill">
-                                                <input type="checkbox" id="noAlcohol" value="Без алкоголю"> 🚫 Без алкоголю
-                                            </label>
-
-                                            <!-- Алкогольні опції -->
-                                            <label class="pill"><input type="checkbox" name="Алкоголь[]" value="🥂 Шампанське">🥂 Шампанське</label>
-                                            <label class="pill"><input type="checkbox" name="Алкоголь[]" value="🍷 Вино">🍷 Вино</label>
-                                            <label class="pill"><input type="checkbox" name="Алкоголь[]" value="🥃 Коньяк">🥃 Коньяк</label>
-                                            <label class="pill"><input type="checkbox" name="Алкоголь[]" value="🍾 Горілка">🍾 Горілка</label>
-                                            <label class="pill"><input type="checkbox" name="Алкоголь[]" value="🥃 Віскі">🥃 Віскі</label>
-                                            <label class="pill"><input type="checkbox" name="Алкоголь[]" value="🍸 Ром">🍸 Ром</label>
+                                        <div class="options" id="drinksGroup">
+                                            <label class="pill"><input type="radio" name="Тип напоїв" value="Алкогольні" required>Алкогольні</label>
+                                            <label class="pill"><input type="radio" name="Тип напоїв" value="Безалкогольні">Безалкогольні</label>
                                         </div>
 
                                         <!-- 5) Текстові побажання -->
@@ -1079,9 +1014,6 @@ permalink: /anna-and-dmytro
                                     }
                                     .input:focus{ outline:none; border-color: rgba(214,184,137,.9); box-shadow: 0 10px 28px rgba(214,184,137,.22); }
                                     .options{ display:flex; flex-wrap:wrap; gap:10px 10px; margin-bottom:14px; }
-                                    .options-grid{ display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:10px; }
-                                    @media (max-width:580px){ .options-grid{ grid-template-columns: 1fr 1fr; } }
-                                    @media (max-width:420px){ .options-grid{ grid-template-columns: 1fr; } }
                                     .pill{
                                         display:inline-flex; align-items:center; justify-content:center;
                                         gap:8px; padding:10px 14px; font-weight:600; border-radius:999px;
@@ -1110,37 +1042,20 @@ permalink: /anna-and-dmytro
 
                                 <script>
                                     (function(){
-                                        const form    = document.getElementById('weddingForm');
-                                        const msg     = document.getElementById('formMessage');
-                                        const btn     = document.getElementById('submitBtn');
-                                        const group   = document.getElementById('drinksGroup');
-                                        const noAlc   = document.getElementById('noAlcohol');
-                                        const merged  = document.getElementById('drinksMerged');
+                                        const form = document.getElementById('weddingForm');
+                                        const msg  = document.getElementById('formMessage');
+                                        const btn  = document.getElementById('submitBtn');
+                                        const drinksGroup = document.getElementById('drinksGroup');
+                                        const drinksHidden = document.getElementById('drinksChoice');
 
-                                        // «Без алкоголю» блокує інші опції
-                                        function syncAlcohol(){
-                                            const checks = group.querySelectorAll('input[name="Алкоголь[]"]');
-                                            if (noAlc.checked){
-                                                checks.forEach(i => { i.checked = false; i.disabled = true; });
-                                            } else {
-                                                checks.forEach(i => { i.disabled = false; });
-                                            }
-                                        }
-                                        group.addEventListener('change', syncAlcohol);
-                                        syncAlcohol();
-
-                                        // Формуємо зведене поле «Напої»
-                                        function buildDrinks(){
-                                            const sel = [];
-                                            if (noAlc.checked) sel.push('Без алкоголю');
-                                            const alc = Array.from(group.querySelectorAll('input[name="Алкоголь[]"]:checked')).map(i => i.value);
-                                            sel.push(...alc);
-                                            merged.value = sel.length ? sel.join(', ') : '—';
+                                        function updateDrinksHidden(){
+                                            const chosen = drinksGroup.querySelector('input[name="Тип напоїв"]:checked');
+                                            drinksHidden.value = chosen ? chosen.value : '—';
                                         }
 
                                         form.addEventListener('submit', async (e) => {
                                             e.preventDefault();
-                                            buildDrinks();
+                                            updateDrinksHidden();
 
                                             msg.style.display='block';
                                             msg.style.color='#555';
@@ -1149,10 +1064,6 @@ permalink: /anna-and-dmytro
 
                                             const formData = new FormData(form);
 
-                                            // Рекомендується Web3Forms: якщо є масиви — краще не дублювати «Алкоголь[]», ми вже злили в "Напої"
-                                            formData.delete('Алкоголь[]');
-
-                                            // Таймаут на випадок зависань мережі
                                             const controller = new AbortController();
                                             const timer = setTimeout(() => controller.abort(), 12000);
 
@@ -1165,8 +1076,7 @@ permalink: /anna-and-dmytro
                                                     msg.textContent = '✅ Дякуємо! Ваші відповіді надіслані.';
                                                     msg.style.color = 'green';
                                                     form.reset();
-                                                    syncAlcohol();
-                                                    merged.value = '—';
+                                                    drinksHidden.value = '—';
                                                 } else {
                                                     throw new Error(json.message || 'Помилка відправки');
                                                 }
@@ -1180,6 +1090,7 @@ permalink: /anna-and-dmytro
                                     })();
                                 </script>
                             </section>
+
 
 
 
