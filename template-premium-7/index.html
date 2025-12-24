@@ -6,7 +6,7 @@ permalink: /template-premium-7
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Олександр & Вікторія — Весільне запрошення</title>
 
     <!--metatextblock-->
@@ -21,10 +21,10 @@ permalink: /template-premium-7
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="../assets-premium1/media/favicon.png">
 
-    <!-- НОВЫЕ ШРИФТЫ: Bodoni Moda (Fashion Luxury) + Manrope -->
+    <!-- ШРИФТЫ: Bodoni Moda (Fashion Luxury) + Manrope -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;1,6..96,400&family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,800;1,6..96,400;1,6..96,600&family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
 
     <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -32,7 +32,7 @@ permalink: /template-premium-7
     <style>
         :root {
             --bg-dark: #050505;
-            --glass-bg: rgba(20, 20, 20, 0.5); /* Чуть темнее стекло */
+            --glass-bg: rgba(20, 20, 20, 0.5);
             --glass-border: rgba(191, 149, 63, 0.3);
             --text-main: #EAEAEA;
             --gold-start: #D4AF37;
@@ -62,11 +62,11 @@ permalink: /template-premium-7
             background: transparent !important;
         }
 
-        /* --- НОВАЯ ТИПОГРАФИКА --- */
+        /* --- ТИПОГРАФИКА --- */
         h1, h2, h3 {
             font-family: 'Bodoni Moda', serif;
             text-transform: uppercase;
-            letter-spacing: 0.02em; /* Bodoni требует меньше разрядки */
+            letter-spacing: 0.02em;
             line-height: 1.1;
         }
 
@@ -83,10 +83,10 @@ permalink: /template-premium-7
         @keyframes shine { to { background-position: 200% center; } }
 
         .section-title {
-            font-size: 2.5rem; /* Bodoni смотрится лучше в крупном размере */
+            font-size: 2.5rem;
             text-align: center;
             margin-bottom: 50px;
-            font-style: italic; /* Курсив добавляет премиальности */
+            font-style: italic;
         }
 
         p {
@@ -116,7 +116,7 @@ permalink: /template-premium-7
             justify-content: flex-end;
             align-items: center;
             text-align: center;
-            padding-bottom: 60px;
+            padding-bottom: 50px;
             overflow: hidden;
         }
 
@@ -141,8 +141,8 @@ permalink: /template-premium-7
             z-index: 2;
             background: linear-gradient(to bottom,
             rgba(5,5,5,0) 0%,
-            rgba(5,5,5,0.2) 50%,
-            rgba(5,5,5,0.9) 85%,
+            rgba(5,5,5,0.1) 40%,
+            rgba(5,5,5,0.8) 75%,
             #050505 100%);
         }
 
@@ -150,51 +150,99 @@ permalink: /template-premium-7
             position: relative;
             z-index: 3;
             width: 100%;
+            padding: 0 15px;
         }
 
         .hero-date {
             font-family: 'Bodoni Moda', serif;
-            font-size: 1.3rem;
-            letter-spacing: 0.2em;
-            margin-bottom: 15px;
-            color: #fff;
+            font-size: 1.2rem;
+            letter-spacing: 0.3em;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.9);
             text-shadow: 0 2px 10px rgba(0,0,0,0.8);
-        }
-
-        .hero-names {
-            font-size: 4rem; /* Крупнее для Bodoni */
-            margin-bottom: 10px;
-            text-shadow: 0 5px 30px rgba(0,0,0,1);
-            font-weight: 600;
-        }
-
-        .hero-and {
-            font-family: 'Bodoni Moda', serif;
             font-weight: 400;
-            font-size: 2rem;
-            font-style: italic;
-            color: #ccc;
         }
 
-        /* TIMER */
-        .timer {
+        /* ИМЕНА */
+        .hero-names-wrapper {
             display: flex;
-            gap: 30px;
-            justify-content: center;
-            margin-top: 40px;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+            position: relative;
         }
-        .timer-val {
+
+        .hero-name-line {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 4.5rem;
+            line-height: 0.9;
+            font-weight: 600;
+            font-style: italic;
+            text-shadow: 0 5px 25px rgba(0,0,0,0.9);
+            background: linear-gradient(135deg, #F8E69E 0%, #D4AF37 50%, #B38728 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            z-index: 2;
+        }
+
+        .hero-amp {
+            font-family: 'Bodoni Moda', serif;
             font-size: 2rem;
+            color: rgba(255,255,255,0.8);
+            margin: 5px 0;
+            font-style: normal;
+            font-weight: 400;
+        }
+
+        /* ТАЙМЕР (СТЕКЛЯННАЯ КАПСУЛА) */
+        .timer-capsule {
+            display: inline-flex;
+            gap: 20px;
+            justify-content: center;
+            background: rgba(10, 10, 10, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            border-radius: 50px;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            margin-top: 10px;
+        }
+
+        .timer-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 45px;
+            position: relative;
+        }
+
+        .timer-box:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: -10px;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 60%;
+            width: 1px;
+            background: rgba(255,255,255,0.2);
+        }
+
+        .timer-val {
+            font-size: 1.6rem;
             font-family: 'Bodoni Moda', serif;
             color: var(--gold-mid);
-            text-shadow: 0 2px 10px rgba(0,0,0,1);
+            font-weight: 600;
+            line-height: 1;
         }
         .timer-label {
             font-size: 0.6rem;
             text-transform: uppercase;
-            letter-spacing: 0.2em;
-            color: #bbb;
+            letter-spacing: 0.1em;
+            color: #ccc;
             margin-top: 5px;
+            font-family: 'Manrope', sans-serif;
         }
 
         /* --- UI ELEMENTS --- */
@@ -203,7 +251,7 @@ permalink: /template-premium-7
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid var(--glass-border);
-            border-radius: 0; /* Острые углы для стиля Fashion */
+            border-radius: 0;
             padding: 60px 30px;
             box-shadow: 0 20px 50px rgba(0,0,0,0.6);
         }
@@ -308,21 +356,50 @@ permalink: /template-premium-7
         .ref-images { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 40px; }
         .ref-img { width: 100%; height: 280px; object-fit: cover; border-radius: 0; opacity: 0.85; filter: sepia(20%) contrast(1.1); }
 
-        /* --- MUSIC BTN --- */
+        /* --- ОБНОВЛЕННАЯ КНОПКА МУЗЫКИ (БЕЗ ВРАЩЕНИЯ) --- */
         .music-btn {
             position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px;
-            background: rgba(0,0,0,0.6); backdrop-filter: blur(5px);
-            border: 1px solid var(--gold-start); border-radius: 50%;
-            display: flex; justify-content: center; align-items: center; z-index: 100; cursor: pointer;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(5px);
+            border: 1px solid var(--gold-start);
+            border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            z-index: 100; cursor: pointer;
+            transition: all 0.3s ease;
         }
-        .music-btn svg { width: 18px; fill: var(--gold-mid); }
-        .music-playing { animation: rotate 4s linear infinite; border-color: var(--gold-mid); }
-        @keyframes rotate { 100% { transform: rotate(360deg); } }
+
+        .music-btn svg {
+            width: 16px;
+            fill: var(--gold-mid);
+            transition: transform 0.2s;
+        }
+
+        /* Иконки Play и Pause */
+        .icon-play { display: block; margin-left: 2px; /* Чуть сдвинуть play визуально */ }
+        .icon-pause { display: none; }
+
+        /* Состояние проигрывания */
+        .music-playing {
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3); /* Легкое свечение */
+            background: rgba(212, 175, 55, 0.1);
+            animation: breathe 3s infinite ease-in-out; /* Эффект дыхания вместо вращения */
+        }
+
+        .music-playing .icon-play { display: none; }
+        .music-playing .icon-pause { display: block; }
+
+        @keyframes breathe {
+            0% { box-shadow: 0 0 5px rgba(212, 175, 55, 0.2); border-color: rgba(212, 175, 55, 0.6); }
+            50% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.5); border-color: rgba(212, 175, 55, 1); }
+            100% { box-shadow: 0 0 5px rgba(212, 175, 55, 0.2); border-color: rgba(212, 175, 55, 0.6); }
+        }
 
         footer { text-align: center; padding: 50px 0; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.8rem; color: #555; }
 
         @media (max-width: 768px) {
-            .hero-names { font-size: 3rem; }
+            .hero-name-line { font-size: 3.5rem; }
+            .timer-capsule { padding: 10px 20px; gap: 15px; }
+            .timer-val { font-size: 1.4rem; }
             .details-grid, .checkbox-wrapper { grid-template-columns: 1fr; }
             .section-title { font-size: 2rem; }
         }
@@ -333,12 +410,15 @@ permalink: /template-premium-7
 <!-- Canvas (Анимация) -->
 <canvas id="canvas-bg"></canvas>
 
-<!-- Музыка -->
+<!-- Музыка (Обновленная кнопка) -->
 <div class="music-btn" id="musicToggle">
-    <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+    <!-- Иконка PLAY -->
+    <svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+    <!-- Иконка PAUSE -->
+    <svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
 </div>
 <audio id="audio" loop>
-    <source src="https://www.bensound.com/bensound-music/bensound-pianomoment.mp3" type="audio/mpeg">
+    <source src="/assets/music/ed-sheeran-2step-feat-antytila.mp3" type="audio/mpeg">
 </audio>
 
 <!-- 1. HERO -->
@@ -348,13 +428,14 @@ permalink: /template-premium-7
 
     <div class="hero-content" data-aos="fade-up" data-aos-duration="1500">
         <div class="hero-date">10.10.2026</div>
-        <h1 class="hero-names gold-text">
-            Олександр <br>
-            <span class="hero-and">&</span> <br>
-            Вікторія
-        </h1>
 
-        <div class="timer">
+        <div class="hero-names-wrapper">
+            <div class="hero-name-line">Олександр</div>
+            <div class="hero-amp">&</div>
+            <div class="hero-name-line">Вікторія</div>
+        </div>
+
+        <div class="timer-capsule">
             <div class="timer-box"><span class="timer-val" id="d">00</span><span class="timer-label">Днів</span></div>
             <div class="timer-box"><span class="timer-val" id="h">00</span><span class="timer-label">Год</span></div>
             <div class="timer-box"><span class="timer-val" id="m">00</span><span class="timer-label">Хв</span></div>
@@ -458,7 +539,7 @@ permalink: /template-premium-7
     </div>
 </section>
 
-<!-- 7. RSVP (UPDATED) -->
+<!-- 7. RSVP -->
 <section id="rsvp">
     <div class="container glass-card" data-aos="fade-up">
         <h2 class="section-title gold-text">Анкета Гостя</h2>
@@ -568,7 +649,7 @@ permalink: /template-premium-7
     const weddingDate = new Date('2026-10-10T16:00:00').getTime();
     function updateTimer() {
         const diff = weddingDate - new Date().getTime();
-        if (diff < 0) { document.querySelector('.timer').innerHTML = ""; return; }
+        if (diff < 0) { document.querySelector('.timer-capsule').innerHTML = ""; return; }
         const d = Math.floor(diff / (1000 * 60 * 60 * 24));
         const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
@@ -580,16 +661,22 @@ permalink: /template-premium-7
     }
     setInterval(updateTimer, 1000); updateTimer();
 
-    // --- MUSIC ---
+    // --- MUSIC (NO AUTOPLAY) ---
     const musicBtn = document.getElementById('musicToggle');
     const audio = document.getElementById('audio');
     let isPlaying = false;
+
+    // Клик только по кнопке
     musicBtn.addEventListener('click', () => {
-        if (isPlaying) { audio.pause(); musicBtn.classList.remove('music-playing'); }
-        else { audio.play(); musicBtn.classList.add('music-playing'); }
+        if (isPlaying) {
+            audio.pause();
+            musicBtn.classList.remove('music-playing');
+        } else {
+            audio.play();
+            musicBtn.classList.add('music-playing');
+        }
         isPlaying = !isPlaying;
     });
-    document.body.addEventListener('click', () => { if (!isPlaying) { audio.play().then(() => { isPlaying = true; musicBtn.classList.add('music-playing'); }).catch(()=>{}); } }, { once: true });
 
     // --- FORM SUBMIT (Handles Arrays) ---
     const form = document.getElementById('rsvpForm');
@@ -600,7 +687,6 @@ permalink: /template-premium-7
         const object = {};
 
         formData.forEach((value, key) => {
-            // Если ключ уже есть (например, alcohol[]), превращаем его в массив или строку
             if (object[key]) {
                 object[key] += ', ' + value;
             } else {
