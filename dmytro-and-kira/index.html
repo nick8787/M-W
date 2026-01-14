@@ -262,11 +262,15 @@ permalink: /dmytro-and-kira
                                             <time class="wt-time">16:00</time>
                                         </div>
                                         <div class="wt-card-bottom">
-                                            <!-- Додані точні координати для iPhone та точне посилання для інших -->
+                                            <!--
+                                               ВИПРАВЛЕНО:
+                                               1. Вставлені правильні координати з вашого Google посилання (data-lat, data-lng).
+                                               2. Посилання Google Maps залишене тим, яке ви надіслали (воно найточніше).
+                                            -->
                                             <button class="wt-map"
-                                                    data-lat="47.094592"
-                                                    data-lng="29.088319"
-                                                    data-google-link="https://www.google.com/maps?q=Villa+Drago,+Strada+%C8%98tefan+cel+Mare+100,+Vadul+lui+Vod%C4%83,+%D0%9C%D0%BE%D0%BB%D0%B4%D0%BE%D0%B2%D0%B0&ftid=0x40c965c1d842f8d9:0x1828e91d2279524a&entry=gps">
+                                                    data-lat="47.1022562"
+                                                    data-lng="29.0673092"
+                                                    data-google-link="https://www.google.com/maps/place/Villa+Drago/@47.1022562,29.0673092,17z/data=!4m14!1m7!3m6!1s0x40c965c1d842f8d9:0x1828e91d2279524a!2sVilla+Drago!8m2!3d47.1022562!4d29.0673092!16s%2Fg%2F11r9hp1lj!3m5!1s0x40c965c1d842f8d9:0x1828e91d2279524a!8m2!3d47.1022562!4d29.0673092!16s%2Fg%2F11r9hp1lj?entry=ttu&g_ep=EgoyMDI2MDEwNy4wIKXMDSoASAFQAw%3D%3D">
                                                 Відкрити на мапі
                                             </button>
                                         </div>
@@ -400,19 +404,19 @@ permalink: /dmytro-and-kira
 
                             <script>
                                 function openMap(btn){
-                                    // Отримуємо дані з кнопки
                                     const lat = btn.getAttribute('data-lat');
                                     const lng = btn.getAttribute('data-lng');
                                     const googleLink = btn.getAttribute('data-google-link');
 
-                                    // Перевіряємо чи це iPhone/iPad
+                                    // Перевірка на iOS
                                     const isiOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 
                                     if (isiOS && lat && lng) {
-                                        // Для iPhone відкриваємо Apple Maps з точними координатами
-                                        window.open(`https://maps.apple.com/?ll=${lat},${lng}&q=Villa+Drago`, '_blank');
+                                        // Для Apple Maps використовуємо параметр ll (широта, довгота) щоб поставити точний пін
+                                        // і параметр q (query) щоб підписати цей пін назвою закладу
+                                        window.open(`https://maps.apple.com/?ll=${lat},${lng}&q=Villa+Drago&address=Strada+Stefan+cel+Mare+100,Vadul+lui+Voda`, '_blank');
                                     } else {
-                                        // Для всіх інших відкриваємо точне посилання Google, яке ви надали
+                                        // Для всіх інших
                                         window.open(googleLink, '_blank');
                                     }
                                 }
