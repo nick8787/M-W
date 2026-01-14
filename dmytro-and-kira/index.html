@@ -242,7 +242,6 @@ permalink: /dmytro-and-kira
 
                         <!-- TIMING SECTION -->
                         <section class="wt" aria-label="Весільний таймінг">
-                            <link href="https://www.google.com/maps?q=Villa+Drago,+Strada+%C8%98tefan+cel+Mare+100,+Vadul+lui+Vod%C4%83,+%D0%9C%D0%BE%D0%BB%D0%B4%D0%BE%D0%B2%D0%B0&ftid=0x40c965c1d842f8d9:0x1828e91d2279524a&entry=gps&shh=CAE&lucs=,94297695,94275415,100795625,94284493,94231188,94280568,47071704,94218641,94282134,94286869&g_ep=CAISEjI1LjQ5LjkuODM4ODk5MTgzMBgAIIgnKlssOTQyOTc2OTUsOTQyNzU0MTUsMTAwNzk1NjI1LDk0Mjg0NDkzLDk0MjMxMTg4LDk0MjgwNTY4LDQ3MDcxNzA0LDk0MjE4NjQxLDk0MjgyMTM0LDk0Mjg2ODY5QgJVQQ%3D%3D&skid=3fa48f9e-e562-4383-ac0b-1bdc26450d9a&g_st=ii" rel="stylesheet"/>
 
                             <header class="wt-head">
                                 <h2 class="wt-title">Таймінг дня</h2>
@@ -263,7 +262,13 @@ permalink: /dmytro-and-kira
                                             <time class="wt-time">16:00</time>
                                         </div>
                                         <div class="wt-card-bottom">
-                                            <button class="wt-map" data-place="Villa Drago, Vadul lui Vodă">Відкрити на мапі</button>
+                                            <!-- Додані точні координати для iPhone та точне посилання для інших -->
+                                            <button class="wt-map"
+                                                    data-lat="47.094592"
+                                                    data-lng="29.088319"
+                                                    data-google-link="https://www.google.com/maps?q=Villa+Drago,+Strada+%C8%98tefan+cel+Mare+100,+Vadul+lui+Vod%C4%83,+%D0%9C%D0%BE%D0%BB%D0%B4%D0%BE%D0%B2%D0%B0&ftid=0x40c965c1d842f8d9:0x1828e91d2279524a&entry=gps">
+                                                Відкрити на мапі
+                                            </button>
                                         </div>
                                     </div>
                                 </li>
@@ -395,11 +400,21 @@ permalink: /dmytro-and-kira
 
                             <script>
                                 function openMap(btn){
-                                    const place = btn.getAttribute('data-place');
-                                    const isiOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-                                    const q = encodeURIComponent(place);
-                                    const url = isiOS ? `https://maps.apple.com/?q=${q}` : `https://www.google.com/maps?q=${q}`;
-                                    window.open(url, '_blank', 'noopener');
+                                    // Отримуємо дані з кнопки
+                                    const lat = btn.getAttribute('data-lat');
+                                    const lng = btn.getAttribute('data-lng');
+                                    const googleLink = btn.getAttribute('data-google-link');
+
+                                    // Перевіряємо чи це iPhone/iPad
+                                    const isiOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+
+                                    if (isiOS && lat && lng) {
+                                        // Для iPhone відкриваємо Apple Maps з точними координатами
+                                        window.open(`https://maps.apple.com/?ll=${lat},${lng}&q=Villa+Drago`, '_blank');
+                                    } else {
+                                        // Для всіх інших відкриваємо точне посилання Google, яке ви надали
+                                        window.open(googleLink, '_blank');
+                                    }
                                 }
                                 document.addEventListener('click', (e) => {
                                     const btn = e.target.closest('.wt-map');
