@@ -262,17 +262,19 @@ permalink: /dmytro-and-kira
                                             <time class="wt-time">16:00</time>
                                         </div>
                                         <div class="wt-card-bottom">
-                                            <!--
-                                               ВИПРАВЛЕНО:
-                                               1. Вставлені правильні координати з вашого Google посилання (data-lat, data-lng).
-                                               2. Посилання Google Maps залишене тим, яке ви надіслали (воно найточніше).
-                                            -->
                                             <button class="wt-map"
-                                                    data-lat="47.1022562"
-                                                    data-lng="29.0673092"
-                                                    data-google-link="https://www.google.com/maps/place/Villa+Drago/@47.1022562,29.0673092,17z/data=!4m14!1m7!3m6!1s0x40c965c1d842f8d9:0x1828e91d2279524a!2sVilla+Drago!8m2!3d47.1022562!4d29.0673092!16s%2Fg%2F11r9hp1lj!3m5!1s0x40c965c1d842f8d9:0x1828e91d2279524a!8m2!3d47.1022562!4d29.0673092!16s%2Fg%2F11r9hp1lj?entry=ttu&g_ep=EgoyMDI2MDEwNy4wIKXMDSoASAFQAw%3D%3D">
+                                                    data-gmaps="https://www.google.com/maps/place/Villa+Drago/@47.1022562,29.0673092,17z/data=!4m14!1m7!3m6!1s0x40c965c1d842f8d9:0x1828e91d2279524a!2sVilla+Drago!8m2!3d47.1022562!4d29.0673092!16s%2Fg%2F11r9hp1lj!3m5!1s0x40c965c1d842f8d9:0x1828e91d2279524a!8m2!3d47.1022562!4d29.0673092!16s%2Fg%2F11r9hp1lj?entry=ttu&g_ep=EgoyMDI2MDEwNy4wIKXMDSoASAFQAw%3D%3D">
                                                 Відкрити на мапі
                                             </button>
+
+                                            <script>
+                                                document.addEventListener('click', (e) => {
+                                                    const btn = e.target.closest('.wt-map');
+                                                    if (!btn) return;
+                                                    const url = btn.getAttribute('data-gmaps');
+                                                    if (url) window.open(url, '_blank', 'noopener');
+                                                });
+                                            </script>
                                         </div>
                                     </div>
                                 </li>
