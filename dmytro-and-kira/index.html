@@ -408,25 +408,25 @@ permalink: /dmytro-and-kira
                                 function openMap(btn){
                                     const lat = btn.getAttribute('data-lat');
                                     const lng = btn.getAttribute('data-lng');
-                                    const googleLink = btn.getAttribute('data-google-link');
-
-                                    // Перевірка на iOS
-                                    const isiOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-
-                                    if (isiOS && lat && lng) {
-                                        // Для Apple Maps використовуємо параметр ll (широта, довгота) щоб поставити точний пін
-                                        // і параметр q (query) щоб підписати цей пін назвою закладу
-                                        window.open(`https://maps.apple.com/?ll=${lat},${lng}&q=Villa+Drago&address=Strada+Stefan+cel+Mare+100,Vadul+lui+Voda`, '_blank');
-                                    } else {
-                                        // Для всіх інших
-                                        window.open(googleLink, '_blank');
+                                    const place = btn.getAttribute('data-place');
+                                    const isiOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+                                    let url = '';
+                                    if (lat && lng){
+                                        url = isiOS
+                                            ? `https://maps.apple.com/?ll=${lat},${lng}&q=${lat},${lng}`
+                                            : `https://www.google.com/maps?q=${lat},${lng}`;
+                                    } else if (place){
+                                        const q = encodeURIComponent(place);
+                                        url = isiOS ? `https://maps.apple.com/?q=${q}` : `https://www.google.com/maps?q=${q}`;
                                     }
+                                    if (url) window.open(url, '_blank', 'noopener');
                                 }
                                 document.addEventListener('click', (e) => {
                                     const btn = e.target.closest('.wt-map');
                                     if (!btn) return;
                                     openMap(btn);
                                 });
+
                                 document.addEventListener('DOMContentLoaded', () => {
                                     const rows = Array.from(document.querySelectorAll('.wt-row'));
                                     const io = new IntersectionObserver((entries) => {
