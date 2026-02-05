@@ -932,67 +932,149 @@ permalink: /marta-and-myroslav
                         </section>
 
                         <section class="survey-elegant" aria-label="Опитування для гостей">
+                            <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet"/>
+
                             <div class="survey-card">
                                 <h2 class="survey-title">Опитування для гостей</h2>
+
                                 <form id="weddingForm" action="https://api.web3forms.com/submit" method="POST">
-                                    <input type="hidden" name="access_key" value="581eaf16-3866-475f-8020-0f5282f63bec">
-                                    <input type="hidden" name="subject" value="Відповіді: Марта та Мирослав">
+                                    <!-- Ключ доступу та технічні поля -->
+                                    <input type="hidden" name="access_key" value="42f5e641-4909-465a-9d26-6afdb6aa1733">
+                                    <input type="hidden" name="subject" value="Відповідь на запрошення: Марта та Мирослав">
+                                    <input type="hidden" name="from_name" value="Весільний сайт">
 
+                                    <!-- 1. Ім'я -->
                                     <label class="question">Ваше ім’я:</label>
-                                    <input class="input" type="text" name="Ім’я" placeholder="Введіть ваше ім’я" required>
+                                    <input class="input" type="text" name="Ім'я" placeholder="Введіть ваше ім’я" required>
 
+                                    <!-- 2. Присутність на весіллі -->
                                     <label class="question">Чи плануєте ви бути на весіллі?</label>
                                     <div class="options">
-                                        <label class="pill"><input type="radio" name="Присутність" value="Так" required>Так</label>
-                                        <label class="pill"><input type="radio" name="Присутність" value="Ні">Ні</label>
+                                        <label class="pill"><input type="radio" name="Присутність_на_весіллі" value="Так" required>Так</label>
+                                        <label class="pill"><input type="radio" name="Присутність_на_весіллі" value="Ні">Ні</label>
                                     </div>
 
-                                    <label class="question">Чи плануєте ви бути на Вінчанні (11:00)?</label>
+                                    <!-- 3. Присутність на вінчанні -->
+                                    <label class="question">Чи плануєте ви бути на офіційній частині (11:00)?</label>
                                     <div class="options">
-                                        <label class="pill"><input type="radio" name="Вінчання" value="Так" required>Так</label>
-                                        <label class="pill"><input type="radio" name="Вінчання" value="Ні">Ні</label>
+                                        <label class="pill"><input type="radio" name="Присутність_на_вінчанні" value="Так" required>Так</label>
+                                        <label class="pill"><input type="radio" name="Присутність_на_вінчанні" value="Ні">Ні</label>
                                     </div>
 
+                                    <!-- 4. Побажання -->
                                     <label class="question">Ваші побажання:</label>
-                                    <textarea class="input" name="Ваші побажання" placeholder="Якщо з вами будуть діти, зазначте це, будь ласка." rows="4"></textarea>
+                                    <textarea class="input" name="Побажання_та_коментарі" placeholder="Напишіть тут ваші побажання чи важливу інформацію (наприклад, якщо з вами будуть діти)." rows="4"></textarea>
 
                                     <button type="submit" class="btn-submit">Відправити 💌</button>
                                 </form>
+
                                 <div id="formMessage" class="form-message"></div>
                             </div>
 
                             <style>
                                 .survey-elegant{
-                                    padding: var(--py) var(--px); display:grid; place-items:center;
-                                    background: linear-gradient(180deg, #f4f7f0, #ffffff); font-family:'Montserrat', sans-serif;
+                                    /* Оливкова палітра */
+                                    --olive-dark: #606c38;
+                                    --olive-mid: #8ba888;
+                                    --olive-bg: #f4f7f0;
+                                    --olive-light: #e8ede1;
+
+                                    --ink:#2b2a2a; --muted:#6f6f6f; --soft:#ffffff;
+                                    --line: rgba(96, 108, 56, .12);
+                                    --px: clamp(16px, 4vw, 32px);
+                                    --py: clamp(28px, 8vh, 72px);
+                                    --radius: 20px;
+
+                                    padding: var(--py) var(--px);
+                                    display: grid; place-items: center;
+                                    background:
+                                            radial-gradient(1000px 520px at 50% -12%, rgba(139, 168, 136, .16), transparent 55%),
+                                            linear-gradient(180deg, var(--olive-bg), var(--olive-light));
+                                    font-family: 'Montserrat', sans-serif; color: var(--ink);
                                 }
-                                .survey-card{ width:min(700px, 100%); background:#fff; border-radius:20px; padding:30px; box-shadow: 0 20px 50px rgba(0,0,0,0.05); }
-                                .survey-title{ font-family:'Great Vibes', cursive; font-size:42px; text-align:center; color:var(--olive-dark); margin-bottom:20px; }
-                                .question{ display:block; margin:15px 0 8px; font-weight:600; }
-                                .input{ width:100%; padding:12px; border-radius:12px; border:1px solid #ddd; margin-bottom:15px; }
-                                .options{ display:flex; gap:10px; flex-wrap:wrap; }
-                                .pill{ padding:10px 20px; border:1px solid var(--olive-mid); border-radius:25px; cursor:pointer; font-weight:600; transition:0.3s; }
-                                .pill input{ display:none; }
-                                .pill:has(input:checked){ background:var(--olive-mid); color:#fff; }
-                                .btn-submit{ width:100%; padding:15px; border-radius:30px; border:none; background:var(--olive-dark); color:#fff; font-weight:700; cursor:pointer; margin-top:10px; }
-                                .form-message{ text-align:center; margin-top:15px; display:none; }
+                                .survey-card{
+                                    width: min(960px, 100%); background: var(--soft);
+                                    border: 1px solid var(--line); border-radius: var(--radius);
+                                    box-shadow: 0 24px 60px rgba(60, 68, 56, .07);
+                                    padding: clamp(22px, 4vw, 40px);
+                                    animation: fadeInSurvey .6s ease;
+                                }
+                                .survey-title{
+                                    margin: 0 0 18px; font-family: 'Great Vibes', cursive;
+                                    font-size: clamp(32px, 6vw, 52px); line-height: 1.2;
+                                    background: linear-gradient(130deg, var(--olive-dark), var(--olive-mid));
+                                    -webkit-background-clip: text; background-clip: text; color: transparent;
+                                    text-align: center; text-shadow: 0 2px 16px rgba(0,0,0,.08);
+                                }
+                                .question{ display: block; margin: 18px 0 10px; font-weight: 600; color: var(--ink); letter-spacing: .01em; }
+                                .input{
+                                    width: 100%; padding: 14px 16px; border-radius: 14px;
+                                    border: 1px solid rgba(139, 168, 136, .35); background: #fff; font-size: 16px;
+                                    transition: border-color .2s ease, box-shadow .2s ease;
+                                }
+                                .input:focus{ outline: none; border-color: var(--olive-dark); box-shadow: 0 8px 20px rgba(96, 108, 56, .15); }
+                                .options{ display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; }
+
+                                .pill{
+                                    display: inline-flex; align-items: center; justify-content: center;
+                                    gap: 8px; padding: 10px 14px; font-weight: 600; border-radius: 999px;
+                                    background: #fff; border: 1px solid rgba(139, 168, 136, .35); color: #2f2f2f; cursor: pointer;
+                                    transition: all 0.2s ease;
+                                    box-shadow: 0 8px 20px rgba(139, 168, 136, .1);
+                                }
+                                .pill:hover{ transform: translateY(-1px); box-shadow: 0 12px 26px rgba(139, 168, 136, .18); }
+                                .pill input{ display: none; }
+                                .pill:has(input:checked){
+                                    background: linear-gradient(130deg, var(--olive-dark), var(--olive-mid));
+                                    color: #fff; border-color: var(--olive-dark); box-shadow: 0 12px 28px rgba(96, 108, 56, .28);
+                                }
+                                .btn-submit{
+                                    width: 100%; margin-top: 14px; appearance: none; border: none; cursor: pointer;
+                                    padding: 14px 18px; border-radius: 999px; font-size: 16px; font-weight: 700;
+                                    background: linear-gradient(130deg, var(--olive-dark), var(--olive-mid));
+                                    color: #fff; box-shadow: 0 16px 36px rgba(96, 108, 56, .32);
+                                    transition: transform .15s ease, box-shadow .2s ease;
+                                }
+                                .btn-submit:hover{ transform: translateY(-1px); box-shadow: 0 22px 48px rgba(96, 108, 56, .4); }
+                                .form-message{ text-align: center; margin-top: 14px; font-weight: 700; display: none; }
+
+                                @keyframes fadeInSurvey { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
                             </style>
 
                             <script>
                                 document.getElementById('weddingForm').addEventListener('submit', async function(e) {
                                     e.preventDefault();
                                     const form = e.target;
+
+                                    // 1. Створюємо об'єкт із даних форми
                                     const formData = new FormData(form);
+                                    const object = Object.fromEntries(formData);
+
+                                    // 2. Перетворюємо в JSON (Це гарантує правильне кодування кирилиці в Web3Forms)
+                                    const json = JSON.stringify(object);
+
                                     try {
-                                        const res = await fetch(form.action, { method: 'POST', body: formData });
-                                        if (res.ok) {
-                                            document.getElementById('formMessage').textContent = '✅ Дякуємо! Відповідь надіслана.';
-                                            document.getElementById('formMessage').style.display = 'block';
+                                        const res = await fetch(form.action, {
+                                            method: 'POST',
+                                            headers: {
+                                                'Content-Type': 'application/json',
+                                                'Accept': 'application/json'
+                                            },
+                                            body: json
+                                        });
+                                        const result = await res.json();
+                                        if (result.success) {
+                                            const msg = document.getElementById('formMessage');
+                                            msg.textContent = '✅ Дякуємо! Ваші відповіді надіслані.';
+                                            msg.style.color = 'green';
+                                            msg.style.display = 'block';
                                             form.reset();
-                                        }
+                                        } else { throw new Error(result.message); }
                                     } catch (error) {
-                                        document.getElementById('formMessage').textContent = '❌ Помилка. Спробуйте ще раз.';
-                                        document.getElementById('formMessage').style.display = 'block';
+                                        const msg = document.getElementById('formMessage');
+                                        msg.textContent = '❌ Помилка. Спробуйте ще раз.';
+                                        msg.style.color = 'red';
+                                        msg.style.display = 'block';
                                     }
                                 });
                             </script>
