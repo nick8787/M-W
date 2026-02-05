@@ -944,8 +944,8 @@ permalink: /marta-and-myroslav
                                     <input type="hidden" name="from_name" value="Весільний сайт">
 
                                     <!-- 1. Ім'я -->
-                                    <label class="question">Ваше ім’я:</label>
-                                    <input class="input" type="text" name="Ім'я" placeholder="Введіть ваше ім’я" required>
+                                    <label class="question">Ваше ім’я та прізвище:</label>
+                                    <input class="input" type="text" name="Ім'я" placeholder="Введіть ваше ім’я та прізвище" required>
 
                                     <!-- 2. Присутність на весіллі -->
                                     <label class="question">Чи плануєте ви бути на весіллі?</label>
@@ -1100,8 +1100,8 @@ permalink: /marta-and-myroslav
                                     overflow:hidden;
                                     display:flex;
                                     justify-content:center;
-                                    align-items:flex-end;         /* вниз */
-                                    padding-bottom: 30vh;          /* відступ знизу */
+                                    align-items: center;         /* Змінено з flex-end на center, щоб підняти блок */
+                                    padding-bottom: 40vh;         /* Зменшено відступ, щоб блок був у верхній частині центру */
                                     isolation:isolate;
                                     font-family:'Montserrat',sans-serif;
                                     background: radial-gradient(1200px 600px at 50% -20%, color-mix(in srgb, var(--accent-1) 18%, transparent), transparent 60%);
@@ -1111,7 +1111,7 @@ permalink: /marta-and-myroslav
                                     position:absolute; inset:0;
                                     background:
                                             linear-gradient(180deg, rgba(0,0,0,.22) 0%, rgba(0,0,0,.5) 100%),
-                                            url('../assets/media/gallery/footer_image-5.jpeg') center/cover no-repeat;
+                                            url('../assets/media/images/marta-and-myroslav-2.jpg') center/cover no-repeat;
                                     z-index:-1; transform:scale(1.02);
                                 }
 
@@ -1140,7 +1140,7 @@ permalink: /marta-and-myroslav
                                 }
                                 .footer-hero__subtitle{
                                     font-size: clamp(14px, 2.2vw, 20px);
-                                    margin: 0 0 8px; text-shadow: 0 4px 16px rgba(0,0,0,.25); letter-spacing:.01ем;
+                                    margin: 0 0 8px; text-shadow: 0 4px 16px rgba(0,0,0,.25); letter-spacing:.01em;
                                 }
                                 .footer-hero__subtitle strong{
                                     color:#fff; font-weight:700;
