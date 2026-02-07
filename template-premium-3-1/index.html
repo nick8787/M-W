@@ -9,9 +9,9 @@ permalink: /template-premium-3-1
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Саша & Діана - Весільне запрошення">
+    <meta name="description" content="Олександр & Діана - Весільне запрошення">
 
-    <title>Саша & Діана - Весільне запрошення</title>
+    <title>Олександр & Діана - Весільне запрошення</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="../assets-premium1/media/favicon.png">
@@ -26,17 +26,101 @@ permalink: /template-premium-3-1
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <style>
+        /* --- LUXURY PRELOADER STYLES --- */
+        :root {
+            --gold-lux: #D4AF37;
+            --black-lux: #0A0A0A;
+        }
+
+        .preloader {
+            position: fixed;
+            inset: 0;
+            background: var(--black-lux);
+            z-index: 10002;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .loader-content {
+            text-align: center;
+            z-index: 10005;
+        }
+
+        .loader-names {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(22px, 5vw, 45px);
+            letter-spacing: 12px;
+            color: var(--gold-lux);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease;
+            white-space: nowrap;
+        }
+
+        #loader-line {
+            width: 150px;
+            height: 1px;
+            background: var(--gold-lux);
+            margin: 25px auto;
+            transform: scaleX(0);
+            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .loader-shutter {
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            background: #0d0d0d;
+            z-index: 10003;
+            transition: transform 1.8s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+
+        .shutter-left { left: 0; border-right: 1px solid rgba(212, 175, 55, 0.15); }
+        .shutter-right { right: 0; border-left: 1px solid rgba(212, 175, 55, 0.15); }
+
+        .preloader.loaded .shutter-left { transform: translateX(-100%); }
+        .preloader.loaded .shutter-right { transform: translateX(100%); }
+        .preloader.loaded .loader-content { opacity: 0; transition: 0.5s; }
+
+        /* Gold Dust Background */
+        #gold-canvas {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        /* Smoothing transition to hero */
+        .wedding-hero {
+            opacity: 0;
+            transform: scale(1.05);
+            transition: all 2s ease 1s;
+        }
+        body.ready .wedding-hero {
+            opacity: 1;
+            transform: scale(1);
+        }
+    </style>
 </head>
+
 <body data-spy="scroll" data-target=".navbar-fixed-top" class="home-3">
-<!-- Start Preloader Area-->
-<div class="preloader-area">
-    <div class="loader loader-13">
-        <div class="css-heart heart1"></div>
-        <div class="css-heart heart2"></div>
-        <div class="css-heart heart3"></div>
-        <div class="css-heart heart4"></div>
+
+<!-- LUXURY INTRO PRELOADER -->
+<div class="preloader">
+    <div class="loader-shutter shutter-left"></div>
+    <div class="loader-shutter shutter-right"></div>
+    <div class="loader-content">
+        <div class="loader-names" id="ln">САША & ДІАНА</div>
+        <div id="loader-line"></div>
     </div>
 </div>
+
+<!-- Gold Dust Particles Layer -->
+<canvas id="gold-canvas"></canvas>
 <!--/End Preloader Area-->
     <div id="et-main-area">
 
@@ -236,6 +320,71 @@ permalink: /template-premium-3-1
                                         .save-card{ width: calc(100% - 2*var(--pad-x)); }
                                     }
                                 </style>
+                                <script>
+                                    // 1. ЛОГІКА ШТОРКИ ТА ПРЕЛОАДЕРА
+                                    window.addEventListener('load', () => {
+                                        const line = document.getElementById('loader-line');
+                                        const name = document.getElementById('ln');
+                                        const preloader = document.querySelector('.preloader');
+
+                                        // Почергова поява елементів
+                                        setTimeout(() => {
+                                            if(name) { name.style.opacity = '1'; name.style.transform = 'translateY(0)'; }
+                                        }, 400);
+
+                                        setTimeout(() => {
+                                            if(line) { line.style.transform = 'scaleX(1)'; }
+                                        }, 800);
+
+                                        // Розсуваємо шторки
+                                        setTimeout(() => {
+                                            preloader.classList.add('loaded');
+                                            document.body.classList.add('ready');
+                                        }, 2500);
+
+                                        // Повністю видаляємо блок, щоб він не перекривав кнопки
+                                        setTimeout(() => {
+                                            preloader.style.display = 'none';
+                                        }, 4300);
+                                    });
+
+                                    // 2. ЕФЕКТ ЗОЛОТОГО ПИЛУ
+                                    const canvas = document.getElementById('gold-canvas');
+                                    if (canvas) {
+                                        const ctx = canvas.getContext('2d');
+                                        let particles = [];
+                                        function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+                                        window.addEventListener('resize', resize);
+                                        resize();
+
+                                        class Particle {
+                                            constructor() {
+                                                this.x = Math.random() * canvas.width;
+                                                this.y = Math.random() * canvas.height;
+                                                this.size = Math.random() * 2 + 0.1;
+                                                this.spX = Math.random() * 0.5 - 0.25;
+                                                this.spY = Math.random() * 0.5 - 0.25;
+                                                this.op = Math.random() * 0.5;
+                                            }
+                                            update() {
+                                                this.x += this.spX; this.y += this.spY;
+                                                if (this.x > canvas.width) this.x = 0;
+                                                if (this.y > canvas.height) this.y = 0;
+                                            }
+                                            draw() {
+                                                ctx.fillStyle = `rgba(212, 175, 55, ${this.op})`;
+                                                ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill();
+                                            }
+                                        }
+                                        for (let i = 0; i < 70; i++) particles.push(new Particle());
+                                        function anim() {
+                                            ctx.clearRect(0, 0, canvas.width, canvas.height);
+                                            particles.forEach(p => { p.update(); p.draw(); });
+                                            requestAnimationFrame(anim);
+                                        }
+                                        anim();
+                                    }
+                                </script>
                             </section>
 
 
