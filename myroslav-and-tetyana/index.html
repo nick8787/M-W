@@ -1,0 +1,623 @@
+---
+layout: null
+permalink: /myroslav-and-tetyana
+---
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--metatextblock-->
+    <title>Мирослав & Тетяна — Покана за сватба</title>
+
+    <meta property="og:url" content="https://my-wedding.com.ua/myroslav-and-tetyana" />
+    <meta property="og:title" content="Мирослав & Тетяна — Покана за сватба" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://my-wedding.com.ua/assets/media/images/myroslav-and-tetyana1.jpg" />
+
+    <link rel="canonical" href="https://my-wedding.com.ua/myroslav-and-tetyana">
+    <!--/metatextblock-->
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="../assets-premium1/media/favicon.png">
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- 1. GLOBAL VARIABLES --- */
+        :root {
+            --font-main: 'Cinzel', serif;
+            --font-body: 'Manrope', sans-serif;
+
+            --color-black: #080808;
+            --color-white: #FFFFFF;
+            --color-gold: #C0A080;
+
+            --container: 500px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-black);
+            color: var(--color-white);
+            overflow-x: hidden;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .wrapper {
+            max-width: var(--container);
+            margin: 0 auto;
+            background: #000;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 50px rgba(0,0,0,0.5);
+        }
+
+        img { max-width: 100%; height: auto; display: block; object-fit: cover; }
+
+        /* TYPOGRAPHY */
+        h1, h2, h3 { font-family: var(--font-main); font-weight: 400; text-transform: uppercase; text-align: center; }
+
+        .title-lg { font-size: 36px; line-height: 1.1; margin-bottom: 15px; letter-spacing: 1px; }
+        .text-body { font-size: 14px; opacity: 0.9; text-align: center; line-height: 1.7; font-weight: 300; margin-bottom: 20px; }
+
+        /* --- 2. HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 60px 20px 40px;
+        }
+
+        /* BACKGROUND IMAGE INSTEAD OF VIDEO */
+        .hero-bg-img {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover; z-index: 0;
+            filter: brightness(0.9);
+        }
+
+        .hero-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.9) 100%);
+            z-index: 1;
+        }
+
+        .hero-content-top, .hero-content-bottom {
+            position: relative; z-index: 2; width: 100%; text-align: center;
+        }
+
+        .hero-title { font-size: 24px; letter-spacing: 3px; font-weight: 400; border-bottom: 1px solid rgba(255,255,255,0.6); display: inline-block; padding-bottom: 8px; }
+        .hero-subtitle { font-size: 11px; letter-spacing: 5px; margin-top: 8px; opacity: 0.9; text-transform: uppercase; }
+
+        .hero-monogram {
+            font-family: var(--font-main); font-size: 60px; line-height: 1;
+            margin-bottom: 20px;
+            text-shadow: 0 5px 20px rgba(0,0,0,0.8);
+        }
+        .hero-arrow { font-size: 20px; animation: bounce 2s infinite; display: block; margin-top: -5px; color: #fff; opacity: 0.8; }
+        @keyframes bounce { 0%, 100% {transform: translateY(0);} 50% {transform: translateY(-10px);} }
+
+        /* --- 3. INTRO --- */
+        .intro {
+            padding: 80px 30px 140px;
+            text-align: center;
+            background-color: var(--color-black);
+            position: relative; z-index: 2;
+        }
+        .names-big { font-size: 38px; line-height: 1.2; margin-bottom: 20px; color: var(--color-gold); }
+        .date-big { font-size: 30px; letter-spacing: 4px; color: var(--color-white); margin-bottom: 40px; }
+
+        /* --- 4. WHITE CURVED (TIMELINE) --- */
+        .white-section {
+            background-color: var(--color-white);
+            color: var(--color-black);
+            position: relative;
+            padding: 100px 30px 60px;
+            border-top-left-radius: 200px 80px;
+            margin-top: -100px;
+            z-index: 3;
+        }
+
+        .loc-title { font-size: 26px; margin-bottom: 5px; line-height: 1.3; font-weight: 600; }
+        .loc-address { font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; display: block; }
+
+        .btn-circle-black {
+            width: 110px; height: 110px; background: #000; color: #fff;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-family: var(--font-body); font-size: 11px; text-transform: uppercase; letter-spacing: 1px;
+            text-decoration: none; margin: 0 auto 50px;
+            transition: transform 0.3s; box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        .btn-circle-black:hover { transform: scale(1.05); }
+
+        .timeline { display: flex; flex-direction: column; align-items: center; gap: 40px; }
+        .t-item { text-align: center; }
+        .t-time { font-family: var(--font-main); font-size: 50px; line-height: 1; margin-bottom: 5px; font-weight: 400; color: #000; }
+        .t-name { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: #333; }
+        .t-dot { width: 6px; height: 6px; background: var(--color-gold); border-radius: 50%; margin: 10px auto 0; }
+
+        /* --- 5. PHOTO INTERLUDE --- */
+        .photo-interlude {
+            position: relative; height: 550px;
+            background: url('/assets/media/images/myroslav-and-tetyana2.jpg') center/cover no-repeat;
+            z-index: 2; margin-top: -50px;
+        }
+        .photo-curve-bottom {
+            position: absolute; bottom: -1px; left: 0; width: 100%; height: 120px;
+            background: var(--color-white);
+            border-top-left-radius: 50% 100%;
+            border-top-right-radius: 50% 20%;
+        }
+
+        /* --- 6. DRESS CODE --- */
+        .dress-code {
+            background: var(--color-white); color: var(--color-black);
+            padding: 20px 30px 80px; text-align: center; position: relative; z-index: 4;
+        }
+
+        .palette-grid {
+            display: flex; justify-content: center; gap: 0;
+            width: 100%; max-width: 320px; height: 60px;
+            margin: 30px auto; border-radius: 8px; overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .p-block { flex: 1; height: 100%; }
+
+        /* --- 7. DETAILS --- */
+        .details-roses {
+            position: relative;
+            background: url('https://my-wedding.com.ua/assets/media/images/premium4/OBRoses.jpg') center/cover no-repeat;
+            color: #fff; padding: 100px 30px 140px;
+            border-top-right-radius: 200px;
+            margin-top: -80px; z-index: 5;
+            text-align: left;
+        }
+        .details-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.75); z-index: 0; border-top-right-radius: 200px; }
+        .details-content { position: relative; z-index: 2; }
+
+        .d-item { margin-bottom: 35px; border-left: 2px solid var(--color-gold); padding-left: 20px; }
+        .d-title { font-family: var(--font-main); font-size: 18px; color: var(--color-gold); margin-bottom: 5px; }
+        .d-text { font-size: 14px; opacity: 0.9; }
+
+        /* --- 8. ANKETA --- */
+        .rsvp-curved {
+            position: relative;
+            background: #fff; color: #000;
+            border-top-left-radius: 200px 100px;
+            margin-top: -100px; z-index: 6;
+            padding: 90px 30px 50px;
+        }
+
+        .rsvp-form { margin-top: 30px; text-align: left; }
+
+        .form-label { display: block; font-size: 14px; font-weight: 700; margin-bottom: 10px; font-family: var(--font-body); letter-spacing: 0.5px; color: #000; }
+
+        .input-text, .input-area {
+            width: 100%; border: none; border-bottom: 1px solid #999;
+            padding: 12px 0; font-family: var(--font-body); font-size: 16px; outline: none;
+            background: transparent; transition: 0.3s;
+        }
+        .input-text:focus, .input-area:focus { border-color: #000; }
+
+        /* Radio & Checkbox */
+        .check-container {
+            display: block; position: relative; padding-left: 30px; margin-bottom: 15px;
+            cursor: pointer; font-size: 15px;
+        }
+        .check-container input { position: absolute; opacity: 0; cursor: pointer; height: 0; width: 0; }
+        .checkmark {
+            position: absolute; top: 3px; left: 0; height: 18px; width: 18px;
+            background-color: transparent; border: 1.5px solid #000; border-radius: 50%;
+        }
+        .check-container input:checked ~ .checkmark { background-color: #000; }
+        .check-square .checkmark { border-radius: 4px; }
+
+        .btn-submit-circle {
+            width: 130px; height: 130px; background: #000; color: #fff; border: none;
+            border-radius: 50%; font-family: var(--font-body); font-weight: 600;
+            text-transform: uppercase; letter-spacing: 1px; font-size: 12px;
+            display: flex; align-items: center; justify-content: center;
+            margin: 50px auto 0; cursor: pointer; transition: 0.3s;
+        }
+        .btn-submit-circle:hover { transform: scale(1.05); }
+
+        /* --- 9. FOOTER --- */
+        .footer-final {
+            background: #000; color: #fff; padding: 60px 30px; text-align: center;
+            position: relative; margin-top: -1px;
+        }
+
+        .countdown { display: flex; justify-content: center; gap: 25px; font-family: var(--font-main); margin-top: 20px; }
+        .cd-num { font-size: 36px; line-height: 1; color: var(--color-gold); }
+        .cd-lbl { font-size: 10px; text-transform: uppercase; opacity: 0.5; margin-top: 5px; }
+
+        /* Animation */
+        .fade-up { opacity: 0; transform: translateY(40px); transition: 0.8s ease; }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+        /* --- FIXED MUSIC BUTTON (High Contrast) --- */
+        .music-btn {
+            position: fixed; bottom: 30px; right: 20px; width: 50px; height: 50px;
+            border-radius: 50%;
+            background: #000000;
+            border: 2px solid var(--color-gold);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            z-index: 1000; display: grid; place-items: center; cursor: pointer;
+            transition: 0.3s;
+        }
+        .music-btn svg { width: 22px; fill: #fff; }
+        .music-btn.playing { animation: pulse-btn 2s infinite; background: #1a1a1a; }
+        @keyframes pulse-btn { 0%{box-shadow: 0 0 0 0 rgba(192, 160, 128, 0.4);} 70%{box-shadow: 0 0 0 10px rgba(192, 160, 128, 0);} 100%{box-shadow: 0 0 0 0 rgba(192, 160, 128, 0);} }
+
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+
+    <!-- 1. HERO  -->
+    <header class="hero">
+        <img src="/assets/media/images/myroslav-and-tetyana1.jpg" alt="Весілля" class="hero-bg-img">
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content-top fade-up">
+            <h2 class="hero-title">ПОКАНА</h2>
+            <div class="hero-subtitle">ЗА СВАТБА</div>
+        </div>
+
+        <div class="hero-content-bottom fade-up">
+            <div class="hero-monogram">M & T</div>
+            <span class="hero-arrow">⌄</span>
+        </div>
+    </header>
+
+    <!-- 2. INTRO -->
+    <section class="intro">
+        <div class="fade-up">
+            <h2 class="names-big">МИРОСЛАВ<br>И ТЕТЯНА</h2>
+            <div class="date-big">02 • 05 • 2026</div>
+
+            <p class="text-body" style="color:#fff; text-transform: none;">
+                ИМА МОМЕНТИ, КОИТО ОСТАВАТ В ПАМЕТТА ТИ ЗА ЦЯЛ ЖИВОТ И ИМА  ХОРА  С КОИТО ИСКАШ ДА ГИ СПОДЕЛИШ.
+            </p>
+            <p class="text-body" style="color:#fff; text-transform: none;">
+                С ГОЛЯМО УДОВОЛСТВИЕ ВИ КАНИМ ДА СТАНЕТЕ ЧАСТ ОТ НАШАТА ИСТОРИЯ ЗА ЛЮБОВ, ИСТОРИЯТА ЗА СЪЗДАВАНЕТО НА НОВО СЕМЕЙСТВО.
+            </p>
+        </div>
+    </section>
+
+    <!-- 3. TIMELINE -->
+    <section class="white-section">
+        <div class="fade-up" style="text-align:center;">
+            <span class="loc-address" style="color: #888; font-size:10px;">Място за срещи с гости</span>
+            <h3 class="loc-title">Зала"Катя Попова"</h3>
+            <span class="loc-address">Плевен Център, бул. „Данаил Попов“, 5800 Плевен</span>
+
+            <a href="https://www.google.com/maps/place/Hall+%22Katya+Popova%22/@43.4069552,24.6181723,17z/data=!4m6!3m5!1s0x40abf4a93ec304e3:0xb362eef9cab44c68!8m2!3d43.4069513!4d24.6207472!16s%2Fg%2F11b779rldw?entry=ttu&g_ep=EgoyMDI2MDIxMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-circle-black">
+                НА<br>МАПІ
+            </a>
+
+            <div class="timeline">
+                <div class="t-item">
+                    <div class="t-time">14:40</div>
+                    <div class="t-name">Сватбена Церемония</div>
+                    <div class="t-dot"></div>
+                </div>
+                <div class="t-item">
+                    <div class="t-time">15:30</div>
+                    <div class="t-name">Сватбена Фотосесия</div>
+                    <div class="t-dot"></div>
+                </div>
+                <div class="t-item">
+                    <div class="t-time">18:00</div>
+                    <div class="t-name">Посрещане на Гостите . Ресторант " Даймънд "</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. PHOTO INTERLUDE -->
+    <section class="photo-interlude">
+        <div class="photo-curve-bottom"></div>
+    </section>
+
+    <!-- 7. ANKETA -->
+    <section class="rsvp-curved">
+        <div class="fade-up">
+            <h2 class="title-lg">RSVP</h2>
+
+            <p class="text-body" style="color:#000; margin-bottom:5px;">
+                МОЛЯ, ПОТВЪРДЕТЕ ВАШЕТО ПРИСЪСТВИЕ
+            </p>
+
+            <p style="text-align:center; font-size:11px; letter-spacing:1px; color:#888; margin-bottom:40px;">
+                Молим за отговор до 31 март
+            </p>
+
+            <form id="weddingForm" action="https://api.web3forms.com/submit" method="POST" class="rsvp-form">
+
+                <input type="hidden" name="access_key" value="581eaf16-3866-475f-8020-0f5282f63bec">
+                <input type="hidden" name="from_name" value="Wedding RSVP">
+                <input type="hidden" name="subject" value="Нов отговор от гост">
+
+                <!-- ИМЕ -->
+                <div class="form-group">
+                    <label class="form-label">Вашето име и фамилия</label>
+                    <input type="text" name="Име" class="input-text" placeholder="Иван Иванов" required>
+                </div>
+
+                <!-- СВАТБА -->
+                <div class="form-group">
+                    <label class="form-label">Ще присъствате ли на сватбеното тържество?</label>
+
+                    <div class="radio-row">
+                        <label class="check-container">Да
+                            <input type="radio" name="Сватба" value="Да" required>
+                            <span class="checkmark"></span>
+                        </label>
+
+                        <label class="check-container">Не
+                            <input type="radio" name="Сватба" value="Не">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- ГРАЖДАНСКИ БРАК -->
+                <div class="form-group">
+                    <label class="form-label">Ще присъствате ли на церемонията за граждански брак?</label>
+
+                    <div class="radio-row">
+                        <label class="check-container">Да
+                            <input type="radio" name="Граждански_брак" value="Да" required>
+                            <span class="checkmark"></span>
+                        </label>
+
+                        <label class="check-container">Не
+                            <input type="radio" name="Граждански_брак" value="Не">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- АЛКОХОЛ -->
+                <div class="form-group">
+                    <label class="form-label">Какъв алкохол предпочитате?</label>
+
+                    <div class="alcohol-grid">
+
+                        <label class="check-container">Вино
+                            <input type="checkbox" name="Алкохол[]" value="Вино">
+                            <span class="checkmark"></span>
+                        </label>
+
+                        <label class="check-container">Бира
+                            <input type="checkbox" name="Алкохол[]" value="Бира">
+                            <span class="checkmark"></span>
+                        </label>
+
+                        <label class="check-container">Водка
+                            <input type="checkbox" name="Алкохол[]" value="Водка">
+                            <span class="checkmark"></span>
+                        </label>
+
+                        <label class="check-container">Ракия
+                            <input type="checkbox" name="Алкохол[]" value="Ракия">
+                            <span class="checkmark"></span>
+                        </label>
+
+                        <label class="check-container">Уиски
+                            <input type="checkbox" name="Алкохол[]" value="Уиски">
+                            <span class="checkmark"></span>
+                        </label>
+
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-submit-circle">
+                    ИЗПРАТИ
+                </button>
+
+                <div id="formMessage" style="text-align:center; margin-top:20px;"></div>
+            </form>
+        </div>
+
+        <style>
+            /* радио в строку */
+            .radio-row{
+                display:flex;
+                gap:40px;
+                margin-top:15px;
+            }
+
+            /* алкоголь 2 колонки */
+            .alcohol-grid{
+                display:grid;
+                grid-template-columns:1fr 1fr;
+                gap:18px 40px;
+                margin-top:15px;
+            }
+
+            /* чекбокс стиль аккуратный */
+            .check-container{
+                display:flex;
+                align-items:center;
+                gap:12px;
+                font-size:16px;
+                cursor:pointer;
+            }
+
+            /* адаптив */
+            @media (max-width:600px){
+                .alcohol-grid{
+                    grid-template-columns:1fr 1fr;
+                    gap:15px;
+                }
+            }
+
+        </style>
+    </section>
+
+
+    <!-- 8. FOOTER -->
+    <section class="footer-final">
+        <h2 class="title-md" style="margin-bottom:20px;">ДО СВАТБАТА:</h2>
+
+        <div class="countdown">
+            <div>
+                <div class="cd-num" id="d">0</div>
+                <div class="cd-lbl">Дни</div>
+            </div>
+
+            <div>
+                <div class="cd-num" id="h">0</div>
+                <div class="cd-lbl">Часа</div>
+            </div>
+
+            <div>
+                <div class="cd-num" id="m">0</div>
+                <div class="cd-lbl">Минути</div>
+            </div>
+
+            <div>
+                <div class="cd-num" id="s">0</div>
+                <div class="cd-lbl">Секунди</div>
+            </div>
+        </div>
+
+        <p style="margin-top:40px; font-size:10px; opacity:0.4; letter-spacing:2px;">
+            M & T • 2026
+        </p>
+    </section>
+
+
+    <!-- MUSIC -->
+    <div class="music-btn" onclick="toggleMusic()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+    </div>
+    <audio id="audio" loop>
+        <source src="/assets/media/music/adele-lovesong.mp3" type="audio/mpeg">
+    </audio>
+
+</div>
+
+<script>
+    // Animation
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Timer
+    const targetDate = new Date("2026-05-02T13:30:00").getTime();
+    setInterval(() => {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+        if (distance > 0) {
+            document.getElementById("d").innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
+            document.getElementById("h").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            document.getElementById("m").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            document.getElementById("s").innerText = Math.floor((distance % (1000 * 60)) / 1000);
+        }
+    }, 1000);
+
+    // Music
+    const audio = document.getElementById('audio');
+    const musicBtn = document.querySelector('.music-btn');
+    let playing = false;
+
+    function toggleMusic() {
+        if (playing) {
+            audio.pause();
+            musicBtn.classList.remove('playing');
+            playing = false;
+        } else {
+            audio.volume = 0.3;
+            audio.play();
+            musicBtn.classList.add('playing');
+            playing = true;
+        }
+    }
+
+    document.body.addEventListener('click', function() {
+        if (!playing) { toggleMusic(); }
+    }, { once: true });
+
+    document.body.addEventListener('touchstart', function() {
+        if (!playing) { toggleMusic(); }
+    }, { once: true });
+
+
+    // Form
+    document.getElementById('weddingForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        const form = e.target;
+        const btn = form.querySelector('button');
+        const originalText = btn.innerText;
+
+        btn.innerText = "Изпращане...";
+        btn.disabled = true;
+
+        const formData = new FormData(form);
+
+        // алкоголь (множественный выбор)
+        const alcohol = Array.from(form.querySelectorAll('input[name="Алкохол[]"]:checked'))
+            .map(el => el.value);
+
+        const data = {
+            access_key: formData.get('access_key'),
+            from_name: "Wedding RSVP",
+            subject: "Нов отговор от гост (Wedding)",
+
+            "Име": formData.get("Име"),
+            "Ще присъства на сватбата": formData.get("Сватба"),
+            "Ще присъства на граждански брак": formData.get("Граждански_брак"),
+            "Предпочитан алкохол": alcohol.join(', ') || "Не е избрано"
+        };
+
+        try {
+            const res = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+
+            const result = await res.json();
+
+            if(result.success){
+                document.getElementById('formMessage').innerHTML =
+                    '<span style="color:green;font-size:14px;">✅ Благодарим! Очакваме ви с нетърпение 💌</span>';
+
+                form.reset();
+            } else {
+                throw new Error('Server error');
+            }
+
+        } catch (error) {
+            document.getElementById('formMessage').innerHTML =
+                '<span style="color:red;">❌ Грешка при изпращане. Опитайте отново.</span>';
+        } finally {
+            btn.innerText = originalText;
+            btn.disabled = false;
+        }
+    });
+
+</script>
+</body>
+</html>
