@@ -551,7 +551,7 @@ permalink: /template-premium-6
         });
     });
 
-    // Form Submit Logic
+    // Form Submit Logic (Оновлено для правильного кодування кирилиці)
     document.getElementById('weddingForm').addEventListener('submit', async function(e) {
         e.preventDefault();
         const btn = e.target.querySelector('button');
@@ -559,16 +559,32 @@ permalink: /template-premium-6
         btn.innerText = "Надсилаємо...";
 
         const formData = new FormData(e.target);
+
+        // Обробка масиву чекбоксів (алкоголь)
         const alcoholChecked = Array.from(e.target.querySelectorAll('input[name="Алкоголь[]"]:checked')).map(el => el.value);
         formData.delete('Алкоголь[]');
         formData.append('Алкоголь', alcoholChecked.join(', ') || 'Не обрано');
 
+        // Перетворюємо дані у формат JSON для збереження UTF-8 кодування
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+
         try {
-            const res = await fetch(e.target.action, { method: 'POST', body: formData });
+            const res = await fetch(e.target.action, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            });
             const data = await res.json();
+
             if(data.success) {
                 document.getElementById('formMessage').innerHTML = '<span style="color: #4ade80">Дякуємо! Ваша відповідь збережена.</span>';
                 e.target.reset();
+            } else {
+                document.getElementById('formMessage').innerHTML = '<span style="color: #f87171">Помилка сервісу. Спробуйте ще раз.</span>';
             }
         } catch {
             document.getElementById('formMessage').innerHTML = '<span style="color: #f87171">Помилка. Спробуйте ще раз.</span>';
