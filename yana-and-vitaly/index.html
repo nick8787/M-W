@@ -433,6 +433,7 @@ permalink: /yana-and-vitaly
     </div>
 
     <!-- 6. RSVP FORM -->
+    <!-- 6. RSVP FORM -->
     <div class="glass-card fade-in">
         <h3 class="section-title">Анкета гостя</h3>
         <p class="section-sub">Підтвердження присутності</p>
@@ -451,21 +452,34 @@ permalink: /yana-and-vitaly
             <label class="form-label">Номер телефону:</label>
             <input type="tel" name="Телефон" class="form-input" placeholder="+380..." required>
 
-            <!-- 3. Presence -->
-            <label class="form-label">Чи плануєте ви бути на весіллі?</label>
+            <!-- 3. Presence: Вінчання -->
+            <label class="form-label">Чи плануєте ви бути на вінчанні?</label>
             <div class="radio-group">
                 <label class="radio-opt">
-                    <input type="radio" name="Присутність" value="Так" required>
+                    <input type="radio" name="Присутність на вінчанні" value="Так" required>
                     <span>Так</span>
                 </label>
                 <label class="radio-opt">
-                    <input type="radio" name="Присутність" value="Ні">
+                    <input type="radio" name="Присутність на вінчанні" value="Ні">
                     <span>Ні</span>
                 </label>
             </div>
 
-            <!-- 4. Allergy -->
-            <label class="form-label">Чи є у вас алергія? (якщо так — напишіть на що)</label>
+            <!-- 4. Presence: Банкет -->
+            <label class="form-label">Чи плануєте ви бути на банкеті?</label>
+            <div class="radio-group">
+                <label class="radio-opt">
+                    <input type="radio" name="Присутність на банкеті" value="Так" required>
+                    <span>Так</span>
+                </label>
+                <label class="radio-opt">
+                    <input type="radio" name="Присутність на банкеті" value="Ні">
+                    <span>Ні</span>
+                </label>
+            </div>
+
+            <!-- 5. Allergy -->
+            <label class="form-label">Чи є у вас алергія на продукти, про які нам треба знати? (якщо так — напишіть на що)</label>
             <textarea class="form-input" name="Алергія" placeholder="Наприклад: горіхи, лактоза..." rows="3" style="resize:none; height:80px;"></textarea>
 
             <button type="submit" class="btn-gold">Відправити 💌</button>
