@@ -872,6 +872,11 @@ permalink: /andrii-and-bogdana
                                         e.preventDefault();
                                         const form = e.target;
                                         const formData = new FormData(form);
+                                        const btn = form.querySelector('.btn-submit');
+                                        const originalText = btn.innerText;
+
+                                        // Меняем текст кнопки на время отправки
+                                        btn.innerText = 'Відправляємо...';
 
                                         // Собираем ВСЕ отмеченные напитки в одно поле «Алкоголь»
                                         const drinksChecked = Array.from(form.querySelectorAll('input[name="Алкоголь[]"]:checked'))
@@ -884,8 +889,21 @@ permalink: /andrii-and-bogdana
                                             formData.append('Алкоголь', '—');
                                         }
 
+                                        // --- ИСПРАВЛЕНИЕ КОДИРОВКИ ---
+                                        // Превращаем данные формы в JSON. Это гарантирует правильную передачу кириллицы (UTF-8)
+                                        const object = Object.fromEntries(formData);
+                                        const jsonBody = JSON.stringify(object);
+
                                         try {
-                                            const res = await fetch(form.action, { method: 'POST', body: formData });
+                                            // Отправляем запрос с явным указанием JSON заголовков
+                                            const res = await fetch(form.action, {
+                                                method: 'POST',
+                                                headers: {
+                                                    'Content-Type': 'application/json',
+                                                    'Accept': 'application/json'
+                                                },
+                                                body: jsonBody
+                                            });
                                             const json = await res.json();
 
                                             if (json.success) {
@@ -900,6 +918,9 @@ permalink: /andrii-and-bogdana
                                             document.getElementById('formMessage').textContent = '❌ Сталася помилка. Спробуйте ще раз.';
                                             document.getElementById('formMessage').style.color = 'red';
                                             document.getElementById('formMessage').style.display = 'block';
+                                        } finally {
+                                            // Возвращаем текст кнопки обратно
+                                            btn.innerText = originalText;
                                         }
                                     });
                                 </script>
