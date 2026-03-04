@@ -390,7 +390,7 @@ permalink: /sergii-and-alina
     t_onReady(function () {
         function titleFor(input){
             var label = input.closest('.t-input-group')?.querySelector('.t-input-title');
-            var labelTag = input.closest('.form-group')?.querySelector('label'); // Для вашей кастомной верстки
+            var labelTag = input.closest('.form-group')?.querySelector('label');
             return (label && label.textContent.trim()) || (labelTag && labelTag.textContent.trim()) || input.getAttribute('placeholder') || input.name || 'Поле';
         }
 
@@ -398,17 +398,12 @@ permalink: /sergii-and-alina
             var rec = document.getElementById('rec862594630');
             if (!rec) return;
 
-            // Ищем обертку формы по ID элемента (как в прошлый раз)
             var formWrap = rec.querySelector('[data-elem-id="1738928841926"]');
-
-            // Если вдруг форма лежит не там, ищем просто тег form внутри рекорда
             if (!formWrap) formWrap = rec;
 
             var tries = 0;
             var int = setInterval(function () {
-                // Ищем форму разными способами
                 var tForm = formWrap.querySelector('form') || rec.querySelector('form');
-
                 if (!tForm) { if (++tries > 60) clearInterval(int); return; }
                 clearInterval(int);
                 hookTildaForm(tForm);
@@ -432,34 +427,32 @@ permalink: /sergii-and-alina
         }
 
         function hookTildaForm(tForm){
+            // Жестко отвязываем форму от системных скриптов Тильды
             tForm.removeAttribute('action');
             tForm.removeAttribute('target');
             tForm.removeAttribute('onsubmit');
-            tForm.setAttribute('novalidate','novalidate'); // Отключаем браузерную валидацию, чтобы работала наша
-
-            tForm.addEventListener('submit', function(e){
-                e.preventDefault(); e.stopPropagation();
-
-                // ВАЛИДАЦИЯ
-                if (!validateTexts(tForm)) return;
-                if (!validateRadios(tForm)) return;
-
-                sendViaWeb3(tForm);
-            }, true);
+            tForm.classList.remove('t-form'); // Отключаем перехватчик Тильды
+            tForm.setAttribute('novalidate','novalidate');
 
             var submitBtn = tForm.querySelector('button, .t-submit, [type="submit"]');
             if (submitBtn){
-                // Убираем старые обработчики, чтобы не было двойной отправки
+                // Клонируем кнопку, чтобы сбросить все обработчики
                 var newBtn = submitBtn.cloneNode(true);
+                // Меняем тип с submit на button, чтобы форма не отправлялась стандартным путем
+                newBtn.setAttribute('type', 'button');
                 submitBtn.parentNode.replaceChild(newBtn, submitBtn);
 
+                // Вешаем наш кастомный клик
                 newBtn.addEventListener('click', function(e){
-                    // Просто кликаем, событие submit обработается выше
+                    e.preventDefault(); e.stopPropagation();
+                    if (!validateTexts(tForm)) return;
+                    if (!validateRadios(tForm)) return;
+                    sendViaWeb3(tForm, newBtn);
                 });
             }
         }
 
-        // ЖЕСТКАЯ ВАЛИДАЦИЯ ТЕКСТОВЫХ ПОЛЕЙ
+        // ВАЛИДАЦИЯ ТЕКСТА
         function validateTexts(tForm) {
             var inputs = tForm.querySelectorAll('input[type="text"]');
             var isValid = true;
@@ -469,30 +462,19 @@ permalink: /sergii-and-alina
                 var nameLC = (input.name || '').toLowerCase().trim();
                 var val = input.value.trim();
 
-                // СПИСОК ОБЯЗАТЕЛЬНЫХ ПОЛЕЙ (по частичному совпадению имени)
-                // Добавьте сюда любые части имени, которые должны быть обязательными
                 var requiredNames = ['im', 'name', 'імя', 'ім\'я', 'фио', 'прізвище'];
-
-                // Проверяем:
-                // 1. Есть ли атрибут required в HTML
-                // 2. Или совпадает ли имя с нашим списком
                 var isRequired = input.hasAttribute('required') || requiredNames.some(n => nameLC.includes(n));
 
                 if (isRequired && !val) {
-                    // Подсветка ошибки
-                    input.style.borderBottom = '2px solid #b00020'; // Подсветка самой линии ввода
-
+                    input.style.borderBottom = '2px solid #b00020';
                     var group = input.closest('.form-group') || input.closest('.t-input-group');
-                    if (group) {
-                        group.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    }
+                    if (group) group.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
                     showToast('Будь ласка, вкажіть ваше ім’я', false);
                     input.focus();
 
-                    // Снимаем подсветку через 3 сек
                     setTimeout(function() {
-                        input.style.borderBottom = '1px solid #999'; // Возвращаем как было в CSS
+                        input.style.borderBottom = '1px solid #999';
                     }, 3000);
 
                     isValid = false;
@@ -502,6 +484,7 @@ permalink: /sergii-and-alina
             return isValid;
         }
 
+        // ВАЛИДАЦИЯ РАДИОКНОПОК
         function validateRadios(tForm){
             var groups = {};
             tForm.querySelectorAll('input[type="radio"]').forEach(function(r){
@@ -518,7 +501,7 @@ permalink: /sergii-and-alina
                     var box = list[0].closest('.form-group') || list[0].closest('.t-input-group') || list[0].closest('div');
 
                     if (box){
-                        box.style.outline='1px solid #b00020'; // Легкая рамка вокруг блока радио
+                        box.style.outline='1px solid #b00020';
                         box.style.borderRadius='8px';
                         setTimeout(function(){ box.style.outline=''; }, 3000);
                         box.scrollIntoView({ behavior:'smooth', block:'center' });
@@ -530,13 +513,12 @@ permalink: /sergii-and-alina
             return true;
         }
 
-        async function sendViaWeb3(tForm){
-            var btn = tForm.querySelector('button, .t-submit, [type="submit"]');
-            var btnOld = btn && btn.textContent;
-            if (btn) {
-                btn.textContent = 'Надсилаємо…';
-                btn.disabled = true;
-            }
+        // ОТПРАВКА НА WEB3FORMS
+        async function sendViaWeb3(tForm, btn){
+            var btnOldHTML = btn.innerHTML; // Сохраняем верстку кнопки
+            btn.innerHTML = 'Надсилаємо...'; // Меняем текст
+            btn.style.opacity = '0.7';
+            btn.disabled = true;
 
             try {
                 var data = {};
@@ -595,17 +577,18 @@ permalink: /sergii-and-alina
                 if (json.success){
                     showToast('✅ Надіслано успішно!', true);
                     tForm.reset();
+                    // Возвращаем кнопку в исходное состояние
+                    btn.innerHTML = 'Надіслано';
+                    btn.style.backgroundColor = '#1a7f37';
                 } else {
                     throw new Error(json.message || 'Помилка сервісу');
                 }
             } catch(e){
                 console.error(e);
                 showToast('❌ Помилка відправки. Спробуйте пізніше.', false);
-            } finally {
-                if (btn) {
-                    btn.textContent = btnOld;
-                    btn.disabled = false;
-                }
+                btn.innerHTML = btnOldHTML;
+                btn.style.opacity = '1';
+                btn.disabled = false;
             }
         }
     });
