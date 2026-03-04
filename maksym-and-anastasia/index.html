@@ -522,7 +522,7 @@ permalink: /maksym-and-anastasia
 
             try {
                 var data = {};
-                data['access_key'] = '581eaf16-3866-475f-8020-0f5282f63bec';
+                data['access_key'] = 'b5418172-7a6f-423c-a85c-4b7f49812a2c';
                 data['subject'] = 'Відповіді з весільної анкети';
                 data['from_name'] = 'Весільний сайт';
 
@@ -605,6 +605,25 @@ permalink: /maksym-and-anastasia
                 });
             });
         }, 1000);
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function(){
+        // Находим родительский блок текста "Весільний банкет" по его ID
+        var banketElem = document.querySelector('[data-elem-id="1738920263117"]');
+
+        if (banketElem) {
+            // Принудительно вытягиваем весь блок поверх абсолютно всех мобильных слоев
+            banketElem.style.setProperty('z-index', '999999', 'important');
+            banketElem.style.setProperty('pointer-events', 'auto', 'important');
+            banketElem.style.cursor = 'pointer';
+
+            // Вешаем жесткий обработчик клика для сенсорных экранов
+            banketElem.addEventListener('click', function(e){
+                e.preventDefault(); // Блокируем стандартное поведение, чтобы не было конфликтов
+                window.open('https://www.google.com/maps/place/%D0%93%D0%BE%D1%81%D1%82%D0%B8%D0%BD%D0%B8%D1%86%D0%B0+%22+%D0%92%D0%B5%D1%80%D1%85%D0%BE%D0%B2%D0%B8%D0%BD%D0%B0+%22/@50.4439478,30.3564123,17z/data=!3m1!4b1!4m9!3m8!1s0x40d4cb7d633bf411:0xa26bb217803a77a0!5m2!4m1!1i2!8m2!3d50.4439478!4d30.3564123!16s%2Fg%2F12hmsxw9z?entry=ttu&g_ep=EgoyMDI2MDMwMS4xIKXMDSoASAFQAw%3D%3D', '_blank', 'noopener');
+            });
+        }
     });
 </script>
 
