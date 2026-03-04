@@ -389,7 +389,7 @@ permalink: /kateryna-and-vladyslav
     t_onReady(function () {
         function titleFor(input){
             var label = input.closest('.t-input-group')?.querySelector('.t-input-title');
-            var labelTag = input.closest('.form-group')?.querySelector('label'); // Для вашей кастомной верстки
+            var labelTag = input.closest('.form-group')?.querySelector('label');
             return (label && label.textContent.trim()) || (labelTag && labelTag.textContent.trim()) || input.getAttribute('placeholder') || input.name || 'Поле';
         }
 
@@ -397,17 +397,13 @@ permalink: /kateryna-and-vladyslav
             var rec = document.getElementById('rec862594630');
             if (!rec) return;
 
-            // Ищем обертку формы по ID элемента (как в прошлый раз)
+            // Шукаємо обгортку форми
             var formWrap = rec.querySelector('[data-elem-id="1738928841926"]');
-
-            // Если вдруг форма лежит не там, ищем просто тег form внутри рекорда
             if (!formWrap) formWrap = rec;
 
             var tries = 0;
             var int = setInterval(function () {
-                // Ищем форму разными способами
                 var tForm = formWrap.querySelector('form') || rec.querySelector('form');
-
                 if (!tForm) { if (++tries > 60) clearInterval(int); return; }
                 clearInterval(int);
                 hookTildaForm(tForm);
@@ -431,34 +427,32 @@ permalink: /kateryna-and-vladyslav
         }
 
         function hookTildaForm(tForm){
+            // Жорстко відв'язуємо форму від системних скриптів Тільди
             tForm.removeAttribute('action');
             tForm.removeAttribute('target');
             tForm.removeAttribute('onsubmit');
-            tForm.setAttribute('novalidate','novalidate'); // Отключаем браузерную валидацию, чтобы работала наша
-
-            tForm.addEventListener('submit', function(e){
-                e.preventDefault(); e.stopPropagation();
-
-                // ВАЛИДАЦИЯ
-                if (!validateTexts(tForm)) return;
-                if (!validateRadios(tForm)) return;
-
-                sendViaWeb3(tForm);
-            }, true);
+            tForm.classList.remove('t-form'); // Відключаємо перехоплювач Тільди
+            tForm.setAttribute('novalidate','novalidate');
 
             var submitBtn = tForm.querySelector('button, .t-submit, [type="submit"]');
             if (submitBtn){
-                // Убираем старые обработчики, чтобы не было двойной отправки
+                // Клонуємо кнопку, щоб скинути всі старі обробники
                 var newBtn = submitBtn.cloneNode(true);
+                // Змінюємо тип з submit на button, щоб форма не відправлялась стандартним шляхом
+                newBtn.setAttribute('type', 'button');
                 submitBtn.parentNode.replaceChild(newBtn, submitBtn);
 
+                // Вішаємо наш кастомний клік
                 newBtn.addEventListener('click', function(e){
-                    // Просто кликаем, событие submit обработается выше
+                    e.preventDefault(); e.stopPropagation();
+                    if (!validateTexts(tForm)) return;
+                    if (!validateRadios(tForm)) return;
+                    sendViaWeb3(tForm, newBtn);
                 });
             }
         }
 
-        // ЖЕСТКАЯ ВАЛИДАЦИЯ ТЕКСТОВЫХ ПОЛЕЙ
+        // ВАЛІДАЦІЯ ТЕКСТУ
         function validateTexts(tForm) {
             var inputs = tForm.querySelectorAll('input[type="text"]');
             var isValid = true;
@@ -468,19 +462,11 @@ permalink: /kateryna-and-vladyslav
                 var nameLC = (input.name || '').toLowerCase().trim();
                 var val = input.value.trim();
 
-                // СПИСОК ОБЯЗАТЕЛЬНЫХ ПОЛЕЙ (по частичному совпадению имени)
-                // Добавьте сюда любые части имени, которые должны быть обязательными
                 var requiredNames = ['im', 'name', 'імя', 'ім\'я', 'фио', 'прізвище'];
-
-                // Проверяем:
-                // 1. Есть ли атрибут required в HTML
-                // 2. Или совпадает ли имя с нашим списком
                 var isRequired = input.hasAttribute('required') || requiredNames.some(n => nameLC.includes(n));
 
                 if (isRequired && !val) {
-                    // Подсветка ошибки
-                    input.style.borderBottom = '2px solid #b00020'; // Подсветка самой линии ввода
-
+                    input.style.borderBottom = '2px solid #b00020';
                     var group = input.closest('.form-group') || input.closest('.t-input-group');
                     if (group) {
                         group.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -489,9 +475,8 @@ permalink: /kateryna-and-vladyslav
                     showToast('Будь ласка, вкажіть ваше ім’я', false);
                     input.focus();
 
-                    // Снимаем подсветку через 3 сек
                     setTimeout(function() {
-                        input.style.borderBottom = '1px solid #999'; // Возвращаем как было в CSS
+                        input.style.borderBottom = '1px solid #999';
                     }, 3000);
 
                     isValid = false;
@@ -501,6 +486,7 @@ permalink: /kateryna-and-vladyslav
             return isValid;
         }
 
+        // ВАЛІДАЦІЯ РАДІОКНОПОК
         function validateRadios(tForm){
             var groups = {};
             tForm.querySelectorAll('input[type="radio"]').forEach(function(r){
@@ -517,7 +503,7 @@ permalink: /kateryna-and-vladyslav
                     var box = list[0].closest('.form-group') || list[0].closest('.t-input-group') || list[0].closest('div');
 
                     if (box){
-                        box.style.outline='1px solid #b00020'; // Легкая рамка вокруг блока радио
+                        box.style.outline='1px solid #b00020';
                         box.style.borderRadius='8px';
                         setTimeout(function(){ box.style.outline=''; }, 3000);
                         box.scrollIntoView({ behavior:'smooth', block:'center' });
@@ -529,16 +515,16 @@ permalink: /kateryna-and-vladyslav
             return true;
         }
 
-        async function sendViaWeb3(tForm){
-            var btn = tForm.querySelector('button, .t-submit, [type="submit"]');
-            var btnOld = btn && btn.textContent;
-            if (btn) {
-                btn.textContent = 'Надсилаємо…';
-                btn.disabled = true;
-            }
+        // ВІДПРАВКА НА WEB3FORMS
+        async function sendViaWeb3(tForm, btn){
+            var btnOldHTML = btn.innerHTML; // Зберігаємо верстку кнопки
+            btn.innerHTML = 'Надсилаємо...'; // Змінюємо текст
+            btn.style.opacity = '0.7';
+            btn.disabled = true;
 
             try {
                 var data = {};
+                // Ваш ключ
                 data['access_key'] = 'df20eb12-79c6-4236-8eaf-a17752f8a48a';
                 data['subject'] = 'Відповіді з весільної анкети';
                 data['from_name'] = 'Весільний сайт';
@@ -594,17 +580,18 @@ permalink: /kateryna-and-vladyslav
                 if (json.success){
                     showToast('✅ Надіслано успішно!', true);
                     tForm.reset();
+                    // Повертаємо кнопку в успішний стан
+                    btn.innerHTML = 'Надіслано';
+                    btn.style.backgroundColor = '#1a7f37';
                 } else {
                     throw new Error(json.message || 'Помилка сервісу');
                 }
             } catch(e){
                 console.error(e);
                 showToast('❌ Помилка відправки. Спробуйте пізніше.', false);
-            } finally {
-                if (btn) {
-                    btn.textContent = btnOld;
-                    btn.disabled = false;
-                }
+                btn.innerHTML = btnOldHTML;
+                btn.style.opacity = '1';
+                btn.disabled = false;
             }
         }
     });
