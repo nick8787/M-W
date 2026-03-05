@@ -645,14 +645,14 @@ permalink: /template-premium-3
                                 <!-- Шрифти -->
                                 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet"/>
 
-                                <!-- Заголовок -->
-                                <header class="wc-head">
-                                    <h2 class="wd-title">Чекаємо на вас</h2>
+                                <!-- Заголовок (зникає, коли час вийшов) -->
+                                <header class="wc-head" id="wc-header">
+                                    <h2 class="wc-title">Чекаємо на Вас</h2>
                                     <p class="wc-sub">До нашого свята залишилось</p>
                                     <div class="wc-ornament" aria-hidden="true"></div>
                                 </header>
 
-                                <!-- Відлік -->
+                                <!-- Відлік (зникає, коли час вийшов) -->
                                 <div class="wc-timer" id="countdown">
                                     <div class="wc-box">
                                         <span class="wc-num" id="days">0</span>
@@ -672,120 +672,192 @@ permalink: /template-premium-3
                                     </div>
                                 </div>
 
+                                <!-- Повідомлення, коли день настав (з'являється замість таймера) -->
+                                <div class="wc-finished" id="finished-message" style="display: none;">
+                                    <div class="wc-finished-title">Цей день настав</div>
+                                    <div class="wc-finished-sub">Сьогодні ми кажемо одне одному «Так» 💍</div>
+                                    <div class="wc-ornament" aria-hidden="true" style="margin: 10px auto 16px;"></div>
+                                    <div class="wc-finished-note">Дякуємо, що ви поруч у цей особливий момент ♥️</div>
+                                </div>
+
                                 <style>
-                                    .wedding-countdown{
-                                        --gold-1:#d6b889; --gold-2:#f1e0b3;
-                                        --ink:#2c2b2b; --muted:#6f6f6f; --soft:#ffffff;
+                                    .wedding-countdown {
+                                        --gold-1: #d6b889; --gold-2: #f1e0b3;
+                                        --ink: #2c2b2b; --muted: #6f6f6f; --soft: #ffffff;
                                         --px: clamp(16px, 4vw, 32px);
                                         --py: clamp(28px, 8vh, 72px);
                                         --radius: 18px;
 
-                                        position:relative; isolation:isolate;
+                                        position: relative; isolation: isolate;
                                         padding: var(--py) var(--px);
-                                        display:grid; place-items:center;
-                                        font-family:'Montserrat', sans-serif; color:var(--ink);
+                                        display: grid; place-items: center;
+                                        font-family: 'Montserrat', sans-serif; color: var(--ink);
                                         background:
                                                 radial-gradient(1000px 520px at 50% -12%, rgba(214,184,137,.16), transparent 55%),
                                                 linear-gradient(180deg, #f9f7f4, #fdfcfb);
+                                        min-height: 250px; /* Щоб блок не стрибав по висоті при зміні контенту */
                                     }
 
-                                    .wc-head{ text-align:center; margin-bottom: clamp(20px, 5vh, 40px); }
-                                    /* ↑ Заголовок: на мобільному робимо трохи більший і з запасом по line-height */
-                                    .wc-title{
-                                        margin:0 0 8px;
-                                        font-family:'Great Vibes', cursive;
-                                        font-size: clamp(32px, 7vw, 52px);
-                                        line-height:1.2; /* збільшено, щоб текст не обрізався */
-                                        padding: 4px 0; /* внутрішній відступ зверху/знизу */
+                                    .wc-head { text-align: center; margin-bottom: clamp(20px, 5vh, 40px); transition: opacity 0.5s; }
+
+                                    .wc-title {
+                                        margin: 0 0 8px;
+                                        font-family: 'Great Vibes', cursive;
+                                        font-size: clamp(38px, 8vw, 56px);
+                                        line-height: 1.2;
+                                        padding: 10px 20px; /* ДОДАНО ВІДСТУПИ ПО БОКАХ */
                                         background: linear-gradient(130deg, var(--gold-2), var(--gold-1));
-                                        -webkit-background-clip:text; background-clip:text; color:transparent;
+                                        -webkit-background-clip: text; background-clip: text; color: transparent;
                                         text-shadow: 0 2px 12px rgba(0,0,0,.10);
                                         word-break: keep-all;
                                     }
-                                    .wc-sub{ margin:0; font-size: clamp(13px, 2.4vw, 17px); color:var(--muted); }
-                                    .wc-ornament{
-                                        width:min(160px, 40vw); height:2px; margin: 14px auto 0;
-                                        border-radius:2px;
+
+                                    .wc-sub { margin: 0; font-size: clamp(13px, 2.4vw, 17px); color: var(--muted); }
+
+                                    .wc-ornament {
+                                        width: min(160px, 40vw); height: 2px; margin: 14px auto 0;
+                                        border-radius: 2px;
                                         background: linear-gradient(90deg, transparent, rgba(214,184,137,.85), transparent);
                                         filter: drop-shadow(0 3px 8px rgba(214,184,137,.22));
                                     }
 
-                                    .wc-timer{
-                                        display:grid;
+                                    .wc-timer {
+                                        display: grid;
                                         grid-template-columns: repeat(4, 1fr);
                                         gap: clamp(10px, 3.6vw, 20px);
                                         width: min(940px, 100%);
+                                        transition: opacity 0.5s;
                                     }
 
-                                    .wc-box{
+                                    .wc-box {
                                         background: var(--soft);
-                                        border:1px solid rgba(214,184,137,.26);
+                                        border: 1px solid rgba(214,184,137,.26);
                                         border-radius: var(--radius);
                                         box-shadow: 0 14px 36px rgba(18,19,20,.06);
-                                        text-align:center;
+                                        text-align: center;
                                         padding: clamp(12px, 2.6vh, 18px) clamp(10px, 2.6vw, 18px);
                                         overflow: visible;
                                     }
 
-                                    .wc-num{
-                                        display:block;
+                                    .wc-num {
+                                        display: block;
                                         font-size: clamp(24px, 6.6vw, 50px);
-                                        line-height:1.3; /* ↑ запас по висоті */
+                                        line-height: 1.3;
                                         padding: 4px 0;
-                                        font-weight:600;
+                                        font-weight: 600;
                                         background: linear-gradient(130deg, var(--gold-2), var(--gold-1));
-                                        -webkit-background-clip:text; background-clip:text; color:transparent;
+                                        -webkit-background-clip: text; background-clip: text; color: transparent;
                                         text-shadow: 0 1px 10px rgba(0,0,0,.10);
                                     }
-                                    .wc-label{
-                                        display:block;
+
+                                    .wc-label {
+                                        display: block;
                                         font-size: clamp(11px, 2.6vw, 15px);
-                                        font-weight:500; color:var(--ink); opacity:.85; letter-spacing:.03em;
+                                        font-weight: 500; color: var(--ink); opacity: .85; letter-spacing: .03em;
                                     }
 
-                                    /* Дуже вузькі екрани: зменшені падінги + трохи більше розмір заголовку */
-                                    @media (max-width: 420px){
-                                        .wc-title{ font-size: 34px; line-height:1.25; }
-                                        .wc-box{ padding: 10px 6px; border-radius: 14px; }
-                                        .wc-num{ font-size: 26px; line-height:1.25; }
-                                        .wc-label{ font-size: 11px; }
-                                        .wc-timer{ gap: 8px; }
+                                    /* --- Стилі для фінального повідомлення --- */
+                                    .wc-finished {
+                                        display: flex;
+                                        flex-direction: column;
+                                        align-items: center;
+                                        text-align: center;
+                                        animation: fadeInFinished 1s ease-out forwards;
+                                    }
+
+                                    .wc-finished-title {
+                                        font-family: 'Great Vibes', cursive;
+                                        font-size: clamp(42px, 9vw, 64px);
+                                        line-height: 1.2;
+                                        padding: 4px 20px; /* ДОДАНО ВІДСТУПИ ПО БОКАХ */
+                                        margin-bottom: 8px;
+                                        background: linear-gradient(130deg, var(--gold-2), var(--gold-1));
+                                        -webkit-background-clip: text; background-clip: text; color: transparent;
+                                        text-shadow: 0 2px 14px rgba(0,0,0,.12);
+                                    }
+
+                                    .wc-finished-sub {
+                                        font-size: clamp(16px, 3.5vw, 22px);
+                                        font-weight: 500;
+                                        color: var(--ink);
+                                        margin-bottom: 4px;
+                                    }
+
+                                    .wc-finished-note {
+                                        font-size: clamp(13px, 3vw, 16px);
+                                        color: var(--muted);
+                                        font-style: italic;
+                                        max-width: 400px;
+                                        line-height: 1.5;
+                                    }
+
+                                    @keyframes fadeInFinished {
+                                        from { opacity: 0; transform: translateY(15px); }
+                                        to { opacity: 1; transform: translateY(0); }
+                                    }
+
+                                    /* Дуже вузькі екрани */
+                                    @media (max-width: 420px) {
+                                        .wc-title { font-size: 34px; line-height: 1.25; }
+                                        .wc-box { padding: 10px 6px; border-radius: 14px; }
+                                        .wc-num { font-size: 26px; line-height: 1.25; }
+                                        .wc-label { font-size: 11px; }
+                                        .wc-timer { gap: 8px; }
+                                        .wc-finished-title { font-size: 38px; }
                                     }
                                 </style>
 
                                 <script>
                                     document.addEventListener('DOMContentLoaded', () => {
-                                        const targetDate = new Date("2027-04-04T00:00:00"); // Дата весілля YYYY-MMMM-DDDD
+                                        // Встановіть дату вашого весілля (РРРР-ММ-ДДТ00:00:00)
+                                        const targetDate = new Date("2027-04-04T00:00:00");
+
+                                        const timerEl = document.getElementById("countdown");
+                                        const headerEl = document.getElementById("wc-header");
+                                        const finishedEl = document.getElementById("finished-message");
+
                                         const daysEl = document.getElementById("days");
                                         const hoursEl = document.getElementById("hours");
                                         const minutesEl = document.getElementById("minutes");
                                         const secondsEl = document.getElementById("seconds");
 
-                                        function updateCountdown(){
+                                        let countdownInterval;
+
+                                        function updateCountdown() {
                                             const now = new Date();
                                             const diff = targetDate - now;
 
-                                            if(diff <= 0){
-                                                daysEl.textContent = "0";
-                                                hoursEl.textContent = "0";
-                                                minutesEl.textContent = "0";
-                                                secondsEl.textContent = "0";
+                                            // Якщо час вийшов
+                                            if (diff <= 0) {
+                                                clearInterval(countdownInterval); // Зупиняємо таймер
+
+                                                // Ховаємо таймер і старий заголовок
+                                                timerEl.style.display = "none";
+                                                headerEl.style.display = "none";
+
+                                                // Показуємо красивий текст
+                                                finishedEl.style.display = "flex";
                                                 return;
                                             }
 
-                                            const days = Math.floor(diff / (1000*60*60*24));
-                                            const hours = Math.floor((diff / (1000*60*60)) % 24);
-                                            const minutes = Math.floor((diff / (1000*60)) % 60);
+                                            // Якщо час ще є - рахуємо далі
+                                            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                                            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+                                            const minutes = Math.floor((diff / (1000 * 60)) % 60);
                                             const seconds = Math.floor((diff / 1000) % 60);
 
                                             daysEl.textContent = days;
-                                            hoursEl.textContent = hours.toString().padStart(2,'0');
-                                            minutesEl.textContent = minutes.toString().padStart(2,'0');
-                                            secondsEl.textContent = seconds.toString().padStart(2,'0');
+                                            hoursEl.textContent = hours.toString().padStart(2, '0');
+                                            minutesEl.textContent = minutes.toString().padStart(2, '0');
+                                            secondsEl.textContent = seconds.toString().padStart(2, '0');
                                         }
 
+                                        // Запускаємо відлік
                                         updateCountdown();
-                                        setInterval(updateCountdown, 1000);
+                                        // Оновлюємо кожну секунду, якщо час ще не вийшов
+                                        if (targetDate - new Date() > 0) {
+                                            countdownInterval = setInterval(updateCountdown, 1000);
+                                        }
                                     });
                                 </script>
                             </section>
