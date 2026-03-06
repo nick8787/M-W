@@ -35,28 +35,31 @@ permalink: /vova-and-naya
     <link href="https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 
     <!-- === ГЛОБАЛЬНІ ВЕСІЛЬНІ ШРИФТИ === -->
+    <!-- === ЄДИНИЙ ПРАВИЛЬНИЙ БЛОК ШРИФТІВ === -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Завантажуємо Pinyon Script (заголовки) та Cormorant Garamond (основний текст) -->
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <!-- Завантажуємо відразу три шрифти ОДНИМ запитом, щоб браузер не ламався -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700&family=Great+Vibes&family=Pinyon+Script&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            /* Змінні для шрифтів */
-            --font-accent: 'Pinyon Script', cursive;
-            --font-main: 'Cormorant Garamond', serif;
+            --font-names: 'Pinyon Script', cursive; /* Для англійських імен */
+            --font-titles: 'Great Vibes', cursive;  /* Для кириличних заголовків */
+            --font-main: 'Cormorant Garamond', serif; /* Для всього тексту */
         }
 
-        /* 1. Застосовуємо шрифт №2 (Cormorant) до ВСЬОГО тексту на сайті */
-        body,
-        .wedding-hero, .wt, .wedding-details,
-        .wedding-countdown, .wedding-dresscode,
-        .survey-elegant, .footer-hero {
+        /* 1. Застосовуємо шрифт Cormorant до ВСЬОГО тексту на сайті */
+        body, section, div, p, a, span, button, input, label {
             font-family: var(--font-main) !important;
         }
 
-        /* 2. Застосовуємо шрифт №1 (Pinyon Script) ТІЛЬКИ до заголовків, імен та дат */
-        .couple-names,
+        /* 2. Застосовуємо Pinyon Script ТІЛЬКИ до імен на головному екрані */
+        .couple-names {
+            font-family: var(--font-names) !important;
+            font-weight: 400 !important;
+        }
+
+        /* 3. Застосовуємо Great Vibes до українських заголовків та дати */
         .save-date,
         .wt-title,
         .wd-title,
@@ -65,74 +68,25 @@ permalink: /vova-and-naya
         .dc-title,
         .survey-title,
         .footer-hero__title {
-            font-family: var(--font-accent) !important;
+            font-family: var(--font-titles) !important;
             font-weight: 400 !important;
-            /* Трохи збільшуємо розмір, бо рукописні шрифти зазвичай візуально менші */
-            transform: scale(1.1);
-        }
-
-        /* Робимо цифри таймера також елегантним шрифтом із засічками */
-        .wc-num {
-            font-family: var(--font-main) !important;
-        }
-
-        /* Додатково: робимо текст більш витонченим */
-        p, .save-sub, .wt-label, .wd-card-text, .wc-label, .dc-palette-note {
-            letter-spacing: 0.02em;
-        }
-    </style>
-    <!-- === КІНЕЦЬ БЛОКУ ШРИФТІВ === --><!-- === ГЛОБАЛЬНІ ВЕСІЛЬНІ ШРИФТИ (ВИПРАВЛЕНО) === -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Завантажуємо Great Vibes (для кирилиці) та Cormorant Garamond (основний текст) -->
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Great+Vibes&display=swap" rel="stylesheet">
-
-    <style>
-        :root {
-            /* Змінні для шрифтів */
-            --font-accent: 'Great Vibes', cursive;
-            --font-main: 'Cormorant Garamond', serif;
-        }
-
-        /* 1. Застосовуємо шрифт №2 (Cormorant) до ВСЬОГО тексту на сайті */
-        body,
-        .wedding-hero, .wt, .wedding-details,
-        .wedding-countdown, .wedding-dresscode,
-        .survey-elegant, .footer-hero {
-            font-family: var(--font-main) !important;
-        }
-
-        /* 2. Застосовуємо шрифт №1 (Great Vibes) ТІЛЬКИ до заголовків та імен */
-        .couple-names,
-        .save-date,
-        .wt-title,
-        .wd-title,
-        .wc-title,
-        .wc-finished-title,
-        .dc-title,
-        .survey-title,
-        .footer-hero__title {
-            font-family: var(--font-accent) !important;
-            font-weight: 400 !important;
-            /* Робимо заголовки трохи більшими, щоб вони виглядали розкішно */
-            transform: scale(1.15);
+            transform: scale(1.15); /* Трохи збільшуємо, щоб було красиво */
             display: inline-block;
         }
 
-        /* 3. ВИПРАВЛЕННЯ РОЗМІРУ: Збільшуємо весь дрібний текст, бо Cormorant візуально менший */
+        /* 4. Виправлення розмірів дрібного тексту */
         p,
         .save-sub,
         .wt-sub, .wd-sub, .wc-sub, .dc-sub,
         .wt-label, .wd-card-text, .wc-label, .dc-palette-note,
         .wt-address, .question, .form-message, .dc-contact, .dc-text {
-            font-size: 135% !important; /* Збільшуємо текст на 15% */
+            font-size: 135% !important;
             letter-spacing: 0.02em;
-            font-weight: 500 !important; /* Робимо його трохи жирнішим для кращого читання */
+            font-weight: 500 !important;
         }
 
-        /* Цифри таймера та дати */
+        /* Цифри таймера робимо жирнішими */
         .wc-num {
-            font-family: var(--font-main) !important;
             font-weight: 600 !important;
         }
     </style>
@@ -568,12 +522,12 @@ permalink: /vova-and-naya
 
                                 <!-- Карточки деталей -->
                                 <div class="wd-grid">
-                                    <!-- Без квітів -->
+                                    <!-- 1. Без квітів -->
                                     <article class="wd-card wd-card--noflowers" data-anim>
                                         <div class="wd-mark">
-        <span class="wd-icon">
-          <img src="https://img.icons8.com/ios/50/flower.png" alt="" decoding="async" />
-        </span>
+                <span class="wd-icon">
+                  <img src="https://img.icons8.com/ios/50/flower.png" alt="" decoding="async" />
+                </span>
                                         </div>
                                         <h3 class="wd-card-title">Просимо без квітів</h3>
                                         <p class="wd-card-text">
@@ -581,12 +535,12 @@ permalink: /vova-and-naya
                                         </p>
                                     </article>
 
-                                    <!-- Пляшка напою -->
+                                    <!-- 2. Пляшка напою -->
                                     <article class="wd-card" data-anim>
                                         <div class="wd-mark">
-        <span class="wd-icon">
-          <img src="https://img.icons8.com/ios/50/wine-bottle.png" alt="" decoding="async" />
-        </span>
+                <span class="wd-icon">
+                  <img src="https://img.icons8.com/ios/50/wine-bottle.png" alt="" decoding="async" />
+                </span>
                                         </div>
                                         <h3 class="wd-card-title">Замість квітів - пляшка</h3>
                                         <p class="wd-card-text">
@@ -594,28 +548,42 @@ permalink: /vova-and-naya
                                         </p>
                                     </article>
 
-                                    <!-- Telegram чат + QR (ЗАМЕНЕНО) -->
+                                    <!-- 3. Telegram чат + QR -->
                                     <article class="wd-card" data-anim>
                                         <div class="wd-mark">
-        <span class="wd-icon">
-          <img src="https://img.icons8.com/ios/50/telegram-app.png" alt="" decoding="async" />
-        </span>
+                <span class="wd-icon">
+                  <img src="https://img.icons8.com/ios/50/telegram-app.png" alt="" decoding="async" />
+                </span>
                                         </div>
                                         <h3 class="wd-card-title">Telegram чат</h3>
                                         <p class="wd-card-text">
                                             Приєднуйтесь до чату, щоб ділитися фото та враженнями 📲
                                         </p>
-
                                         <!-- QR Код -->
                                         <img src="/assets/media/images/vova-and-naya-qr.jpg" alt="QR Code" class="wd-qr-img">
-
                                         <!-- Кнопка -->
-                                        <a href="https://t.me/+1vd4MO348IE1ZGMy" target="_blank" class="wd-btn-telegram">Приєднатись</a>
+                                        <a href="https://t.me/+1vd4MO348IE1ZGMy" target="_blank" class="wd-btn-action">Приєднатись</a>
+                                    </article>
+
+                                    <!-- 4. Локація (НОВЕ) -->
+                                    <article class="wd-card" data-anim>
+                                        <div class="wd-mark">
+                <span class="wd-icon">
+                  <img src="https://img.icons8.com/ios/50/marker--v1.png" alt="" decoding="async" />
+                </span>
+                                        </div>
+                                        <h3 class="wd-card-title">Локація</h3>
+                                        <p class="wd-card-text">
+                                            Будинок на озері Задорожнє<br>
+                                            <strong>«Вілла Спекотний Рай»</strong><br><br>
+                                            Чекаємо на вас у цьому мальовничому місці. Натисніть кнопку нижче, щоб прокласти зручний маршрут.
+                                        </p>
+                                        <!-- Кнопка Карти -->
+                                        <button class="wd-btn-action wd-btn-map" data-place="Будинок на озері Задорожнє «Вілла Спекотний Рай»">Відкрити на мапі</button>
                                     </article>
                                 </div>
 
                                 <style>
-                                    /* Локальні змінні секції, щоб не конфліктувати з іншими блоками */
                                     .wedding-details{
                                         --gold-1:#d6b889;
                                         --gold-2:#f1e0b3;
@@ -663,7 +631,7 @@ permalink: /vova-and-naya
                                         filter: drop-shadow(0 4px 10px rgba(110,133,111,.25));
                                     }
 
-                                    /* Сітка карток: мобайл 1 кол., далі 2/3 */
+                                    /* ЗМІНЕНО: Сітка карток тепер формує ідеальний квадрат 2х2 на ПК */
                                     .wd-grid{
                                         width:100%; max-width: var(--maxw);
                                         display:grid; gap: var(--gap);
@@ -671,9 +639,6 @@ permalink: /vova-and-naya
                                     }
                                     @media (min-width: 720px){
                                         .wd-grid{ grid-template-columns: 1fr 1fr; }
-                                    }
-                                    @media (min-width: 1040px){
-                                        .wd-grid{ grid-template-columns: 1fr 1fr 1fr; }
                                     }
 
                                     .wd-card{
@@ -711,7 +676,6 @@ permalink: /vova-and-naya
                                         filter: grayscale(100%) brightness(0%);
                                         opacity:.9;
                                     }
-                                    /* Перекреслення для "без квітів" */
                                     .wd-card--noflowers .wd-icon::after{
                                         content:""; position:absolute; inset:0; margin:auto;
                                         width:70%; height:2px; border-radius:2px;
@@ -730,43 +694,45 @@ permalink: /vova-and-naya
                                         font-size: clamp(14px, 2.4vw, 16px);
                                     }
 
-                                    /* --- СТИЛИ ДЛЯ QR И КНОПКИ TELEGRAM --- */
                                     .wd-qr-img {
-                                        width: 120px;
-                                        height: 120px;
-                                        margin: 15px 0;
+                                        width: 120px; height: 120px; margin: 15px 0;
                                         border-radius: 12px;
-                                        border: 2px solid rgba(110,133,111,.3); /* Нежная золотая рамка */
+                                        border: 2px solid rgba(110,133,111,.3);
                                         object-fit: cover;
                                     }
 
-                                    .wd-btn-telegram {
+                                    /* Загальний клас для кнопок (Telegram та Мапа) */
+                                    .wd-btn-action {
+                                        appearance: none; border: none; cursor: pointer;
                                         background: linear-gradient(130deg, var(--olive-2), var(--olive-1));
                                         color: #1d1c16;
                                         padding: 10px 24px;
                                         border-radius: 30px;
                                         text-decoration: none;
+                                        font-family: inherit;
                                         font-size: 13px;
                                         font-weight: 700;
                                         text-transform: uppercase;
                                         letter-spacing: .02em;
                                         display: inline-block;
-                                        margin-top: 5px;
+                                        margin-top: auto; /* Притискає кнопку до низу картки, якщо висота різна */
                                         box-shadow: 0 10px 24px rgba(110,133,111,.25);
                                         transition: transform .15s ease, box-shadow .2s ease;
                                     }
-                                    .wd-btn-telegram:hover {
+                                    /* Відступ спеціально для карти, щоб не прилипала до тексту */
+                                    .wd-btn-map { margin-top: 15px; }
+
+                                    .wd-btn-action:hover {
                                         transform: translateY(-2px);
                                         box-shadow: 0 14px 30px rgba(110,133,111,.35);
                                         color: #000;
                                     }
 
-                                    /* Анімація появи */
                                     @keyframes fdUp { to { opacity:1; transform: translateY(0); } }
                                 </style>
 
                                 <script>
-                                    // Плавна поява карток при прокрутці
+                                    // Анімація появи
                                     document.addEventListener('DOMContentLoaded', () => {
                                         const cards = document.querySelectorAll('.wedding-details [data-anim]');
                                         const io = new IntersectionObserver((entries) => {
@@ -779,6 +745,21 @@ permalink: /vova-and-naya
                                             });
                                         }, { threshold: .2 });
                                         cards.forEach(c => io.observe(c));
+                                    });
+
+                                    // Скрипт для відкриття карти
+                                    document.addEventListener('click', (e) => {
+                                        const btn = e.target.closest('.wd-btn-map');
+                                        if (!btn) return;
+
+                                        const place = btn.getAttribute('data-place');
+                                        if (place) {
+                                            const isiOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+                                            const q = encodeURIComponent(place);
+                                            // На iOS відкриє Apple Maps, на інших - Google Maps
+                                            const url = isiOS ? `https://maps.apple.com/?q=${q}` : `https://www.google.com/maps?q=${q}`;
+                                            window.open(url, '_blank', 'noopener');
+                                        }
                                     });
                                 </script>
                             </section>
