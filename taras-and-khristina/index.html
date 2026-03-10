@@ -33,6 +33,207 @@ permalink: /taras-and-khristina
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+    <style>
+
+        /* ===============================
+   GLOBAL WEDDING COLOR THEME
+   Emerald + Milk
+   =============================== */
+
+        :root{
+
+            /* Основные цвета */
+            --emerald-1:#0f3f36 !important;
+            --emerald-2:#1f6b5c !important;
+            --emerald-3:#2f8f7c !important;
+
+            --milk-1:#fdfcf9 !important;
+            --milk-2:#f7f5ef !important;
+            --milk-3:#efece4 !important;
+
+            /* текст */
+            --ink:#1f2a27 !important;
+            --muted:#6f7a76 !important;
+
+            /* границы */
+            --line:rgba(20,60,50,.12) !important;
+
+            /* градиенты */
+            --emerald-gradient:linear-gradient(135deg,#2f8f7c,#0f3f36) !important;
+            --milk-gradient:linear-gradient(180deg,#fdfcf9,#f1eee7) !important;
+
+        }
+
+
+        /* ===============================
+           BACKGROUNDS
+           =============================== */
+
+        .wt,
+        .wedding-details,
+        .wedding-countdown,
+        .wedding-dresscode,
+        .survey-elegant{
+
+            background:
+                    radial-gradient(900px 520px at 50% -10%, rgba(47,143,124,.12), transparent 60%),
+                    linear-gradient(180deg,#fdfcf9,#f3efe7) !important;
+
+        }
+
+
+        /* ===============================
+           TITLES
+           =============================== */
+
+        .wt-title,
+        .wd-title,
+        .wc-title,
+        .dc-title,
+        .survey-title,
+        .footer-hero__title{
+
+            background:var(--emerald-gradient) !important;
+            -webkit-background-clip:text !important;
+            background-clip:text !important;
+            color:transparent !important;
+
+        }
+
+
+        /* ===============================
+           CARDS
+           =============================== */
+
+        .wt-card,
+        .wd-card,
+        .dc-card,
+        .survey-card,
+        .wc-box{
+
+            background:#ffffff !important;
+            border:1px solid var(--line) !important;
+
+            box-shadow:
+                    0 18px 40px rgba(15,63,54,.08) !important;
+
+        }
+
+
+        /* ===============================
+           BUTTONS
+           =============================== */
+
+        .wt-map,
+        .dc-btn,
+        .btn-submit{
+
+            background:var(--emerald-gradient) !important;
+            color:#ffffff !important;
+            border:none !important;
+
+            box-shadow:
+                    0 14px 32px rgba(15,63,54,.25) !important;
+
+        }
+
+        .wt-map:hover,
+        .dc-btn:hover,
+        .btn-submit:hover{
+
+            transform:translateY(-2px);
+            box-shadow:
+                    0 18px 40px rgba(15,63,54,.35) !important;
+
+        }
+
+
+        /* ===============================
+           TIMELINE DOT
+           =============================== */
+
+        .wt-row::before{
+
+            background-image:
+                    linear-gradient(#fff,#fff),
+                    var(--emerald-gradient) !important;
+
+        }
+
+
+        /* ===============================
+           ICON CIRCLES
+           =============================== */
+
+        .wt-icon,
+        .wd-icon{
+
+            border:1px solid rgba(47,143,124,.35) !important;
+
+            box-shadow:
+                    0 10px 24px rgba(47,143,124,.15) !important;
+
+        }
+
+
+        /* ===============================
+           DECORATION LINES
+           =============================== */
+
+        .wc-ornament,
+        .wd-ornament,
+        .dc-ornament{
+
+            background:
+                    linear-gradient(90deg,
+                    transparent,
+                    #2f8f7c,
+                    transparent) !important;
+
+        }
+
+
+        /* ===============================
+           TEXT
+           =============================== */
+
+        .wt-sub,
+        .wd-sub,
+        .wc-sub,
+        .dc-sub,
+        .wd-card-text,
+        .wt-address,
+        .wc-label,
+        .dc-palette-note{
+
+            color:var(--muted) !important;
+
+        }
+
+
+        /* ===============================
+           FORM INPUT
+           =============================== */
+
+        .input{
+
+            border:1px solid rgba(47,143,124,.35) !important;
+
+            box-shadow:
+                    0 8px 20px rgba(47,143,124,.08) !important;
+
+        }
+
+        .input:focus{
+
+            border-color:#2f8f7c !important;
+
+            box-shadow:
+                    0 10px 26px rgba(47,143,124,.2) !important;
+
+        }
+    </style>
 </head>
 
 <body data-spy="scroll" data-target=".navbar-fixed-top" class="home-3">
@@ -174,8 +375,7 @@ permalink: /taras-and-khristina
                                     .save-date{
                                         font-family:'Great Vibes', cursive; line-height:1;
                                         font-size: clamp(32px, 6vw, 54px);
-                                        background:linear-gradient(120deg, var(--gold-2), var(--gold-1));
-                                        -webkit-background-clip:text; background-clip:text; color:transparent;
+                                        background:linear-gradient(135deg, #004c3b,#0f3f36);                                        -webkit-background-clip:text; background-clip:text; color:transparent;
                                         text-shadow: 0 2px 14px rgba(0,0,0,.25);
                                     }
 
@@ -1261,8 +1461,7 @@ permalink: /taras-and-khristina
                                     }
                                     .footer-hero__subtitle strong{
                                         color:#fff; font-weight:700;
-                                        background: linear-gradient(130deg, var(--gold-2), var(--gold-1));
-                                        -webkit-background-clip:text; background-clip:text; color:transparent;
+                                        background: linear-gradient(135deg,#2f8f7c,#0f3f36);                                        -webkit-background-clip:text; background-clip:text; color:transparent;
                                         text-shadow: 0 1px 10px rgba(0,0,0,.18);
                                     }
                                     .footer-hero__note{ font-size: clamp(13px, 2vw, 18px); opacity:.95; letter-spacing:.02em; }
@@ -1271,6 +1470,106 @@ permalink: /taras-and-khristina
                                     @supports (padding: max(0px)) { .footer-hero__content{ padding-bottom: max(24px, env(safe-area-inset-bottom)); } }
                                 </style>
                             </footer>
+
+                            <style>
+                                /* =====================================
+   FIX OLD GOLD COLORS -> EMERALD THEME
+===================================== */
+
+                                /* градиенты заголовков */
+                                .wt-title,
+                                .wd-title,
+                                .wc-title,
+                                .dc-title,
+                                .footer-hero__title,
+                                .survey-title{
+                                    background: linear-gradient(135deg,#2f8f7c,#0f3f36) !important;
+                                    -webkit-background-clip:text !important;
+                                    background-clip:text !important;
+                                    color:transparent !important;
+                                }
+
+                                /* таймер числа */
+                                .wc-num{
+                                    background: linear-gradient(135deg,#2f8f7c,#0f3f36) !important;
+                                    -webkit-background-clip:text !important;
+                                    background-clip:text !important;
+                                    color:transparent !important;
+                                }
+
+                                /* время в тайминге */
+                                .wt-time{
+                                    background: linear-gradient(135deg,#2f8f7c,#0f3f36) !important;
+                                    color:#ffffff !important;
+                                    border:none !important;
+                                }
+
+                                /* полоски украшения */
+                                .wc-ornament,
+                                .wd-ornament,
+                                .dc-ornament{
+                                    background: linear-gradient(
+                                            90deg,
+                                            transparent,
+                                            #2f8f7c,
+                                            transparent
+                                    ) !important;
+                                }
+
+                                /* линия таймлайна */
+                                .wt-list::before{
+                                    background: linear-gradient(
+                                            180deg,
+                                            rgba(47,143,124,0),
+                                            rgba(47,143,124,.4),
+                                            rgba(47,143,124,0)
+                                    ) !important;
+                                }
+
+                                /* точки таймлайна */
+                                .wt-row::before{
+                                    background-image:
+                                            linear-gradient(#fff,#fff),
+                                            linear-gradient(135deg,#2f8f7c,#0f3f36) !important;
+                                }
+
+                                /* иконки круг */
+                                .wt-icon,
+                                .wd-icon{
+                                    border:1px solid rgba(47,143,124,.35) !important;
+                                    box-shadow:0 10px 24px rgba(47,143,124,.18) !important;
+                                }
+
+                                /* кнопки */
+                                .wt-map,
+                                .dc-btn,
+                                .btn-submit{
+                                    background: linear-gradient(135deg,#2f8f7c,#0f3f36) !important;
+                                    color:#fff !important;
+                                    border:none !important;
+                                    box-shadow:0 14px 30px rgba(15,63,54,.25) !important;
+                                }
+
+                                /* hover */
+                                .wt-map:hover,
+                                .dc-btn:hover,
+                                .btn-submit:hover{
+                                    box-shadow:0 18px 36px rgba(15,63,54,.35) !important;
+                                }
+
+                                /* полоска сверху карточек */
+                                .wd-card::before,
+                                .dc-card::before{
+                                    background: linear-gradient(135deg,#2f8f7c,#0f3f36) !important;
+                                }
+
+                                /* палитра выбранных кнопок */
+                                .pill:has(input:checked){
+                                    background: linear-gradient(135deg,#2f8f7c,#0f3f36) !important;
+                                    color:#fff !important;
+                                    border-color:#2f8f7c !important;
+                                }
+                            </style>
 
                             <!-- Footer Section End -->
                             </main>
