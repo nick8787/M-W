@@ -1,0 +1,709 @@
+---
+layout: null
+permalink: /gevork-and-armine
+---
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Геворк & Арміне — Весільне запрошення</title>
+
+    <!--metatextblock-->
+    <title>Геворк & Арміне — Весільне запрошення</title>
+    <meta property="og:url" content="https://my-wedding.com.ua/gevork-and-armine" />
+    <meta property="og:title" content="Геворк & Арміне — Весільне запрошення" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://my-wedding.com.ua/assets/media/images/gevork-and-armine1.jpg" />
+    <link rel="canonical" href="https://my-wedding.com.ua/gevork-and-armine">
+    <!--/metatextblock-->
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="../assets-premium1/media/favicon.png">
+
+    <!-- Fonts: Playfair Display (Classic/Italic) + Montserrat (Modern) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- CSS VARIABLES --- */
+        :root {
+            --font-main: 'Montserrat', sans-serif;
+            --font-accent: 'Playfair Display', serif;
+
+            --bg-dark: #0f0f0f;
+            /* Dark Glass Effect */
+            --glass-bg: rgba(20, 20, 20, 0.75);
+            --glass-border: rgba(255, 255, 255, 0.12);
+
+            --text-color: #EAEAEA;
+            --gold: #D4AF37;
+            --gold-gradient: linear-gradient(135deg, #D4AF37 0%, #F1E0B3 50%, #BF9B30 100%);
+
+            --card-radius: 24px;
+            --container-width: 550px;
+        }
+
+        /* --- RESET --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-dark);
+            color: var(--text-color);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* --- FIXED BACKGROUND --- */
+        .fixed-bg {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            /* Фонове фото */
+            background: url('/assets/media/images/gevork-and-armine1.jpg') center/cover no-repeat;
+            z-index: -1;
+            transform: scale(1.1);
+        }
+        .fixed-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.75); /* Затемнення */
+            backdrop-filter: blur(5px); /* Блюр */
+            -webkit-backdrop-filter: blur(5px);
+        }
+
+        /* --- LAYOUT --- */
+        .main-wrapper {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 20px 15px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* --- GLASS CARD --- */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--card-radius);
+            padding: 40px 30px;
+            margin-bottom: 25px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+
+            opacity: 0; transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .glass-card.visible { opacity: 1; transform: translateY(0); }
+
+        /* --- HERO CARD --- */
+        .hero-card { padding: 20px 20px 40px 20px; }
+
+        .hero-img-frame {
+            width: 100%; height: 450px;
+            border-radius: 200px 200px 12px 12px; /* АРКА */
+            overflow: hidden; margin-bottom: 30px; position: relative;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .hero-img-frame img {
+            width: 100%; height: 100%; object-fit: cover;
+            animation: zoomSlow 20s infinite alternate;
+        }
+        @keyframes zoomSlow { from {transform: scale(1);} to {transform: scale(1.1);} }
+
+        .hero-top-label {
+            font-size: 11px; text-transform: uppercase; letter-spacing: 4px;
+            margin-bottom: 15px; color: rgba(255,255,255,0.6);
+        }
+        .hero-names {
+            font-family: var(--font-accent);
+            font-size: clamp(42px, 10vw, 64px);
+            line-height: 0.95; color: #fff; margin-bottom: 10px;
+        }
+        .hero-names span {
+            display: block; font-size: 0.5em; font-style: italic; color: var(--gold); margin: 5px 0;
+        }
+        .hero-date {
+            font-size: 18px; letter-spacing: 2px; color: var(--gold); margin-top: 15px;
+            font-weight: 500; border-top: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: inline-block; padding: 8px 20px;
+        }
+
+        /* --- TYPOGRAPHY (UPDATED FOR "CLASSIC COOL") --- */
+        h3.section-title {
+            font-family: var(--font-accent);
+            font-style: italic; /* Курсив додає елегантності */
+            font-size: 42px;    /* Більший розмір */
+            margin-bottom: 10px;
+            font-weight: 400;
+            color: var(--gold); /* Золотий колір заголовків */
+            letter-spacing: -0.5px;
+        }
+        p { font-size: 15px; color: rgba(255,255,255,0.8); margin-bottom: 20px; font-weight: 300; }
+
+        .section-sub {
+            font-size: 12px; text-transform: uppercase; letter-spacing: 2px;
+            color: rgba(255,255,255,0.5); margin-top: -10px; margin-bottom: 30px;
+        }
+
+        /* --- TIMELINE --- */
+        .timeline-wrap { margin-top: 20px; }
+        .timeline-row {
+            display: grid; grid-template-columns: 70px 1fr;
+            align-items: start; text-align: left;
+            margin-bottom: 40px; position: relative;
+        }
+        .timeline-row:last-child { margin-bottom: 0; }
+
+        /* Лінія */
+        .timeline-row::before {
+            content: ''; position: absolute; left: 24px; top: 35px; bottom: -40px;
+            width: 1px; background: rgba(255,255,255,0.1);
+        }
+        .timeline-row:last-child::before { display: none; }
+
+        .t-time {
+            font-family: var(--font-accent); font-size: 22px; color: #fff;
+            background: rgba(255,255,255,0.05); padding: 6px; border-radius: 8px;
+            text-align: center; border: 1px solid var(--gold);
+        }
+        .t-info { padding-left: 20px; padding-top: 0px; }
+        .t-info h4 { font-size: 18px; color: var(--gold); margin-bottom: 6px; font-weight: 500; }
+        .t-info p { font-size: 14px; margin: 0 0 10px; line-height: 1.5; color: rgba(255,255,255,0.8); }
+
+        /* Кнопка на мапі */
+        .btn-map-gold {
+            display: inline-flex; align-items: center; gap: 6px;
+            font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;
+            color: #fff; border: 1px solid rgba(255,255,255,0.3);
+            padding: 10px 20px; border-radius: 30px; text-decoration: none;
+            transition: 0.3s; background: rgba(255,255,255,0.05); cursor: pointer;
+        }
+        .btn-map-gold:hover { background: var(--gold); border-color: var(--gold); color: #0f0f0f; }
+
+        /* --- DETAILS SECTION (NEW) --- */
+        .details-grid { display: grid; gap: 20px; margin-top: 20px; text-align: left; }
+        .detail-card-item {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            padding: 25px; border-radius: 16px;
+            display: flex; flex-direction: column; align-items: center; text-align: center;
+        }
+        .detail-icon {
+            width: 50px; height: 50px; margin-bottom: 15px;
+            background: rgba(255,255,255,0.1); border-radius: 50%;
+            display: grid; place-items: center; border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        /* Інверсія чорних іконок в білі */
+        .detail-icon img { width: 24px; filter: brightness(0) invert(1); opacity: 0.9; }
+
+        .detail-title { font-size: 18px; color: var(--gold); margin-bottom: 8px; font-family: var(--font-accent); font-style: italic; }
+        .detail-text { font-size: 13px; line-height: 1.6; color: rgba(255,255,255,0.8); margin: 0; }
+
+        .qr-img { width: 120px; height: 120px; margin: 15px 0; border-radius: 10px; border: 2px solid #fff; }
+        .btn-telegram {
+            background: #2AABEE; color: #fff; padding: 10px 20px; border-radius: 30px;
+            text-decoration: none; font-size: 12px; font-weight: 600; text-transform: uppercase;
+            display: inline-block; margin-top: 5px;
+        }
+
+        /* --- DRESS CODE --- */
+        .palette { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 25px; }
+        .color-swatch { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+        .circle {
+            width: 55px; height: 55px; border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+        .circle:hover { transform: scale(1.1); border-color: #fff; }
+        .color-name { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.6; }
+
+        /* --- FORM --- */
+        .rsvp-form { text-align: left; margin-top: 30px; }
+        .form-label { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; color: var(--gold); }
+        .form-input {
+            width: 100%; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.15);
+            padding: 16px; border-radius: 12px; color: #fff; font-family: var(--font-main);
+            margin-bottom: 25px; transition: 0.3s;
+        }
+        .form-input:focus { outline: none; border-color: var(--gold); background: rgba(0,0,0,0.4); }
+
+        .radio-group { display: flex; flex-direction: column; gap: 10px; margin-bottom: 25px; }
+        .radio-group.grid-2 { display: grid; grid-template-columns: 1fr 1fr; }
+
+        .radio-opt {
+            display: flex; align-items: center; gap: 12px; cursor: pointer;
+            padding: 12px 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.02); transition: 0.3s;
+        }
+        .radio-opt:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.3); }
+        .radio-opt input { accent-color: var(--gold); transform: scale(1.2); }
+        .radio-opt span { font-size: 14px; }
+
+        .btn-gold {
+            width: 100%; padding: 20px; border: none; border-radius: 50px;
+            background: var(--gold-gradient);
+            color: #1a1a1a; font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px;
+            cursor: pointer; box-shadow: 0 10px 30px rgba(212, 175, 55, 0.15);
+            transition: 0.3s; margin-top: 10px;
+        }
+        .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3); }
+
+        .deadline-text {
+            text-align: center; margin-top: 25px; font-size: 12px; color: rgba(255,255,255,0.4); letter-spacing: 0.5px;
+        }
+        .deadline-text strong { color: rgba(255,255,255,0.8); font-weight: 600; }
+
+        /* --- TIMER --- */
+        .timer-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;
+        }
+        .t-box { text-align: center; }
+        .t-num { font-family: var(--font-accent); font-size: 28px; color: var(--gold); line-height: 1; margin-bottom: 5px; }
+        .t-lbl { font-size: 9px; text-transform: uppercase; opacity: 0.5; letter-spacing: 1px; }
+
+        /* --- FOOTER --- */
+        footer { text-align: center; padding: 40px 0; opacity: 0.4; font-size: 12px; letter-spacing: 1px; }
+
+        <style>
+             /* --- CAROUSEL STYLES --- */
+         .carousel-container {
+             position: relative;
+             width: 100%;
+             margin-top: 25px;
+         }
+
+        .carousel-track {
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none; /* Ховаємо скролбар Firefox */
+            padding-bottom: 10px;
+        }
+
+        /* Ховаємо скролбар Chrome/Safari */
+        .carousel-track::-webkit-scrollbar {
+            display: none;
+        }
+
+        .carousel-slide {
+            flex: 0 0 100%; /* Кожне фото займає 100% ширини */
+            scroll-snap-align: center;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 450px; /* Фіксована висота, щоб усі фото були рівними */
+            object-fit: cover; /* Фото красиво обрізається під розмір, не спотворюючись */
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        /* Легкий зум при наведенні на ПК */
+        @media (hover: hover) {
+            .carousel-slide:hover img {
+                transform: scale(1.05);
+            }
+        }
+
+        /* Стилі для крапочок */
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .indicator.active {
+            background: var(--gold);
+            transform: scale(1.3);
+            box-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
+        }
+    </style>
+
+    <script>
+        // --- CAROUSEL LOGIC ---
+        document.addEventListener("DOMContentLoaded", function() {
+            const track = document.getElementById('galleryTrack');
+            const indicators = document.querySelectorAll('#galleryIndicators .indicator');
+
+            // Оновлення активної крапочки під час свайпу
+            track.addEventListener('scroll', () => {
+                // Визначаємо, який слайд зараз по центру
+                let index = Math.round(track.scrollLeft / track.clientWidth);
+
+                indicators.forEach((ind, i) => {
+                    ind.classList.toggle('active', i === index);
+                });
+            });
+
+            // Клік по крапочці для переходу до фото
+            indicators.forEach((ind, i) => {
+                ind.addEventListener('click', () => {
+                    track.scrollTo({
+                        left: i * track.clientWidth,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+
+    </style>
+</head>
+<body>
+
+<!-- FIXED BACKGROUND -->
+<div class="fixed-bg"><div class="fixed-overlay"></div></div>
+
+<div class="main-wrapper">
+
+    <!-- 1. HERO CARD -->
+    <div class="glass-card hero-card fade-in">
+        <div class="hero-img-frame">
+            <img src="/assets/media/images/gevork-and-armine1.jpg" alt="Couple">
+        </div>
+        <div class="hero-top-label">Запрошення на весілля</div>
+        <h1 class="hero-names">Gevork <span>&</span> Armine</h1>
+        <div class="hero-date">18.04.2026</div>
+
+        <div class="timer-grid">
+            <div class="t-box"><div class="t-num" id="d">0</div><div class="t-lbl">Днів</div></div>
+            <div class="t-box"><div class="t-num" id="h">0</div><div class="t-lbl">Годин</div></div>
+            <div class="t-box"><div class="t-num" id="m">0</div><div class="t-lbl">Хвилин</div></div>
+            <div class="t-box"><div class="t-num" id="s">0</div><div class="t-lbl">Секунд</div></div>
+        </div>
+    </div>
+
+    <!-- 2. INTRO CARD -->
+    <div class="glass-card fade-in">
+        <h3 class="section-title">Запрошення</h3>
+        <p class="section-sub">Дорогі гості</p>
+        <p>
+            Запрошуємо вас відсвяткувати важливий день разом з нами!
+        </p>
+        <p style="margin-top: 30px; font-size: 18px; color: #fff;">
+            м. Олександрія<br>
+            <span style="color: var(--gold); font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">Ресторан «Спорт-тайм»</span>
+        </p>
+    </div>
+
+    <!-- 3. TIMELINE -->
+    <div class="glass-card fade-in">
+        <h3 class="section-title">Таймінг</h3>
+        <p class="section-sub">Програма дня</p>
+
+        <div class="timeline-wrap">
+            <!-- 08:00 - Збори нареченого -->
+            <div class="timeline-row">
+                <div class="t-time">08:00</div>
+                <div class="t-info">
+                    <h4>Збори нареченого</h4>
+                    <p>
+                        Початок дня та підготовка до найважливішої події.<br>
+                        <strong style="color: rgba(255,255,255,0.9); font-weight: 500;">м. Олександрія</strong>
+                    </p>
+                </div>
+            </div>
+
+            <!-- 11:00 - Збори нареченої -->
+            <div class="timeline-row">
+                <div class="t-time">11:00</div>
+                <div class="t-info">
+                    <h4>Збори нареченої</h4>
+                    <p>
+                        Ранок, сповнений хвилювання, краси та ніжності.<br>
+                        <strong style="color: rgba(255,255,255,0.9); font-weight: 500;">м. Дніпро</strong>
+                    </p>
+                </div>
+            </div>
+
+            <!-- 12:00 - Вінчання -->
+            <div class="timeline-row">
+                <div class="t-time">12:00</div>
+                <div class="t-info">
+                    <h4>Церемонія вінчання</h4>
+                    <p>
+                        <strong style="color: rgba(255,255,255,0.9); font-weight: 500;">Вірменська церква св. Григорія Лусаворіча<br>вул. Львівська, 13, м. Дніпро</strong>
+                    </p>
+                    <button class="btn-map-gold map-btn" data-place="Вірменська церква св. Григорія Лусаворіча, вулиця Львівська 13, Дніпро">
+                        <span>📍 Відкрити на мапі</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 15:00 - Привітання молодят -->
+            <div class="timeline-row">
+                <div class="t-time">15:00</div>
+                <div class="t-info">
+                    <h4>Привітання молодят</h4>
+                    <p>
+                        <strong style="color: rgba(255,255,255,0.9); font-weight: 500;">м. Олександрія</strong>
+                    </p>
+                </div>
+            </div>
+
+            <!-- 16:00 - Банкет -->
+            <div class="timeline-row">
+                <div class="t-time">16:00</div>
+                <div class="t-info">
+                    <h4>Святкування весілля</h4>
+                    <p>
+                        <strong style="color: rgba(255,255,255,0.9); font-weight: 500;">Ресторан «Спорт-тайм»<br>вул. Шевченка, 58Б, м. Олександрія</strong>
+                    </p>
+                    <button class="btn-map-gold map-btn" data-place="Ресторан Спорт-тайм, вулиця Шевченка 58Б, Олександрія, Кіровоградська область">
+                        <span>📍 Відкрити на мапі</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. GALLERY CAROUSEL (NEW) -->
+    <div class="glass-card fade-in">
+        <h3 class="section-title">Галерея</h3>
+        <p class="section-sub">Моменти нашого кохання</p>
+
+        <div class="carousel-container">
+            <div class="carousel-track" id="galleryTrack">
+                <!-- Слайд 1 -->
+                <div class="carousel-slide">
+                    <img src="/assets/media/images/gevork-and-armine2.jpg" alt="Геворк та Арміне 1">
+                </div>
+                <!-- Слайд 2 -->
+                <div class="carousel-slide">
+                    <img src="/assets/media/images/gevork-and-armine3.jpg" alt="Геворк та Арміне 2">
+                </div>
+                <!-- Слайд 3 -->
+                <div class="carousel-slide">
+                    <img src="/assets/media/images/gevork-and-armine4.jpg" alt="Геворк та Арміне 3">
+                </div>
+                <!-- Слайд 4 -->
+                <div class="carousel-slide">
+                    <img src="/assets/media/images/gevork-and-armine5.jpg" alt="Геворк та Арміне 4">
+                </div>
+            </div>
+
+            <!-- Індикатори (крапочки) -->
+            <div class="carousel-indicators" id="galleryIndicators">
+                <span class="indicator active"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. DETAILS (NEW) -->
+    <div class="glass-card fade-in">
+        <h3 class="section-title">Деталі</h3>
+        <p class="section-sub">Важлива інформація</p>
+
+        <div class="details-grid">
+            <!-- Item 1 -->
+            <div class="detail-card-item">
+                <div class="detail-icon">
+                    <img src="https://img.icons8.com/?size=100&id=66917&format=png&color=000000" alt="Love">
+                </div>
+                <h4 class="detail-title">Найцінніше — ви</h4>
+                <p class="detail-text">
+                    Найголовніше для нас — ваша присутність, щирі усмішки та гарний настрій 🫶
+                </p>
+            </div>
+
+            <!-- Item 2: Telegram -->
+            <div class="detail-card-item">
+                <div class="detail-icon">
+                    <img src="https://img.icons8.com/ios/50/telegram-app.png" alt="Telegram">
+                </div>
+                <h4 class="detail-title">Telegram чат</h4>
+                <p class="detail-text">
+                    Приєднуйтесь до чату, щоб ділитися фото та враженнями 📲
+                </p>
+                <!-- Заглушка QR коду, замініть посилання -->
+<!--                <img src="/assets/media/images/my_wedding_ua_tg.png" alt="QR" class="qr-img">-->
+                <a href="https://t.me/+A3uyGC1X1AAzYTRi" target="_blank" class="btn-telegram">Приєднатись</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 6. RSVP FORM -->
+<!--    <div class="glass-card fade-in">-->
+<!--        <h3 class="section-title">Анкета Гостя</h3>-->
+<!--        <p class="section-sub">Підтвердження присутності</p>-->
+<!--        <p>Ми будемо раді розділити це свято з вами!</p>-->
+
+<!--        <form id="weddingForm" action="https://api.web3forms.com/submit" method="POST" class="rsvp-form">-->
+<!--            <input type="hidden" name="access_key" value="581eaf16-3866-475f-8020-0f5282f63bec">-->
+<!--            <input type="hidden" name="subject" value="Анкета гостя">-->
+<!--            <input type="hidden" name="from_name" value="Весільний сайт">-->
+
+<!--            &lt;!&ndash; 1. Name &ndash;&gt;-->
+<!--            <label class="form-label">Ваше ім’я та прізвище:</label>-->
+<!--            <input type="text" name="Ім’я" class="form-input" placeholder="Введіть ваше ім’я та прізвище" required>-->
+
+<!--            &lt;!&ndash; 2. Wedding Presence &ndash;&gt;-->
+<!--            <label class="form-label">Чи плануєте ви бути на весіллі?</label>-->
+<!--            <div class="radio-group">-->
+<!--                <label class="radio-opt">-->
+<!--                    <input type="radio" name="Присутність на весіллі" value="Так" required>-->
+<!--                    <span>Так</span>-->
+<!--                </label>-->
+<!--                <label class="radio-opt">-->
+<!--                    <input type="radio" name="Присутність на весіллі" value="Ні">-->
+<!--                    <span>Ні</span>-->
+<!--                </label>-->
+<!--            </div>-->
+
+<!--            &lt;!&ndash; 3. RACS &ndash;&gt;-->
+<!--            <label class="form-label">Чи плануєте ви бути в РАЦС?</label>-->
+<!--            <div class="radio-group">-->
+<!--                <label class="radio-opt">-->
+<!--                    <input type="radio" name="Присутність в РАЦС" value="Так" required>-->
+<!--                    <span>Так</span>-->
+<!--                </label>-->
+<!--                <label class="radio-opt">-->
+<!--                    <input type="radio" name="Присутність в РАЦС" value="Ні">-->
+<!--                    <span>Ні</span>-->
+<!--                </label>-->
+<!--            </div>-->
+
+<!--            &lt;!&ndash; 4. Alcohol &ndash;&gt;-->
+<!--            <label class="form-label">Алкогольні напої:</label>-->
+<!--            <div class="radio-group grid-2">-->
+<!--                <label class="radio-opt"><input type="checkbox" name="Алкоголь[]" value="Шампанське"><span>🥂 Шамп.</span></label>-->
+<!--                <label class="radio-opt"><input type="checkbox" name="Алкоголь[]" value="Вино"><span>🍷 Вино</span></label>-->
+<!--                <label class="radio-opt"><input type="checkbox" name="Алкоголь[]" value="Коньяк"><span>🥃 Коньяк</span></label>-->
+<!--                <label class="radio-opt"><input type="checkbox" name="Алкоголь[]" value="Горілка"><span>🍾 Горілка</span></label>-->
+<!--            </div>-->
+
+<!--            &lt;!&ndash; 5. Notes &ndash;&gt;-->
+<!--            <label class="form-label">Ваші побажання:</label>-->
+<!--            <textarea class="form-input" name="Ваші побажання" placeholder="Додаткова інформація..." rows="3" style="resize:none; height:80px;"></textarea>-->
+
+<!--            <button type="submit" class="btn-gold">Відправити 💌</button>-->
+
+<!--            <p class="deadline-text">-->
+<!--                Будь ласка, підтвердьте присутність до <strong>10.05.2025</strong>-->
+<!--            </p>-->
+
+<!--            <div id="formMessage" style="margin-top: 15px; font-size: 14px;"></div>-->
+<!--        </form>-->
+<!--    </div>-->
+
+    <footer>
+        <p>З любов'ю, G & A</p>
+    </footer>
+
+</div>
+
+<!-- SCRIPTS -->
+<script>
+    // Scroll Animation
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Timer
+    const targetDate = new Date("2026-04-18T00:00:00").getTime();
+    setInterval(() => {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+        if (distance > 0) {
+            document.getElementById("d").innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
+            document.getElementById("h").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            document.getElementById("m").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            document.getElementById("s").innerText = Math.floor((distance % (1000 * 60)) / 1000);
+        }
+    }, 1000);
+
+    // Maps Logic
+    document.querySelectorAll('.map-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const lat = btn.getAttribute('data-lat');
+            const lng = btn.getAttribute('data-lng');
+            const place = btn.getAttribute('data-place');
+            let url = '';
+            if (lat && lng) {
+                url = /iPad|iPhone|iPod/.test(navigator.userAgent)
+                    ? `https://maps.apple.com/?ll=${lat},${lng}&q=${lat},${lng}`
+                    : `https://www.google.com/maps?q=${lat},${lng}`;
+            } else if (place) {
+                url = /iPad|iPhone|iPod/.test(navigator.userAgent)
+                    ? `https://maps.apple.com/?q=${encodeURIComponent(place)}`
+                    : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(place)}`;
+            }
+            if (url) window.open(url, '_blank');
+        });
+    });
+
+    // Form Submit Logic (Оновлено для правильного кодування кирилиці)
+    document.getElementById('weddingForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const btn = e.target.querySelector('button');
+        const originalText = btn.innerText;
+        btn.innerText = "Надсилаємо...";
+
+        const formData = new FormData(e.target);
+
+        // Обробка масиву чекбоксів (алкоголь)
+        const alcoholChecked = Array.from(e.target.querySelectorAll('input[name="Алкоголь[]"]:checked')).map(el => el.value);
+        formData.delete('Алкоголь[]');
+        formData.append('Алкоголь', alcoholChecked.join(', ') || 'Не обрано');
+
+        // Перетворюємо дані у формат JSON для збереження UTF-8 кодування
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+
+        try {
+            const res = await fetch(e.target.action, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            });
+            const data = await res.json();
+
+            if(data.success) {
+                document.getElementById('formMessage').innerHTML = '<span style="color: #4ade80">Дякуємо! Ваша відповідь збережена.</span>';
+                e.target.reset();
+            } else {
+                document.getElementById('formMessage').innerHTML = '<span style="color: #f87171">Помилка сервісу. Спробуйте ще раз.</span>';
+            }
+        } catch {
+            document.getElementById('formMessage').innerHTML = '<span style="color: #f87171">Помилка. Спробуйте ще раз.</span>';
+        } finally {
+            btn.innerText = originalText;
+        }
+    });
+</script>
+</body>
+</html>
