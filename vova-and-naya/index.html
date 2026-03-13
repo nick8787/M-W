@@ -280,7 +280,13 @@ permalink: /vova-and-naya
                                                 <time class="wt-time">15:00</time>
                                             </div>
                                             <div class="wt-card-bottom">
-                                                <button class="wt-map" data-place="Будинок на озері Задорожнє «Вілла Спекотний Рай»">Відкрити на мапі</button>
+                                                <button
+                                                        class="wt-map"
+                                                        data-map="https://www.google.com/maps/place/%D0%91%D1%83%D0%B4%D0%B8%D0%BD%D0%BE%D0%BA+%D0%BD%D0%B0+%D0%BE%D0%B7%D0%B5%D1%80%D1%96+%D0%97%D0%B0%D0%B4%D0%BE%D1%80%D0%BE%D0%B6%D0%BD%D1%94+%C2%AB%D0%92%D1%96%D0%BB%D0%BB%D0%B0+%D0%A1%D0%BF%D0%B5%D0%BA%D0%BE%D1%82%D0%BD%D0%B8%D0%B9+%D0%A0%D0%B0%D0%B9%C2%BB/data=!4m2!3m1!1s0x0:0x9998a25913329571?sa=X&ved=1t:2428&hl=ru-RU&ictx=111">
+
+                                                    <span>Відкрити на мапі</span>
+
+                                                </button>
                                             </div>
                                         </div>
                                     </li>
@@ -298,7 +304,13 @@ permalink: /vova-and-naya
                                                 <time class="wt-time">16:00</time>
                                             </div>
                                             <div class="wt-card-bottom">
-                                                <button class="wt-map" data-place="Будинок на озері Задорожнє «Вілла Спекотний Рай»">Відкрити на мапі</button>
+                                                <button
+                                                        class="wt-map"
+                                                        data-map="https://www.google.com/maps/place/%D0%91%D1%83%D0%B4%D0%B8%D0%BD%D0%BE%D0%BA+%D0%BD%D0%B0+%D0%BE%D0%B7%D0%B5%D1%80%D1%96+%D0%97%D0%B0%D0%B4%D0%BE%D1%80%D0%BE%D0%B6%D0%BD%D1%94+%C2%AB%D0%92%D1%96%D0%BB%D0%BB%D0%B0+%D0%A1%D0%BF%D0%B5%D0%BA%D0%BE%D1%82%D0%BD%D0%B8%D0%B9+%D0%A0%D0%B0%D0%B9%C2%BB/data=!4m2!3m1!1s0x0:0x9998a25913329571?sa=X&ved=1t:2428&hl=ru-RU&ictx=111">
+
+                                                    <span>Відкрити на мапі</span>
+
+                                                </button>
                                             </div>
                                         </div>
                                     </li>
@@ -316,7 +328,13 @@ permalink: /vova-and-naya
                                                 <time class="wt-time">17:00</time>
                                             </div>
                                             <div class="wt-card-bottom">
-                                                <button class="wt-map" data-place="Будинок на озері Задорожнє «Вілла Спекотний Рай»">Відкрити на мапі</button>
+                                                <button
+                                                        class="wt-map"
+                                                        data-map="https://www.google.com/maps/place/%D0%91%D1%83%D0%B4%D0%B8%D0%BD%D0%BE%D0%BA+%D0%BD%D0%B0+%D0%BE%D0%B7%D0%B5%D1%80%D1%96+%D0%97%D0%B0%D0%B4%D0%BE%D1%80%D0%BE%D0%B6%D0%BD%D1%94+%C2%AB%D0%92%D1%96%D0%BB%D0%BB%D0%B0+%D0%A1%D0%BF%D0%B5%D0%BA%D0%BE%D1%82%D0%BD%D0%B8%D0%B9+%D0%A0%D0%B0%D0%B9%C2%BB/data=!4m2!3m1!1s0x0:0x9998a25913329571?sa=X&ved=1t:2428&hl=ru-RU&ictx=111">
+
+                                                    <span>Відкрити на мапі</span>
+
+                                                </button>
                                             </div>
                                         </div>
                                     </li>
@@ -471,22 +489,32 @@ permalink: /vova-and-naya
                                 </style>
 
                                 <script>
-                                    function openMap(btn){
-                                        const lat = btn.getAttribute('data-lat');
-                                        const lng = btn.getAttribute('data-lng');
-                                        const place = btn.getAttribute('data-place');
-                                        const isiOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-                                        let url = '';
-                                        if (lat && lng){
-                                            url = isiOS
-                                                ? `https://maps.apple.com/?ll=${lat},${lng}&q=${lat},${lng}`
-                                                : `https://www.google.com/maps?q=${lat},${lng}`;
-                                        } else if (place){
-                                            const q = encodeURIComponent(place);
-                                            url = isiOS ? `https://maps.apple.com/?q=${q}` : `https://www.google.com/maps?q=${q}`;
-                                        }
-                                        if (url) window.open(url, '_blank', 'noopener');
-                                    }
+                                    document.querySelectorAll('.wt-map').forEach(btn => {
+
+                                        btn.addEventListener('click', () => {
+
+                                            const mapUrl = btn.dataset.map;
+                                            if (!mapUrl) return;
+
+                                            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+
+                                            let finalUrl = mapUrl;
+
+                                            if (isIOS) {
+                                                const coords = mapUrl.match(/@(-?\d+\.\d+),(-?\d+\.\d+)/);
+
+                                                if (coords) {
+                                                    const lat = coords[1];
+                                                    const lng = coords[2];
+                                                    finalUrl = `https://maps.apple.com/?ll=${lat},${lng}`;
+                                                }
+                                            }
+
+                                            window.open(finalUrl, '_blank');
+
+                                        });
+
+                                    });
                                     document.addEventListener('click', (e) => {
                                         const btn = e.target.closest('.wt-map');
                                         if (!btn) return;
