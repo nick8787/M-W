@@ -501,12 +501,25 @@ permalink: /vova-and-naya
                                             let finalUrl = mapUrl;
 
                                             if (isIOS) {
+
+                                                // пробуем найти координаты
                                                 const coords = mapUrl.match(/@(-?\d+\.\d+),(-?\d+\.\d+)/);
 
                                                 if (coords) {
                                                     const lat = coords[1];
                                                     const lng = coords[2];
+
                                                     finalUrl = `https://maps.apple.com/?ll=${lat},${lng}`;
+
+                                                } else {
+
+                                                    // если координат нет — вытаскиваем название места
+                                                    const placeMatch = mapUrl.match(/maps\/place\/([^/]+)/);
+
+                                                    if (placeMatch) {
+                                                        const place = decodeURIComponent(placeMatch[1]);
+                                                        finalUrl = `https://maps.apple.com/?q=${encodeURIComponent(place)}`;
+                                                    }
                                                 }
                                             }
 
