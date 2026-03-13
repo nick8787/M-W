@@ -744,7 +744,20 @@ permalink: /vova-and-naya
 
                                 <script>
                                     // Анімація появи
-                                        document.addEventListener('DOMContentLoaded', () => {
+                                    document.addEventListener('DOMContentLoaded', () => {
+                                        const cards = document.querySelectorAll('.wedding-details [data-anim]');
+                                        const io = new IntersectionObserver((entries) => {
+                                            entries.forEach((e, i) => {
+                                                if (e.isIntersecting) {
+                                                    e.target.style.animation = 'fdUp .6s ease forwards';
+                                                    e.target.style.animationDelay = `${0.06 * i}s`;
+                                                    io.unobserve(e.target);
+                                                }
+                                            });
+                                        }, { threshold: .2 });
+                                        cards.forEach(c => io.observe(c));
+                                    });
+                                    document.addEventListener('DOMContentLoaded', () => {
                                         document.querySelectorAll('.wd-btn-map').forEach(btn => {
                                             btn.addEventListener('click', () => {
                                                 const mapUrl = btn.getAttribute('data-map');
