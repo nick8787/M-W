@@ -489,62 +489,15 @@ permalink: /vova-and-naya
                                 </style>
 
                                 <script>
-                                    document.querySelectorAll('.wt-map').forEach(btn => {
-
-                                        btn.addEventListener('click', () => {
-
-                                            const mapUrl = btn.dataset.map;
-                                            if (!mapUrl) return;
-
-                                            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-
-                                            let finalUrl = mapUrl;
-
-                                            if (isIOS) {
-
-                                                let lat = null;
-                                                let lng = null;
-
-                                                // формат 1: @lat,lng
-                                                const coords = mapUrl.match(/@(-?\d+\.\d+),(-?\d+\.\d+)/);
-                                                if (coords) {
-                                                    lat = coords[1];
-                                                    lng = coords[2];
-                                                }
-
-                                                // формат 2: !3dLAT!4dLNG
-                                                const coordsAlt = mapUrl.match(/!3d(-?\d+\.\d+)!4d(-?\d+\.\d+)/);
-                                                if (!lat && coordsAlt) {
-                                                    lat = coordsAlt[1];
-                                                    lng = coordsAlt[2];
-                                                }
-
-                                                if (lat && lng) {
-                                                    finalUrl = `https://maps.apple.com/?ll=${lat},${lng}`;
-                                                } else {
-
-                                                    // fallback — поиск по названию
-                                                    const placeMatch = mapUrl.match(/maps\/place\/([^/]+)/);
-
-                                                    if (placeMatch) {
-                                                        const place = decodeURIComponent(placeMatch[1]);
-                                                        finalUrl = `https://maps.apple.com/?q=${encodeURIComponent(place)}`;
-                                                    }
-                                                }
-                                            }
-
-                                            window.open(finalUrl, '_blank');
-
+                                    document.addEventListener('DOMContentLoaded', () => {
+                                        document.querySelectorAll('.wt-map').forEach(btn => {
+                                            btn.addEventListener('click', () => {
+                                                const mapUrl = btn.getAttribute('data-map');
+                                                if (!mapUrl) return;
+                                                window.open(mapUrl, '_blank', 'noopener');
+                                            });
                                         });
 
-                                    });
-                                    document.addEventListener('click', (e) => {
-                                        const btn = e.target.closest('.wt-map');
-                                        if (!btn) return;
-                                        openMap(btn);
-                                    });
-
-                                    document.addEventListener('DOMContentLoaded', () => {
                                         const rows = Array.from(document.querySelectorAll('.wt-row'));
                                         const io = new IntersectionObserver((entries) => {
                                             entries.forEach((entry) => {
@@ -556,6 +509,7 @@ permalink: /vova-and-naya
                                                 io.unobserve(el);
                                             });
                                         }, { threshold: 0.2 });
+
                                         rows.forEach(r => io.observe(r));
                                     });
                                 </script>
@@ -632,7 +586,11 @@ permalink: /vova-and-naya
                                             Чекаємо на вас у цьому мальовничому місці. Натисніть кнопку нижче, щоб прокласти зручний маршрут.
                                         </p>
                                         <!-- Кнопка Карти -->
-                                        <button class="wd-btn-action wd-btn-map" data-place="Будинок на озері Задорожнє «Вілла Спекотний Рай»">Відкрити на мапі</button>
+                                        <button
+                                                class="wd-btn-action wd-btn-map"
+                                                data-map="https://www.google.com/maps/place/%D0%91%D1%83%D0%B4%D0%B8%D0%BD%D0%BE%D0%BA+%D0%BD%D0%B0+%D0%BE%D0%B7%D0%B5%D1%80%D1%96+%D0%97%D0%B0%D0%B4%D0%BE%D1%80%D0%BE%D0%B6%D0%BD%D1%94+%C2%AB%D0%92%D1%96%D0%BB%D0%BB%D0%B0+%D0%A1%D0%BF%D0%B5%D0%BA%D0%BE%D1%82%D0%BD%D0%B8%D0%B9+%D0%A0%D0%B0%D0%B9%C2%BB/data=!4m2!3m1!1s0x0:0x9998a25913329571?sa=X&ved=1t:2428&hl=ru-RU&ictx=111&cshid=1773425500469253">
+                                            Відкрити на мапі
+                                        </button>
                                     </article>
                                 </div>
 
@@ -786,18 +744,14 @@ permalink: /vova-and-naya
 
                                 <script>
                                     // Анімація появи
-                                    document.addEventListener('DOMContentLoaded', () => {
-                                        const cards = document.querySelectorAll('.wedding-details [data-anim]');
-                                        const io = new IntersectionObserver((entries) => {
-                                            entries.forEach((e, i) => {
-                                                if (e.isIntersecting) {
-                                                    e.target.style.animation = 'fdUp .6s ease forwards';
-                                                    e.target.style.animationDelay = `${0.06 * i}s`;
-                                                    io.unobserve(e.target);
-                                                }
+                                        document.addEventListener('DOMContentLoaded', () => {
+                                        document.querySelectorAll('.wd-btn-map').forEach(btn => {
+                                            btn.addEventListener('click', () => {
+                                                const mapUrl = btn.getAttribute('data-map');
+                                                if (!mapUrl) return;
+                                                window.open(mapUrl, '_blank', 'noopener');
                                             });
-                                        }, { threshold: .2 });
-                                        cards.forEach(c => io.observe(c));
+                                        });
                                     });
                                 </script>
                             </section>
