@@ -502,18 +502,28 @@ permalink: /vova-and-naya
 
                                             if (isIOS) {
 
-                                                // пробуем найти координаты
+                                                let lat = null;
+                                                let lng = null;
+
+                                                // формат 1: @lat,lng
                                                 const coords = mapUrl.match(/@(-?\d+\.\d+),(-?\d+\.\d+)/);
-
                                                 if (coords) {
-                                                    const lat = coords[1];
-                                                    const lng = coords[2];
+                                                    lat = coords[1];
+                                                    lng = coords[2];
+                                                }
 
+                                                // формат 2: !3dLAT!4dLNG
+                                                const coordsAlt = mapUrl.match(/!3d(-?\d+\.\d+)!4d(-?\d+\.\d+)/);
+                                                if (!lat && coordsAlt) {
+                                                    lat = coordsAlt[1];
+                                                    lng = coordsAlt[2];
+                                                }
+
+                                                if (lat && lng) {
                                                     finalUrl = `https://maps.apple.com/?ll=${lat},${lng}`;
-
                                                 } else {
 
-                                                    // если координат нет — вытаскиваем название места
+                                                    // fallback — поиск по названию
                                                     const placeMatch = mapUrl.match(/maps\/place\/([^/]+)/);
 
                                                     if (placeMatch) {
@@ -788,21 +798,6 @@ permalink: /vova-and-naya
                                             });
                                         }, { threshold: .2 });
                                         cards.forEach(c => io.observe(c));
-                                    });
-
-                                    // Скрипт для відкриття карти
-                                    document.addEventListener('click', (e) => {
-                                        const btn = e.target.closest('.wd-btn-map');
-                                        if (!btn) return;
-
-                                        const place = btn.getAttribute('data-place');
-                                        if (place) {
-                                            const isiOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-                                            const q = encodeURIComponent(place);
-                                            // На iOS відкриє Apple Maps, на інших - Google Maps
-                                            const url = isiOS ? `https://maps.apple.com/?q=${q}` : `https://www.google.com/maps?q=${q}`;
-                                            window.open(url, '_blank', 'noopener');
-                                        }
                                     });
                                 </script>
                             </section>
