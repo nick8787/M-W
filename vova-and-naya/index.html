@@ -1373,6 +1373,108 @@ permalink: /vova-and-naya
                             <!-- Footer Section End -->
                             </main>
 
+                            <!-- === MUSIC PLAYER START === -->
+                            <audio id="bg-music" loop preload="auto">
+                                <!-- Твой путь к песне -->
+                                <source src="/assets/music/Adriatique Home Ft Marino Canal .mp3" type="audio/mpeg">
+                            </audio>
+
+                            <button id="music-toggle" class="music-btn" aria-label="Увімкнути/Вимкнути музику">
+                                <img id="music-icon" src="https://img.icons8.com/ios/50/musical-notes.png" alt="Music" decoding="async">
+                            </button>
+
+                            <style>
+                                /* Стиль плаваючої кнопки музики */
+                                .music-btn {
+                                    position: fixed;
+                                    bottom: 30px;
+                                    left: 20px; /* Зліва, щоб не заважати кнопці "Наверх" */
+                                    z-index: 9999;
+                                    width: 54px;
+                                    height: 54px;
+                                    border-radius: 50%;
+                                    background: #ffffff;
+                                    border: 2px solid rgba(110, 133, 111, 0.4); /* Оливковий відтінок шаблону */
+                                    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+                                    cursor: pointer;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    transition: transform 0.3s ease, box-shadow 0.3s ease;
+                                }
+
+                                /* Анімація наведення */
+                                .music-btn:hover {
+                                    transform: translateY(-3px) scale(1.05);
+                                    box-shadow: 0 14px 28px rgba(110, 133, 111, 0.25);
+                                }
+
+                                /* Іконка всередині */
+                                .music-btn img {
+                                    width: 24px;
+                                    height: 24px;
+                                    opacity: 0.8;
+                                    transition: opacity 0.3s ease;
+                                }
+
+                                /* Анімація пульсації, коли музика ГРАЄ */
+                                .music-btn.playing {
+                                    border-color: rgba(110, 133, 111, 0.8);
+                                    animation: pulseMusic 2s infinite;
+                                }
+
+                                @keyframes pulseMusic {
+                                    0% { box-shadow: 0 0 0 0 rgba(110, 133, 111, 0.5); }
+                                    70% { box-shadow: 0 0 0 15px rgba(110, 133, 111, 0); }
+                                    100% { box-shadow: 0 0 0 0 rgba(110, 133, 111, 0); }
+                                }
+
+                                /* Для мобільних трохи менша і нижче */
+                                @media (max-width: 768px) {
+                                    .music-btn {
+                                        width: 48px;
+                                        height: 48px;
+                                        bottom: 20px;
+                                        left: 15px;
+                                    }
+                                    .music-btn img {
+                                        width: 20px;
+                                        height: 20px;
+                                    }
+                                }
+                            </style>
+
+                            <script>
+                                document.addEventListener('DOMContentLoaded', () => {
+                                    const bgMusic = document.getElementById('bg-music');
+                                    const musicToggle = document.getElementById('music-toggle');
+                                    const musicIcon = document.getElementById('music-icon');
+
+                                    // Трохи зменшуємо гучність фонової музики, щоб вона не лякала (50%)
+                                    bgMusic.volume = 0.5;
+
+                                    musicToggle.addEventListener('click', () => {
+                                        if (bgMusic.paused) {
+                                            // Вмикаємо
+                                            bgMusic.play().then(() => {
+                                                musicToggle.classList.add('playing');
+                                                // Змінюємо іконку на "Пауза" (звукові хвилі або пауза)
+                                                musicIcon.src = "https://img.icons8.com/ios/50/pause--v1.png";
+                                            }).catch(error => {
+                                                console.log("Браузер блокує відтворення:", error);
+                                            });
+                                        } else {
+                                            // Вимикаємо
+                                            bgMusic.pause();
+                                            musicToggle.classList.remove('playing');
+                                            // Повертаємо іконку ноти
+                                            musicIcon.src = "https://img.icons8.com/ios/50/musical-notes.png";
+                                        }
+                                    });
+                                });
+                            </script>
+                            <!-- === MUSIC PLAYER END === -->
+
                             <!-- back-to-top-start -->
                             <a href="#" class="scroll-top">
                                 <svg class="scroll-top__circle" width="100%" height="100%" viewBox="-1 -1 102 102">
