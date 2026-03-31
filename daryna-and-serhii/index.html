@@ -9,12 +9,12 @@ permalink: /daryna-and-serhii
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Дарина & Сергій - Весільне запрошення">
+    <meta name="description" content="Сергій & Дарина - Весільне запрошення">
 
     <!--metatextblock-->
-    <title>Дарина & Сергій - Весільне запрошення</title>
+    <title>Сергій & Дарина - Весільне запрошення</title>
     <meta property="og:url" content="https://my-wedding.com.ua/daryna-and-serhii" />
-    <meta property="og:title" content="Дарина & Сергій - Весільне запрошення" />
+    <meta property="og:title" content="Сергій & Дарина - Весільне запрошення" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://my-wedding.com.ua/assets/media/images/daryna-and-serhii1.jpg" />
     <link rel="canonical" href="https://my-wedding.com.ua/daryna-and-serhii">
@@ -290,7 +290,7 @@ permalink: /daryna-and-serhii
 
                                     <!-- 1. Имена -->
                                     <div class="monogram">
-                                        <div class="couple-names">Дарина &amp; Сергій</div>
+                                        <div class="couple-names">Сергій &amp; Дарина</div>
                                     </div>
 
                                     <!-- 2. Карточка (Save the Date) -->
@@ -307,113 +307,181 @@ permalink: /daryna-and-serhii
 
                                 <style>
                                     :root{
-                                        /* spacing */
                                         --pad-x: clamp(16px, 4vw, 32px);
-                                        --card-w: min(92vw, 560px);
-
-                                        /* colors */
-                                        --gold-1:#d6b889; --gold-2:#f1e0b3;
-                                        --ink:#ffffff; --frost: rgba(255,255,255,.14); --frost-line: rgba(255,255,255,.26);
+                                        --card-w: min(92vw, 620px);
+                                        --ink: #111111;
+                                        --frost: rgba(255,255,255,.30);
+                                        --frost-line: rgba(255,255,255,.42);
                                     }
 
                                     .wedding-hero{
                                         position:relative;
                                         width:100%;
-                                        /* ИСПОЛЬЗУЕМ 100vh ВМЕСТО 100svh, ЧТОБЫ УБРАТЬ ПРЫЖКИ ПРИ СКРОЛЛЕ */
-                                        height: 100vh;
-                                        min-height: 640px;
+                                        height:100vh;
+                                        min-height:540px;
                                         isolation:isolate;
                                         overflow:hidden;
                                         font-family:'Montserrat',sans-serif;
-                                        background: #1a1a1a;
+                                        background:#1a1a1a;
                                     }
 
                                     .hero-image{
-                                        position:absolute; inset:0; width:100%; height:100%;
-                                        object-fit:cover; opacity:0; animation:fadeIn 1.3s ease-in forwards; transform:scale(1.02);
-                                    }
-                                    .overlay{
-                                        position:absolute; inset:0; z-index:1;
-                                        background:linear-gradient(to bottom, rgba(0,0,0,.15) 0%, rgba(0,0,0,.6) 100%);
-                                        opacity:0; animation:fadeOverlay .9s ease 1s forwards; pointer-events:none;
+                                        position:absolute;
+                                        inset:0;
+                                        width:100%;
+                                        height:100%;
+                                        object-fit:cover;
+                                        opacity:0;
+                                        animation:fadeIn 1.3s ease-in forwards;
+                                        transform:scale(1.02);
                                     }
 
-                                    /* === НОВЫЙ ЖЕСТКИЙ КАРКАС === */
-                                    /* Контейнер намертво прибит к низу, элементы внутри выстроены столбцом */
+                                    .overlay{
+                                        position:absolute;
+                                        inset:0;
+                                        z-index:1;
+                                        background:linear-gradient(to bottom, rgba(255,255,255,.06) 0%, rgba(0,0,0,.22) 100%);
+                                        opacity:0;
+                                        animation:fadeOverlay .9s ease 1s forwards;
+                                        pointer-events:none;
+                                    }
+
                                     .hero-content-wrapper{
                                         position:absolute;
-                                        bottom: 0;
-                                        left: 0;
-                                        width: 100%;
+                                        bottom:0;
+                                        left:0;
+                                        width:100%;
                                         z-index:2;
                                         display:flex;
                                         flex-direction:column;
-                                        align-items: center;
-                                        /* Фиксированное расстояние между именами, карточкой и иконкой */
-                                        gap: clamp(16px, 3vh, 24px);
-                                        padding: var(--pad-x);
-                                        /* Отступ от самого низа экрана */
-                                        padding-bottom: clamp(30px, 6vh, 60px);
+                                        align-items:center;
+                                        gap:clamp(18px, 3vh, 26px);
+                                        padding:var(--pad-x);
+                                        padding-bottom:clamp(90px, 12vh, 130px);
                                     }
 
-                                    .monogram{ display:flex; flex-direction:column; align-items:center; color:var(--ink); }
+                                    .monogram{
+                                        display:flex;
+                                        flex-direction:column;
+                                        align-items:center;
+                                        color:var(--ink);
+                                    }
 
                                     .couple-names{
                                         font-family:'Great Vibes', cursive;
-                                        font-size: clamp(37px, 6vw, 60px);
-                                        line-height:1.1;
-                                        background:linear-gradient(120deg, #fff, #f5f5f5);
-                                        -webkit-background-clip:text; background-clip:text; color:transparent;
-                                        text-shadow: 0 1px 10px rgba(0,0,0,.25);
-                                        opacity:0; animation:fadeUp .7s ease 1.8s forwards;
+                                        font-size:clamp(45px, 8vw, 75px);
+                                        line-height:1.05;
+                                        font-weight:700;
+                                        color:#111111;
+                                        text-shadow:0 2px 10px rgba(255,255,255,.22);
+                                        opacity:0;
+                                        animation:fadeUp .7s ease 1.8s forwards;
                                         white-space:nowrap;
                                     }
 
-                                    /* Карточка больше не абсолютная, она просто стоит под именами */
                                     .save-card{
                                         position:relative;
-                                        width: 100%; max-width: var(--card-w);
-                                        display:flex; flex-direction:column; align-items:center; gap:6px;
-                                        padding: clamp(12px, 1.8vh, 16px) clamp(18px, 2.6vh, 24px);
-                                        background: var(--frost); border: 1px solid var(--frost-line); backdrop-filter: blur(8px);
-                                        border-radius: 16px; text-align:center; box-shadow: 0 10px 32px rgba(0,0,0,.28);
-                                        opacity:0; animation:fadeUp .7s ease 2.2s forwards;
+                                        width:100%;
+                                        max-width:var(--card-w);
+                                        display:flex;
+                                        flex-direction:column;
+                                        align-items:center;
+                                        gap:10px;
+                                        padding:clamp(16px, 2.2vh, 22px) clamp(20px, 2.8vh, 28px);
+                                        background:var(--frost);
+                                        border:1px solid var(--frost-line);
+                                        backdrop-filter:blur(8px);
+                                        border-radius:18px;
+                                        text-align:center;
+                                        box-shadow:0 10px 32px rgba(0,0,0,.20);
+                                        opacity:0;
+                                        animation:fadeUp .7s ease 2.2s forwards;
                                     }
 
                                     .save-title{
-                                        font-size: clamp(16px, 2.0vw, 19px);
-                                        letter-spacing:.35em; text-transform:uppercase;
-                                        color:#fff; opacity:.9;
+                                        font-size:clamp(18px, 2.4vw, 24px);
+                                        letter-spacing:.20em;
+                                        text-transform:uppercase;
+                                        font-weight:600;
+                                        color:#111111;
+                                        opacity:1;
                                     }
 
                                     .save-date{
-                                        font-family:'Great Vibes', cursive; line-height:1;
-                                        font-size: clamp(32px, 6vw, 54px);
-                                        background:linear-gradient(120deg, var(--gold-2), var(--gold-1));
-                                        -webkit-background-clip:text; background-clip:text; color:transparent;
-                                        text-shadow: 0 2px 14px rgba(0,0,0,.25);
+                                        font-family:'Great Vibes', cursive;
+                                        line-height:1;
+                                        font-size:clamp(42px, 7vw, 70px);
+                                        font-weight:700;
+                                        color:#111111;
+                                        text-shadow:0 2px 12px rgba(255,255,255,.20);
                                     }
 
-                                    .save-sub{ font-size: clamp(15px, 2.4vw, 18px); color:#fff; opacity:.92; }
+                                    .save-sub{
+                                        font-size:clamp(17px, 2.8vw, 22px);
+                                        line-height:1.45;
+                                        font-weight:500;
+                                        color:#111111;
+                                        opacity:1;
+                                        max-width:540px;
+                                    }
 
-                                    /* Иконка скролла теперь тоже в общем потоке (relative), а не скачет сама по себе */
                                     .scroll-cue{
                                         position:relative;
-                                        margin-top: 10px;
-                                        width: 22px; height: 34px;
-                                        border:1.5px solid rgba(255,255,255,.7); border-radius:16px;
-                                        opacity:0; animation:fadeUp .7s ease 2.7s forwards;
-                                    }
-                                    .scroll-cue span{
-                                        position:absolute; left:50%; top:6px; width:4px; height:8px; border-radius:2px;
-                                        transform:translateX(-50%); background:#fff; opacity:.9; animation:wheel 1.8s ease-in-out infinite;
+                                        margin-top:10px;
+                                        width:22px;
+                                        height:34px;
+                                        border:1.5px solid rgba(17,17,17,.75);
+                                        border-radius:16px;
+                                        opacity:0;
+                                        animation:fadeUp .7s ease 2.7s forwards;
                                     }
 
-                                    /* Animations */
-                                    @keyframes fadeIn { to { opacity:1 } }
-                                    @keyframes fadeOverlay { to { opacity:1 } }
-                                    @keyframes fadeUp { from { opacity:0; transform: translate3d(0,10px,0);} to { opacity:1; transform: translate3d(0,0,0);} }
-                                    @keyframes wheel { 0%{transform:translate(-50%,0);opacity:1;}60%{transform:translate(-50%,10px);opacity:.15;}100%{transform:translate(-50%,0);opacity:1;} }
+                                    .scroll-cue span{
+                                        position:absolute;
+                                        left:50%;
+                                        top:6px;
+                                        width:4px;
+                                        height:8px;
+                                        border-radius:2px;
+                                        transform:translateX(-50%);
+                                        background:#111111;
+                                        opacity:.9;
+                                        animation:wheel 1.8s ease-in-out infinite;
+                                    }
+
+                                    @keyframes fadeIn {
+                                        to { opacity:1; }
+                                    }
+
+                                    @keyframes fadeOverlay {
+                                        to { opacity:1; }
+                                    }
+
+                                    @keyframes fadeUp {
+                                        from {
+                                            opacity:0;
+                                            transform:translate3d(0,10px,0);
+                                        }
+                                        to {
+                                            opacity:1;
+                                            transform:translate3d(0,0,0);
+                                        }
+                                    }
+
+                                    @keyframes wheel {
+                                        0% {
+                                            transform:translate(-50%,0);
+                                            opacity:1;
+                                        }
+                                        60% {
+                                            transform:translate(-50%,10px);
+                                            opacity:.15;
+                                        }
+                                        100% {
+                                            transform:translate(-50%,0);
+                                            opacity:1;
+                                        }
+                                    }
                                 </style>
                             </section>
 
@@ -491,7 +559,7 @@ permalink: /daryna-and-serhii
                                                     <h3 class="wt-label">Завершення вечора</h3>
                                                     <p class="wt-address">Підсумок нашого особливого дня, прощання з гостями та теплі обійми наостанок.</p>
                                                 </div>
-                                                <time class="wt-time">21:00</time>
+                                                <time class="wt-time">22:00</time>
                                             </div>
                                         </div>
                                     </li>
