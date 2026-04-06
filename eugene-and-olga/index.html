@@ -125,13 +125,13 @@ permalink: /eugene-and-olga
                                                 }
 
                                                 .locked-bg{
-                                                    background-image:url('../assets/media/images/rings.jpg');
+                                                    background-image:url('../assets/media/images/eugene-and-olga1.png');
                                                     filter:brightness(45%) saturate(95%);
                                                     opacity:1;
                                                 }
 
                                                 .unlocked-bg{
-                                                    background-image:url('../assets/media/images/couple.jpg');
+                                                    background-image:url('../assets/media/images/eugene-and-olga2.jpg');
                                                     background-size:cover;
                                                     background-position:center;
                                                     opacity:0;
@@ -1057,6 +1057,7 @@ permalink: /eugene-and-olga
                             <!-- Inquiry Section End -->
 
                             <!-- Footer Section Start -->
+                            <!-- Footer Section Start -->
                             <footer>
                                 <section class="footer-hero" id="footer">
                                     <div class="footer-hero__bg" aria-hidden="true"></div>
@@ -1068,7 +1069,17 @@ permalink: /eugene-and-olga
                                             Будь ласка, відгукніться до <strong>15.05.2026</strong>
                                         </p>
 
-                                        <p class="footer-hero__note">Чекаємо на вас</p>
+                                        <!-- Новий блок дрес-коду -->
+                                        <div class="footer-hero__dresscode">
+                                            <div class="dc-line"></div>
+                                            <p class="dc-text">
+                                                Дрес-код<br>
+                                                <span class="dc-highlight">Cocktail attire</span>
+                                            </p>
+                                            <div class="dc-line"></div>
+                                        </div>
+
+                                        <p class="footer-hero__note">Чекаємо на вас з нетерпінням 🤍</p>
                                     </div>
                                 </section>
 
@@ -1089,7 +1100,7 @@ permalink: /eugene-and-olga
                                         position:absolute; inset:0;
                                         background:
                                                 linear-gradient(180deg, rgba(0,0,0,.20) 0%, rgba(0,0,0,.45) 100%),
-                                                url('../assets-premium1/media/gallery/footer_image.jpeg') center/cover no-repeat;
+                                                url('../assets/media/images/eugene-and-olga3.jpg') center/cover no-repeat;
                                         z-index:-1;
                                         transform:scale(1.02);
                                     }
@@ -1115,7 +1126,6 @@ permalink: /eugene-and-olga
                                                 0 2px 6px rgba(0, 0, 0, 0.35);
                                     }
 
-
                                     .footer-hero__subtitle{
                                         font-size: clamp(16px, 2.2vw, 24px);
                                         margin: 0 0 8px;
@@ -1123,9 +1133,49 @@ permalink: /eugene-and-olga
                                     }
                                     .footer-hero__subtitle strong{ color:#ffe1ef; font-weight:800; }
 
+                                    /* Стилі для блоку Дрес-коду */
+                                    .footer-hero__dresscode {
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        gap: 20px;
+                                        margin: 35px auto 30px;
+                                    }
+
+                                    .dc-line {
+                                        width: clamp(30px, 5vw, 60px);
+                                        height: 1px;
+                                        background: rgba(255, 255, 255, 0.5);
+                                        box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+                                    }
+
+                                    .dc-text {
+                                        margin: 0;
+                                        font-size: clamp(12px, 1.5vw, 15px);
+                                        text-transform: uppercase;
+                                        letter-spacing: 0.2em;
+                                        line-height: 1.4;
+                                        color: rgba(255, 255, 255, 0.9);
+                                        text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+                                    }
+
+                                    .dc-highlight {
+                                        display: block;
+                                        font-family: 'Parisienne', serif; /* Підхопить красивий курсивний шрифт з шапки сайту */
+                                        font-size: clamp(28px, 4vw, 42px);
+                                        text-transform: none;
+                                        letter-spacing: 0.02em;
+                                        color: #ffe1ef; /* Ніжно рожевий колір */
+                                        margin-top: 6px;
+                                        font-weight: 400;
+                                        text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+                                    }
+
                                     .footer-hero__note{
                                         font-size: clamp(15px, 2vw, 20px);
                                         opacity:.95;
+                                        margin: 0;
+                                        text-shadow: 0 2px 8px rgba(0,0,0,0.3);
                                     }
 
                                     @media (min-width:1600px){
@@ -1138,6 +1188,7 @@ permalink: /eugene-and-olga
                                 </style>
                                 <!-- Footer Main End -->
                             </footer>
+                            <!-- Footer Section End -->
                             <!-- Footer Section End -->
                             </main>
 
