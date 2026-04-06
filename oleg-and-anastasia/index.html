@@ -304,7 +304,7 @@ permalink: /oleg-and-anastasia
         });
     </script>
 
-    <style>#rec862753287 .t415__descr-second,#rec862753287 .t415__hint{color:#ffffff;}</style> </div> <div id="rec862776012" class="r t-rec" style=" " data-animationappear="off" data-record-type="131"> <!-- T123 --> <div class="t123"> <div class="t-container_100 "> <div class="t-width t-width_100 "> <!-- nominify begin --> <audio id="bg-sound"> <source src="/assets/music/ed-sheeran-2step-feat-antytila.mp3"> </audio>
+    <style>#rec862753287 .t415__descr-second,#rec862753287 .t415__hint{color:#ffffff;}</style> </div> <div id="rec862776012" class="r t-rec" style=" " data-animationappear="off" data-record-type="131"> <!-- T123 --> <div class="t123"> <div class="t-container_100 "> <div class="t-width t-width_100 "> <!-- nominify begin --> <audio id="bg-sound"> <source src="/assets/music/GafiychukMP3.mp3"> </audio>
 
     <script>
         $(document).ready(function(){
@@ -407,174 +407,183 @@ permalink: /oleg-and-anastasia
     .toast-mini.err{ background:#b00020; }
 </style>
 
-<script>
-    t_onReady(function () {
-        function titleFor(input){
-            var label = input.closest('.t-input-group')?.querySelector('.t-input-title');
-            return (label && label.textContent.trim()) || input.placeholder || input.name || 'Поле';
-        }
+    <script>
+        t_onReady(function () {
+            function titleFor(input){
+                var label = input.closest('.t-input-group')?.querySelector('.t-input-title');
+                return (label && label.textContent.trim()) || input.placeholder || input.name || 'Поле';
+            }
 
-        t_onFuncLoad('t396_init', function () {
-            var rec = document.getElementById('rec862594630');
-            if (!rec) return;
+            t_onFuncLoad('t396_init', function () {
+                var rec = document.getElementById('rec862594630');
+                if (!rec) return;
 
-            var formWrap = rec.querySelector('[data-elem-id="1738928841926"]');
-            if (!formWrap) return;
+                var formWrap = rec.querySelector('[data-elem-id="1738928841926"]');
+                if (!formWrap) return;
 
-            var tries = 0;
-            var int = setInterval(function () {
-                var tForm = formWrap.querySelector('form') ||
-                    formWrap.querySelector('.tn-atom__form form') ||
-                    formWrap.querySelector('.t-form');
-                if (!tForm) { if (++tries > 60) clearInterval(int); return; }
-                clearInterval(int);
-                hookTildaForm(tForm);
-            }, 100);
-        });
-
-        function showToast(text, ok){
-            var el = document.createElement('div');
-            el.className = 'toast-mini ' + (ok ? 'ok' : 'err');
-            el.textContent = text;
-            document.body.appendChild(el);
-            requestAnimationFrame(function(){
-                el.style.opacity = '1';
-                el.style.transform = 'translate(-50%,0)';
+                var tries = 0;
+                var int = setInterval(function () {
+                    var tForm = formWrap.querySelector('form') ||
+                        formWrap.querySelector('.tn-atom__form form') ||
+                        formWrap.querySelector('.t-form');
+                    if (!tForm) { if (++tries > 60) clearInterval(int); return; }
+                    clearInterval(int);
+                    hookTildaForm(tForm);
+                }, 100);
             });
-            setTimeout(function(){
-                el.style.opacity = '0';
-                el.style.transform = 'translate(-50%,-8px)';
-            }, 2200);
-            setTimeout(function(){ el.remove(); }, 2500);
-        }
 
-        function hookTildaForm(tForm){
-            tForm.removeAttribute('action');
-            tForm.removeAttribute('target');
-            tForm.removeAttribute('onsubmit');
-            tForm.setAttribute('novalidate','novalidate');
+            function showToast(text, ok){
+                var el = document.createElement('div');
+                el.className = 'toast-mini ' + (ok ? 'ok' : 'err');
+                el.textContent = text;
+                document.body.appendChild(el);
+                requestAnimationFrame(function(){
+                    el.style.opacity = '1';
+                    el.style.transform = 'translate(-50%,0)';
+                });
+                setTimeout(function(){
+                    el.style.opacity = '0';
+                    el.style.transform = 'translate(-50%,-8px)';
+                }, 2200);
+                setTimeout(function(){ el.remove(); }, 2500);
+            }
 
-            tForm.addEventListener('submit', function(e){
-                e.preventDefault(); e.stopPropagation();
-                if (e.stopImmediatePropagation) e.stopImmediatePropagation();
-                if (!validateRadios(tForm)) return;
-                sendViaWeb3(tForm);
-            }, true);
+            function hookTildaForm(tForm){
+                tForm.removeAttribute('action');
+                tForm.removeAttribute('target');
+                tForm.removeAttribute('onsubmit');
+                tForm.setAttribute('novalidate','novalidate');
 
-            var submitBtn = tForm.querySelector('button, .t-submit, [type="submit"]');
-            if (submitBtn){
-                submitBtn.removeAttribute('onclick');
-                submitBtn.addEventListener('click', function(e){
+                tForm.addEventListener('submit', function(e){
                     e.preventDefault(); e.stopPropagation();
                     if (e.stopImmediatePropagation) e.stopImmediatePropagation();
-                    var ev = new Event('submit', { cancelable:true, bubbles:true });
-                    tForm.dispatchEvent(ev);
+                    if (!validateRadios(tForm)) return;
+                    sendViaWeb3(tForm);
                 }, true);
-            }
-        }
 
-        function validateRadios(tForm){
-            var groups = {};
-            tForm.querySelectorAll('input[type="radio"]').forEach(function(r){
-                if (!r.name) return;
-                (groups[r.name] = groups[r.name] || []).push(r);
-            });
-
-            for (var name in groups){
-                var list = groups[name];
-                list.forEach(function(r){ r.required = true; });
-                var chosen = list.some(function(r){ return r.checked; });
-                if (!chosen){
-                    var title = titleFor(list[0]) || 'Поле';
-                    var box = list[0].closest('.t-input-group') || list[0].closest('div');
-                    if (box){
-                        box.style.outline='2px solid #b00020';
-                        box.style.borderRadius='6px';
-                        setTimeout(function(){ box.style.outline=''; }, 2000);
-                        box.scrollIntoView({ behavior:'smooth', block:'center' });
-                    }
-                    showToast('Будь ласка, оберіть варіант: ' + title, false);
-                    return false;
+                var submitBtn = tForm.querySelector('button, .t-submit, [type="submit"]');
+                if (submitBtn){
+                    submitBtn.removeAttribute('onclick');
+                    submitBtn.addEventListener('click', function(e){
+                        e.preventDefault(); e.stopPropagation();
+                        if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+                        var ev = new Event('submit', { cancelable:true, bubbles:true });
+                        tForm.dispatchEvent(ev);
+                    }, true);
                 }
             }
-            return true;
-        }
 
-        async function sendViaWeb3(tForm){
-            var BLOCKED = new Set([
-                'message',
-                'form-spec-comments', 'form_spec_comments', 'form-comments', 'form_comment',
-                'comments', 'comment'
-            ]);
-
-            var pairs = [];
-
-            tForm.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], textarea')
-                .forEach(function(el){
-                    var nameLC = (el.name || '').toLowerCase().trim();
-                    if (BLOCKED.has(nameLC)) return;          // <- фильтр служебных
-                    var v = (el.value || '').trim();
-                    if (v) pairs.push([titleFor(el), v]);
+            function validateRadios(tForm){
+                var groups = {};
+                tForm.querySelectorAll('input[type="radio"]').forEach(function(r){
+                    if (!r.name) return;
+                    (groups[r.name] = groups[r.name] || []).push(r);
                 });
 
-            // radio
-            var radioByName = {};
-            tForm.querySelectorAll('input[type="radio"]').forEach(function(r){
-                if (!r.name) return;
-                (radioByName[r.name] = radioByName[r.name] || []).push(r);
-            });
-            Object.keys(radioByName).forEach(function(name){
-                var group = radioByName[name];
-                var checked = group.find(function(r){ return r.checked; });
-                if (checked){
-                    var text = (checked.closest('label')?.textContent || checked.value || '').trim();
-                    pairs.push([titleFor(group[0]), text]);
+                for (var name in groups){
+                    var list = groups[name];
+                    list.forEach(function(r){ r.required = true; });
+                    var chosen = list.some(function(r){ return r.checked; });
+                    if (!chosen){
+                        var title = titleFor(list[0]) || 'Поле';
+                        var box = list[0].closest('.t-input-group') || list[0].closest('div');
+                        if (box){
+                            box.style.outline='2px solid #b00020';
+                            box.style.borderRadius='6px';
+                            setTimeout(function(){ box.style.outline=''; }, 2000);
+                            box.scrollIntoView({ behavior:'smooth', block:'center' });
+                        }
+                        showToast('Будь ласка, оберіть варіант: ' + title, false);
+                        return false;
+                    }
                 }
-            });
-
-            // checkbox
-            var cbByName = {};
-            tForm.querySelectorAll('input[type="checkbox"]').forEach(function(c){
-                var nm = c.name || 'Вибір';
-                (cbByName[nm] = cbByName[nm] || []).push(c);
-            });
-            Object.keys(cbByName).forEach(function(name){
-                var group = cbByName[name];
-                var picked = group.filter(function(c){ return c.checked; })
-                    .map(function(c){ return (c.closest('label')?.textContent || c.value || '').trim(); })
-                    .filter(Boolean);
-                if (picked.length) pairs.push([titleFor(group[0]), picked.join(', ')]);
-            });
-
-            var fd = new FormData();
-            fd.append('access_key', '581eaf16-3866-475f-8020-0f5282f63bec');
-            fd.append('subject', 'Відповіді з весільної анкети');
-            fd.append('from_name', 'Весільний сайт');
-
-            pairs.forEach(function([k,v]){ fd.append(k, v); });
-
-            var btn = tForm.querySelector('button, .t-submit, [type="submit"]');
-            var btnOld = btn && btn.textContent;
-            if (btn) btn.textContent = 'Надсилаємо…';
-
-            try{
-                var res = await fetch('https://api.web3forms.com/submit', { method:'POST', body:fd });
-                var json = await res.json();
-                if (json.success){
-                    showToast('✅ Надіслано', true);
-                    tForm.reset();
-                } else {
-                    throw new Error(json.message || 'Помилка відправки');
-                }
-            }catch(e){
-                console.error(e);
-                showToast('❌ Сталася помилка', false);
-            }finally{
-                if (btn && btnOld) btn.textContent = btnOld;
+                return true;
             }
-        }
-    });
-</script>
+
+            async function sendViaWeb3(tForm){
+                var BLOCKED = new Set([
+                    'message',
+                    'form-spec-comments', 'form_spec_comments', 'form-comments', 'form_comment',
+                    'comments', 'comment'
+                ]);
+
+                // Використовуємо об'єкт (JSON) замість FormData для правильного кодування кирилиці
+                var data = {
+                    access_key: '4df5a33c-c242-44e3-a588-fff4174c1801',
+                    subject: 'Відповіді з весільної анкети',
+                    from_name: 'Весільний сайт'
+                };
+
+                // Текстові поля
+                tForm.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], textarea')
+                    .forEach(function(el){
+                        var nameLC = (el.name || '').toLowerCase().trim();
+                        if (BLOCKED.has(nameLC)) return;
+                        var v = (el.value || '').trim();
+                        if (v) data[titleFor(el)] = v;
+                    });
+
+                // Radio кнопки
+                var radioByName = {};
+                tForm.querySelectorAll('input[type="radio"]').forEach(function(r){
+                    if (!r.name) return;
+                    (radioByName[r.name] = radioByName[r.name] || []).push(r);
+                });
+                Object.keys(radioByName).forEach(function(name){
+                    var group = radioByName[name];
+                    var checked = group.find(function(r){ return r.checked; });
+                    if (checked){
+                        var text = (checked.closest('label')?.textContent || checked.value || '').trim();
+                        data[titleFor(group[0])] = text;
+                    }
+                });
+
+                // Checkbox
+                var cbByName = {};
+                tForm.querySelectorAll('input[type="checkbox"]').forEach(function(c){
+                    var nm = c.name || 'Вибір';
+                    (cbByName[nm] = cbByName[nm] || []).push(c);
+                });
+                Object.keys(cbByName).forEach(function(name){
+                    var group = cbByName[name];
+                    var picked = group.filter(function(c){ return c.checked; })
+                        .map(function(c){ return (c.closest('label')?.textContent || c.value || '').trim(); })
+                        .filter(Boolean);
+                    if (picked.length) data[titleFor(group[0])] = picked.join(', ');
+                });
+
+                var btn = tForm.querySelector('button, .t-submit, [type="submit"]');
+                var btnOld = btn && btn.textContent;
+                if (btn) btn.textContent = 'Надсилаємо…';
+
+                try{
+                    // Відправляємо саме як JSON
+                    var res = await fetch('https://api.web3forms.com/submit', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                    });
+
+                    var json = await res.json();
+
+                    if (json.success){
+                        showToast('✅ Надіслано', true);
+                        tForm.reset();
+                    } else {
+                        throw new Error(json.message || 'Помилка відправки');
+                    }
+                } catch(e){
+                    console.error(e);
+                    showToast('❌ Сталася помилка', false);
+                } finally {
+                    if (btn && btnOld) btn.textContent = btnOld;
+                }
+            }
+        });
+    </script>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         setTimeout(function(){

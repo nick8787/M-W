@@ -472,17 +472,23 @@ permalink: /template-premium-4-1
                 'comments', 'comment'
             ]);
 
-            var pairs = [];
+            // Використовуємо об'єкт (JSON) замість FormData для правильного кодування кирилиці
+            var data = {
+                access_key: '581eaf16-3866-475f-8020-0f5282f63bec',
+                subject: 'Відповіді з весільної анкети',
+                from_name: 'Весільний сайт'
+            };
 
+            // Текстові поля
             tForm.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], textarea')
                 .forEach(function(el){
                     var nameLC = (el.name || '').toLowerCase().trim();
-                    if (BLOCKED.has(nameLC)) return;          // <- фильтр служебных
+                    if (BLOCKED.has(nameLC)) return;
                     var v = (el.value || '').trim();
-                    if (v) pairs.push([titleFor(el), v]);
+                    if (v) data[titleFor(el)] = v;
                 });
 
-            // radio
+            // Radio кнопки
             var radioByName = {};
             tForm.querySelectorAll('input[type="radio"]').forEach(function(r){
                 if (!r.name) return;
@@ -493,11 +499,11 @@ permalink: /template-premium-4-1
                 var checked = group.find(function(r){ return r.checked; });
                 if (checked){
                     var text = (checked.closest('label')?.textContent || checked.value || '').trim();
-                    pairs.push([titleFor(group[0]), text]);
+                    data[titleFor(group[0])] = text;
                 }
             });
 
-            // checkbox
+            // Checkbox
             var cbByName = {};
             tForm.querySelectorAll('input[type="checkbox"]').forEach(function(c){
                 var nm = c.name || 'Вибір';
@@ -508,33 +514,36 @@ permalink: /template-premium-4-1
                 var picked = group.filter(function(c){ return c.checked; })
                     .map(function(c){ return (c.closest('label')?.textContent || c.value || '').trim(); })
                     .filter(Boolean);
-                if (picked.length) pairs.push([titleFor(group[0]), picked.join(', ')]);
+                if (picked.length) data[titleFor(group[0])] = picked.join(', ');
             });
-
-            var fd = new FormData();
-            fd.append('access_key', '581eaf16-3866-475f-8020-0f5282f63bec');
-            fd.append('subject', 'Відповіді з весільної анкети');
-            fd.append('from_name', 'Весільний сайт');
-
-            pairs.forEach(function([k,v]){ fd.append(k, v); });
 
             var btn = tForm.querySelector('button, .t-submit, [type="submit"]');
             var btnOld = btn && btn.textContent;
             if (btn) btn.textContent = 'Надсилаємо…';
 
             try{
-                var res = await fetch('https://api.web3forms.com/submit', { method:'POST', body:fd });
+                // Відправляємо саме як JSON
+                var res = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
                 var json = await res.json();
+
                 if (json.success){
                     showToast('✅ Надіслано', true);
                     tForm.reset();
                 } else {
                     throw new Error(json.message || 'Помилка відправки');
                 }
-            }catch(e){
+            } catch(e){
                 console.error(e);
                 showToast('❌ Сталася помилка', false);
-            }finally{
+            } finally {
                 if (btn && btnOld) btn.textContent = btnOld;
             }
         }
