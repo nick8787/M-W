@@ -410,32 +410,49 @@ permalink: /yaroslav-and-alina
 
             <form id="weddingForm" action="https://api.web3forms.com/submit" method="POST" class="rsvp-form">
                 <input type="hidden" name="access_key" value="9303738e-4863-455a-be6e-c1731bf20750">
-                <!-- ВИПРАВЛЕНО ТУТ: Використовуємо 'та' замість '&', щоб не ламало заголовок -->
                 <input type="hidden" name="from_name" value="Весілля М та V">
                 <input type="hidden" name="subject" value="Нова відповідь гостя">
 
-                <!-- 1. ІМ'Я -->
+                <!-- 1. ІМЕНА ГОСТЕЙ -->
                 <div class="form-group">
-                    <label class="form-label">Ваше ім’я та прізвище</label>
-                    <input type="text" name="Ім'я" class="input-text" placeholder="Сергій Іванов" required style="font-family: 'Manrope', sans-serif;">
+                    <label class="form-label">Ваше ім’я та прізвище / імена гостей</label>
+                    <input
+                            type="text"
+                            name="guest_names"
+                            class="input-text"
+                            placeholder="Наприклад: Олена та Андрій"
+                            required
+                            style="font-family: 'Manrope', sans-serif;"
+                    >
                 </div>
 
-                <!-- 2. ПРИСУТНІСТЬ -->
+                <!-- 2. КІЛЬКІСТЬ ГОСТЕЙ / УТОЧНЕННЯ -->
+                <div class="form-group">
+                    <label class="form-label">Скільки вас буде / хто буде з вами?</label>
+                    <textarea
+                            name="guest_details"
+                            class="input-area"
+                            rows="2"
+                            placeholder="Наприклад: 2, Я +1, Олена та Андрій"
+                    ></textarea>
+                </div>
+
+                <!-- 3. ПРИСУТНІСТЬ -->
                 <div class="form-group">
                     <label class="form-label">Чи будете ви в цей день з нами?</label>
                     <label class="check-container">
                         Так
-                        <input type="radio" name="Присутність" value="Так" required>
+                        <input type="radio" name="attendance" value="Так" required>
                         <span class="checkmark"></span>
                     </label>
                     <label class="check-container">
                         Ні
-                        <input type="radio" name="Присутність" value="Ні">
+                        <input type="radio" name="attendance" value="Ні">
                         <span class="checkmark"></span>
                     </label>
                 </div>
 
-                <!-- 3. АЛКОГОЛЬ -->
+                <!-- 4. АЛКОГОЛЬ -->
                 <div class="form-group">
                     <label class="form-label">Побажання щодо алкоголю:</label>
 
@@ -469,9 +486,6 @@ permalink: /yaroslav-and-alina
                         <span class="checkmark" style="border-radius:4px;"></span>
                     </label>
                 </div>
-
-                <!-- 4. ПИТАННЯ -->
-
 
                 <button type="submit" class="btn-submit-circle">
                     НАДІСЛАТИ
@@ -571,10 +585,11 @@ permalink: /yaroslav-and-alina
         // ВАЖЛИВО: from_name англійською, щоб не було ієрогліфів
         const data = {
             access_key: formData.get('access_key'),
-            from_name: "Wedding",  // АНГЛІЙСЬКОЮ, БЕЗ СИМВОЛІВ
+            from_name: "Wedding",
             subject: "Нова анкета гостя (Wedding)",
-            "Ім'я": formData.get("Ім'я"),
-            "Присутність": formData.get("Присутність"),
+            "Ім’я / імена гостей": formData.get("guest_names"),
+            "Скільки гостей / хто буде": formData.get("guest_details") || "Не вказано",
+            "Присутність": formData.get("attendance"),
             "Алкоголь": alcohol.join(', ') || 'Не обрано'
         };
 
