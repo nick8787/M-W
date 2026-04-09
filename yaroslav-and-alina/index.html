@@ -159,17 +159,25 @@ permalink: /yaroslav-and-alina
 
         /* --- 6. DRESS CODE --- */
         .dress-code {
-            background: var(--color-white); color: var(--color-black);
-            padding: 20px 30px 80px; text-align: center; position: relative; z-index: 4;
+            background: var(--color-white);
+            color: var(--color-black);
+            padding: 20px 30px 80px;
+            text-align: center;
+            position: relative;
+            z-index: 4;
         }
 
-        .palette-grid {
-            display: flex; justify-content: center; gap: 0;
-            width: 100%; max-width: 320px; height: 60px;
-            margin: 30px auto; border-radius: 8px; overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        .palette-image-wrap {
+            max-width: 520px;
+            margin: 30px auto 0;
         }
-        .p-block { flex: 1; height: 100%; }
+
+        .palette-image {
+            width: 100%;
+            display: block;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+        }
 
         /* --- 7. DETAILS --- */
         .details-roses {
@@ -360,17 +368,11 @@ permalink: /yaroslav-and-alina
             Будемо щиро вдячні, якщо у виборі образу ви орієнтуєтесь на неї.
         </p>
 
-        <div class="palette-grid" style="max-width: 440px; height: 60px;">
-            <div class="p-block" style="background: #cfd5bf;"></div>
-            <div class="p-block" style="background: #c7b19d;"></div>
-            <div class="p-block" style="background: #e8dfd2;"></div>
-            <div class="p-block" style="background: #4c5a27;"></div>
-            <div class="p-block" style="background: #5a3728;"></div>
-            <div class="p-block" style="background: #111111;"></div>
-            <div class="p-block" style="background: #f4f1eb; border-left: 1px solid #e6e1d8;"></div>
+        <div class="palette-image-wrap">
+            <img src="/assets/media/images/DCYaroslavAlina.jpg" alt="Палітра dress code" class="palette-image">
         </div>
 
-        <p class="text-body" style="color:#666; font-size:12px; text-transform:none;">
+        <p class="text-body" style="color:#666; font-size:12px; text-transform:none; margin-top:18px;">
         </p>
     </section>
 
