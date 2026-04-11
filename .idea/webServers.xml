@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="2a394502-4c1a-471c-8b13-c8c2f284b82b" name="mobile-testing87">
+        <fileTransfer accessType="SFTP" host="nick8787.ftp.tools" port="22" sshConfigId="390f4791-7c46-4317-a740-ed42aa210d9c" sshConfig="nick8787@nick8787.ftp.tools:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

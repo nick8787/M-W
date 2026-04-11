@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="mobile-testing87" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="mobile-testing87">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/nick8787/testing87.online/mobile" local="$USER_HOME$/Projects/mobile-testing87" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>
