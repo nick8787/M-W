@@ -61,19 +61,21 @@ permalink: /andriy-and-anastasia
                             </div><div class="et_pb_section et_pb_section_1 et_pb_fullwidth_section et_section_regular" >
 
                             <section class="wedding-hero">
-                                <!-- Fonts -->
-                                <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+                                <!-- Додали шрифт Alex Brush спеціально для красивої великої літери А -->
+                                <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Great+Vibes&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 
                                 <!-- Background -->
                                 <img class="hero-image" src="/assets/media/images/andriy-and-anastasia2.jpg" alt="Wedding Background">
                                 <div class="overlay" aria-hidden="true"></div>
 
-                                <!-- ЕДИНЫЙ КОНТЕЙНЕР ДЛЯ ВСЕГО: Имена + Карточка + Иконка скролла -->
+                                <!-- ЄДИНИЙ КОНТЕЙНЕР ДЛЯ ВСЬОГО -->
                                 <div class="hero-content-wrapper">
 
-                                    <!-- 1. Имена -->
+                                    <!-- 1. Імена -->
                                     <div class="monogram">
-                                        <div class="couple-names">Андрій &amp; Анастасія</div>
+                                        <div class="couple-names">
+                                            <span class="initial-letter">A</span>ндрій &amp; <span class="initial-letter">A</span>настасія
+                                        </div>
                                     </div>
 
                                     <!-- 2. Карточка (Save the Date) -->
@@ -83,7 +85,7 @@ permalink: /andriy-and-anastasia
                                         <div class="save-sub">Запрошуємо вас розділити з нами радість особливої для нас події та стати частиною нашої історії</div>
                                     </div>
 
-                                    <!-- 3. Иконка скролла (Теперь она жестко привязана к карточке) -->
+                                    <!-- 3. Іконка скролу -->
                                     <div class="scroll-cue" aria-hidden="true"><span></span></div>
 
                                 </div>
@@ -102,7 +104,6 @@ permalink: /andriy-and-anastasia
                                     .wedding-hero{
                                         position:relative;
                                         width:100%;
-                                        /* ИСПОЛЬЗУЕМ 100vh ВМЕСТО 100svh, ЧТОБЫ УБРАТЬ ПРЫЖКИ ПРИ СКРОЛЛЕ */
                                         height: 100vh;
                                         min-height: 640px;
                                         isolation:isolate;
@@ -121,8 +122,7 @@ permalink: /andriy-and-anastasia
                                         opacity:0; animation:fadeOverlay .9s ease 1s forwards; pointer-events:none;
                                     }
 
-                                    /* === НОВЫЙ ЖЕСТКИЙ КАРКАС === */
-                                    /* Контейнер намертво прибит к низу, элементы внутри выстроены столбцом */
+                                    /* Контейнер намертво прибитий до низу */
                                     .hero-content-wrapper{
                                         position:absolute;
                                         bottom: 0;
@@ -132,10 +132,8 @@ permalink: /andriy-and-anastasia
                                         display:flex;
                                         flex-direction:column;
                                         align-items: center;
-                                        /* Фиксированное расстояние между именами, карточкой и иконкой */
                                         gap: clamp(16px, 3vh, 24px);
                                         padding: var(--pad-x);
-                                        /* Отступ от самого низа экрана */
                                         padding-bottom: clamp(30px, 6vh, 60px);
                                     }
 
@@ -143,7 +141,7 @@ permalink: /andriy-and-anastasia
 
                                     .couple-names{
                                         font-family:'Great Vibes', cursive;
-                                        font-size: clamp(37px, 6vw, 60px);
+                                        font-size: clamp(36px, 6vw, 60px);
                                         line-height:1.1;
                                         background:linear-gradient(120deg, #fff, #f5f5f5);
                                         -webkit-background-clip:text; background-clip:text; color:transparent;
@@ -152,7 +150,13 @@ permalink: /andriy-and-anastasia
                                         white-space:nowrap;
                                     }
 
-                                    /* Карточка больше не абсолютная, она просто стоит под именами */
+                                    /* --- СТИЛЬ ДЛЯ КРАСИВОЇ ЛІТЕРИ "А" --- */
+                                    .initial-letter {
+                                        font-family: 'Alex Brush', cursive; /* Більш каліграфічний розмашистий шрифт */
+                                        font-size: 1.35em; /* Робимо літеру помітно більшою для вензеля */
+                                        /* Ніяких inline-block та transform, щоб градієнт не "з'їдав" літеру */
+                                    }
+
                                     .save-card{
                                         position:relative;
                                         width: 100%; max-width: var(--card-w);
@@ -179,7 +183,6 @@ permalink: /andriy-and-anastasia
 
                                     .save-sub{ font-size: clamp(15px, 2.4vw, 18px); color:#fff; opacity:.92; }
 
-                                    /* Иконка скролла теперь тоже в общем потоке (relative), а не скачет сама по себе */
                                     .scroll-cue{
                                         position:relative;
                                         margin-top: 10px;
@@ -201,22 +204,12 @@ permalink: /andriy-and-anastasia
                             </section>
 
 
-                            <section class="wt" aria-label="Весільний таймінг (мобайл-ферст, рівно)">
+                            <section class="wt" aria-label="Весільний таймінг">
                                 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet"/>
 
                                 <header class="wt-head">
                                     <h2 class="wt-title">Таймінг дня</h2>
                                     <p class="wt-sub">З любов'ю - кожна мить</p>
-
-                                    <div class="wt-global-location">
-                                        <p class="wt-location-text">Локація — заміський комплекс “Chinases”</p>
-                                        <a href="https://www.google.com/maps/place/47%C2%B055'07.6%22N+35%C2%B004'19.3%22E/@47.9187879,35.069443,17z/data=!3m1!4b1!4m4!3m3!8m2!3d47.9187879!4d35.0720179!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D"
-                                           target="_blank"
-                                           rel="noopener noreferrer"
-                                           class="wt-map-link">
-                                            Відкрити на мапі
-                                        </a>
-                                    </div>
                                 </header>
 
                                 <ol class="wt-list">
@@ -283,7 +276,7 @@ permalink: /andriy-and-anastasia
                                         --bg1:#f9f7f4; --bg2:#fdfcfb;
                                         --line: rgba(0,0,0,.08);
                                         --px: clamp(16px, 4vw, 28px);
-                                        --py: clamp(22px, 6vh, 56px);
+                                        --py: clamp(28px, 6vh, 56px);
                                         --radius: 18px;
                                         --rail-x: 22px;
                                     }
@@ -304,31 +297,6 @@ permalink: /andriy-and-anastasia
                                         text-shadow: 0 2px 14px rgba(0,0,0,.12);
                                     }
                                     .wt-sub{ margin:0; font-size: clamp(13px, 2.2vw, 16px); color:var(--muted); }
-
-                                    .wt-global-location {
-                                        margin-top: 20px;
-                                        display: flex;
-                                        flex-direction: column;
-                                        align-items: center;
-                                        gap: 12px;
-                                    }
-                                    .wt-location-text {
-                                        margin: 0;
-                                        font-size: clamp(14px, 2.5vw, 18px);
-                                        font-weight: 500;
-                                        color: var(--ink);
-                                    }
-                                    .wt-map-link {
-                                        display: inline-flex;
-                                        text-decoration: none;
-                                        padding: 10px 20px; border-radius:999px;
-                                        font-size:14px; font-weight:600; letter-spacing:.02em;
-                                        background: rgba(0,0,0,.045); color:#2f2f2f;
-                                        border: 1px solid rgba(0,0,0,.08);
-                                        transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
-                                    }
-                                    .wt-map-link:hover{ transform: translateY(-1px); background: rgba(0,0,0,.06); box-shadow: 0 8px 22px rgba(18,19,20,.08); }
-                                    .wt-map-link:active{ transform:none; box-shadow:none; }
 
                                     .wt-list{
                                         list-style:none; margin:0 auto; padding: 0;
@@ -427,6 +395,181 @@ permalink: /andriy-and-anastasia
                                             });
                                         }, { threshold: 0.2 });
                                         rows.forEach(r => io.observe(r));
+                                    });
+                                </script>
+                            </section>
+
+
+                            <!-- ==========================================
+                                 СЕКЦІЯ 2: МІСЦЕ ПРОВЕДЕННЯ
+                            =========================================== -->
+                            <section class="wedding-location" aria-label="Місце проведення">
+                                <header class="wl-head">
+                                    <h2 class="wl-title">Місце проведення</h2>
+                                    <div class="wl-ornament" aria-hidden="true"></div>
+                                </header>
+
+                                <div class="wl-container">
+                                    <article class="wl-card" data-anim>
+                                        <!-- Фото -->
+                                        <div class="wl-image-wrapper">
+                                            <img src="/assets/media/images/andriy-and-anastasia3.jpg" alt="Заміський комплекс Chinases" class="wl-image" loading="lazy">
+                                        </div>
+
+                                        <!-- Інформація -->
+                                        <div class="wl-info">
+                                            <h3 class="wl-place-name">Заміський комплекс “Chinases”</h3>
+<!--                                            <p class="wl-desc">-->
+<!--                                                Ми обрали це чудове місце подалі від міської метушні, щоб розділити наш особливий день разом із вами у теплій та затишній атмосфері.-->
+<!--                                            </p>-->
+
+                                            <!-- Кнопка -->
+                                            <a href="https://www.google.com/maps/place/47%C2%B055'07.6%22N+35%C2%B004'19.3%22E/@47.9187879,35.069443,17z/data=!3m1!4b1!4m4!3m3!8m2!3d47.9187879!4d35.0720179!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D"
+                                               target="_blank"
+                                               rel="noopener noreferrer"
+                                               class="wl-btn">
+                                                📍 Відкрити на мапі
+                                            </a>
+                                        </div>
+                                    </article>
+                                </div>
+
+                                <style>
+                                    .wedding-location {
+                                        --gold-1:#d6b889; --gold-2:#f1e0b3;
+                                        --ink:#2b2a2a; --muted:#6f6f6f; --soft:#ffffff;
+                                        --line: rgba(0,0,0,.08);
+
+                                        padding: clamp(28px, 6vh, 56px) clamp(16px, 4vw, 28px);
+                                        font-family:'Montserrat', sans-serif; color:var(--ink);
+                                        background: linear-gradient(180deg, #fdfcfb, #f9f7f4);
+                                        display: flex; flex-direction: column; align-items: center;
+                                        position: relative; overflow: hidden;
+                                    }
+
+                                    .wl-head { text-align:center; margin-bottom: clamp(24px, 5vh, 40px); width: 100%; }
+                                    .wl-title {
+                                        margin:0 0 6px;
+                                        font-family:'Great Vibes', cursive;
+                                        font-size: clamp(40px, 6.4vw, 72px);
+                                        line-height:1.22;
+                                        background: linear-gradient(130deg, var(--gold-2), var(--gold-1));
+                                        -webkit-background-clip:text; background-clip:text; color:transparent;
+                                        text-shadow: 0 2px 14px rgba(0,0,0,.12);
+                                        display:inline-block; padding-inline:.2em; overflow:visible;
+                                    }
+                                    .wl-ornament {
+                                        width:min(180px, 40vw); height:2px; margin: 14px auto 0; border-radius:2px;
+                                        background: linear-gradient(90deg, transparent, rgba(214,184,137,.85), transparent);
+                                        filter: drop-shadow(0 4px 10px rgba(214,184,137,.25));
+                                    }
+
+                                    .wl-container {
+                                        width: 100%;
+                                        max-width: 680px; /* Оптимальна ширина для карточки з фото */
+                                    }
+
+                                    .wl-card {
+                                        background: var(--soft);
+                                        border: 1px solid var(--line);
+                                        border-radius: 24px;
+                                        box-shadow: 0 16px 40px rgba(18,19,20,.06);
+                                        padding: clamp(16px, 3vw, 24px);
+                                        position: relative;
+                                        opacity: 0; transform: translateY(20px);
+                                    }
+
+                                    /* Тонка золота лінія вгорі карточки */
+                                    .wl-card::before{
+                                        content:"";
+                                        position:absolute; left:12%; right:12%; top:-1px; height:3px; border-radius:2px;
+                                        background: linear-gradient(130deg, var(--gold-2), var(--gold-1)); opacity:.9;
+                                    }
+
+                                    /* Обгортка для фото */
+                                    .wl-image-wrapper {
+                                        width: 100%;
+                                        border-radius: 16px;
+                                        overflow: hidden;
+                                        margin-bottom: 20px;
+                                        box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05), 0 8px 24px rgba(0,0,0,0.08);
+                                        position: relative;
+                                    }
+
+                                    /* Щоб фото красиво заповнювало блок і не сплющувалось */
+                                    .wl-image {
+                                        display: block;
+                                        width: 100%;
+                                        height: auto;
+                                        aspect-ratio: 4/3;
+                                        object-fit: cover;
+                                        transition: transform 0.5s ease;
+                                    }
+                                    .wl-image-wrapper:hover .wl-image {
+                                        transform: scale(1.03);
+                                    }
+
+                                    .wl-info {
+                                        text-align: center;
+                                        padding: 0 10px 10px;
+                                    }
+
+                                    .wl-place-name {
+                                        margin: 0 0 10px;
+                                        font-size: clamp(20px, 3.5vw, 26px);
+                                        font-weight: 600;
+                                        color: var(--ink);
+                                        letter-spacing: 0.01em;
+                                    }
+
+                                    .wl-desc {
+                                        margin: 0 0 24px;
+                                        font-size: clamp(14px, 2.5vw, 16px);
+                                        color: var(--muted);
+                                        line-height: 1.6;
+                                    }
+
+                                    .wl-btn {
+                                        display: inline-flex; align-items: center; justify-content: center;
+                                        gap: 8px; padding: 14px 28px;
+                                        font-weight: 600; font-size: 15px; letter-spacing: 0.02em;
+                                        border-radius: 999px; text-decoration: none;
+                                        background: linear-gradient(130deg, var(--gold-2), var(--gold-1)); color: #1d1c16;
+                                        border: 1px solid rgba(214,184,137,.55);
+                                        box-shadow: 0 10px 24px rgba(214,184,137,.25);
+                                        transition: transform .2s ease, box-shadow .2s ease;
+                                    }
+                                    .wl-btn:hover {
+                                        transform: translateY(-2px);
+                                        box-shadow: 0 16px 32px rgba(214,184,137,.35);
+                                    }
+                                    .wl-btn:active {
+                                        transform: translateY(0);
+                                    }
+
+                                    @keyframes wlUp {
+                                        to { opacity: 1; transform: translateY(0); }
+                                    }
+
+                                    /* Анімація для картки локації */
+                                    .wl-card.reveal {
+                                        animation: wlUp 0.8s ease forwards;
+                                    }
+                                </style>
+
+                                <script>
+                                    document.addEventListener('DOMContentLoaded', () => {
+                                        const card = document.querySelector('.wedding-location [data-anim]');
+                                        if(!card) return;
+                                        const io = new IntersectionObserver((entries) => {
+                                            entries.forEach((entry) => {
+                                                if (entry.isIntersecting) {
+                                                    entry.target.classList.add('reveal');
+                                                    io.unobserve(entry.target);
+                                                }
+                                            });
+                                        }, { threshold: 0.2 });
+                                        io.observe(card);
                                     });
                                 </script>
                             </section>
