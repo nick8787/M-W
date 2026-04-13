@@ -106,339 +106,351 @@ permalink: /olga-and-eugene
                 <div class="entry-content">
                     <div class="et-l et-l--post">
                         <div class="et_builder_inner_content et_pb_gutters3">
-                            <!-- ========================================== -->
-                            <!-- ПОВНОЕКРАННИЙ КОНВЕРТ (ВІД КРАЮ ДО КРАЮ)   -->
-                            <!-- ========================================== -->
-                            <div class="fullscreen-envelope-wrapper" id="envelope-wrapper">
+                            <div class="et_pb_section et_pb_section_0 et_animated  " >
 
-                                <!-- Задній фон (внутрішність конверта) -->
-                                <div class="env-back"></div>
 
-                                <!-- ЛИСТ (Виїжджає вгору) -->
-                                <div class="env-letter" id="letter">
-                                    <div class="letter-border">
 
-                                        <!-- Шапка листа -->
-                                        <div class="letter-top">
-                                            <span class="top-label">ЗАПРОШЕННЯ</span>
+
+
+
+                                <!-- ========================================== -->
+                                <!-- ПОВНОЕКРАННИЙ КОНВЕРТ (ВІД КРАЮ ДО КРАЮ)   -->
+                                <!-- ========================================== -->
+                                <div class="fullscreen-envelope-wrapper" id="envelope-wrapper">
+
+                                    <!-- Задній фон (внутрішність конверта) -->
+                                    <div class="env-back"></div>
+
+                                    <!-- ЛИСТ (Виїжджає вгору) -->
+                                    <div class="env-letter" id="letter">
+                                        <div class="letter-border">
+
+                                            <!-- Шапка листа -->
+                                            <div class="letter-top">
+                                                <span class="top-label">ЗАПРОШЕННЯ</span>
+                                            </div>
+
+                                            <!-- Імена -->
+                                            <div class="letter-names">
+                                                <div class="name">Євген</div>
+                                                <div class="ampersand">&amp;</div>
+                                                <div class="name">Ольга</div>
+                                            </div>
+
+                                            <div class="letter-subtitle">запрошують вас на весілля</div>
+
+                                            <!-- Золота лінія -->
+                                            <div class="gold-line"></div>
+
+                                            <!-- Дата -->
+                                            <div class="letter-date">06 . 06 . 2026</div>
+
+                                            <!-- Головний текст -->
+                                            <div class="letter-text">
+                                                Будемо щасливі розділити з вами один із найщасливіших днів нашого життя — день нашого весілля 🤍
+                                            </div>
+
                                         </div>
-
-                                        <!-- Імена -->
-                                        <div class="letter-names">
-                                            <div class="name">Євген</div>
-                                            <div class="ampersand">&amp;</div>
-                                            <div class="name">Ольга</div>
-                                        </div>
-
-<!--                                        <div class="letter-subtitle">запрошують вас на весілля</div>-->
-
-                                        <!-- Золота лінія -->
-                                        <div class="gold-line"></div>
-
-                                        <!-- Дата -->
-                                        <div class="letter-date">06 . 06 . 2026</div>
-
-                                        <!-- Головний текст -->
-                                        <div class="letter-text">
-                                            Будемо щасливі розділити з вами один із найщасливіших днів нашого життя — день нашого весілля 🤍
-                                        </div>
-
                                     </div>
+
+                                    <!-- ВУШКА КОНВЕРТА (Прив'язані до країв екрана) -->
+                                    <div class="env-flap flap-left"></div>
+                                    <div class="env-flap flap-right"></div>
+
+                                    <div class="env-flap flap-bottom">
+                                        <div class="front-cover-text">
+                                            <div class="front-initials">Є | О</div>
+                                            <div class="front-title">Запрошення на весілля</div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Верхній клапан (Відкривається) -->
+                                    <div class="env-flap flap-top" id="flap-top"></div>
+
+                                    <!-- ПЕЧАТКА -->
+                                    <div class="wax-seal-btn" id="seal">
+                                        <div class="seal-inner">
+                                            <span class="seal-text">ВІДКРИТИ</span>
+                                        </div>
+                                    </div>
+
                                 </div>
 
-                                <!-- ВУШКА КОНВЕРТА (Прив'язані до країв екрана) -->
-                                <div class="env-flap flap-left"></div>
-                                <div class="env-flap flap-right"></div>
+                                <!-- ========================================== -->
+                                <!-- СТИЛІ (ГРАНДІОЗНИЙ ДИЗАЙН)                 -->
+                                <!-- ========================================== -->
+                                <style>
+                                    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
 
-                                <div class="env-flap flap-bottom">
-                                    <div class="front-cover-text">
-                                        <div class="front-initials">Є | О</div>
-                                        <div class="front-title">Запрошення на весілля</div>
-                                    </div>
-                                </div>
+                                    body, html { margin: 0; padding: 0; }
+                                    #main-header { display: none !important; } /* Ховаємо меню */
 
-                                <!-- Верхній клапан (Відкривається) -->
-                                <div class="env-flap flap-top" id="flap-top"></div>
+                                    /* 1. БЛОК НА ВЕСЬ ЕКРАН */
+                                    .fullscreen-envelope-wrapper {
+                                        position: relative;
+                                        width: 100vw;
+                                        height: 100vh;
+                                        height: 100dvh; /* Захист для мобільних браузерів */
+                                        background-color: #8faec2; /* Темний колір всередині конверта */
+                                        overflow: hidden;
+                                        perspective: 1500px;
+                                        z-index: 100;
+                                        display: block;
+                                        transform: translateY(-15px);
 
-                                <!-- ПЕЧАТКА -->
-                                <div class="wax-seal-btn" id="seal">
-                                    <div class="seal-inner">
-                                        <span class="seal-text">ВІДКРИТИ</span>
-                                    </div>
-                                </div>
+                                    }
+
+                                    /* 2. ЛИСТ (Великий, красивий) */
+                                    .env-letter {
+                                        position: absolute;
+                                        bottom: -10vh; /* Схований внизу */
+                                        left: 50%;
+                                        transform: translateX(-50%);
+                                        width: 90vw;
+                                        max-width: 550px;
+                                        height: 85vh; /* Лист на 85% висоти екрана */
+                                        max-height: 800px;
+                                        background: #ffffff;
+                                        box-shadow: 0 -10px 30px rgba(0,0,0,0.2);
+                                        border-radius: 4px;
+                                        z-index: 2; /* Під передніми вушками */
+                                        padding: 15px;
+                                        box-sizing: border-box;
+                                        transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s, z-index 0s 0.6s;
+                                    }
+
+                                    /* Коли конверт відкривається: лист виїжджає і стає поверх вушок (z-index: 6) */
+                                    .fullscreen-envelope-wrapper.is-open .env-letter {
+                                        transform: translateX(-50%) translateY(-25vh); /* Виїжджає високо вгору */
+                                        z-index: 6;
+                                    }
+
+                                    /* Внутрішня красива рамка листа */
+                                    .letter-border {
+                                        border: 1px solid #d4c4a8; /* Золотисто-бежева рамка */
+                                        width: 100%;
+                                        height: 100%;
+                                        display: flex;
+                                        flex-direction: column;
+                                        justify-content: space-evenly; /* Ідеально розподіляє текст */
+                                        align-items: center;
+                                        padding: 5% 8%;
+                                        box-sizing: border-box;
+                                        text-align: center;
+                                        background: linear-gradient(to bottom, #ffffff, #fafafa);
+                                    }
+
+                                    /* ТИПОГРАФІКА ЛИСТА */
+                                    .top-label {
+                                        font-family: 'Cinzel', serif;
+                                        font-size: clamp(12px, 3vw, 16px);
+                                        letter-spacing: 4px;
+                                        color: #b09975;
+                                    }
+
+                                    .letter-names {
+                                        display: flex;
+                                        flex-direction: column;
+                                        align-items: center;
+                                        gap: 5px;
+                                    }
+
+                                    .name {
+                                        font-family: 'Cinzel', serif;
+                                        font-size: clamp(34px, 8vw, 56px);
+                                        color: #13275b;
+                                        line-height: 1;
+                                    }
+
+                                    .ampersand {
+                                        font-family: 'Great Vibes', cursive;
+                                        font-size: clamp(36px, 8vw, 50px);
+                                        color: #b09975;
+                                        line-height: 0.8;
+                                    }
+
+                                    .letter-subtitle {
+                                        font-family: 'Great Vibes', cursive;
+                                        font-size: clamp(26px, 6vw, 38px);
+                                        color: #13275b;
+                                        margin-top: -5px;
+                                    }
+
+                                    .gold-line {
+                                        width: 60%;
+                                        height: 1px;
+                                        background: linear-gradient(to right, transparent, #b09975, transparent);
+                                    }
+
+                                    .letter-date {
+                                        font-family: 'Cormorant Garamond', serif;
+                                        font-size: clamp(22px, 5vw, 32px);
+                                        font-weight: 600;
+                                        letter-spacing: 3px;
+                                        color: #13275b;
+                                    }
+
+                                    .letter-text {
+                                        font-family: 'Cormorant Garamond', serif;
+                                        font-size: clamp(16px, 4vw, 22px);
+                                        font-style: italic;
+                                        line-height: 1.5;
+                                        color: #333;
+                                        max-width: 400px;
+                                    }
+
+
+                                    /* 3. ЧАСТИНИ КОНВЕРТА (Натягнуті на екран) */
+                                    .env-flap {
+                                        position: absolute;
+                                        filter: drop-shadow(0 0 15px rgba(0,0,0,0.2));
+                                    }
+
+                                    .flap-left {
+                                        top: 0; left: 0; bottom: 0; width: 50vw;
+                                        background: linear-gradient(to right, #a5cce0, #B9D9EB);
+                                        clip-path: polygon(0 0, 100% 50%, 0 100%);
+                                        z-index: 3;
+                                    }
+
+                                    .flap-right {
+                                        top: 0; right: 0; bottom: 0; width: 50vw;
+                                        background: linear-gradient(to left, #a5cce0, #B9D9EB);
+                                        clip-path: polygon(100% 0, 0 50%, 100% 100%);
+                                        z-index: 3;
+                                    }
+
+                                    .flap-bottom {
+                                        bottom: 0; left: 0; right: 0; height: 60vh;
+                                        background: linear-gradient(to top, #B9D9EB 50%, #d4e8f4);
+                                        clip-path: polygon(0 100%, 50% 0, 100% 100%);
+                                        z-index: 4;
+                                        display: flex;
+                                        align-items: flex-end;
+                                        justify-content: center;
+                                        padding-bottom: 10vh;
+                                    }
+
+                                    .flap-top {
+                                        top: 0; left: 0; right: 0; height: 50vh;
+                                        background: linear-gradient(to bottom, #dbeff9, #B9D9EB);
+                                        clip-path: polygon(0 0, 100% 0, 50% 100%);
+                                        transform-origin: top;
+                                        z-index: 5;
+                                        transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+                                    }
+
+                                    /* Коли відкрито - верхня кришка відкидається */
+                                    .fullscreen-envelope-wrapper.is-open .flap-top {
+                                        transform: rotateX(180deg);
+                                        z-index: 1; /* Падає на задній план */
+                                        filter: drop-shadow(0 0 0 transparent);
+                                    }
+
+                                    /* Текст ззовні конверта */
+                                    .front-cover-text {
+                                        text-align: center;
+                                        color: #13275b;
+                                    }
+                                    .front-initials {
+                                        font-family: 'Cinzel', serif;
+                                        font-size: clamp(32px, 7vw, 50px);
+                                        letter-spacing: 5px;
+                                        margin: 0 0 5px 0;
+                                    }
+                                    .front-title {
+                                        font-family: 'Great Vibes', cursive;
+                                        font-size: clamp(28px, 6vw, 42px);
+                                        margin: 0;
+                                    }
+
+                                    /* 4. СРІБНА ПЕЧАТКА (Велика кнопка по центру) */
+                                    .wax-seal-btn {
+                                        position: absolute;
+                                        top: 50vh; left: 50vw;
+                                        transform: translate(-50%, -50%);
+                                        width: 140px; height: 140px;
+                                        z-index: 10;
+                                        cursor: pointer;
+                                        transition: all 0.4s ease;
+                                    }
+
+                                    .seal-inner {
+                                        width: 100%; height: 100%;
+                                        background: radial-gradient(circle at 35% 35%, #f0f3f5, #a3b1bd, #637585);
+                                        border-radius: 50%;
+                                        border: 4px solid #c7d2da;
+                                        box-shadow: 0 15px 35px rgba(0,0,0,0.4), inset 0 0 20px rgba(255,255,255,0.7);
+                                        display: flex; align-items: center; justify-content: center;
+                                        animation: sealPulse 2s infinite ease-in-out;
+                                    }
+
+                                    .seal-inner::after {
+                                        content: '';
+                                        position: absolute;
+                                        width: 110px; height: 110px;
+                                        border: 1px solid rgba(255,255,255,0.5);
+                                        border-radius: 50%;
+                                        box-shadow: inset 0 4px 10px rgba(0,0,0,0.2);
+                                    }
+
+                                    .seal-text {
+                                        color: #fff;
+                                        font-family: 'Cinzel', serif;
+                                        font-size: 16px;
+                                        font-weight: 700;
+                                        letter-spacing: 2px;
+                                        text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+                                        z-index: 2;
+                                    }
+
+                                    @keyframes sealPulse {
+                                        0%, 100% { transform: scale(1); box-shadow: 0 15px 35px rgba(0,0,0,0.4); }
+                                        50% { transform: scale(1.05); box-shadow: 0 20px 45px rgba(0,0,0,0.5); }
+                                    }
+
+                                    .wax-seal-btn:hover {
+                                        transform: translate(-50%, -50%) scale(1.05);
+                                    }
+
+                                    /* При відкритті печатка зникає */
+                                    .fullscreen-envelope-wrapper.is-open .wax-seal-btn {
+                                        opacity: 0; pointer-events: none;
+                                        transform: translate(-50%, -50%) scale(0.5);
+                                    }
+
+                                </style>
+
+                                <!-- ========================================== -->
+                                <!-- СКРИПТ ВІДКРИТТЯ ТА СКРОЛУ                 -->
+                                <!-- ========================================== -->
+                                <script>
+                                    document.addEventListener("DOMContentLoaded", function() {
+                                        const seal = document.getElementById("seal");
+                                        const wrapper = document.getElementById("envelope-wrapper");
+
+                                        seal.addEventListener("click", function() {
+                                            // 1. Запускаємо анімацію
+                                            wrapper.classList.add("is-open");
+
+                                            // 2. Через 3.5 секунди (після того як лист виїхав) плавно скролимо вниз
+                                            setTimeout(() => {
+                                                // Знаходимо найближчу секцію Divi після конверта
+                                                const nextSection = wrapper.closest('.et_pb_section') ? wrapper.closest('.et_pb_section').nextElementSibling : wrapper.nextElementSibling;
+
+                                                if(nextSection) {
+                                                    nextSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                                } else {
+                                                    window.scrollBy({ top: window.innerHeight * 0.9, behavior: 'smooth' });
+                                                }
+                                            }, 3500);
+                                        });
+                                    });
+                                </script>
+                                <!-- ========================================== -->
+
 
                             </div>
-
-                            <!-- ========================================== -->
-                            <!-- СТИЛІ (ГРАНДІОЗНИЙ ДИЗАЙН)                 -->
-                            <!-- ========================================== -->
-                            <style>
-                                @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
-
-                                body, html { margin: 0; padding: 0; }
-                                #main-header { display: none !important; } /* Ховаємо меню */
-
-                                /* 1. БЛОК НА ВЕСЬ ЕКРАН */
-                                .fullscreen-envelope-wrapper {
-                                    position: relative;
-                                    width: 100vw;
-                                    height: 100vh;
-                                    height: 100dvh; /* Захист для мобільних браузерів */
-                                    background-color: #8faec2; /* Темний колір всередині конверта */
-                                    overflow: hidden;
-                                    perspective: 1500px;
-                                    z-index: 100;
-                                    display: block;
-                                }
-
-                                /* 2. ЛИСТ (Великий, красивий) */
-                                .env-letter {
-                                    position: absolute;
-                                    bottom: -10vh; /* Схований внизу */
-                                    left: 50%;
-                                    transform: translateX(-50%);
-                                    width: 90vw;
-                                    max-width: 550px;
-                                    height: 85vh; /* Лист на 85% висоти екрана */
-                                    max-height: 800px;
-                                    background: #ffffff;
-                                    box-shadow: 0 -10px 30px rgba(0,0,0,0.2);
-                                    border-radius: 4px;
-                                    z-index: 2; /* Під передніми вушками */
-                                    padding: 15px;
-                                    box-sizing: border-box;
-                                    transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s, z-index 0s 0.6s;
-                                }
-
-                                /* Коли конверт відкривається: лист виїжджає і стає поверх вушок (z-index: 6) */
-                                .fullscreen-envelope-wrapper.is-open .env-letter {
-                                    transform: translateX(-50%) translateY(-25vh); /* Виїжджає високо вгору */
-                                    z-index: 6;
-                                }
-
-                                /* Внутрішня красива рамка листа */
-                                .letter-border {
-                                    border: 1px solid #d4c4a8; /* Золотисто-бежева рамка */
-                                    width: 100%;
-                                    height: 100%;
-                                    display: flex;
-                                    flex-direction: column;
-                                    justify-content: space-evenly; /* Ідеально розподіляє текст */
-                                    align-items: center;
-                                    padding: 5% 8%;
-                                    box-sizing: border-box;
-                                    text-align: center;
-                                    background: linear-gradient(to bottom, #ffffff, #fafafa);
-                                }
-
-                                /* ТИПОГРАФІКА ЛИСТА */
-                                .top-label {
-                                    font-family: 'Cinzel', serif;
-                                    font-size: clamp(12px, 3vw, 16px);
-                                    letter-spacing: 4px;
-                                    color: #b09975;
-                                }
-
-                                .letter-names {
-                                    display: flex;
-                                    flex-direction: column;
-                                    align-items: center;
-                                    gap: 5px;
-                                }
-
-                                .name {
-                                    font-family: 'Cinzel', serif;
-                                    font-size: clamp(34px, 8vw, 56px);
-                                    color: #13275b;
-                                    line-height: 1;
-                                }
-
-                                .ampersand {
-                                    font-family: 'Great Vibes', cursive;
-                                    font-size: clamp(36px, 8vw, 50px);
-                                    color: #b09975;
-                                    line-height: 0.8;
-                                }
-
-                                .letter-subtitle {
-                                    font-family: 'Great Vibes', cursive;
-                                    font-size: clamp(26px, 6vw, 38px);
-                                    color: #13275b;
-                                    margin-top: -5px;
-                                }
-
-                                .gold-line {
-                                    width: 60%;
-                                    height: 1px;
-                                    background: linear-gradient(to right, transparent, #b09975, transparent);
-                                }
-
-                                .letter-date {
-                                    font-family: 'Cormorant Garamond', serif;
-                                    font-size: clamp(22px, 5vw, 32px);
-                                    font-weight: 600;
-                                    letter-spacing: 3px;
-                                    color: #13275b;
-                                }
-
-                                .letter-text {
-                                    font-family: 'Cormorant Garamond', serif;
-                                    font-size: clamp(16px, 4vw, 22px);
-                                    font-style: italic;
-                                    line-height: 1.5;
-                                    color: #333;
-                                    max-width: 400px;
-                                }
-
-
-                                /* 3. ЧАСТИНИ КОНВЕРТА (Натягнуті на екран) */
-                                .env-flap {
-                                    position: absolute;
-                                    filter: drop-shadow(0 0 15px rgba(0,0,0,0.2));
-                                }
-
-                                .flap-left {
-                                    top: 0; left: 0; bottom: 0; width: 50vw;
-                                    background: linear-gradient(to right, #a5cce0, #B9D9EB);
-                                    clip-path: polygon(0 0, 100% 50%, 0 100%);
-                                    z-index: 3;
-                                }
-
-                                .flap-right {
-                                    top: 0; right: 0; bottom: 0; width: 50vw;
-                                    background: linear-gradient(to left, #a5cce0, #B9D9EB);
-                                    clip-path: polygon(100% 0, 0 50%, 100% 100%);
-                                    z-index: 3;
-                                }
-
-                                .flap-bottom {
-                                    bottom: 0; left: 0; right: 0; height: 60vh;
-                                    background: linear-gradient(to top, #B9D9EB 50%, #d4e8f4);
-                                    clip-path: polygon(0 100%, 50% 0, 100% 100%);
-                                    z-index: 4;
-                                    display: flex;
-                                    align-items: flex-end;
-                                    justify-content: center;
-                                    padding-bottom: 10vh;
-                                }
-
-                                .flap-top {
-                                    top: 0; left: 0; right: 0; height: 50vh;
-                                    background: linear-gradient(to bottom, #dbeff9, #B9D9EB);
-                                    clip-path: polygon(0 0, 100% 0, 50% 100%);
-                                    transform-origin: top;
-                                    z-index: 5;
-                                    transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
-                                }
-
-                                /* Коли відкрито - верхня кришка відкидається */
-                                .fullscreen-envelope-wrapper.is-open .flap-top {
-                                    transform: rotateX(180deg);
-                                    z-index: 1; /* Падає на задній план */
-                                    filter: drop-shadow(0 0 0 transparent);
-                                }
-
-                                /* Текст ззовні конверта */
-                                .front-cover-text {
-                                    text-align: center;
-                                    color: #13275b;
-                                }
-                                .front-initials {
-                                    font-family: 'Cinzel', serif;
-                                    font-size: clamp(32px, 7vw, 50px);
-                                    letter-spacing: 5px;
-                                    margin: 0 0 5px 0;
-                                }
-                                .front-title {
-                                    font-family: 'Great Vibes', cursive;
-                                    font-size: clamp(28px, 6vw, 42px);
-                                    margin: 0;
-                                }
-
-                                /* 4. СРІБНА ПЕЧАТКА (Велика кнопка по центру) */
-                                .wax-seal-btn {
-                                    position: absolute;
-                                    top: 50vh; left: 50vw;
-                                    transform: translate(-50%, -50%);
-                                    width: 140px; height: 140px;
-                                    z-index: 10;
-                                    cursor: pointer;
-                                    transition: all 0.4s ease;
-                                }
-
-                                .seal-inner {
-                                    width: 100%; height: 100%;
-                                    background: radial-gradient(circle at 35% 35%, #f0f3f5, #a3b1bd, #637585);
-                                    border-radius: 50%;
-                                    border: 4px solid #c7d2da;
-                                    box-shadow: 0 15px 35px rgba(0,0,0,0.4), inset 0 0 20px rgba(255,255,255,0.7);
-                                    display: flex; align-items: center; justify-content: center;
-                                    animation: sealPulse 2s infinite ease-in-out;
-                                }
-
-                                .seal-inner::after {
-                                    content: '';
-                                    position: absolute;
-                                    width: 110px; height: 110px;
-                                    border: 1px solid rgba(255,255,255,0.5);
-                                    border-radius: 50%;
-                                    box-shadow: inset 0 4px 10px rgba(0,0,0,0.2);
-                                }
-
-                                .seal-text {
-                                    color: #fff;
-                                    font-family: 'Cinzel', serif;
-                                    font-size: 16px;
-                                    font-weight: 700;
-                                    letter-spacing: 2px;
-                                    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
-                                    z-index: 2;
-                                }
-
-                                @keyframes sealPulse {
-                                    0%, 100% { transform: scale(1); box-shadow: 0 15px 35px rgba(0,0,0,0.4); }
-                                    50% { transform: scale(1.05); box-shadow: 0 20px 45px rgba(0,0,0,0.5); }
-                                }
-
-                                .wax-seal-btn:hover {
-                                    transform: translate(-50%, -50%) scale(1.05);
-                                }
-
-                                /* При відкритті печатка зникає */
-                                .fullscreen-envelope-wrapper.is-open .wax-seal-btn {
-                                    opacity: 0; pointer-events: none;
-                                    transform: translate(-50%, -50%) scale(0.5);
-                                }
-
-                            </style>
-
-                            <!-- ========================================== -->
-                            <!-- СКРИПТ ВІДКРИТТЯ ТА СКРОЛУ                 -->
-                            <!-- ========================================== -->
-                            <script>
-                                document.addEventListener("DOMContentLoaded", function() {
-                                    const seal = document.getElementById("seal");
-                                    const wrapper = document.getElementById("envelope-wrapper");
-
-                                    seal.addEventListener("click", function() {
-                                        // 1. Запускаємо анімацію
-                                        wrapper.classList.add("is-open");
-
-                                        // 2. Через 3.5 секунди (після того як лист виїхав) плавно скролимо вниз
-                                        setTimeout(() => {
-                                            // Знаходимо найближчу секцію Divi після конверта
-                                            const nextSection = wrapper.closest('.et_pb_section') ? wrapper.closest('.et_pb_section').nextElementSibling : wrapper.nextElementSibling;
-
-                                            if(nextSection) {
-                                                nextSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                                            } else {
-                                                window.scrollBy({ top: window.innerHeight * 0.9, behavior: 'smooth' });
-                                            }
-                                        }, 3500);
-                                    });
-                                });
-                            </script>
-                            <!-- ========================================== -->
 
                             <div class="et_pb_section et_pb_section_1 et_pb_with_background et_section_regular" >
 
