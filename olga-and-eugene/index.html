@@ -114,23 +114,21 @@ permalink: /olga-and-eugene
 
 
                                 <!-- ========================================== -->
-                                <!-- ПОВНОЕКРАННИЙ КОНВЕРТ (ВІД КРАЮ ДО КРАЮ)   -->
+                                <!-- ПОВНОЕКРАННИЙ КОНВЕРТ З ПЛАВНОЮ АНІМАЦІЄЮ   -->
                                 <!-- ========================================== -->
                                 <div class="fullscreen-envelope-wrapper" id="envelope-wrapper">
 
-                                    <!-- Задній фон (внутрішність конверта) -->
+                                    <!-- Задній фон -->
                                     <div class="env-back"></div>
 
-                                    <!-- ЛИСТ (Виїжджає вгору) -->
+                                    <!-- ЛИСТ -->
                                     <div class="env-letter" id="letter">
                                         <div class="letter-border">
 
-                                            <!-- Шапка листа -->
                                             <div class="letter-top">
                                                 <span class="top-label">ЗАПРОШЕННЯ</span>
                                             </div>
 
-                                            <!-- Імена -->
                                             <div class="letter-names">
                                                 <div class="name">Євген</div>
                                                 <div class="ampersand">&amp;</div>
@@ -139,13 +137,10 @@ permalink: /olga-and-eugene
 
                                             <div class="letter-subtitle">запрошують вас на весілля</div>
 
-                                            <!-- Золота лінія -->
                                             <div class="gold-line"></div>
 
-                                            <!-- Дата -->
                                             <div class="letter-date">06 . 06 . 2026</div>
 
-                                            <!-- Головний текст -->
                                             <div class="letter-text">
                                                 Будемо щасливі розділити з вами один із найщасливіших днів нашого життя — день нашого весілля 🤍
                                             </div>
@@ -153,10 +148,11 @@ permalink: /olga-and-eugene
                                         </div>
                                     </div>
 
-                                    <!-- ВУШКА КОНВЕРТА (Прив'язані до країв екрана) -->
+                                    <!-- Бокові частини -->
                                     <div class="env-flap flap-left"></div>
                                     <div class="env-flap flap-right"></div>
 
+                                    <!-- Нижня частина -->
                                     <div class="env-flap flap-bottom">
                                         <div class="front-cover-text">
                                             <div class="front-initials">Є | О</div>
@@ -164,10 +160,10 @@ permalink: /olga-and-eugene
                                         </div>
                                     </div>
 
-                                    <!-- Верхній клапан (Відкривається) -->
+                                    <!-- Верхній клапан -->
                                     <div class="env-flap flap-top" id="flap-top"></div>
 
-                                    <!-- ПЕЧАТКА -->
+                                    <!-- Печатка -->
                                     <div class="wax-seal-btn" id="seal">
                                         <div class="seal-inner">
                                             <span class="seal-text">ВІДКРИТИ</span>
@@ -176,71 +172,159 @@ permalink: /olga-and-eugene
 
                                 </div>
 
-                                <!-- ========================================== -->
-                                <!-- СТИЛІ (ГРАНДІОЗНИЙ ДИЗАЙН)                 -->
-                                <!-- ========================================== -->
                                 <style>
                                     @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
 
-                                    body, html { margin: 0; padding: 0; }
-                                    #main-header { display: none !important; } /* Ховаємо меню */
+                                    html, body {
+                                        margin: 0;
+                                        padding: 0;
+                                    }
 
-                                    /* 1. БЛОК НА ВЕСЬ ЕКРАН */
+                                    #main-header {
+                                        display: none !important;
+                                    }
+
                                     .fullscreen-envelope-wrapper {
                                         position: relative;
                                         width: 100vw;
                                         height: 100vh;
-                                        height: 100dvh; /* Захист для мобільних браузерів */
-                                        background-color: #8faec2; /* Темний колір всередині конверта */
+                                        height: 100dvh;
                                         overflow: hidden;
-                                        perspective: 1500px;
+                                        perspective: 2200px;
                                         z-index: 100;
                                         display: block;
+                                        background: #f4f7f9;
                                         transform: translateY(-15px);
-
                                     }
 
-                                    /* 2. ЛИСТ (Великий, красивий) */
+                                    .env-back {
+                                        position: absolute;
+                                        inset: 0;
+                                        background-color: #8faec2;
+                                        z-index: 1;
+                                    }
+
+                                    .env-flap {
+                                        position: absolute;
+                                        will-change: transform;
+                                    }
+
+                                    .flap-left {
+                                        top: 0;
+                                        left: 0;
+                                        bottom: 0;
+                                        width: 50vw;
+                                        background: linear-gradient(to right, #a5cce0, #B9D9EB);
+                                        clip-path: polygon(0 0, 100% 50%, 0 100%);
+                                        z-index: 3;
+                                        transition: transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+                                    }
+
+                                    .flap-right {
+                                        top: 0;
+                                        right: 0;
+                                        bottom: 0;
+                                        width: 50vw;
+                                        background: linear-gradient(to left, #a5cce0, #B9D9EB);
+                                        clip-path: polygon(100% 0, 0 50%, 100% 100%);
+                                        z-index: 3;
+                                        transition: transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+                                    }
+
+                                    .flap-bottom {
+                                        bottom: 0;
+                                        left: 0;
+                                        right: 0;
+                                        height: 60vh;
+                                        background: linear-gradient(to top, #B9D9EB 50%, #d4e8f4);
+                                        clip-path: polygon(0 100%, 50% 0, 100% 100%);
+                                        z-index: 4;
+                                        display: flex;
+                                        align-items: flex-end;
+                                        justify-content: center;
+                                        padding-bottom: 10vh;
+                                        box-sizing: border-box;
+                                        transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+                                    }
+
+                                    .flap-top {
+                                        top: 0;
+                                        left: 0;
+                                        right: 0;
+                                        height: 50vh;
+                                        background: linear-gradient(to bottom, #dbeff9, #B9D9EB);
+                                        clip-path: polygon(0 0, 100% 0, 50% 100%);
+                                        transform-origin: top center;
+                                        transform: perspective(2200px) rotateX(0deg);
+                                        z-index: 5;
+                                        transition:
+                                                transform 1.25s cubic-bezier(0.22, 1, 0.36, 1),
+                                                filter 1s ease,
+                                                opacity 0.6s ease;
+                                        will-change: transform;
+                                        backface-visibility: hidden;
+                                        filter: drop-shadow(0 10px 18px rgba(0,0,0,0.08));
+                                    }
+
+                                    .front-cover-text {
+                                        text-align: center;
+                                        color: #13275b;
+                                        transform: translateY(0);
+                                        transition: transform 1.1s ease, opacity 0.8s ease;
+                                    }
+
+                                    .front-initials {
+                                        font-family: 'Cinzel', serif;
+                                        font-size: clamp(32px, 7vw, 50px);
+                                        letter-spacing: 5px;
+                                        margin: 0 0 5px 0;
+                                    }
+
+                                    .front-title {
+                                        font-family: 'Great Vibes', cursive;
+                                        font-size: clamp(28px, 6vw, 42px);
+                                        margin: 0;
+                                    }
+
                                     .env-letter {
                                         position: absolute;
-                                        bottom: -10vh; /* Схований внизу */
+                                        bottom: -12vh;
                                         left: 50%;
-                                        transform: translateX(-50%);
+                                        transform: translateX(-50%) translateY(0) scale(0.985);
                                         width: 90vw;
                                         max-width: 550px;
-                                        height: 85vh; /* Лист на 85% висоти екрана */
+                                        height: 85vh;
                                         max-height: 800px;
                                         background: #ffffff;
-                                        box-shadow: 0 -10px 30px rgba(0,0,0,0.2);
-                                        border-radius: 4px;
-                                        z-index: 2; /* Під передніми вушками */
+                                        box-shadow: 0 -12px 34px rgba(0,0,0,0.16);
+                                        border-radius: 6px;
+                                        z-index: 2;
                                         padding: 15px;
                                         box-sizing: border-box;
-                                        transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s, z-index 0s 0.6s;
+                                        transition:
+                                                transform 1.45s cubic-bezier(0.22, 1, 0.36, 1) 0.38s,
+                                                box-shadow 1.2s ease 0.38s,
+                                                z-index 0s linear 0.7s;
+                                        will-change: transform;
                                     }
 
-                                    /* Коли конверт відкривається: лист виїжджає і стає поверх вушок (z-index: 6) */
-                                    .fullscreen-envelope-wrapper.is-open .env-letter {
-                                        transform: translateX(-50%) translateY(-25vh); /* Виїжджає високо вгору */
-                                        z-index: 6;
-                                    }
-
-                                    /* Внутрішня красива рамка листа */
                                     .letter-border {
-                                        border: 1px solid #d4c4a8; /* Золотисто-бежева рамка */
+                                        border: 1px solid #d4c4a8;
                                         width: 100%;
                                         height: 100%;
                                         display: flex;
                                         flex-direction: column;
-                                        justify-content: space-evenly; /* Ідеально розподіляє текст */
+                                        justify-content: space-evenly;
                                         align-items: center;
                                         padding: 5% 8%;
                                         box-sizing: border-box;
                                         text-align: center;
                                         background: linear-gradient(to bottom, #ffffff, #fafafa);
+                                        opacity: 0;
+                                        transform: translateY(16px);
+                                        transition: opacity 0.9s ease 1.05s, transform 0.9s ease 1.05s;
                                     }
 
-                                    /* ТИПОГРАФІКА ЛИСТА */
                                     .top-label {
                                         font-family: 'Cinzel', serif;
                                         font-size: clamp(12px, 3vw, 16px);
@@ -299,96 +383,42 @@ permalink: /olga-and-eugene
                                         max-width: 400px;
                                     }
 
-
-                                    /* 3. ЧАСТИНИ КОНВЕРТА (Натягнуті на екран) */
-                                    .env-flap {
-                                        position: absolute;
-                                        filter: drop-shadow(0 0 15px rgba(0,0,0,0.2));
-                                    }
-
-                                    .flap-left {
-                                        top: 0; left: 0; bottom: 0; width: 50vw;
-                                        background: linear-gradient(to right, #a5cce0, #B9D9EB);
-                                        clip-path: polygon(0 0, 100% 50%, 0 100%);
-                                        z-index: 3;
-                                    }
-
-                                    .flap-right {
-                                        top: 0; right: 0; bottom: 0; width: 50vw;
-                                        background: linear-gradient(to left, #a5cce0, #B9D9EB);
-                                        clip-path: polygon(100% 0, 0 50%, 100% 100%);
-                                        z-index: 3;
-                                    }
-
-                                    .flap-bottom {
-                                        bottom: 0; left: 0; right: 0; height: 60vh;
-                                        background: linear-gradient(to top, #B9D9EB 50%, #d4e8f4);
-                                        clip-path: polygon(0 100%, 50% 0, 100% 100%);
-                                        z-index: 4;
-                                        display: flex;
-                                        align-items: flex-end;
-                                        justify-content: center;
-                                        padding-bottom: 10vh;
-                                    }
-
-                                    .flap-top {
-                                        top: 0; left: 0; right: 0; height: 50vh;
-                                        background: linear-gradient(to bottom, #dbeff9, #B9D9EB);
-                                        clip-path: polygon(0 0, 100% 0, 50% 100%);
-                                        transform-origin: top;
-                                        z-index: 5;
-                                        transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
-                                    }
-
-                                    /* Коли відкрито - верхня кришка відкидається */
-                                    .fullscreen-envelope-wrapper.is-open .flap-top {
-                                        transform: rotateX(180deg);
-                                        z-index: 1; /* Падає на задній план */
-                                        filter: drop-shadow(0 0 0 transparent);
-                                    }
-
-                                    /* Текст ззовні конверта */
-                                    .front-cover-text {
-                                        text-align: center;
-                                        color: #13275b;
-                                    }
-                                    .front-initials {
-                                        font-family: 'Cinzel', serif;
-                                        font-size: clamp(32px, 7vw, 50px);
-                                        letter-spacing: 5px;
-                                        margin: 0 0 5px 0;
-                                    }
-                                    .front-title {
-                                        font-family: 'Great Vibes', cursive;
-                                        font-size: clamp(28px, 6vw, 42px);
-                                        margin: 0;
-                                    }
-
-                                    /* 4. СРІБНА ПЕЧАТКА (Велика кнопка по центру) */
                                     .wax-seal-btn {
                                         position: absolute;
-                                        top: 50vh; left: 50vw;
-                                        transform: translate(-50%, -50%);
-                                        width: 140px; height: 140px;
+                                        top: 50vh;
+                                        left: 50vw;
+                                        transform: translate(-50%, -50%) scale(1);
+                                        width: 140px;
+                                        height: 140px;
                                         z-index: 10;
                                         cursor: pointer;
-                                        transition: all 0.4s ease;
+                                        transition:
+                                                transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+                                                opacity 0.55s ease,
+                                                filter 0.4s ease;
+                                        will-change: transform, opacity;
                                     }
 
                                     .seal-inner {
-                                        width: 100%; height: 100%;
+                                        width: 100%;
+                                        height: 100%;
                                         background: radial-gradient(circle at 35% 35%, #f0f3f5, #a3b1bd, #637585);
                                         border-radius: 50%;
                                         border: 4px solid #c7d2da;
-                                        box-shadow: 0 15px 35px rgba(0,0,0,0.4), inset 0 0 20px rgba(255,255,255,0.7);
-                                        display: flex; align-items: center; justify-content: center;
-                                        animation: sealPulse 2s infinite ease-in-out;
+                                        box-shadow:
+                                                0 15px 35px rgba(0,0,0,0.35),
+                                                inset 0 0 20px rgba(255,255,255,0.7);
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        animation: sealPulse 2.4s ease-in-out infinite;
                                     }
 
                                     .seal-inner::after {
                                         content: '';
                                         position: absolute;
-                                        width: 110px; height: 110px;
+                                        width: 110px;
+                                        height: 110px;
                                         border: 1px solid rgba(255,255,255,0.5);
                                         border-radius: 50%;
                                         box-shadow: inset 0 4px 10px rgba(0,0,0,0.2);
@@ -405,48 +435,84 @@ permalink: /olga-and-eugene
                                     }
 
                                     @keyframes sealPulse {
-                                        0%, 100% { transform: scale(1); box-shadow: 0 15px 35px rgba(0,0,0,0.4); }
-                                        50% { transform: scale(1.05); box-shadow: 0 20px 45px rgba(0,0,0,0.5); }
+                                        0%, 100% {
+                                            transform: scale(1);
+                                            box-shadow: 0 15px 35px rgba(0,0,0,0.35);
+                                        }
+                                        50% {
+                                            transform: scale(1.04);
+                                            box-shadow: 0 18px 42px rgba(0,0,0,0.42);
+                                        }
                                     }
 
                                     .wax-seal-btn:hover {
-                                        transform: translate(-50%, -50%) scale(1.05);
+                                        transform: translate(-50%, -50%) scale(1.04);
+                                        filter: brightness(1.03);
                                     }
 
-                                    /* При відкритті печатка зникає */
+                                    .fullscreen-envelope-wrapper.is-open .flap-top {
+                                        transform: perspective(2200px) rotateX(-178deg);
+                                        z-index: 1;
+                                        filter: drop-shadow(0 8px 14px rgba(0,0,0,0.05));
+                                    }
+
+                                    .fullscreen-envelope-wrapper.is-open .env-letter {
+                                        transform: translateX(-50%) translateY(-28vh) scale(1);
+                                        z-index: 6;
+                                        box-shadow: 0 24px 46px rgba(0,0,0,0.18);
+                                    }
+
+                                    .fullscreen-envelope-wrapper.is-open .letter-border {
+                                        opacity: 1;
+                                        transform: translateY(0);
+                                    }
+
                                     .fullscreen-envelope-wrapper.is-open .wax-seal-btn {
-                                        opacity: 0; pointer-events: none;
-                                        transform: translate(-50%, -50%) scale(0.5);
+                                        opacity: 0;
+                                        pointer-events: none;
+                                        transform: translate(-50%, -50%) scale(0.72);
                                     }
 
+                                    @media (max-width: 768px) {
+                                        .wax-seal-btn {
+                                            width: 112px;
+                                            height: 112px;
+                                        }
+
+                                        .seal-inner::after {
+                                            width: 86px;
+                                            height: 86px;
+                                        }
+
+                                        .seal-text {
+                                            font-size: 14px;
+                                            letter-spacing: 1px;
+                                        }
+
+                                        .fullscreen-envelope-wrapper.is-open .env-letter {
+                                            transform: translateX(-50%) translateY(-24vh) scale(1);
+                                        }
+                                    }
                                 </style>
 
-                                <!-- ========================================== -->
-                                <!-- СКРИПТ ВІДКРИТТЯ ТА СКРОЛУ                 -->
-                                <!-- ========================================== -->
                                 <script>
                                     document.addEventListener("DOMContentLoaded", function() {
                                         const seal = document.getElementById("seal");
                                         const wrapper = document.getElementById("envelope-wrapper");
+                                        let opened = false;
+
+                                        if (!seal || !wrapper) return;
 
                                         seal.addEventListener("click", function() {
-                                            // 1. Запускаємо анімацію
+                                            if (opened) return;
+                                            opened = true;
+
                                             wrapper.classList.add("is-open");
-
-                                            // 2. Через 3.5 секунди (після того як лист виїхав) плавно скролимо вниз
-                                            setTimeout(() => {
-                                                // Знаходимо найближчу секцію Divi після конверта
-                                                const nextSection = wrapper.closest('.et_pb_section') ? wrapper.closest('.et_pb_section').nextElementSibling : wrapper.nextElementSibling;
-
-                                                if(nextSection) {
-                                                    nextSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                                                } else {
-                                                    window.scrollBy({ top: window.innerHeight * 0.9, behavior: 'smooth' });
-                                                }
-                                            }, 3500);
                                         });
                                     });
                                 </script>
+                                <!-- ========================================== -->
+                                <!-- КІНЕЦЬ БЛОКУ                               -->
                                 <!-- ========================================== -->
 
 
@@ -649,56 +715,9 @@ permalink: /olga-and-eugene
 
 
 
+                        </div>
 
-
-
-                            <div class="et_pb_row et_pb_row_2">
-                                <div class="et_pb_column et_pb_column_4_4 et_pb_column_2  et_pb_css_mix_blend_mode_passthrough et-last-child">
-
-
-
-
-                                    <div class="et_pb_module et_pb_divider_1 et_pb_space et_pb_divider_hidden"><div class="et_pb_divider_internal"></div></div>
-                                </div>
-
-
-
-
-                            </div>
-
-
-                        </div><div class="et_pb_section et_pb_section_4 et_pb_with_background et_section_regular" >
-
-
-
-
-
-
-                            <div class="et_pb_row et_pb_row_3">
-                                <div class="et_pb_column et_pb_column_4_4 et_pb_column_3  et_pb_css_mix_blend_mode_passthrough et-last-child">
-
-                                    <!-- Заголовок -->
-                                    <div class="et_pb_module et_pb_text et_pb_text_3 et_animated  et_pb_text_align_left et_pb_bg_layout_light">
-                                        <div class="et_pb_text_inner">
-                                            <p style="text-align: center;">Дорогі рідні та друзі!</p>
-                                        </div>
-                                    </div>
-
-                                    <!-- Основний текст (стиснутий по краях) -->
-                                    <div class="et_pb_module et_pb_text et_pb_text_4 et_animated  et_pb_text_align_left et_pb_bg_layout_light">
-                                        <div class="et_pb_text_inner">
-                                            <!-- width та max-width стискають текст, margin: 0 auto - тримає його строго по центру -->
-                                            <p style="text-align: center; width: 80%; max-width: 280px; margin: 0 auto; line-height: 1.5;">
-                                                Будемо щасливі розділити з вами один із найщасливіших днів нашого життя — день нашого весілля 🤍
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-
-
-                        </div><div class="et_pb_section et_pb_section_5 et_pb_with_background et_section_regular" >
+                            <div class="et_pb_section et_pb_section_5 et_pb_with_background et_section_regular" >
 
 
 
