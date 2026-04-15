@@ -258,6 +258,92 @@ permalink: /maksim-and-anastasia
         .music-btn.playing { animation: pulse-btn 2s infinite; background: #1a1a1a; }
         @keyframes pulse-btn { 0%{box-shadow: 0 0 0 0 rgba(192, 160, 128, 0.4);} 70%{box-shadow: 0 0 0 10px rgba(192, 160, 128, 0);} 100%{box-shadow: 0 0 0 0 rgba(192, 160, 128, 0);} }
 
+        /* --- 8.5 POOL PARTY (ВТОРОЙ ДЕНЬ) --- */
+        .pool-party {
+            background-color: var(--color-black);
+            color: var(--color-white);
+            padding: 80px 30px 60px;
+            text-align: center;
+            position: relative;
+            z-index: 7;
+            border-top-right-radius: 150px;
+            margin-top: -60px; /* Наложение на предыдущий белый блок */
+        }
+
+        .pool-photo-wrapper {
+            width: 100%;
+            max-width: 340px;
+            height: 450px;
+            margin: 0 auto 40px;
+            border-radius: 200px 200px 0 0; /* Форма арки */
+            border: 1px solid var(--color-gold);
+            padding: 8px;
+        }
+
+        .pool-photo-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 192px 192px 0 0;
+            filter: brightness(0.9);
+        }
+
+        .pool-title {
+            font-size: 32px;
+            color: var(--color-gold);
+            line-height: 1.1;
+            margin-bottom: 25px;
+            letter-spacing: 2px;
+        }
+
+        .pool-subtitle {
+            display: block;
+            font-size: 14px;
+            color: var(--color-white);
+            letter-spacing: 4px;
+            margin-top: 10px;
+        }
+
+        .pool-text-block {
+            font-family: var(--font-body);
+            font-size: 14px;
+            line-height: 1.7;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            text-transform: none;
+            color: #fff;
+        }
+
+        .pool-info-box {
+            border-top: 1px solid rgba(192, 160, 128, 0.3);
+            border-bottom: 1px solid rgba(192, 160, 128, 0.3);
+            padding: 20px 0;
+            margin: 0 auto 35px;
+            max-width: 280px;
+        }
+
+        .p-item {
+            font-family: var(--font-main);
+            font-size: 18px;
+            color: var(--color-white);
+            margin: 8px 0;
+        }
+
+        .p-item span {
+            font-family: var(--font-body);
+            font-size: 11px;
+            color: var(--color-gold);
+            letter-spacing: 2px;
+            margin-right: 10px;
+        }
+
+        .pool-signature {
+            font-family: var(--font-main);
+            font-size: 20px;
+            color: var(--color-gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
     </style>
 </head>
 <body>
@@ -427,6 +513,44 @@ permalink: /maksim-and-anastasia
             <div><div class="cd-num" id="s">0</div><div class="cd-lbl">Секунд</div></div>
         </div>
         <p style="margin-top:40px; font-size:10px; opacity:0.4; letter-spacing:2px;">M & A • 2026</p>
+    </section>
+
+    <!-- 8.5 POOL PARTY (ВТОРОЙ ДЕНЬ) -->
+    <section class="pool-party">
+        <div class="fade-up">
+
+            <!-- Фотография в рамке-арке -->
+            <div class="pool-photo-wrapper">
+                <img src="/assets/media/images/M-W-31-2.jpg" alt="Второй день свадьбы">
+            </div>
+
+            <h2 class="pool-title">
+                ВТОРОЙ ДЕНЬ
+                <span class="pool-subtitle">POOL PARTY</span>
+            </h2>
+
+            <div class="pool-text-block">
+                <p style="margin-bottom: 15px;">Дорогие друзья!</p>
+                <p style="margin-bottom: 15px;">
+                    Приглашаем вас на второй день нашей свадьбы — pool party в отеле «Palace Del Mar»!
+                </p>
+                <p>
+                    Дресс-код свободный, но не забудьте купальники и отличное настроение. Ждём всех с нетерпением!
+                </p>
+            </div>
+
+            <!-- Детали времени и места -->
+            <div class="pool-info-box">
+                <div class="p-item"><span>НАЧАЛО:</span> 12:00</div>
+                <div class="p-item"><span>ЛОКАЦИЯ:</span> Palace del Mar</div>
+            </div>
+
+            <div class="pool-signature">
+                <span style="font-size: 12px; display: block; color: #888; letter-spacing: 1px; margin-bottom: 5px;">С ЛЮБОВЬЮ,</span>
+                Максим и Анастасия
+            </div>
+
+        </div>
     </section>
 
     <!-- MUSIC (FIXED AUTOPLAY) -->
