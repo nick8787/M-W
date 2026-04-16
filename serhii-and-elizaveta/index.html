@@ -543,49 +543,66 @@ permalink: /serhii-and-elizaveta
     }, { once: true });
 
     // 4. Form Submission
+    // Обработка формы через Telegram
     document.getElementById('weddingForm').addEventListener('submit', async function(e) {
         e.preventDefault();
 
         const btn = e.target.querySelector('button');
+        const originalBtnText = btn.innerText;
         btn.innerText = "Надсилаємо...";
+        btn.disabled = true;
+
+        // ВАШИ ДАННЫЕ TELEGRAM
+        const BOT_TOKEN = '8742372339:AAEuNGqJlZPSxd9QPZXC02NUhxkKPmjnJSg';
+        const CHAT_ID = '-5007853131'; // <-- Вставьте сюда цифры из браузера
 
         const formData = new FormData(e.target);
 
-        const data = {
-            access_key: formData.get('access_key'),
-            from_name: "S and E - Wedding",
-            subject: "Нова анкета гостя",
-            "Ім'я та прізвище": formData.get("Імя_та_прізвище"),
-            "Присутність": formData.get("Присутність"),
-            "Чи буде з парою": formData.get("Пара"),
-            "Чи будуть дітки": formData.get("Дітки"),
-            "Побажання щодо пісні": formData.get("Побажання_щодо_пісні") || "Не вказано"
-        };
+        const name = formData.get("Імя_та_прізвище") || "Не вказано";
+        const presence = formData.get("Присутність") || "Не вказано";
+        const pair = formData.get("Пара") || "Не вказано";
+        const kids = formData.get("Дітки") || "Не вказано";
+        const song = formData.get("Побажання_щодо_пісні") || "Не вказано";
+
+        const textMessage = `
+💌 <b>Нова анкета від гостя!</b>
+
+👤 <b>Ім'я:</b> ${name}
+📅 <b>Присутність:</b> ${presence}
+👫 <b>Пара:</b> ${pair}
+👶 <b>Діти:</b> ${kids}
+🎵 <b>Пісня:</b> ${song}
+    `;
+
+        const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
 
         try {
-            const res = await fetch('https://api.web3forms.com/submit', {
+            const response = await fetch(url, {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
+                    'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(data)
+                body: JSON.stringify({
+                    chat_id: CHAT_ID,
+                    text: textMessage,
+                    parse_mode: 'HTML'
+                })
             });
 
-            const result = await res.json();
-
-            if (result.success) {
+            if (response.ok) {
                 document.getElementById('formMessage').innerHTML =
-                    '<span style="color: green">✅ Дякуємо! Ваша відповідь надіслана.</span>';
+                    '<span style="color: green">✅ Дякуємо! Ваша відповідь успішно надіслана.</span>';
                 e.target.reset();
             } else {
-                throw new Error('Server error');
+                throw new Error('Telegram API error');
             }
         } catch (error) {
+            console.error(error);
             document.getElementById('formMessage').innerHTML =
-                '<span style="color: red">❌ Помилка. Спробуйте пізніше.</span>';
+                '<span style="color: red">❌ Помилка з\'єднання. Спробуйте пізніше.</span>';
         } finally {
-            btn.innerText = "НАДІСЛАТИ";
+            btn.innerText = originalBtnText;
+            btn.disabled = false;
         }
     });
 </script>
