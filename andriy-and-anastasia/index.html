@@ -1275,57 +1275,74 @@ permalink: /andriy-and-anastasia
                                 <script>
                                     document.getElementById('weddingForm').addEventListener('submit', async function(e) {
                                         e.preventDefault();
+
                                         const form = e.target;
-                                        const formData = new FormData(form);
                                         const btn = form.querySelector('.btn-submit');
                                         const originalText = btn.innerText;
+                                        const formMessage = document.getElementById('formMessage');
 
-                                        // Меняем текст кнопки на время отправки
                                         btn.innerText = 'Відправляємо...';
+                                        btn.disabled = true;
 
-                                        // Собираем ВСЕ отмеченные напитки в одно поле «Алкоголь»
-                                        const drinksChecked = Array.from(form.querySelectorAll('input[name="Алкоголь[]"]:checked'))
-                                            .map(i => i.value);
-                                        formData.delete('Алкоголь[]');
-                                        if (drinksChecked.length) {
-                                            formData.append('Алкоголь', drinksChecked.join(', '));
-                                        } else {
-                                            // чтобы поле всё равно дошло пустым, если нужно
-                                            formData.append('Алкоголь', '—');
-                                        }
+                                        const BOT_TOKEN = '8739314514:AAER_Je0308yc2f_DG2hZv2DPKqR7t64nLw';
+                                        const CHAT_ID = '-1003906916636';
 
-                                        // --- ИСПРАВЛЕНИЕ КОДИРОВКИ ---
-                                        // Превращаем данные формы в JSON. Это гарантирует правильную передачу кириллицы (UTF-8)
-                                        const object = Object.fromEntries(formData);
-                                        const jsonBody = JSON.stringify(object);
+                                        const formData = new FormData(form);
+
+                                        const fullName = formData.get('Ім’я та прізвище') || 'Не вказано';
+                                        const attendance = formData.get('Чи плануєте ви бути на весіллі?') || 'Не вказано';
+                                        const wishes = formData.get('Ваші побажання') || 'Не вказано';
+
+                                        const alcoholChoices = Array.from(
+                                            form.querySelectorAll('input[name="Алкоголь[]"]:checked')
+                                        ).map(input => input.value);
+
+                                        const alcohol = alcoholChoices.length
+                                            ? alcoholChoices.join(', ')
+                                            : 'Не вказано';
+
+                                        const textMessage = `
+💌 <b>Нове опитування для гостей!</b>
+
+👤 <b>Ім’я та прізвище:</b> ${fullName}
+📅 <b>Чи планує бути на весіллі:</b> ${attendance}
+🥂 <b>Алкогольні побажання:</b> ${alcohol}
+✍️ <b>Побажання:</b> ${wishes}
+    `;
+
+                                        const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
 
                                         try {
-                                            // Отправляем запрос с явным указанием JSON заголовков
-                                            const res = await fetch(form.action, {
+                                            const response = await fetch(url, {
                                                 method: 'POST',
                                                 headers: {
-                                                    'Content-Type': 'application/json',
-                                                    'Accept': 'application/json'
+                                                    'Content-Type': 'application/json'
                                                 },
-                                                body: jsonBody
+                                                body: JSON.stringify({
+                                                    chat_id: CHAT_ID,
+                                                    text: textMessage,
+                                                    parse_mode: 'HTML'
+                                                })
                                             });
-                                            const json = await res.json();
 
-                                            if (json.success) {
-                                                document.getElementById('formMessage').textContent = '✅ Дякуємо! Ваші відповіді надіслані.';
-                                                document.getElementById('formMessage').style.color = 'green';
-                                                document.getElementById('formMessage').style.display = 'block';
+                                            if (response.ok) {
+                                                formMessage.textContent = '✅ Дякуємо! Ваші відповіді надіслані.';
+                                                formMessage.style.color = 'green';
+                                                formMessage.style.display = 'block';
                                                 form.reset();
                                             } else {
-                                                throw new Error(json.message || 'Помилка відправки');
+                                                const errorData = await response.json();
+                                                console.error('Telegram error:', errorData);
+                                                throw new Error('Telegram API error');
                                             }
                                         } catch (error) {
-                                            document.getElementById('formMessage').textContent = '❌ Сталася помилка. Спробуйте ще раз.';
-                                            document.getElementById('formMessage').style.color = 'red';
-                                            document.getElementById('formMessage').style.display = 'block';
+                                            console.error(error);
+                                            formMessage.textContent = '❌ Сталася помилка. Спробуйте ще раз.';
+                                            formMessage.style.color = 'red';
+                                            formMessage.style.display = 'block';
                                         } finally {
-                                            // Возвращаем текст кнопки обратно
                                             btn.innerText = originalText;
+                                            btn.disabled = false;
                                         }
                                     });
                                 </script>
