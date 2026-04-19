@@ -223,7 +223,9 @@ permalink: /denis-and-khrystina
                                                 <time class="wt-time">14:00</time>
                                             </div>
                                             <div class="wt-card-bottom">
-                                                <button class="wt-map" data-place="Монте Карло, вул, Адмірала Ушакова, 3, Люботин">Відкрити на мапі</button>
+                                                <button class="wt-map" data-url="https://www.google.com/maps/place/%D0%9C%D0%BE%D0%BD%D1%82%D0%B5+%D0%9A%D0%B0%D1%80%D0%BB%D0%BE/@49.9456849,35.9264718,17z/data=!3m1!4b1!4m6!3m5!1s0x41279a2137431ca5:0xa5d08fc52be51fc2!8m2!3d49.9456849!4d35.9290467!16s%2Fg%2F11ddzpvq68?entry=ttu&g_ep=EgoyMDI2MDQxNS4wIKXMDSoASAFQAw%3D%3D">
+                                                    Відкрити на мапі
+                                                </button>
                                             </div>
                                         </div>
                                     </li>
@@ -378,21 +380,12 @@ permalink: /denis-and-khrystina
 
                                 <script>
                                     function openMap(btn){
-                                        const lat = btn.getAttribute('data-lat');
-                                        const lng = btn.getAttribute('data-lng');
-                                        const place = btn.getAttribute('data-place');
-                                        const isiOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-                                        let url = '';
-                                        if (lat && lng){
-                                            url = isiOS
-                                                ? `https://maps.apple.com/?ll=${lat},${lng}&q=${lat},${lng}`
-                                                : `https://www.google.com/maps?q=${lat},${lng}`;
-                                        } else if (place){
-                                            const q = encodeURIComponent(place);
-                                            url = isiOS ? `https://maps.apple.com/?q=${q}` : `https://www.google.com/maps?q=${q}`;
-                                        }
+                                        // Берем прямую ссылку из кнопки
+                                        const url = btn.getAttribute('data-url');
+                                        // Открываем ее на любом устройстве (iPhone, Android, ПК)
                                         if (url) window.open(url, '_blank', 'noopener');
                                     }
+
                                     document.addEventListener('click', (e) => {
                                         const btn = e.target.closest('.wt-map');
                                         if (!btn) return;
