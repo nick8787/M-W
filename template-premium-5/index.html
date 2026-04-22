@@ -519,94 +519,29 @@ permalink: /template-premium-5
                                         Ми залишимо QR-код — щоб кожен, хто захоче, міг долучитися до доброї справи.
                                     </p>
 
-                                    <!-- QR-код -->
+                                    <!-- QR-код (клікабельний) -->
                                     <div class="wd-qr" style="text-align:center; margin:16px 0;">
-                                        <img src="/assets/media/orders/qr-code-demo.png"
-                                             alt="QR-код Monobank" width="180" height="180"
-                                             style="border-radius:12px; box-shadow:0 4px 16px rgba(0,0,0,.15);" />
+                                        <a href="https://send.monobank.ua/jar/7oQCCDtrBP" target="_blank" rel="noopener"
+                                           aria-label="Відкрити Monobank (посилання з QR-коду)"
+                                           style="display:inline-block;">
+                                            <img src="/assets/media/orders/qr-code-demo.png"
+                                                 alt="QR-код Monobank (натисніть, щоб відкрити)"
+                                                 width="190" height="190"
+                                                 style="border-radius:14px; box-shadow:0 8px 28px rgba(0,0,0,.16); cursor:pointer;" />
+                                        </a>
                                     </div>
 
-                                    <!-- Номер картки -->
-                                    <div class="wd-card-number" style="text-align:center; margin-top:12px;">
-                                        <p style="margin:0 0 8px; font-weight:600; font-size:15px; color:#333;">
-                                            1234&nbsp;5678&nbsp;9123&nbsp;4567
-                                        </p>
-                                        <button onclick="copyCardNumber()"
-                                                style="padding:8px 14px; font-size:14px; font-weight:600; border:none; border-radius:8px;
-                   background:#d6b889; color:#fff; cursor:pointer;">
-                                            Скопіювати номер
-                                        </button>
+                                    <div style="text-align:center; margin-top:10px;">
+                                        <a href="https://send.monobank.ua/jar/7oQCCDtrBP" target="_blank" rel="noopener"
+                                           style="display:inline-flex; align-items:center; justify-content:center; padding:10px 14px;
+                                                  font-size:14px; font-weight:700; border-radius:999px; text-decoration:none;
+                                                  background: linear-gradient(130deg, var(--gold-2), var(--gold-1)); color:#1d1c16;
+                                                  border:1px solid rgba(214,184,137,.55); box-shadow: 0 12px 28px rgba(214,184,137,.22);">
+                                            Відкрити посилання з QR‑коду
+                                        </a>
                                     </div>
                                 </article>
 
-                                <!-- Тост-попап -->
-                                <div id="toast" role="status" aria-live="polite" aria-atomic="true">Номер картки скопійовано ✅</div>
-
-                                <style>
-                                    #toast{
-                                        position: fixed;
-                                        left: 50%;
-                                        top: calc(env(safe-area-inset-top) + 18px);
-                                        transform: translate(-50%, -12px);
-                                        width: min(96vw, 720px);
-                                        max-width: 720px;
-                                        padding: 14px 18px;
-                                        text-align: center;
-
-                                        background: rgba(30,30,30,.92);
-                                        color: #fff;
-                                        font: 600 15px/1.35 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Montserrat", sans-serif;
-                                        border-radius: 12px;
-                                        box-shadow: 0 14px 34px rgba(0,0,0,.28), inset 0 0 0 1px rgba(255,255,255,.18);
-
-                                        opacity: 0;
-                                        pointer-events: none;
-                                        z-index: 99999;
-                                        transition: opacity .22s ease, transform .22s ease;
-                                    }
-                                    #toast.show{
-                                        opacity: 1;
-                                        transform: translate(-50%, 0);
-                                    }
-
-                                    @media (max-width: 360px){
-                                        #toast{ padding: 12px 14px; font-size: 14px; }
-                                    }
-                                </style>
-
-                                <script>
-                                    function showToast(msg, duration = 2000){
-                                        const el = document.getElementById('toast');
-                                        if (!el) return;
-                                        el.textContent = msg;
-                                        el.classList.add('show');
-                                        clearTimeout(showToast._t);
-                                        showToast._t = setTimeout(() => el.classList.remove('show'), duration);
-                                    }
-
-                                    function copyCardNumber() {
-                                        const cardNumber = "4874100028362898";
-                                        if (navigator.clipboard && navigator.clipboard.writeText){
-                                            navigator.clipboard.writeText(cardNumber)
-                                                .then(() => showToast("Номер картки скопійовано ✅"))
-                                                .catch(() => fallbackCopy(cardNumber));
-                                        } else {
-                                            fallbackCopy(cardNumber);
-                                        }
-                                    }
-
-                                    function fallbackCopy(text){
-                                        const ta = document.createElement('textarea');
-                                        ta.value = text;
-                                        ta.style.position = 'fixed';
-                                        ta.style.left = '-9999px';
-                                        document.body.appendChild(ta);
-                                        ta.select();
-                                        try { document.execCommand('copy'); } catch(e){}
-                                        document.body.removeChild(ta);
-                                        showToast("Номер картки скопійовано ✅");
-                                    }
-                                </script>
                             </div>
 
                             <style>
