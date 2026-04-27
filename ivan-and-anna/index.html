@@ -1006,10 +1006,7 @@ permalink: /ivan-and-anna
                                 <div class="survey-card">
                                     <h2 class="survey-title">Опитування для гостей</h2>
 
-                                    <form id="weddingForm" action="https://api.web3forms.com/submit" method="POST">
-                                        <input type="hidden" name="access_key" value="a4c2d331-aec8-4df7-8aa6-25df41493b98">
-                                        <input type="hidden" name="subject" value="Відповіді з весільної анкети">
-                                        <input type="hidden" name="from_name" value="Весільний сайт">
+                                    <form id="weddingForm" action="#" method="POST">
 
                                         <label class="question">Ваше ім’я та прізвище:</label>
                                         <input class="input" type="text" name="Ім’я та прізвище" placeholder="Введіть ваше ім’я та прізвище" required>
@@ -1114,61 +1111,89 @@ permalink: /ivan-and-anna
                                 </style>
 
                                 <script>
-                                    document.getElementById('weddingForm').addEventListener('submit', async function(e) {
-                                        e.preventDefault();
-                                        const form = e.target;
-                                        const formData = new FormData(form);
-                                        const btn = form.querySelector('.btn-submit');
-                                        const originalText = btn.innerText;
-
-                                        // Меняем текст кнопки на время отправки
-                                        btn.innerText = 'Відправляємо...';
-
-                                        // Собираем ВСЕ отмеченные напитки в одно поле «Алкоголь»
-                                        const drinksChecked = Array.from(form.querySelectorAll('input[name="Алкоголь[]"]:checked'))
-                                            .map(i => i.value);
-                                        formData.delete('Алкоголь[]');
-                                        if (drinksChecked.length) {
-                                            formData.append('Алкоголь', drinksChecked.join(', '));
-                                        } else {
-                                            // чтобы поле всё равно дошло пустым, если нужно
-                                            formData.append('Алкоголь', '—');
+                                    (function () {
+                                        function escapeHtml(s) {
+                                            if (s == null || s === '') return '';
+                                            return String(s)
+                                                .replace(/&/g, '&amp;')
+                                                .replace(/</g, '&lt;')
+                                                .replace(/>/g, '&gt;');
                                         }
 
-                                        // --- ИСПРАВЛЕНИЕ КОДИРОВКИ ---
-                                        // Превращаем данные формы в JSON. Это гарантирует правильную передачу кириллицы (UTF-8)
-                                        const object = Object.fromEntries(formData);
-                                        const jsonBody = JSON.stringify(object);
+                                        document.getElementById('weddingForm').addEventListener('submit', async function (e) {
+                                            e.preventDefault();
 
-                                        try {
-                                            // Отправляем запрос с явным указанием JSON заголовков
-                                            const res = await fetch(form.action, {
-                                                method: 'POST',
-                                                headers: {
-                                                    'Content-Type': 'application/json',
-                                                    'Accept': 'application/json'
-                                                },
-                                                body: jsonBody
+                                            const btn = e.target.querySelector('.btn-submit');
+                                            const originalBtnText = btn.innerText;
+                                            btn.innerText = 'Відправляємо...';
+                                            btn.disabled = true;
+
+                                            const BOT_TOKEN = '8598139329:AAFK0NhHgWiscBld6YLzhum0ejDX_lef4ig';
+                                            const CHAT_ID = '-1003981222776';
+
+                                            const formData = new FormData(e.target);
+                                            const name = formData.get('Ім’я та прізвище') || 'Не вказано';
+                                            const wedding = formData.get('Чи плануєте ви бути на весіллі?') || 'Не вказано';
+                                            const church = formData.get('Чи плануєте ви бути на вінчанні?') || 'Не вказано';
+                                            const drinksChecked = Array.from(e.target.querySelectorAll('input[name="Алкоголь[]"]:checked')).map(function (i) { return i.value; });
+                                            var alcoholEmojiByValue = {
+                                                'Червоне вино (напівсолодке)': '🍷',
+                                                'Червоне вино (сухе)': '🍷',
+                                                'Біле вино (напівсолодке)': '🥂',
+                                                'Біле вино (сухе)': '🥂',
+                                                'Віскі': '🥃',
+                                                'Горілка': '🍾'
+                                            };
+                                            var alcoholLines = drinksChecked.map(function (v) {
+                                                var emoji = alcoholEmojiByValue[v] || '🍷';
+                                                return emoji + ' ' + escapeHtml(v);
                                             });
-                                            const json = await res.json();
+                                            var alcohol = drinksChecked.length ? alcoholLines.join('\n') : '—';
+                                            const kids = formData.get('Дітки (кількість)') || '—';
+                                            const wishes = formData.get('Ваші побажання') || '—';
 
-                                            if (json.success) {
-                                                document.getElementById('formMessage').textContent = '✅ Дякуємо! Ваші відповіді надіслані.';
-                                                document.getElementById('formMessage').style.color = 'green';
+                                            const textMessage =
+                                                '💌 <b>Нова анкета від гостя (Іван &amp; Анна)</b>\n\n' +
+                                                '👤 <b>Ім’я та прізвище:</b> ' + escapeHtml(name) + '\n' +
+                                                '💒 <b>Весілля:</b> ' + escapeHtml(wedding) + '\n' +
+                                                '⛪ <b>Вінчання:</b> ' + escapeHtml(church) + '\n' +
+                                                '🍷 <b>Алкоголь:</b>\n' + (drinksChecked.length ? alcohol : escapeHtml(alcohol)) + '\n' +
+                                                '👶 <b>Дітки:</b> ' + escapeHtml(kids) + '\n' +
+                                                '💬 <b>Ваші побажання:</b> ' + escapeHtml(wishes);
+
+                                            const url = 'https://api.telegram.org/bot' + BOT_TOKEN + '/sendMessage';
+
+                                            try {
+                                                const response = await fetch(url, {
+                                                    method: 'POST',
+                                                    headers: { 'Content-Type': 'application/json' },
+                                                    body: JSON.stringify({
+                                                        chat_id: CHAT_ID,
+                                                        text: textMessage,
+                                                        parse_mode: 'HTML'
+                                                    })
+                                                });
+                                                const data = await response.json().catch(function () { return {}; });
+
+                                                if (response.ok && data.ok) {
+                                                    document.getElementById('formMessage').textContent = '✅ Дякуємо! Ваша відповідь надіслана.';
+                                                    document.getElementById('formMessage').style.color = 'green';
+                                                    document.getElementById('formMessage').style.display = 'block';
+                                                    e.target.reset();
+                                                } else {
+                                                    throw new Error(data.description || 'Telegram API error');
+                                                }
+                                            } catch (err) {
+                                                console.error(err);
+                                                document.getElementById('formMessage').textContent = '❌ Помилка з’єднання. Спробуйте пізніше.';
+                                                document.getElementById('formMessage').style.color = 'red';
                                                 document.getElementById('formMessage').style.display = 'block';
-                                                form.reset();
-                                            } else {
-                                                throw new Error(json.message || 'Помилка відправки');
+                                            } finally {
+                                                btn.innerText = originalBtnText;
+                                                btn.disabled = false;
                                             }
-                                        } catch (error) {
-                                            document.getElementById('formMessage').textContent = '❌ Сталася помилка. Спробуйте ще раз.';
-                                            document.getElementById('formMessage').style.color = 'red';
-                                            document.getElementById('formMessage').style.display = 'block';
-                                        } finally {
-                                            // Возвращаем текст кнопки обратно
-                                            btn.innerText = originalText;
-                                        }
-                                    });
+                                        });
+                                    })();
                                 </script>
                             </section>
 
