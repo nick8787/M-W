@@ -1,0 +1,582 @@
+---
+layout: null
+permalink: /vadim-and-vlada
+---
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Вадім & Влада - Весільне запрошення">
+
+    <!--metatextblock-->
+    <title>Вадім & Влада — Весільне запрошення</title>
+    <meta property="og:url" content="https://my-wedding.com.ua/vadim-and-vlada" />
+    <meta property="og:title" content="Вадім & Влада — Весільне запрошення" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://my-wedding.com.ua/assets/media/images/vadim-and-vlada1.jpg" />
+    <link rel="canonical" href="https://my-wedding.com.ua/vadim-and-vlada">
+    <!--/metatextblock-->
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="../assets-premium1/media/favicon.png">
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Great+Vibes&family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- Olive Tulle palette (mood board) --- */
+        :root {
+            --font-main: 'Cinzel', serif;
+            --font-body: 'Manrope', sans-serif;
+            --font-script: 'Great Vibes', cursive;
+
+            --olive: #3d4a3d;
+            --olive-deep: #2a332a;
+            --dusty-sage: #9daa96;
+            --pistachio: #b8c9ae;
+            --champagne: #f1ebe2;
+            --alabaster: #faf8f4;
+            --cream: #f5efe6;
+            --text-on-light: #2c3329;
+            --text-muted: #5a6358;
+            --gold-accent: #b8976a;
+
+            --color-black: var(--text-on-light);
+            --color-white: var(--alabaster);
+            --color-gold: var(--gold-accent);
+
+            --container: 500px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            background: linear-gradient(180deg, var(--olive-deep) 0%, #1e241e 100%);
+            color: var(--cream);
+            overflow-x: hidden;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .wrapper {
+            max-width: var(--container);
+            margin: 0 auto;
+            background: var(--olive-deep);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 60px rgba(30, 36, 30, 0.65);
+        }
+
+        img { max-width: 100%; height: auto; display: block; object-fit: cover; }
+
+        /* TYPOGRAPHY */
+        h1, h2, h3 { font-family: var(--font-main); font-weight: 400; text-transform: uppercase; text-align: center; }
+
+        .title-lg { font-size: 36px; line-height: 1.1; margin-bottom: 15px; letter-spacing: 1px; }
+        .text-body { font-size: 14px; opacity: 0.95; text-align: center; line-height: 1.75; font-weight: 300; margin-bottom: 20px; }
+
+        /* --- 2. HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 60px 20px 40px;
+        }
+
+        .hero-content-top {
+            margin-top: -55px;
+        }
+
+        /* IMAGE BACKGROUND */
+        .hero-bg {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            /* ФОТО ЗАМІСТЬ ВІДЕО */
+            background: url('/assets/media/images/vadim-and-vlada1.jpg') center/cover no-repeat;
+            z-index: 0;
+            filter: brightness(0.88) saturate(1.05);
+        }
+
+        /* Gradient Overlay — оливковий тінь замість «чорної плівки» */
+        .hero-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(
+                180deg,
+                rgba(35, 48, 38, 0.82) 0%,
+                rgba(45, 55, 45, 0.15) 28%,
+                rgba(40, 48, 40, 0.12) 58%,
+                rgba(28, 36, 30, 0.92) 100%
+            );
+            z-index: 1;
+        }
+
+        .hero-content-top, .hero-content-bottom {
+            position: relative; z-index: 2; width: 100%; text-align: center;
+        }
+
+        .hero-title {
+            font-size: 24px; letter-spacing: 3px; font-weight: 400;
+            border-bottom: 1px solid rgba(184, 151, 106, 0.55);
+            display: inline-block; padding-bottom: 8px;
+            color: var(--cream);
+        }
+        .hero-subtitle { font-size: 11px; letter-spacing: 5px; margin-top: 8px; opacity: 0.92; text-transform: uppercase; color: var(--pistachio); }
+
+        .hero-monogram {
+            font-family: var(--font-script);
+            font-size: 72px; line-height: 1.05;
+            margin-bottom: 12px;
+            color: var(--champagne);
+            text-shadow: 0 4px 28px rgba(0,0,0,0.45), 0 0 40px rgba(184, 151, 106, 0.15);
+            font-weight: 400;
+        }
+        .hero-arrow { font-size: 20px; animation: bounce 2s infinite; display: block; margin-top: -5px; color: var(--dusty-sage); opacity: 0.95; }
+        @keyframes bounce { 0%, 100% {transform: translateY(0);} 50% {transform: translateY(-10px);} }
+
+        /* --- 3. INTRO --- */
+        .intro {
+            padding: 80px 30px 140px;
+            text-align: center;
+            background: linear-gradient(165deg, var(--olive-deep) 0%, var(--olive) 45%, #354035 100%);
+            position: relative; z-index: 2;
+        }
+        .intro .text-body { color: var(--cream); text-transform: none; }
+        .names-big { font-size: 38px; line-height: 1.2; margin-bottom: 20px; color: var(--champagne); text-shadow: 0 2px 20px rgba(0,0,0,0.2); }
+        .date-big { font-size: 30px; letter-spacing: 4px; color: var(--pistachio); margin-bottom: 40px; }
+
+        /* --- 4. CHAMPAGNE CURVED (TIMELINE) --- */
+        .white-section {
+            background: linear-gradient(180deg, var(--champagne) 0%, var(--alabaster) 100%);
+            color: var(--text-on-light);
+            position: relative;
+            padding: 100px 30px 60px;
+            border-top-left-radius: 200px 80px;
+            margin-top: -100px;
+            z-index: 3;
+            box-shadow: 0 -8px 40px rgba(45, 55, 45, 0.08);
+        }
+
+        .loc-title { font-size: 26px; margin-bottom: 5px; line-height: 1.3; font-weight: 600; }
+        .loc-address { font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; display: block; }
+
+        .btn-circle-black {
+            width: 110px; height: 110px; background: var(--olive); color: var(--alabaster);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-family: var(--font-body); font-size: 11px; text-transform: uppercase; letter-spacing: 1px;
+            text-decoration: none; margin: 0 auto 50px;
+            transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+            box-shadow: 0 12px 32px rgba(61, 74, 61, 0.35);
+            border: 1px solid rgba(184, 151, 106, 0.35);
+        }
+        .btn-circle-black:hover { transform: scale(1.05); background: #485a48; }
+
+        .timeline { display: flex; flex-direction: column; align-items: center; gap: 40px; }
+        .t-item { text-align: center; }
+        .t-time { font-family: var(--font-main); font-size: 50px; line-height: 1; margin-bottom: 5px; font-weight: 400; color: var(--olive); }
+        .t-name { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--olive); opacity: 0.92; }
+        .t-dot { width: 7px; height: 7px; background: linear-gradient(135deg, var(--dusty-sage), var(--gold-accent)); border-radius: 50%; margin: 10px auto 0; }
+
+        /* Таймлайн */
+        .timeline-header { font-family: var(--font-main); font-size: 28px; line-height: 1.2; margin-bottom: 40px; color: var(--olive); text-transform: uppercase; }
+        .t-location { font-size: 14px; color: var(--text-muted); margin-top: 5px; font-family: var(--font-body); }
+        .t-map-link {
+            display: inline-block; margin-top: 8px; font-size: 11px; text-transform: uppercase;
+            letter-spacing: 1px; color: var(--olive); text-decoration: none;
+            border-bottom: 1px solid var(--dusty-sage); padding-bottom: 2px; transition: color 0.3s, border-color 0.3s;
+        }
+        .t-map-link:hover { color: #2d3830; border-color: var(--gold-accent); }
+        .t-note {
+            font-size: 14px; line-height: 1.65; color: var(--text-muted); margin-top: 15px;
+            max-width: 400px; margin-left: auto; margin-right: auto;
+        }
+        .t-note-heart { display: block; margin-top: 10px; font-size: 16px; }
+
+        /* --- 5. PHOTO INTERLUDE --- */
+        .photo-interlude {
+            position: relative; height: 550px;
+            background: url('/assets/media/images/vadim-and-vlada2.png') center/cover no-repeat;
+            z-index: 2; margin-top: -50px;
+        }
+        .photo-curve-bottom {
+            position: absolute; bottom: -1px; left: 0; width: 100%; height: 120px;
+            background: linear-gradient(180deg, var(--champagne) 0%, var(--alabaster) 100%);
+            border-top-left-radius: 50% 100%;
+            border-top-right-radius: 50% 20%;
+        }
+
+        /* --- Заключний блок (колір весілля) --- */
+        .dress-code {
+            background: var(--alabaster); color: var(--text-on-light);
+            padding: 28px 30px 88px; text-align: center; position: relative; z-index: 4;
+        }
+        .dress-code .text-body { color: var(--text-muted); }
+
+        /* --- АНКЕТА --- */
+        .rsvp-curved {
+            position: relative;
+            background: linear-gradient(165deg, var(--champagne) 0%, #ebe4d8 50%, var(--alabaster) 100%);
+            color: var(--text-on-light);
+            border-top-left-radius: 200px 100px;
+            margin-top: -100px; z-index: 6;
+            padding: 90px 30px 56px;
+            box-shadow: 0 -12px 48px rgba(45, 55, 45, 0.07);
+        }
+
+        .rsvp-curved .title-lg { color: var(--olive); }
+        .rsvp-lead { color: var(--olive); margin-bottom: 5px; }
+        .rsvp-deadline {
+            text-align: center; font-size: 11px; text-transform: uppercase; letter-spacing: 1px;
+            color: var(--text-muted); margin-bottom: 40px;
+        }
+
+        .rsvp-form { margin-top: 30px; text-align: left; }
+
+        .form-group { margin-bottom: 28px; }
+
+        .form-label { display: block; font-size: 14px; font-weight: 700; margin-bottom: 10px; font-family: var(--font-body); letter-spacing: 0.5px; color: var(--olive); }
+
+        .input-text, .input-area {
+            width: 100%; border: none; border-bottom: 1px solid rgba(157, 170, 150, 0.65);
+            padding: 12px 0; font-family: var(--font-body); font-size: 16px; outline: none;
+            background: transparent; color: var(--text-on-light); transition: 0.3s;
+        }
+        .input-text::placeholder { color: rgba(90, 99, 88, 0.55); }
+        .input-text:focus, .input-area:focus { border-color: var(--olive); }
+
+        /* Radio & Checkbox */
+        .check-container {
+            display: block; position: relative; padding-left: 30px; margin-bottom: 15px;
+            cursor: pointer; font-size: 15px; color: var(--text-on-light);
+        }
+        .check-container input { position: absolute; opacity: 0; cursor: pointer; height: 0; width: 0; }
+        .checkmark {
+            position: absolute; top: 3px; left: 0; height: 18px; width: 18px;
+            background-color: transparent; border: 1.5px solid var(--olive); border-radius: 50%;
+        }
+        .check-container input:checked ~ .checkmark { background-color: var(--olive); border-color: var(--olive); }
+        .check-square .checkmark { border-radius: 4px; }
+
+        .btn-submit-circle {
+            width: 130px; height: 130px; background: var(--olive); color: var(--alabaster); border: none;
+            border-radius: 50%; font-family: var(--font-body); font-weight: 600;
+            text-transform: uppercase; letter-spacing: 1px; font-size: 12px;
+            display: flex; align-items: center; justify-content: center;
+            margin: 50px auto 0; cursor: pointer; transition: 0.3s;
+            box-shadow: 0 14px 36px rgba(61, 74, 61, 0.38);
+            border: 1px solid rgba(184, 151, 106, 0.4);
+        }
+        .btn-submit-circle:hover { transform: scale(1.05); background: #485848; }
+
+        /* --- FOOTER --- */
+        .footer-final {
+            background: linear-gradient(180deg, var(--olive-deep) 0%, #1a211a 100%);
+            color: var(--cream); padding: 60px 30px; text-align: center;
+            position: relative; margin-top: -1px;
+        }
+        .footer-final h2 { color: var(--pistachio); font-family: var(--font-main); font-weight: 400; text-transform: uppercase; letter-spacing: 0.12em; font-size: 14px; }
+
+        .countdown { display: flex; justify-content: center; gap: 25px; font-family: var(--font-main); margin-top: 20px; }
+        .cd-num { font-size: 36px; line-height: 1; color: var(--champagne); text-shadow: 0 2px 16px rgba(0,0,0,0.25); }
+        .cd-lbl { font-size: 10px; text-transform: uppercase; color: var(--dusty-sage); opacity: 0.85; margin-top: 5px; }
+        .footer-tag { margin-top: 40px; font-size: 10px; letter-spacing: 2px; color: var(--dusty-sage); opacity: 0.65; }
+
+        /* Animation */
+        .fade-up { opacity: 0; transform: translateY(40px); transition: 0.8s ease; }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+        /* --- MUSIC --- */
+        .music-btn {
+            position: fixed; bottom: 30px; right: 20px; width: 50px; height: 50px;
+            border-radius: 50%;
+            background: var(--olive);
+            border: 2px solid var(--gold-accent);
+            box-shadow: 0 6px 22px rgba(30, 36, 30, 0.45);
+            z-index: 1000; display: grid; place-items: center; cursor: pointer;
+            transition: 0.3s;
+        }
+        .music-btn svg { width: 22px; fill: var(--alabaster); }
+        .music-btn.playing { animation: pulse-btn 2s infinite; background: #4a5c4a; }
+        @keyframes pulse-btn { 0%{box-shadow: 0 0 0 0 rgba(184, 151, 106, 0.45);} 70%{box-shadow: 0 0 0 12px rgba(184, 151, 106, 0);} 100%{box-shadow: 0 0 0 0 rgba(184, 151, 106, 0);} }
+
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+
+    <!-- 1. HERO -->
+    <header class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content-top fade-up">
+            <h2 class="hero-title">ЗАПРОШЕННЯ</h2>
+            <div class="hero-subtitle">НА ВЕСІЛЛЯ</div>
+        </div>
+
+        <div class="hero-content-bottom fade-up">
+            <div class="hero-monogram">V & V</div>
+            <span class="hero-arrow">⌄</span>
+        </div>
+    </header>
+
+    <!-- 2. INTRO -->
+    <section class="intro">
+        <div class="fade-up">
+            <h2 class="names-big">Вадім<br>ТА Влада</h2>
+            <div class="date-big">26 • 06 • 2026</div>
+
+            <p class="text-body">
+                Наша історія народилася у 2023 році — з одного погляду, однієї зустрічі.
+            </p>
+            <p class="text-body">
+                Вона привела нас до цього особливого дня,<br>
+                коли ми пообіцяємо одне одному назавжди бути разом.
+            </p>
+            <p class="text-body">
+                Будемо дуже раді бачити вас у цей важливий для нас день.
+            </p>
+        </div>
+    </section>
+
+    <!-- 3. TIMELINE -->
+    <section class="white-section">
+        <div class="fade-up" style="text-align:center;">
+
+            <h2 class="timeline-header">ПРОГРАМА<br>ДНЯ</h2>
+
+            <div class="timeline">
+                <div class="t-item">
+                    <div class="t-time">17:00</div>
+                    <div class="t-name">ЗБІР ГОСТЕЙ</div>
+                    <div class="t-location">Citadella Hall<br>Palouky 616, 253 01 Hostivice</div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Citadella+Hall+Palouky+616+Hostivice" target="_blank" rel="noopener noreferrer" class="t-map-link">Відкрити на мапі</a>
+                    <div class="t-dot" style="margin-top: 25px;"></div>
+                </div>
+
+                <div class="t-item">
+                    <div class="t-time">18:00</div>
+                    <div class="t-name">БЕНКЕТ</div>
+                    <div class="t-location">Citadella Hall</div>
+                    <div class="t-dot" style="margin-top: 25px;"></div>
+                </div>
+
+                <div class="t-item">
+                    <div class="t-note" style="margin-top: 0;">
+                        Для гостей буде доступне зручне безкоштовне паркування біля ресторану. Також у закладі є тераса, де можна відпочити та насолодитися атмосферою свята.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 4. PHOTO INTERLUDE -->
+    <section class="photo-interlude">
+        <div class="photo-curve-bottom"></div>
+    </section>
+
+    <!-- 5. ЗАКЛИЧНИЙ ТЕКСТ -->
+    <section class="dress-code fade-up">
+        <p class="text-body" style="margin-top:0;">
+            На вас чекає тепла атмосфера, щасливі миті, гарний настрій та цікава програма. Будемо щиро раді розділити з вами наш особливий день і бачити вас серед гостей.
+        </p>
+    </section>
+
+    <!-- 6. ANKETA -->
+    <section class="rsvp-curved">
+        <div class="fade-up">
+            <h2 class="title-lg">АНКЕТА</h2>
+            <p class="text-body rsvp-lead">
+                ПІДТВЕРДІТЬ СВОЮ ПРИСУТНІСТЬ
+            </p>
+            <p class="rsvp-deadline">
+                Відповідь надати до 20.05.2026
+            </p>
+
+            <form id="weddingForm" action="https://api.web3forms.com/submit" method="POST" class="rsvp-form" accept-charset="UTF-8">
+                <input type="hidden" name="access_key" value="d22ccc17-8ee3-44b3-9124-3a65a90b5c19">
+                <input type="hidden" name="from_name" value="Весілля Вадім та Влада">
+                <input type="hidden" name="subject" value="Нова відповідь гостя — Вадім та Влада">
+
+                <div class="form-group">
+                    <label class="form-label">Прізвище</label>
+                    <input type="text" name="Прізвище" class="input-text" placeholder="Іванов" required autocomplete="family-name" style="font-family: 'Manrope', sans-serif;">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Імʼя</label>
+                    <input type="text" name="Імʼя" class="input-text" placeholder="Сергій" required autocomplete="given-name" style="font-family: 'Manrope', sans-serif;">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Чи будете в цей день з нами?</label>
+                    <label class="check-container">
+                        Так
+                        <input type="radio" name="Присутність" value="Так" required>
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="check-container">
+                        Ні
+                        <input type="radio" name="Присутність" value="Ні">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Скільки буде присутньо</label>
+                    <input type="number" name="Кількість_осіб" class="input-text" placeholder="1" min="0" step="1" inputmode="numeric" style="font-family: 'Manrope', sans-serif;">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Побажання щодо алкоголю:</label>
+                    <label class="check-container check-square">
+                        Шампанське / Вино
+                        <input type="checkbox" name="temp_alcohol" value="Шампанське/Вино">
+                        <span class="checkmark" style="border-radius:4px;"></span>
+                    </label>
+                    <label class="check-container check-square">
+                        Віскі / Горілка
+                        <input type="checkbox" name="temp_alcohol" value="Віскі/Горілка">
+                        <span class="checkmark" style="border-radius:4px;"></span>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-submit-circle">
+                    НАДІСЛАТИ
+                </button>
+
+                <div id="formMessage" style="text-align:center; margin-top:20px;"></div>
+            </form>
+        </div>
+    </section>
+
+    <!-- 7. FOOTER -->
+    <section class="footer-final">
+        <h2 style="margin-bottom:20px;">ДО ВЕСІЛЛЯ:</h2>
+        <div class="countdown">
+            <div><div class="cd-num" id="d">0</div><div class="cd-lbl">Днів</div></div>
+            <div><div class="cd-num" id="h">0</div><div class="cd-lbl">Годин</div></div>
+            <div><div class="cd-num" id="m">0</div><div class="cd-lbl">Хвилин</div></div>
+            <div><div class="cd-num" id="s">0</div><div class="cd-lbl">Секунд</div></div>
+        </div>
+        <p class="footer-tag">V & V • 2026</p>
+    </section>
+
+    <!-- MUSIC (FIXED AUTOPLAY) -->
+    <div class="music-btn" onclick="toggleMusic()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+    </div>
+    <audio id="audio" loop>
+        <source src="/assets/media/music/Kristian Kostov - Beautiful Mess.mp3" type="audio/mpeg">
+    </audio>
+
+</div>
+
+<script>
+    // 1. Анімація появи
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // 2. Таймер (день збору гостей)
+    const targetDate = new Date("2026-06-26T17:00:00").getTime();
+    setInterval(() => {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+        if (distance > 0) {
+            document.getElementById("d").innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
+            document.getElementById("h").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            document.getElementById("m").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            document.getElementById("s").innerText = Math.floor((distance % (1000 * 60)) / 1000);
+        }
+    }, 1000);
+
+    // 3. Музика (Smart Autoplay Fix)
+    const audio = document.getElementById('audio');
+    const musicBtn = document.querySelector('.music-btn');
+    let playing = false;
+
+    function toggleMusic() {
+        if (playing) {
+            audio.pause();
+            musicBtn.classList.remove('playing');
+            playing = false;
+        } else {
+            audio.volume = 0.3;
+            audio.play();
+            musicBtn.classList.add('playing');
+            playing = true;
+        }
+    }
+
+    // Автозапуск при першому дотику
+    document.body.addEventListener('click', function() {
+        if (!playing) { toggleMusic(); }
+    }, { once: true });
+
+    document.body.addEventListener('touchstart', function() {
+        if (!playing) { toggleMusic(); }
+    }, { once: true });
+
+
+    // 4. ВІДПРАВКА ФОРМИ (Виправлено ім'я відправника)
+    document.getElementById('weddingForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const btn = e.target.querySelector('button');
+        const originalText = btn.innerText;
+        btn.innerText = "Надсилаємо...";
+
+        const formData = new FormData(e.target);
+
+        // Збір алкоголю
+        const alcohol = Array.from(e.target.querySelectorAll('input[name="temp_alcohol"]:checked'))
+            .map(el => el.value);
+
+        const data = {
+            access_key: formData.get('access_key'),
+            from_name: "Весілля Вадім та Влада",
+            subject: "Нова анкета гостя — Вадім та Влада",
+            "Прізвище": formData.get("Прізвище"),
+            "Імʼя": formData.get("Імʼя"),
+            "Присутність": formData.get("Присутність"),
+            "Кількість осіб": formData.get("Кількість_осіб"),
+            "Алкоголь": alcohol.join(', ') || 'Не обрано'
+        };
+
+        try {
+            const res = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+
+            const result = await res.json();
+
+            if(result.success) {
+                document.getElementById('formMessage').innerHTML = '<span style="color:#3d5c3d">✅ Дякуємо! Ваша відповідь збережена.</span>';
+                e.target.reset();
+            } else {
+                throw new Error('Server error');
+            }
+        } catch (error) {
+            document.getElementById('formMessage').innerHTML = '<span style="color:#8b4545">❌ Помилка. Спробуйте пізніше.</span>';
+        } finally {
+            btn.innerText = "НАДІСЛАТИ";
+        }
+    });
+</script>
+</body>
+</html>
