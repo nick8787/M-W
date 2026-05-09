@@ -1,0 +1,705 @@
+---
+layout: null
+permalink: /petar-and-anastasiia
+---
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Петар & Анастасия — Свадебное приглашение">
+
+    <!--metatextblock-->
+    <title>Петар & Анастасия — Свадебное приглашение</title>
+    <meta property="og:url" content="https://my-wedding.com.ua/petar-and-anastasiia" />
+    <meta property="og:title" content="Петар & Анастасия — Свадебное приглашение" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/assets/media/images/petar-and-anastasiia1.jpg" />
+    <link rel="canonical" href="https://my-wedding.com.ua/petar-and-anastasiia">
+    <!--/metatextblock-->
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="../assets-premium1/media/favicon.png">
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- 1. GLOBAL VARIABLES --- */
+        :root {
+            --font-main: 'Cinzel', serif;
+            --font-body: 'Manrope', sans-serif;
+
+            --color-black: #080808;
+            --color-white: #FFFFFF;
+            --color-gold: #C0A080;
+
+            --container: 500px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-black);
+            color: var(--color-white);
+            overflow-x: hidden;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .wrapper {
+            max-width: var(--container);
+            margin: 0 auto;
+            background: #000;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 50px rgba(0,0,0,0.5);
+        }
+
+        img { max-width: 100%; height: auto; display: block; object-fit: cover; }
+
+        /* TYPOGRAPHY */
+        h1, h2, h3 { font-family: var(--font-main); font-weight: 400; text-transform: uppercase; text-align: center; }
+
+        .title-lg { font-size: 36px; line-height: 1.1; margin-bottom: 15px; letter-spacing: 1px; }
+        .text-body { font-size: 14px; opacity: 0.9; text-align: center; line-height: 1.7; font-weight: 300; margin-bottom: 20px; }
+
+        /* --- 2. HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 60px 20px 40px;
+        }
+
+        .hero-content-top {
+            margin-top: -55px;
+        }
+
+        /* IMAGE BACKGROUND */
+        .hero-bg {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: url('/assets/media/images/petar-and-anastasiia1.jpg') center/cover no-repeat;
+            z-index: 0;
+            filter: brightness(0.85);
+        }
+
+        /* Gradient Overlay */
+        .hero-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.9) 100%);
+            z-index: 1;
+        }
+
+        .hero-content-top, .hero-content-bottom {
+            position: relative; z-index: 2; width: 100%; text-align: center;
+        }
+
+        .hero-title { font-size: 24px; letter-spacing: 3px; font-weight: 400; border-bottom: 1px solid rgba(255,255,255,0.6); display: inline-block; padding-bottom: 8px; }
+        .hero-subtitle { font-size: 11px; letter-spacing: 5px; margin-top: 8px; opacity: 0.9; text-transform: uppercase; }
+
+        .hero-monogram {
+            font-family: var(--font-main); font-size: 60px; line-height: 1;
+            margin-bottom: 20px;
+            text-shadow: 0 5px 20px rgba(0,0,0,0.8);
+        }
+        .hero-arrow { font-size: 20px; animation: bounce 2s infinite; display: block; margin-top: -5px; color: #fff; opacity: 0.8; }
+        @keyframes bounce { 0%, 100% {transform: translateY(0);} 50% {transform: translateY(-10px);} }
+
+        /* --- 3. INTRO --- */
+        .intro {
+            padding: 80px 30px 140px;
+            text-align: center;
+            background-color: var(--color-black);
+            position: relative; z-index: 2;
+        }
+        .names-big { font-size: 38px; line-height: 1.2; margin-bottom: 12px; color: var(--color-gold); }
+        .names-en { font-size: 13px; letter-spacing: 3px; text-transform: uppercase; opacity: 0.85; margin-bottom: 24px; font-family: var(--font-body); font-weight: 300; }
+        .date-big { font-size: 30px; letter-spacing: 4px; color: var(--color-white); margin-bottom: 40px; }
+
+        /* --- 4. WHITE CURVED (TIMELINE) --- */
+        .white-section {
+            background-color: var(--color-white);
+            color: var(--color-black);
+            position: relative;
+            padding: 100px 30px 60px;
+            border-top-left-radius: 200px 80px;
+            margin-top: -100px;
+            z-index: 3;
+        }
+
+        .loc-title { font-size: 26px; margin-bottom: 5px; line-height: 1.3; font-weight: 600; }
+        .loc-address { font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; display: block; }
+
+        .btn-circle-black {
+            width: 110px; height: 110px; background: #000; color: #fff;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-family: var(--font-body); font-size: 11px; text-transform: uppercase; letter-spacing: 1px;
+            text-decoration: none; margin: 0 auto 50px;
+            transition: transform 0.3s; box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        .btn-circle-black:hover { transform: scale(1.05); }
+
+        .timeline { display: flex; flex-direction: column; align-items: center; gap: 40px; }
+        .t-item { text-align: center; }
+        .t-time { font-family: var(--font-main); font-size: 50px; line-height: 1; margin-bottom: 5px; font-weight: 400; color: #000; }
+        .t-name { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: #333; }
+        .t-dot { width: 6px; height: 6px; background: var(--color-gold); border-radius: 50%; margin: 10px auto 0; }
+
+        .timeline-header { font-family: var(--font-main); font-size: 28px; line-height: 1.2; margin-bottom: 40px; color: #000; text-transform: uppercase; }
+        .t-location { font-size: 14px; color: #555; margin-top: 5px; font-family: var(--font-body); text-transform: none; font-weight: 400; letter-spacing: 0; }
+        .t-map-link {
+            display: inline-block; margin-top: 8px; font-size: 11px; text-transform: uppercase;
+            letter-spacing: 1px; color: var(--color-gold); text-decoration: none;
+            border-bottom: 1px solid var(--color-gold); padding-bottom: 2px; transition: opacity 0.3s;
+        }
+        .t-map-link:hover { opacity: 0.7; }
+        .t-note {
+            font-size: 14px; line-height: 1.6; color: #444; margin-top: 15px;
+            max-width: 400px; margin-left: auto; margin-right: auto;
+        }
+        .t-note-heart { display: block; margin-top: 10px; font-size: 16px; }
+
+        .loc-block {
+            margin-top: 50px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        .loc-block h3 {
+            font-family: var(--font-main);
+            font-size: 22px;
+            margin-bottom: 16px;
+            color: #000;
+            text-transform: uppercase;
+        }
+        .loc-block p {
+            font-size: 14px;
+            color: #444;
+            line-height: 1.7;
+            margin-bottom: 14px;
+            text-transform: none;
+            font-family: var(--font-body);
+            font-weight: 400;
+        }
+
+        /* Второй день — катер */
+        .day2-block {
+            margin-top: 50px;
+            padding-top: 48px;
+            border-top: 1px solid rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        .day2-header {
+            font-family: var(--font-main);
+            font-size: 24px;
+            line-height: 1.25;
+            margin-bottom: 16px;
+            color: #000;
+            text-transform: uppercase;
+        }
+        .day2-boat-wrap {
+            margin: 28px auto 24px;
+            max-width: 100%;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+            border: 1px solid rgba(0,0,0,0.06);
+        }
+        .day2-boat-wrap img {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+        }
+
+        /* --- 5. PHOTO INTERLUDE --- */
+        .photo-interlude {
+            position: relative; height: 550px;
+            background: url('/assets/media/images/petar-and-anastasiia2.jpg') center/cover no-repeat;
+            z-index: 2; margin-top: -50px;
+        }
+        .photo-curve-bottom {
+            position: absolute; bottom: -1px; left: 0; width: 100%; height: 120px;
+            background: var(--color-white);
+            border-top-left-radius: 50% 100%;
+            border-top-right-radius: 50% 20%;
+        }
+
+        /* --- 6. DRESS CODE --- */
+        .dress-code {
+            background: var(--color-white); color: var(--color-black);
+            padding: 20px 30px 80px; text-align: center; position: relative; z-index: 4;
+        }
+
+        .dress-code-visual {
+            margin: 28px auto 20px;
+            max-width: 100%;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 14px 36px rgba(0,0,0,0.1);
+            border: 1px solid rgba(0,0,0,0.06);
+        }
+        .dress-code-visual img {
+            width: 100%;
+            display: block;
+            vertical-align: middle;
+        }
+
+        /* --- Цветы и подарки --- */
+        .gifts-section {
+            background: var(--color-black);
+            color: var(--color-white);
+            padding: 70px 30px 80px;
+            text-align: center;
+            position: relative;
+            z-index: 5;
+        }
+        .gifts-section h2 {
+            font-family: var(--font-main);
+            font-size: 26px;
+            line-height: 1.25;
+            margin-bottom: 28px;
+            color: var(--color-gold);
+            text-transform: uppercase;
+        }
+        .gifts-section .gift-block {
+            margin-bottom: 36px;
+            text-align: center;
+        }
+        .gifts-section .gift-block:last-child { margin-bottom: 0; }
+        .gifts-section h3 {
+            font-family: var(--font-main);
+            font-size: 14px;
+            letter-spacing: 3px;
+            margin-bottom: 14px;
+            color: rgba(255,255,255,0.95);
+            text-transform: uppercase;
+        }
+        .gifts-section p {
+            font-size: 14px;
+            line-height: 1.75;
+            font-weight: 300;
+            opacity: 0.92;
+            text-transform: none;
+            max-width: 420px;
+            margin: 0 auto;
+        }
+
+        /* --- 7. ANKETA --- */
+        .rsvp-curved {
+            position: relative;
+            background-color: #ffffff;
+            color: #000;
+            margin-top: 0;
+            z-index: 6;
+            padding: 70px 30px 50px;
+            overflow: hidden;
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .rsvp-form { margin-top: 30px; text-align: left; }
+
+        .form-label { display: block; font-size: 14px; font-weight: 700; margin-bottom: 10px; font-family: var(--font-body); letter-spacing: 0.5px; color: #000; }
+
+        .input-text, .input-area {
+            width: 100%; border: none; border-bottom: 1px solid #999;
+            padding: 12px 0; font-family: var(--font-body); font-size: 16px; outline: none;
+            background: transparent; transition: 0.3s;
+        }
+        .input-text:focus, .input-area:focus { border-color: #000; }
+
+        /* Radio & Checkbox */
+        .check-container {
+            display: block; position: relative; padding-left: 30px; margin-bottom: 15px;
+            cursor: pointer; font-size: 15px;
+        }
+        .check-container input { position: absolute; opacity: 0; cursor: pointer; height: 0; width: 0; }
+        .checkmark {
+            position: absolute; top: 3px; left: 0; height: 18px; width: 18px;
+            background-color: transparent; border: 1.5px solid #000; border-radius: 50%;
+        }
+        .check-container input:checked ~ .checkmark { background-color: #000; }
+        .check-square .checkmark { border-radius: 4px; }
+
+        .btn-submit-circle {
+            width: 130px; height: 130px; background: #000; color: #fff; border: none;
+            border-radius: 50%; font-family: var(--font-body); font-weight: 600;
+            text-transform: uppercase; letter-spacing: 1px; font-size: 12px;
+            display: flex; align-items: center; justify-content: center;
+            margin: 50px auto 0; cursor: pointer; transition: 0.3s;
+        }
+        .btn-submit-circle:hover { transform: scale(1.05); }
+
+        /* --- 8. FOOTER --- */
+        .footer-final {
+            background: #000; color: #fff; padding: 60px 30px; text-align: center;
+            position: relative; margin-top: -1px;
+        }
+
+        .countdown { display: flex; justify-content: center; gap: 25px; font-family: var(--font-main); margin-top: 20px; flex-wrap: wrap; }
+        .cd-num { font-size: 36px; line-height: 1; color: var(--color-gold); }
+        .cd-lbl { font-size: 10px; text-transform: uppercase; opacity: 0.5; margin-top: 5px; }
+
+        /* Animation */
+        .fade-up { opacity: 0; transform: translateY(40px); transition: 0.8s ease; }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+        /* --- FIXED MUSIC BUTTON (High Contrast) --- */
+        .music-btn {
+            position: fixed; bottom: 30px; right: 20px; width: 50px; height: 50px;
+            border-radius: 50%;
+            background: #000000;
+            border: 2px solid var(--color-gold);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            z-index: 1000; display: grid; place-items: center; cursor: pointer;
+            transition: 0.3s;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .music-btn svg { width: 22px; fill: #fff; }
+        .music-btn.playing { animation: pulse-btn 2s infinite; background: #1a1a1a; }
+        @keyframes pulse-btn { 0%{box-shadow: 0 0 0 0 rgba(192, 160, 128, 0.4);} 70%{box-shadow: 0 0 0 10px rgba(192, 160, 128, 0);} 100%{box-shadow: 0 0 0 0 rgba(192, 160, 128, 0);} }
+
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+
+    <!-- 1. HERO -->
+    <header class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content-top fade-up">
+            <h2 class="hero-title">ПРИГЛАШЕНИЕ</h2>
+            <div class="hero-subtitle">НА СВАДЬБУ</div>
+        </div>
+
+        <div class="hero-content-bottom fade-up">
+            <div class="hero-monogram">P &amp; A</div>
+            <span class="hero-arrow">⌄</span>
+        </div>
+    </header>
+
+    <!-- 2. INTRO -->
+    <section class="intro">
+        <div class="fade-up">
+            <h2 class="names-big">Петар<br>и Анастасия</h2>
+            <p class="names-en">Petar and Anastasiia</p>
+            <div class="date-big">04 • 10 • 2026</div>
+
+            <p class="text-body" style="color:#fff; text-transform: none;">
+                Наша история началась с момента нашей встречи — тихо, без спешки, но с ощущением, что это «оно».
+            </p>
+            <p class="text-body" style="color:#fff; text-transform: none;">
+                И теперь мы хотим отпраздновать этот путь вместе с вами.
+            </p>
+            <p class="text-body" style="color:#fff; text-transform: none;">
+                4 октября мы скажем друг другу «да» и будем счастливы разделить этот день с самыми близкими.
+            </p>
+        </div>
+    </section>
+
+    <!-- 3. TIMELINE + ЛОКАЦИИ + ДЕНЬ 2 -->
+    <section class="white-section">
+        <div class="fade-up" style="text-align:center;">
+
+            <h2 class="timeline-header">ПРОГРАММА<br>4 ОКТЯБРЯ 2026</h2>
+
+            <div class="timeline">
+                <div class="t-item">
+                    <div class="t-time">15:00</div>
+                    <div class="t-name">Сбор гостей в ресторане</div>
+                    <div class="t-location">Добро пожаловать к нам — мы будем рады встретить вас.</div>
+                    <a href="https://maps.app.goo.gl/MYLXTTQuyjpJbHg69?g_st=ic" target="_blank" rel="noopener noreferrer" class="t-map-link">Открыть ресторан на карте</a>
+                    <div class="t-dot" style="margin-top: 25px;"></div>
+                </div>
+
+                <div class="t-item">
+                    <div class="t-time">15:30</div>
+                    <div class="t-name">Церемония бракосочетания</div>
+                    <div class="t-dot" style="margin-top: 25px;"></div>
+                </div>
+
+                <div class="t-item">
+                    <div class="t-time">16:10 – 17:10</div>
+                    <div class="t-name">Просекко с закусками</div>
+                    <div class="t-dot" style="margin-top: 25px;"></div>
+                </div>
+
+                <div class="t-item">
+                    <div class="t-time">17:10 – 20:30</div>
+                    <div class="t-name">Ужин и развлекательная программа</div>
+                    <div class="t-dot" style="margin-top: 25px;"></div>
+                </div>
+
+                <div class="t-item">
+                    <div class="t-time">20:30</div>
+                    <div class="t-name">Свадебный торт</div>
+                    <div class="t-dot" style="margin-top: 25px;"></div>
+                </div>
+
+                <div class="t-item">
+                    <div class="t-time">21:00 – 00:00</div>
+                    <div class="t-name">Вечеринка</div>
+                </div>
+            </div>
+
+            <div class="loc-block">
+                <h3>Ресторан</h3>
+                <p>Торжество пройдёт в ресторане по адресу из карты ниже. Там же мы встречаем гостей в 15:00.</p>
+                <a href="https://maps.app.goo.gl/MYLXTTQuyjpJbHg69?g_st=ic" target="_blank" rel="noopener noreferrer" class="t-map-link">Маршрут к ресторану</a>
+            </div>
+
+            <div class="loc-block">
+                <h3>Отель для гостей</h3>
+                <p>Мы забронировали отель на 4 ночи: <strong>3, 4, 5 и 6 октября</strong> — чтобы вам было удобно провести с нами и первый, и второй день праздника.</p>
+                <a href="https://maps.app.goo.gl/ocfkJbdjE9bH6PnC9?g_st=ic" target="_blank" rel="noopener noreferrer" class="t-map-link">Открыть отель на карте</a>
+            </div>
+
+            <div class="day2-block">
+                <h2 class="day2-header">Второй день<br>5 октября 2026</h2>
+                <p class="t-note" style="margin-top:0;">Прогулка на прогулочном катере — продолжим праздник вместе с вами.</p>
+                <p class="t-note"><strong>Время встречи: 13:00</strong></p>
+                <div class="day2-boat-wrap">
+                    <img src="/assets/media/images/petar-and-anastasiia-boat.jpg" alt="Прогулочный катер — второй день свадьбы" width="900" height="675" loading="lazy">
+                </div>
+                <a href="https://maps.app.goo.gl/mnCSL2m3BVCBKm2q9?g_st=ic" target="_blank" rel="noopener noreferrer" class="t-map-link">Место встречи на карте</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 4. PHOTO INTERLUDE -->
+    <section class="photo-interlude">
+        <div class="photo-curve-bottom"></div>
+    </section>
+
+    <!-- 5. DRESS CODE -->
+    <section class="dress-code fade-up">
+        <h2 class="title-lg">ДРЕСС‑КОД</h2>
+
+        <p class="text-body" style="color:#333; margin-top:20px; text-transform:none;">
+            Ниже — палитра и настроение образов: будем благодарны, если вы поддержите общую гармонию дня.
+        </p>
+
+        <div class="dress-code-visual">
+            <img src="/assets/media/images/petar-and-anastasiia-dresscode.jpg" alt="Дресс-код и цветовая палитра" width="900" height="1200" loading="lazy">
+        </div>
+
+        <p class="text-body" style="color:#666; font-size:12px; text-transform:none;">
+            Спасибо, что разделите этот день с нами.
+        </p>
+    </section>
+
+    <!-- Цветы и подарки -->
+    <section class="gifts-section fade-up">
+        <h2>Цветы и подарки</h2>
+
+        <div class="gift-block">
+            <h3>О цветах</h3>
+            <p>Цветы прекрасны, но их красота, к сожалению, недолговечна.<br><br>
+            Если вы захотите порадовать нас, будем рады небольшому и атмосферному подарку — тому, что останется с нами и станет тёплым напоминанием об этом дне.</p>
+        </div>
+
+        <div class="gift-block">
+            <h3>О подарке</h3>
+            <p>Если вы планируете поздравить нас подарком, самым удобным форматом для нас будет конверт.<br><br>
+            Но главное — ваше присутствие, внимание и искренние пожелания. Мы будем рады любому знаку заботы от вас 🤍</p>
+        </div>
+    </section>
+
+    <!-- 6. АНКЕТА -->
+    <section class="rsvp-curved">
+        <div class="fade-up">
+            <h2 class="title-lg">АНКЕТА</h2>
+            <p class="text-body" style="color:#000; margin-bottom:5px;">
+                ОТВЕТЫ НА ВОПРОСЫ
+            </p>
+            <p style="text-align:center; font-size:11px; text-transform:uppercase; letter-spacing:1px; color:#888; margin-bottom:40px;">
+                Пожалуйста, заполните форму заранее — нам важно всё спланировать.
+            </p>
+
+            <form id="weddingForm" action="https://api.web3forms.com/submit" method="POST" class="rsvp-form">
+                <input type="hidden" name="access_key" value="81c47887-621c-4bd4-92c5-5a59bf6ffb85">
+                <input type="hidden" name="from_name" value="Свадьба Петар и Анастасия">
+                <input type="hidden" name="subject" value="Анкета гостя — Петар и Анастасия">
+
+                <div class="form-group">
+                    <label class="form-label">Ваши имя и фамилия на английском</label>
+                    <input type="text" name="Имя_англ" class="input-text" placeholder="Petar Ivanov" required autocomplete="name" style="font-family: 'Manrope', sans-serif;">
+                </div>
+
+                <div class="form-group" style="margin-top:28px;">
+                    <label class="form-label">Будете ли вы 04.10.2026 с нами?</label>
+                    <label class="check-container">
+                        Да
+                        <input type="radio" name="Присутствие_04_10" value="Да" required>
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="check-container">
+                        Нет
+                        <input type="radio" name="Присутствие_04_10" value="Нет">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+
+                <div class="form-group" style="margin-top:28px;">
+                    <label class="form-label">Будете ли вы 05.10.2026 (второй день на прогулочном катере) с нами?</label>
+                    <label class="check-container">
+                        Да
+                        <input type="radio" name="Присутствие_05_10" value="Да" required>
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="check-container">
+                        Нет
+                        <input type="radio" name="Присутствие_05_10" value="Нет">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+
+                <div class="form-group" style="margin-top:28px;">
+                    <label class="form-label">Какие блюда вы предпочитаете?</label>
+                    <label class="check-container">
+                        Рыбные
+                        <input type="radio" name="Блюда" value="Рыбные" required>
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="check-container">
+                        Мясные
+                        <input type="radio" name="Блюда" value="Мясные">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-submit-circle">
+                    ОТПРАВИТЬ
+                </button>
+
+                <div id="formMessage" style="text-align:center; margin-top:20px;"></div>
+            </form>
+        </div>
+    </section>
+
+    <!-- 7. FOOTER -->
+    <section class="footer-final">
+        <h2 class="title-md" style="margin-bottom:20px; font-family:var(--font-main); font-weight:400; text-transform:uppercase;">ДО СВАДЬБЫ:</h2>
+        <div class="countdown">
+            <div><div class="cd-num" id="d">0</div><div class="cd-lbl">Дней</div></div>
+            <div><div class="cd-num" id="h">0</div><div class="cd-lbl">Часов</div></div>
+            <div><div class="cd-num" id="m">0</div><div class="cd-lbl">Минут</div></div>
+            <div><div class="cd-num" id="s">0</div><div class="cd-lbl">Секунд</div></div>
+        </div>
+        <p style="margin-top:40px; font-size:10px; opacity:0.4; letter-spacing:2px;">P &amp; A • 2026</p>
+    </section>
+
+    <!-- MUSIC (FIXED AUTOPLAY) -->
+    <div class="music-btn" onclick="toggleMusic()" role="button" tabindex="0" aria-label="Музыка">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+    </div>
+    <audio id="audio" loop>
+        <source src="/assets/media/music/Al Green - Lets Stay Together.mp3" type="audio/mpeg">
+    </audio>
+
+</div>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    /* Обратный отсчёт до церемонии 4 октября 2026, 15:30 */
+    const targetDate = new Date('2026-10-04T15:30:00').getTime();
+    function tickCountdown() {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+        if (distance > 0) {
+            document.getElementById('d').innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
+            document.getElementById('h').innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            document.getElementById('m').innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            document.getElementById('s').innerText = Math.floor((distance % (1000 * 60)) / 1000);
+        }
+    }
+    tickCountdown();
+    setInterval(tickCountdown, 1000);
+
+    const audio = document.getElementById('audio');
+    const musicBtn = document.querySelector('.music-btn');
+    let playing = false;
+
+    function toggleMusic() {
+        if (playing) {
+            audio.pause();
+            musicBtn.classList.remove('playing');
+            playing = false;
+        } else {
+            audio.volume = 0.3;
+            audio.play();
+            musicBtn.classList.add('playing');
+            playing = true;
+        }
+    }
+
+    document.body.addEventListener('click', function() {
+        if (!playing) { toggleMusic(); }
+    }, { once: true });
+
+    document.body.addEventListener('touchstart', function() {
+        if (!playing) { toggleMusic(); }
+    }, { once: true });
+
+    document.getElementById('weddingForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const btn = e.target.querySelector('button');
+        const originalText = btn.innerText;
+        btn.innerText = 'Отправляем...';
+
+        const formData = new FormData(e.target);
+
+        const data = {
+            access_key: formData.get('access_key'),
+            from_name: 'Свадьба Петар и Анастасия',
+            subject: 'Анкета гостя — Петар и Анастасия',
+            Имя_англ: formData.get('Имя_англ'),
+            Присутствие_04_10: formData.get('Присутствие_04_10'),
+            Присутствие_05_10: formData.get('Присутствие_05_10'),
+            Блюда: formData.get('Блюда')
+        };
+
+        try {
+            const res = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json; charset=UTF-8',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+
+            const result = await res.json();
+
+            if (result.success) {
+                document.getElementById('formMessage').innerHTML = '<span style="color: green">✅ Спасибо! Ваш ответ сохранён.</span>';
+                e.target.reset();
+            } else {
+                throw new Error('Server error');
+            }
+        } catch (error) {
+            document.getElementById('formMessage').innerHTML = '<span style="color: red">❌ Ошибка. Попробуйте позже.</span>';
+        } finally {
+            btn.innerText = originalText;
+        }
+    });
+</script>
+</body>
+</html>
