@@ -219,20 +219,14 @@ permalink: /petar-and-anastasiia
             object-fit: cover;
         }
 
-        /* --- 5. PHOTO INTERLUDE --- */
+        /* --- 5. PHOTO INTERLUDE (висота вікна = aspect-ratio 5/6; кадр у середині — змінні нижче) --- */
         .photo-interlude {
             position: relative;
-            height: 600px;
-            background-color: var(--color-black);
-            background-image: url('/assets/media/images/petar-and-anastasiia2.jpg');
-            background-repeat: no-repeat;
-            background-position: center 185%;
-            background-size: cover;
             z-index: 2;
-            margin-top: -50px;
+            margin-top: -1px;
         }
         .photo-curve-bottom {
-            position: absolute; bottom: -1px; left: 0; width: 100%; height: 120px;
+            position: absolute; bottom: -1px; left: 0; width: 100%; height: 65px;
             background: var(--color-white);
             border-top-left-radius: 50% 100%;
             border-top-right-radius: 50% 20%;
@@ -487,6 +481,9 @@ permalink: /petar-and-anastasiia
 
     <!-- 4. PHOTO INTERLUDE -->
     <section class="photo-interlude">
+        <div class="photo-interlude-frame">
+            <img class="photo-interlude-img" src="/assets/media/images/petar-and-anastasiia3.png" alt="Petar i Anastasija" width="1600" height="2000" decoding="async" fetchpriority="low">
+        </div>
         <div class="photo-curve-bottom"></div>
     </section>
 
