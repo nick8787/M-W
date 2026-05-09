@@ -252,44 +252,45 @@ permalink: /petar-and-anastasiia
             vertical-align: middle;
         }
 
-        /* --- Цветы и подарки --- */
-        .gifts-section {
-            background: var(--color-black);
-            color: var(--color-white);
-            padding: 70px 30px 80px;
-            text-align: center;
+        /* --- DETAILS (цветы и подарки — как yaroslav-and-alina) --- */
+        .details-roses {
             position: relative;
+            background: url('https://my-wedding.com.ua/assets/media/images/premium4/OBRoses.jpg') center/cover no-repeat;
+            color: #fff;
+            padding: 100px 30px 62px;
+            border-top-right-radius: 200px;
+            margin-top: -80px;
             z-index: 5;
+            text-align: left;
         }
-        .gifts-section h2 {
+        .details-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.75);
+            z-index: 0;
+            border-top-right-radius: 200px;
+        }
+        .details-content {
+            position: relative;
+            z-index: 2;
+        }
+        .d-item {
+            margin-bottom: 35px;
+            border-left: 2px solid var(--color-gold);
+            padding-left: 20px;
+        }
+        .details-content .d-item:last-child {
+            margin-bottom: 0;
+        }
+        .d-title {
             font-family: var(--font-main);
-            font-size: 26px;
-            line-height: 1.25;
-            margin-bottom: 28px;
+            font-size: 18px;
             color: var(--color-gold);
-            text-transform: uppercase;
+            margin-bottom: 5px;
         }
-        .gifts-section .gift-block {
-            margin-bottom: 36px;
-            text-align: center;
-        }
-        .gifts-section .gift-block:last-child { margin-bottom: 0; }
-        .gifts-section h3 {
-            font-family: var(--font-main);
+        .d-text {
             font-size: 14px;
-            letter-spacing: 3px;
-            margin-bottom: 14px;
-            color: rgba(255,255,255,0.95);
-            text-transform: uppercase;
-        }
-        .gifts-section p {
-            font-size: 14px;
-            line-height: 1.75;
-            font-weight: 300;
-            opacity: 0.92;
-            text-transform: none;
-            max-width: 420px;
-            margin: 0 auto;
+            opacity: 0.9;
         }
 
         /* --- 7. ANKETA --- */
@@ -500,20 +501,26 @@ permalink: /petar-and-anastasiia
         </p>
     </section>
 
-    <!-- Цветы и подарки -->
-    <section class="gifts-section fade-up">
-        <h2>Цветы и подарки</h2>
+    <!-- Цветы и подарки (верстка как yaroslav-and-alina: details-roses) -->
+    <section class="details-roses">
+        <div class="details-overlay"></div>
+        <div class="details-content fade-up">
+            <h2 class="title-lg" style="margin-bottom:40px;">ПОДАРКИ &amp;<br>ДЕТАЛИ</h2>
 
-        <div class="gift-block">
-            <h3>О цветах</h3>
-            <p>Цветы прекрасны, но их красота, к сожалению, недолговечна.<br><br>
-            Если вы захотите порадовать нас, будем рады небольшому и атмосферному подарку — тому, что останется с нами и станет тёплым напоминанием об этом дне.</p>
-        </div>
-
-        <div class="gift-block">
-            <h3>О подарке</h3>
-            <p>Если вы планируете поздравить нас подарком, самым удобным форматом для нас будет конверт.<br><br>
-            Но главное — ваше присутствие, внимание и искренние пожелания. Мы будем рады любому знаку заботы от вас 🤍</p>
+            <div class="d-item">
+                <div class="d-title">О ЦВЕТАХ</div>
+                <div class="d-text">
+                    Цветы прекрасны, но их красота, к сожалению, недолговечна.<br><br>
+                    Если вы захотите порадовать нас, будем рады небольшому и атмосферному подарку — тому, что останется с нами и станет тёплым напоминанием об этом дне.
+                </div>
+            </div>
+            <div class="d-item">
+                <div class="d-title">О ПОДАРКЕ</div>
+                <div class="d-text">
+                    Если вы планируете поздравить нас подарком, самым удобным форматом для нас будет конверт.<br><br>
+                    Но главное — ваше присутствие, внимание и искренние пожелания. Мы будем рады любому знаку заботы от вас 🤍
+                </div>
+            </div>
         </div>
     </section>
 
