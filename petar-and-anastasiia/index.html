@@ -320,6 +320,7 @@ permalink: /petar-and-anastasiia
             display: block; position: relative; padding-left: 30px; margin-bottom: 15px;
             cursor: pointer; font-size: 15px;
         }
+        .check-container > span:first-of-type { margin-right: 6px; }
         .check-container input { position: absolute; opacity: 0; cursor: pointer; height: 0; width: 0; }
         .checkmark {
             position: absolute; top: 3px; left: 0; height: 18px; width: 18px;
@@ -516,7 +517,7 @@ permalink: /petar-and-anastasiia
         </div>
     </section>
 
-    <!-- 6. АНКЕТА -->
+    <!-- 6. АНКЕТА: translate=no + латинські name/value — автопереклад Safari/Chrome не підміняє відправлені значення -->
     <section class="rsvp-curved">
         <div class="fade-up">
             <h2 class="title-lg">АНКЕТА</h2>
@@ -527,54 +528,54 @@ permalink: /petar-and-anastasiia
                 Пожалуйста, заполните форму заранее — нам важно всё спланировать.
             </p>
 
-            <form id="weddingForm" action="https://api.web3forms.com/submit" method="POST" class="rsvp-form">
-                <input type="hidden" name="access_key" value="81c47887-621c-4bd4-92c5-5a59bf6ffb85">
+            <form id="weddingForm" action="https://api.web3forms.com/submit" method="POST" class="rsvp-form notranslate" translate="no" lang="ru" autocomplete="off" spellcheck="false">
+                <input type="hidden" name="access_key" value="581eaf16-3866-475f-8020-0f5282f63bec">
                 <input type="hidden" name="from_name" value="Свадьба Петар и Анастасия">
                 <input type="hidden" name="subject" value="Анкета гостя — Петар и Анастасия">
 
                 <div class="form-group">
-                    <label class="form-label">Ваши имя и фамилия на английском</label>
-                    <input type="text" name="Имя_англ" class="input-text" placeholder="Petar Ivanov" required autocomplete="name" style="font-family: 'Manrope', sans-serif;">
+                    <label class="form-label" for="guest_name_en">Ваши имя и фамилия на английском</label>
+                    <input id="guest_name_en" type="text" name="guest_name_en" class="input-text" placeholder="Petar Ivanov" required inputmode="text" autocorrect="off" autocapitalize="words" style="font-family: 'Manrope', sans-serif;">
                 </div>
 
                 <div class="form-group" style="margin-top:28px;">
-                    <label class="form-label">Будете ли вы 04.10.2026 с нами?</label>
+                    <div class="form-label" id="lbl_oct4">Будете ли вы 04.10.2026 с нами?</div>
                     <label class="check-container">
-                        Да
-                        <input type="radio" name="Присутствие_04_10" value="Да" required>
+                        <span>Да</span>
+                        <input type="radio" name="rsvp_oct4" value="yes" required aria-labelledby="lbl_oct4">
                         <span class="checkmark"></span>
                     </label>
                     <label class="check-container">
-                        Нет
-                        <input type="radio" name="Присутствие_04_10" value="Нет">
-                        <span class="checkmark"></span>
-                    </label>
-                </div>
-
-                <div class="form-group" style="margin-top:28px;">
-                    <label class="form-label">Будете ли вы 05.10.2026 (второй день на прогулочном катере) с нами?</label>
-                    <label class="check-container">
-                        Да
-                        <input type="radio" name="Присутствие_05_10" value="Да" required>
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="check-container">
-                        Нет
-                        <input type="radio" name="Присутствие_05_10" value="Нет">
+                        <span>Нет</span>
+                        <input type="radio" name="rsvp_oct4" value="no" aria-labelledby="lbl_oct4">
                         <span class="checkmark"></span>
                     </label>
                 </div>
 
                 <div class="form-group" style="margin-top:28px;">
-                    <label class="form-label">Какие блюда вы предпочитаете?</label>
+                    <div class="form-label" id="lbl_oct5">Будете ли вы 05.10.2026 (второй день на прогулочном катере) с нами?</div>
                     <label class="check-container">
-                        Рыбные
-                        <input type="radio" name="Блюда" value="Рыбные" required>
+                        <span>Да</span>
+                        <input type="radio" name="rsvp_oct5" value="yes" required aria-labelledby="lbl_oct5">
                         <span class="checkmark"></span>
                     </label>
                     <label class="check-container">
-                        Мясные
-                        <input type="radio" name="Блюда" value="Мясные">
+                        <span>Нет</span>
+                        <input type="radio" name="rsvp_oct5" value="no" aria-labelledby="lbl_oct5">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+
+                <div class="form-group" style="margin-top:28px;">
+                    <div class="form-label" id="lbl_meal">Какие блюда вы предпочитаете?</div>
+                    <label class="check-container">
+                        <span>Рыбные</span>
+                        <input type="radio" name="meal_pref" value="fish" required aria-labelledby="lbl_meal">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="check-container">
+                        <span>Мясные</span>
+                        <input type="radio" name="meal_pref" value="meat" aria-labelledby="lbl_meal">
                         <span class="checkmark"></span>
                     </label>
                 </div>
@@ -666,14 +667,26 @@ permalink: /petar-and-anastasiia
 
         const formData = new FormData(e.target);
 
+        function yesNoRu(v) {
+            if (v === 'yes') return 'Да';
+            if (v === 'no') return 'Нет';
+            return String(v || '');
+        }
+        function mealRu(v) {
+            if (v === 'fish') return 'Рыбные';
+            if (v === 'meat') return 'Мясные';
+            return String(v || '');
+        }
+
+        /* Ключі й значення для листа задаємо тут — у DOM лише латинські name/value, їх перекладачі не чіпають */
         const data = {
             access_key: formData.get('access_key'),
             from_name: 'Свадьба Петар и Анастасия',
             subject: 'Анкета гостя — Петар и Анастасия',
-            Имя_англ: formData.get('Имя_англ'),
-            Присутствие_04_10: formData.get('Присутствие_04_10'),
-            Присутствие_05_10: formData.get('Присутствие_05_10'),
-            Блюда: formData.get('Блюда')
+            'Имя и фамилия (англ.)': String(formData.get('guest_name_en') || '').trim(),
+            '04.10.2026 — с нами': yesNoRu(formData.get('rsvp_oct4')),
+            '05.10.2026 — второй день (катер)': yesNoRu(formData.get('rsvp_oct5')),
+            'Блюда': mealRu(formData.get('meal_pref'))
         };
 
         try {
