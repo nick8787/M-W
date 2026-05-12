@@ -416,10 +416,7 @@ permalink: /anna-and-artem
                 Будь ласка, дайте відповідь заздалегідь — це допоможе нам у підготовці
             </p>
 
-            <form id="weddingForm" action="https://api.web3forms.com/submit" method="POST" class="rsvp-form" accept-charset="UTF-8">
-                <input type="hidden" name="access_key" value="84cb9cb1-60e8-4002-8276-34f1c73cce83">
-                <input type="hidden" name="from_name" value="Anna Artem Wedding">
-                <input type="hidden" name="subject" value="Анкета гостя — Анна та Артем">
+            <form id="weddingForm" action="#" method="post" class="rsvp-form" accept-charset="UTF-8">
 
                 <!-- 1. ІМ'Я -->
                 <div class="form-group">
@@ -565,14 +562,30 @@ permalink: /anna-and-artem
     }, { once: true });
 
 
-    // 4. ВІДПРАВКА ФОРМИ (Виправлено ім'я відправника)
+    // 4. Анкета → Telegram (як у serhii-and-elizaveta)
+    function tgEscapeHtml(text) {
+        if (text == null || text === '') return '';
+        return String(text)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+    }
+
     document.getElementById('weddingForm').addEventListener('submit', async function(e) {
         e.preventDefault();
+
         const btn = e.target.querySelector('button');
-        const originalText = btn.innerText;
-        btn.innerText = "Надсилаємо...";
+        const originalBtnText = btn.innerText;
+        btn.innerText = 'Надсилаємо...';
+        btn.disabled = true;
+
+        const BOT_TOKEN = '8756039644:AAH67bml3mUva4VVToJMBgboI5jW1AoaYyU';
+        const CHAT_ID = '-1003965720840';
 
         const formData = new FormData(e.target);
+
+        const name = (formData.get("Ім'я") || '').trim() || 'Не вказано';
+        const presence = formData.get('Присутність') || 'Не вказано';
 
         const alcohol = Array.from(e.target.querySelectorAll('input[name="temp_alcohol"]:checked'))
             .map(function (el) { return el.value; });
@@ -583,38 +596,44 @@ permalink: /anna-and-artem
         }
         if (!alcoholLine) alcoholLine = 'Не обрано';
 
-        const data = {
-            access_key: formData.get('access_key'),
-            from_name: 'Anna Artem RSVP',
-            subject: 'Анкета гостя — Анна та Артем',
-            "Ім'я": formData.get("Ім'я"),
-            "Присутність": formData.get('Присутність'),
-            "Алкоголь": alcoholLine,
-            "Алергії": (formData.get('Алергії') || '').trim() || '—',
-        };
+        const allergies = (formData.get('Алергії') || '').trim() || '—';
+
+        const textMessage =
+            '💌 <b>Нова анкета — Анна та Артем!</b>\n\n' +
+            '👤 <b>Ім’я:</b> ' + tgEscapeHtml(name) + '\n' +
+            '📅 <b>Присутність:</b> ' + tgEscapeHtml(presence) + '\n' +
+            '🥂 <b>Алкоголь:</b> ' + tgEscapeHtml(alcoholLine) + '\n' +
+            '🤍 <b>Алергії / обмеження:</b> ' + tgEscapeHtml(allergies);
+
+        const url = 'https://api.telegram.org/bot' + BOT_TOKEN + '/sendMessage';
 
         try {
-            const res = await fetch('https://api.web3forms.com/submit', {
+            const response = await fetch(url, {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json; charset=utf-8',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify(data)
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    chat_id: CHAT_ID,
+                    text: textMessage,
+                    parse_mode: 'HTML'
+                })
             });
 
-            const result = await res.json();
+            const result = await response.json();
 
-            if(result.success) {
-                document.getElementById('formMessage').innerHTML = '<span style="color: green">✅ Дякуємо! Ваша відповідь збережена.</span>';
+            if (response.ok && result.ok) {
+                document.getElementById('formMessage').innerHTML =
+                    '<span style="color: green">✅ Дякуємо! Ваша відповідь успішно надіслана.</span>';
                 e.target.reset();
             } else {
-                throw new Error('Server error');
+                throw new Error(result.description || 'Telegram API error');
             }
-        } catch (error) {
-            document.getElementById('formMessage').innerHTML = '<span style="color: red">❌ Помилка. Спробуйте пізніше.</span>';
+        } catch (err) {
+            console.error(err);
+            document.getElementById('formMessage').innerHTML =
+                '<span style="color: red">❌ Помилка з\'єднання. Спробуйте пізніше.</span>';
         } finally {
-            btn.innerText = "НАДІСЛАТИ";
+            btn.innerText = originalBtnText;
+            btn.disabled = false;
         }
     });
 </script>
