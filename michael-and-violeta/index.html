@@ -223,7 +223,13 @@ permalink: /michael-and-violeta
                                                 <time class="wt-time">13:30</time>
                                             </div>
                                             <div class="wt-card-bottom">
-                                                <button type="button" class="wt-map" data-place="база Простір, м. Люботин, Харківська область, Україна">Відкрити на мапі</button>
+                                                <a
+                                                    class="wt-map"
+                                                    href="https://maps.app.goo.gl/g1UPgge4rqGKkyUXA?g_st=ic"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    aria-label="Відкрити базу «Простір» на Google Maps"
+                                                >Відкрити на мапі</a>
                                             </div>
                                         </div>
                                     </li>
@@ -368,12 +374,17 @@ permalink: /michael-and-violeta
                                         margin-top: 10px; display:flex; justify-content:flex-start;
                                     }
                                     .wt-map{
+                                        display: inline-flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        text-decoration: none;
                                         appearance:none; border:none; cursor:pointer;
                                         padding: 10px 14px; border-radius:999px;
                                         font-size:14px; font-weight:600; letter-spacing:.02em;
                                         background: rgba(0,0,0,.045); color:#2f2f2f;
                                         border: 1px solid rgba(0,0,0,.08);
                                         transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
+                                        -webkit-tap-highlight-color: transparent;
                                     }
                                     .wt-map:hover{ transform: translateY(-1px); background: rgba(0,0,0,.06); box-shadow: 0 8px 22px rgba(18,19,20,.08); }
                                     .wt-map:active{ transform:none; box-shadow:none; }
@@ -407,40 +418,6 @@ permalink: /michael-and-violeta
                                 </style>
 
                                 <script>
-                                    function buildGoogleDirectionsUrl(destination){
-                                        const params = new URLSearchParams({
-                                            api: '1',
-                                            destination: destination,
-                                            travelmode: 'driving'
-                                        });
-                                        return `https://www.google.com/maps/dir/?${params.toString()}`;
-                                    }
-
-                                    function openMap(btn){
-                                        const mapsUrl = btn.getAttribute('data-maps-url');
-                                        if (mapsUrl) {
-                                            window.location.href = mapsUrl;
-                                            return;
-                                        }
-                                        const lat = btn.getAttribute('data-lat');
-                                        const lng = btn.getAttribute('data-lng');
-                                        const place = btn.getAttribute('data-place');
-                                        let destination = '';
-                                        if (lat && lng) {
-                                            destination = `${lat},${lng}`;
-                                        } else if (place) {
-                                            destination = place;
-                                        }
-                                        if (!destination) return;
-                                        window.location.href = buildGoogleDirectionsUrl(destination);
-                                    }
-                                    document.addEventListener('click', (e) => {
-                                        const btn = e.target.closest('.wt-map');
-                                        if (!btn) return;
-                                        e.preventDefault();
-                                        openMap(btn);
-                                    });
-
                                     document.addEventListener('DOMContentLoaded', () => {
                                         const rows = Array.from(document.querySelectorAll('.wt-row'));
                                         const io = new IntersectionObserver((entries) => {
