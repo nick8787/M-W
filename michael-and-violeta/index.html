@@ -407,30 +407,37 @@ permalink: /michael-and-violeta
                                 </style>
 
                                 <script>
+                                    function buildGoogleDirectionsUrl(destination){
+                                        const params = new URLSearchParams({
+                                            api: '1',
+                                            destination: destination,
+                                            travelmode: 'driving'
+                                        });
+                                        return `https://www.google.com/maps/dir/?${params.toString()}`;
+                                    }
+
                                     function openMap(btn){
                                         const mapsUrl = btn.getAttribute('data-maps-url');
                                         if (mapsUrl) {
-                                            window.open(mapsUrl, '_blank', 'noopener');
+                                            window.location.href = mapsUrl;
                                             return;
                                         }
                                         const lat = btn.getAttribute('data-lat');
                                         const lng = btn.getAttribute('data-lng');
                                         const place = btn.getAttribute('data-place');
-                                        const isiOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-                                        let url = '';
-                                        if (lat && lng){
-                                            url = isiOS
-                                                ? `https://maps.apple.com/?ll=${lat},${lng}&q=${lat},${lng}`
-                                                : `https://www.google.com/maps?q=${lat},${lng}`;
-                                        } else if (place){
-                                            const q = encodeURIComponent(place);
-                                            url = isiOS ? `https://maps.apple.com/?q=${q}` : `https://www.google.com/maps?q=${q}`;
+                                        let destination = '';
+                                        if (lat && lng) {
+                                            destination = `${lat},${lng}`;
+                                        } else if (place) {
+                                            destination = place;
                                         }
-                                        if (url) window.open(url, '_blank', 'noopener');
+                                        if (!destination) return;
+                                        window.location.href = buildGoogleDirectionsUrl(destination);
                                     }
                                     document.addEventListener('click', (e) => {
                                         const btn = e.target.closest('.wt-map');
                                         if (!btn) return;
+                                        e.preventDefault();
                                         openMap(btn);
                                     });
 
