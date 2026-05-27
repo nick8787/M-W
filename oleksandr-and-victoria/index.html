@@ -374,7 +374,10 @@ permalink: /oleksandr-and-victoria
 
     <footer>
         <section class="footer-hero" id="footer">
-            <div class="footer-hero__bg" aria-hidden="true"></div>
+            <div class="footer-hero__media" aria-hidden="true">
+                <div class="footer-hero__bg"></div>
+                <img class="footer-hero__photo" src="/assets/media/images/oleksandr-and-victoria2.png" alt="">
+            </div>
 
             <div class="footer-hero__content">
                 <h2 class="footer-hero__title">Святкуйте з нами!</h2>
@@ -394,20 +397,61 @@ permalink: /oleksandr-and-victoria
                 isolation:isolate;
             }
 
+            .footer-hero__media{
+                position:absolute;
+                inset:0;
+                z-index:0;
+                overflow:hidden;
+            }
+
             .footer-hero__bg{
-                position:absolute; inset:0;
+                position:absolute;
+                inset:0;
                 background:
                         linear-gradient(180deg, rgba(0,0,0,.20) 0%, rgba(0,0,0,.45) 100%),
                         url('/assets/media/images/oleksandr-and-victoria2.png') center/cover no-repeat;
-                z-index:-1;
                 transform:scale(1.02);
             }
 
+            .footer-hero__photo{
+                display:none;
+            }
+
             .footer-hero__content{
+                position:relative;
+                z-index:2;
                 text-align:center;
                 color:#fff;
                 padding: clamp(24px, 4vw, 48px);
                 max-width: 1000px;
+            }
+
+            @media screen and (min-width: 1024px) {
+                .footer-hero__bg{
+                    background:
+                        url('/assets/media/images/oleksandr-and-victoria2.png') center/cover no-repeat;
+                    transform:scale(1.18);
+                    filter:blur(36px) saturate(1.08) brightness(0.92);
+                    will-change:transform;
+                }
+
+                .footer-hero__bg::after{
+                    content:"";
+                    position:absolute;
+                    inset:0;
+                    background:linear-gradient(180deg, rgba(0,0,0,.12) 0%, rgba(0,0,0,.38) 100%);
+                }
+
+                .footer-hero__photo{
+                    display:block;
+                    position:absolute;
+                    inset:0;
+                    width:100%;
+                    height:100%;
+                    object-fit:contain;
+                    object-position:center center;
+                    z-index:1;
+                }
             }
 
             .footer-hero__title{
@@ -436,8 +480,11 @@ permalink: /oleksandr-and-victoria
                 opacity:.95;
             }
 
-            @media (min-width:1600px){
-                .footer-hero__bg{ transform:scale(1.04); }
+            @media screen and (min-width: 1600px) {
+                .footer-hero__bg{
+                    transform:scale(1.22);
+                    filter:blur(40px) saturate(1.08) brightness(0.92);
+                }
             }
 
             @supports (padding: max(0px)) {
