@@ -3,72 +3,38 @@ layout: null
 permalink: /oleksandr-and-victoria
 ---
 <!doctype html>
-<!--
-Version : 1.0
--->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale = 1.0, user-scalable=no">
-    <!--metatextblock-->
     <title>Олександр & Вікторія - Весільне запрошення</title>
     <meta property="og:url" content="https://my-wedding.com.ua/oleksandr-and-victoria" />
     <meta property="og:title" content="Олександр & Вікторія - Весільне запрошення" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="/assets/media/images/oleksandr-and-victoria.png" />
     <link rel="canonical" href="https://my-wedding.com.ua/oleksandr-and-victoria">
-    <!--/metatextblock-->
 
-<!-- GOOGLE FONTS-->
 <link href="https://fonts.googleapis.com/css?family=Comfortaa%7CScope+One%7CTangerine:700" rel="stylesheet">
-<!-- END GOOGLE FONTS-->
 
-<!-- BOOTSTRAP -->
 <link rel="stylesheet" href="../assets_premium3/css/bootstrap.css?ver=3.3.6">
-<!-- END BOOTSTRAP-->
 
-<!-- FONT AWESOME -->
 <link rel="stylesheet" href="../assets_premium3/css/font-awesome.css?ver=4.6.3">
-<!-- END FONT AWESOME -->
 
-<!-- ANIMATE CSS -->
 <link rel="stylesheet" href="../assets_premium3/css/animate.css?ver=3.5.1">
-<!-- END ANIMATE CSS -->
 
-<!-- SWIPER CSS -->
 <link rel="stylesheet" href="../assets_premium3/css/swiper.css?ver=3.3.1">
-<!-- END SWIPER CSS -->
 
-<!-- WDP STYLES -->
 <link rel="stylesheet" href="../assets_premium3/css/wdp-styles.css?ver=1.0">
-<!-- END WDP STYLES -->
 
-<!-- WDP STYLE SKIN -->
-<!-- For Default Skin -->
 <link rel="icon" href="../assets_premium3/images/favicon.png">
 <link rel="apple-touch-icon" href="../assets_premium3/images/apple-touch-icon.png">
 <link rel="stylesheet" href="../assets_premium3/css/skin/wdp-skin-default.css?ver=1.0">
 
-<!-- For Turquoise Skin -->
-<!--<link rel="icon" href="images/turquoise/favicon.ico">
-<link rel="apple-touch-icon" href="images/turquoise/apple-touch-icon.png">
-<link rel="stylesheet" href="css/skin/wdp-skin-turquoise.css?ver=1.0">-->
-
-<!-- For Lavender Skin -->
-<!--<link rel="icon" href="images/lavender/favicon.ico">
-<link rel="apple-touch-icon" href="images/lavender/apple-touch-icon.png">
-<link rel="stylesheet" href="css/skin/wdp-skin-lavender.css?ver=1.0">-->
-<!-- END WDP STYLE SKIN -->
-
-<!-- WDP MEDIA -->
 <link rel="stylesheet" href="../assets_premium3/css/wdp-media.css?ver=1.0">
-<!-- END WDP MEDIA -->
 
-<!-- MODERNIZR JS -->
 <script src="../assets_premium3/js/modernizr-custom.js?ver=3.3.1"></script>
-<!-- END MODERNIZR JS -->
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
 
     <style>
@@ -98,11 +64,80 @@ Version : 1.0
             display: block;
         }
 
-        /* Mobile: укорочуємо фото (обрізка знизу), контент іде одразу під ним */
+        @media screen and (min-width: 1024px) {
+            #main.site-main {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr);
+            }
+            #wdp_slideshow.wdp_hero_static {
+                grid-column: 1;
+                grid-row: 1;
+            }
+            #wdp_splash {
+                grid-column: 1;
+                grid-row: 1;
+                position: relative !important;
+                top: auto !important;
+                bottom: auto !important;
+                width: 100%;
+                max-width: 100%;
+                height: 100% !important;
+                min-height: 0;
+                align-self: stretch;
+                justify-self: center;
+                z-index: 4;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-end;
+                padding-bottom: clamp(160px, 28%, 320px);
+                box-sizing: border-box;
+                pointer-events: none;
+            }
+            #wdp_splash .container {
+                width: 100%;
+                max-width: 100%;
+                margin: 0;
+                padding: 0 15px;
+                display: flex;
+                justify-content: center;
+            }
+            #wdp_splash .row {
+                margin: 0;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+            #wdp_splash .col-lg-5 {
+                float: none !important;
+                width: auto;
+                max-width: 520px;
+                margin: 0 auto !important;
+                padding: 0;
+            }
+            #wdp_splash .wdp_splash_inner {
+                top: auto !important;
+                position: relative !important;
+                margin: 0 auto;
+                padding: 110px 130px 70px !important;
+                pointer-events: auto;
+            }
+            #countdown {
+                grid-column: 1;
+                grid-row: 2;
+            }
+            #wdp_home_events {
+                grid-column: 1;
+                grid-row: 3;
+            }
+        }
+
         @media screen and (max-width: 1023px) {
             #wdp_slideshow.wdp_hero_static {
-                height: clamp(300px, 62vh, 440px);
-                max-height: clamp(300px, 62vh, 440px);
+                height: clamp(360px, 74vh, 530px);
+                max-height: clamp(360px, 74vh, 530px);
             }
             #wdp_slideshow.wdp_hero_static .wdp_slideshow_inner {
                 height: 100%;
@@ -113,7 +148,9 @@ Version : 1.0
                 height: 100%;
                 min-height: 100%;
                 object-fit: cover;
-                object-position: center 22%;
+                object-position: center 36%;
+                transform: scale(1.08);
+                transform-origin: center 36%;
             }
             #wdp_slideshow.wdp_hero_static:before,
             #wdp_slideshow.wdp_hero_static:after {
@@ -147,11 +184,13 @@ Version : 1.0
 
         @media screen and (max-width: 767px) {
             #wdp_slideshow.wdp_hero_static {
-                height: clamp(280px, 58vh, 400px);
-                max-height: clamp(280px, 58vh, 400px);
+                height: clamp(330px, 70vh, 480px);
+                max-height: clamp(330px, 70vh, 480px);
             }
             #wdp_slideshow.wdp_hero_static .wdp_hero_image {
-                object-position: center 20%;
+                object-position: center 34%;
+                transform: scale(1.09);
+                transform-origin: center 34%;
             }
             #countdown.wdp_margin_top_6 {
                 margin-top: 2.25rem !important;
@@ -160,8 +199,13 @@ Version : 1.0
 
         @media screen and (max-width: 375px) {
             #wdp_slideshow.wdp_hero_static {
-                height: clamp(260px, 54vh, 360px);
-                max-height: clamp(260px, 54vh, 360px);
+                height: clamp(310px, 66vh, 430px);
+                max-height: clamp(310px, 66vh, 430px);
+            }
+            #wdp_slideshow.wdp_hero_static .wdp_hero_image {
+                object-position: center 33%;
+                transform: scale(1.1);
+                transform-origin: center 33%;
             }
             #countdown.wdp_margin_top_6 {
                 margin-top: 2rem !important;
@@ -173,34 +217,22 @@ Version : 1.0
 
 <body class="home">
 
-<!-- WDP PRELOADER -->
 <div class="wdp_preloader"></div>
-<!-- END WDP PRELOADER -->
 
-<!-- PAGE -->
 <div id="page" class="site">
 
-    <!-- SITE-HEADER -->
-    <!-- END SITE-HEADER -->
-
-    <!-- SITE-CONTENT -->
     <div id="content" class="site-content">
 
-        <!-- PRIMARY -->
         <div id="primary" class="content-area">
 
-            <!-- MAIN -->
             <main id="main" class="site-main" role="main">
 
-                <!-- HERO -->
                 <section id="wdp_slideshow" class="wdp_hero_static">
                     <div class="wdp_slideshow_inner">
                         <img src="/assets/media/images/oleksandr-and-victoria.png" alt="Олександр і Вікторія" class="img-responsive wdp_hero_image">
                     </div>
                 </section>
-                <!-- END HERO -->
 
-                <!-- SPLASH -->
                 <section id="wdp_splash">
 
                     <div class="container">
@@ -221,10 +253,8 @@ Version : 1.0
                     </div>
 
                 </section>
-                <!-- END SPLASH -->
 
 
-                <!-- COUNTDOWN -->
                 <section id="countdown" class="text-center wdp_margin_top_6">
                     <div class="container wdp_section_title">
                         <h2>Запрошуємо вас на весілля</h2>
@@ -249,9 +279,6 @@ Version : 1.0
                     </div>
                 </section>
 
-                <!-- END COUNTDOWN -->
-
-                <!-- HOME EVENTS -->
                 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
 
                 <style>
@@ -339,92 +366,12 @@ Version : 1.0
                     </div>
                 </section>
 
-                <!-- END HOME EVENTS -->
+            </main>
 
-                <!-- CONTACT BAR -->
-                <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
-
-                <style>
-                    #wdp_contact_bar .wdp_section_title h2 {
-                        font-family: 'Great Vibes', cursive;
-                        font-weight: 400;
-                        color: #f81d32;
-                        font-size: clamp(45px, 7vw, 64px);
-                        margin-bottom: 8px;
-                    }
-                    #wdp_contact_bar .wdp_section_title p {
-                        font-family: 'Playfair Display', serif;
-                        font-size: clamp(16px, 3.6vw, 20px);
-                        color: #444;
-                        margin-bottom: 28px;
-                    }
-                    .wdp_contact_bar_inner {
-                        background: #fff;
-                        padding: 30px;
-                        border-radius: 16px;
-                        box-shadow: 0 6px 18px rgba(0,0,0,.08);
-                    }
-                    .wdp_contact_bar_address p,
-                    .wdp_contact_bar_phone,
-                    .wdp_contact_bar_mail {
-                        font-family: 'Playfair Display', serif;
-                        font-size: 18px;
-                        margin: 10px 0;
-                        color: #555;
-                    }
-                    .wdp_contact_bar_mail a {
-                        color: #c59f8a;
-                        text-decoration: none;
-                    }
-                    .wdp_contact_bar_mail a:hover {
-                        text-decoration: underline;
-                    }
-                    .wdp_contact_icon {
-                        color: #c59f8a;
-                        margin-right: 8px;
-                    }
-                </style>
-
-<!--                <section id="wdp_contact_bar" class="text-center wdp_margin_top_10">-->
-
-<!--                    <div class="container wdp_section_title">-->
-<!--                        <h2>Зв’яжіться з нами</h2>-->
-<!--                        <p>Ми будемо раді відповісти на ваші запитання</p>-->
-<!--                    </div>-->
-
-<!--                    <div class="wdp_contact_bar_inner">-->
-<!--                        <div class="container">-->
-
-<!--                            <div class="row">-->
-
-<!--                                <div class="col-sm-6">-->
-<!--                                    <p class="wdp_contact_bar_phone">-->
-<!--                                        <i class="fa fa-phone wdp_contact_icon"></i> +380 67 123 45 67-->
-<!--                                    </p>-->
-<!--                                </div>-->
-
-<!--                                <div class="col-sm-6">-->
-<!--                                    <p class="wdp_contact_bar_mail">-->
-<!--                                        <i class="fa fa-envelope wdp_contact_icon"></i>-->
-<!--                                        <a href="mailto:ваш_email@gmail.com">ваш_email@gmail.com</a>-->
-<!--                                    </p>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-
-<!--                </section>-->
-
-                <!-- END CONTACT BAR -->
-
-            </main><!-- END MAIN -->
-
-        </div><!-- END PRIMARY -->
+        </div>
 
     </div>
-    <!-- END SITE-CONTENT -->
 
-    <!-- SITE-FOOTER -->
     <footer>
         <section class="footer-hero" id="footer">
             <div class="footer-hero__bg" aria-hidden="true"></div>
@@ -432,16 +379,11 @@ Version : 1.0
             <div class="footer-hero__content">
                 <h2 class="footer-hero__title">Святкуйте з нами!</h2>
 
-<!--                <p class="footer-hero__subtitle">-->
-<!--                    Будь ласка, відгукніться до <strong>20.05.2026</strong>-->
-<!--                </p>-->
-
                 <p class="footer-hero__note">Чекаємо на вас</p>
             </div>
         </section>
 
         <style>
-            /* Fullscreen footer hero */
             .footer-hero{
                 position:relative;
                 min-height:100vh;
@@ -452,7 +394,6 @@ Version : 1.0
                 isolation:isolate;
             }
 
-            /* BG image */
             .footer-hero__bg{
                 position:absolute; inset:0;
                 background:
@@ -462,7 +403,6 @@ Version : 1.0
                 transform:scale(1.02);
             }
 
-            /* Content */
             .footer-hero__content{
                 text-align:center;
                 color:#fff;
@@ -504,62 +444,37 @@ Version : 1.0
                 .footer-hero__content{ padding-bottom: max(24px, env(safe-area-inset-bottom)); }
             }
         </style>
-        <!-- Footer Main End -->
 
     </footer>
-    <!-- END SITE-FOOTER-->
 
 </div>
-<!-- END PAGE -->
 
-<!-- JQUERY JS -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script>
 if (typeof jQuery == 'undefined') {
     document.write(unescape("%3Cscript src='js/jquery.min.js' type='text/javascript'%3E%3C/script%3E"));
 }
 </script>
-<!-- END JQUERY JS -->
 
-<!-- JQUERY MIGRATE JS -->
 <script src="../assets_premium3/js/jquery-migrate.js?ver=1.2.1"></script>
-<!-- END JQUERY MIGRATE JS -->
 
-<!-- WDP PRELOADER JS -->
 <script src="../assets_premium3/js/wdp-preloader.js?ver=1.0"></script>
-<!-- END WDP PRELOADER JS -->
 
-<!-- BOOTSTRAP JS -->
 <script src="../assets_premium3/js/bootstrap.js?ver=3.3.6"></script>
-<!-- END BOOTSTRAP JS -->
 
-<!-- SCROLLREVEAL JS -->
 <script src="../assets_premium3/js/scrollreveal.js?ver=3.1.4"></script>
-<!-- END SCROLLREVEAL JS -->
 
-<!-- WDP SCROLLREVEAL JS -->
 <script src="../assets_premium3/js/wdp-scrollreveal.js?ver=1.0"></script>
-<!-- END WDP SCROLLREVEAL JS -->
 
-<!-- SWIPER JS -->
 <script src="../assets_premium3/js/swiper.jquery.js?ver=3.3.1"></script>
-<!-- END SWIPER JS -->
 
-<!-- WDP SWIPER -->
 <script src="../assets_premium3/js/wdp-swiper.js?ver=1.0"></script>
-<!-- END WDP SWIPER -->
 
-<!-- FANCY SELECT JS -->
 <script src="../assets_premium3/js/fancySelect.js?ver=1.4.0"></script>
-<!-- END FANCY SELECT JS -->
 
-<!-- FORM JS -->
 <script src="../assets_premium3/js/jquery.form.js?ver=3.5"></script>
-<!-- END FORM JS -->
 
-<!-- WDP RSVP FORM -->
 <script src="../assets_premium3/js/wdp-rsvp-form.js?ver=1.0"></script>
-<!-- END WDP RSVP FORM -->
 
 </body>
 </html>
