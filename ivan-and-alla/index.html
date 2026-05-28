@@ -161,7 +161,19 @@ permalink: /ivan-and-alla
         .timeline { display: flex; flex-direction: column; align-items: center; gap: 40px; }
         .t-item { text-align: center; }
         .t-time { font-family: var(--font-main); font-size: 50px; line-height: 1; margin-bottom: 5px; font-weight: 400; color: #000; }
-        .t-name { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: #333; }
+        .t-name { font-size: 14px; font-weight: 500; text-transform: none; letter-spacing: 0.3px; color: #333; line-height: 1.5; max-width: 320px; margin: 0 auto; }
+        .t-map-link {
+            display: inline-block;
+            margin-top: 12px;
+            font-size: 12px;
+            color: #666;
+            text-decoration: none;
+            border-bottom: 1px solid var(--color-gold);
+            padding-bottom: 2px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        .t-map-link:hover { color: #000; }
         .t-dot { width: 6px; height: 6px; background: var(--color-gold); border-radius: 50%; margin: 10px auto 0; }
 
         /* --- 5. PHOTO INTERLUDE --- */
@@ -226,7 +238,8 @@ permalink: /ivan-and-alla
 
         .rsvp-form { margin-top: 30px; text-align: left; }
 
-        .form-label { display: block; font-size: 14px; font-weight: 700; margin-bottom: 10px; font-family: var(--font-body); letter-spacing: 0.5px; color: #000; }
+        .form-label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 10px; font-family: var(--font-body); letter-spacing: 0.3px; color: #000; text-transform: none; line-height: 1.5; }
+        .form-intro { text-align: center; font-size: 14px; color: #555; line-height: 1.6; margin-bottom: 30px; font-weight: 300; }
 
         .input-text, .input-area {
             width: 100%; border: none; border-bottom: 1px solid #999;
@@ -341,38 +354,22 @@ permalink: /ivan-and-alla
             <h3 class="loc-title">НАШ ОСОБЛИВИЙ ДЕНЬ</h3>
             <span class="loc-address">БУДЕМО ЩАСЛИВІ РОЗДІЛИТИ ЙОГО РАЗОМ ІЗ ВАМИ</span>
 
-            <div style="margin: 25px 0 35px; display: flex; flex-direction: column; gap: 14px; align-items: center;">
-                <a href="https://www.google.com/maps?q=%D0%9C%D0%BE%D0%BB%D0%BE%D0%B4%D1%96%D0%B6%D0%BD%D0%B8%D0%B9+%D1%86%D0%B5%D0%BD%D1%82%D1%80+%22%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD%D1%82%D0%B8%D0%BA%D0%B0%22,+%D0%B2%D1%83%D0%BB%D0%B8%D1%86%D1%8F+%D0%93%D0%B5%D1%80%D0%BE%D1%97%D0%B2+%D0%A1%D1%83%D0%BC%D1%89%D0%B8%D0%BD%D0%B8,+3,+%D0%A1%D1%83%D0%BC%D0%B8,+%D0%A1%D1%83%D0%BC%D1%81%D1%8C%D0%BA%D0%B0+%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C,+40000&ftid=0x412903814fc26d17:0xc7c7b5cf2a06b4d8&entry=gps" target="_blank" rel="noopener" class="btn-circle-black" style="width: 120px; height: 120px; font-size: 10px; margin: 0;">
-                    МЦ<br>НА МАПІ
-                </a>
-
-                <div style="font-size: 13px; text-transform: uppercase; letter-spacing: 1px; color: #333; font-weight: 600;">
-                    МЦ «РОМАНТИКА»
-                </div>
-
-                <a href="https://www.google.com/maps?q=%D0%9A%D0%B0%D1%84%D0%B5+%22Vintage%22,+%D0%B2%D1%83%D0%BB%D0%B8%D1%86%D1%8F+%D0%93%D0%B5%D1%80%D0%BE%D1%97%D0%B2+%D0%9A%D1%80%D1%83%D1%82,+38,+%D0%A1%D1%83%D0%BC%D0%B8,+%D0%A1%D1%83%D0%BC%D1%81%D1%8C%D0%BA%D0%B0+%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C,+40000&ftid=0x412903a209851cb3:0xff6c1c5e92795a84&entry=gps" target="_blank" rel="noopener" class="btn-circle-black" style="width: 120px; height: 120px; font-size: 10px; margin: 10px 0 0;">
-                    CAFE<br>НА МАПІ
-                </a>
-
-                <div style="font-size: 13px; text-transform: uppercase; letter-spacing: 1px; color: #333; font-weight: 600;">
-                    CAFE “VINTAGE”
-                </div>
-            </div>
-
-            <div class="timeline">
+            <div class="timeline" style="margin-top: 35px;">
                 <div class="t-item">
                     <div class="t-time">10:00</div>
-                    <div class="t-name">ЦЕРЕМОНІЯ В МЦ «РОМАНТИКА»</div>
+                    <div class="t-name">Церемонія одруження в МЦ «Романтика»</div>
+                    <a href="https://www.google.com/maps?q=%D0%9C%D0%BE%D0%BB%D0%BE%D0%B4%D1%96%D0%B6%D0%BD%D0%B8%D0%B9+%D1%86%D0%B5%D0%BD%D1%82%D1%80+%22%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD%D1%82%D0%B8%D0%BA%D0%B0%22,+%D0%B2%D1%83%D0%BB%D0%B8%D1%86%D1%8F+%D0%93%D0%B5%D1%80%D0%BE%D1%97%D0%B2+%D0%A1%D1%83%D0%BC%D1%89%D0%B8%D0%BD%D0%B8,+3,+%D0%A1%D1%83%D0%BC%D0%B8,+%D0%A1%D1%83%D0%BC%D1%81%D1%8C%D0%BA%D0%B0+%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C,+40000&ftid=0x412903814fc26d17:0xc7c7b5cf2a06b4d8&entry=gps" target="_blank" rel="noopener" class="t-map-link">геолокація</a>
                     <div class="t-dot"></div>
                 </div>
                 <div class="t-item">
                     <div class="t-time">14:00</div>
-                    <div class="t-name">ЗБІР ГОСТЕЙ CAFE “VINTAGE”</div>
+                    <div class="t-name">Зустріч гостей та початок святкування в cafe «Vintage»</div>
+                    <a href="https://www.google.com/maps?q=%D0%9A%D0%B0%D1%84%D0%B5+%22Vintage%22,+%D0%B2%D1%83%D0%BB%D0%B8%D1%86%D1%8F+%D0%93%D0%B5%D1%80%D0%BE%D1%97%D0%B2+%D0%9A%D1%80%D1%83%D1%82,+38,+%D0%A1%D1%83%D0%BC%D0%B8,+%D0%A1%D1%83%D0%BC%D1%81%D1%8C%D0%BA%D0%B0+%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C,+40000&ftid=0x412903a209851cb3:0xff6c1c5e92795a84&entry=gps" target="_blank" rel="noopener" class="t-map-link">геолокація</a>
                     <div class="t-dot"></div>
                 </div>
                 <div class="t-item">
-                    <div class="t-time">20:00</div>
-                    <div class="t-name">СВЯТКОВИЙ БАНКЕТ ТА ЗАВЕРШЕННЯ ВЕЧОРА</div>
+                    <div class="t-time">21:00</div>
+                    <div class="t-name">Святковий торт та завершення святкування</div>
                 </div>
             </div>
         </div>
@@ -426,12 +423,7 @@ permalink: /ivan-and-alla
     <section class="rsvp-curved">
         <div class="fade-up">
             <h2 class="title-lg">АНКЕТА</h2>
-            <p class="text-body" style="color:#000; margin-bottom:5px;">
-                ПІДТВЕРДІТЬ СВОЮ ПРИСУТНІСТЬ
-            </p>
-            <p style="text-align:center; font-size:11px; text-transform:uppercase; letter-spacing:1px; color:#888; margin-bottom:40px;">
-                Відповідь до 01.07.2026
-            </p>
+            <p class="form-intro">Будь ласка, залиште відповідь до 01.07.2026 — це допоможе нам усе організувати з любов’ю до деталей.</p>
 
             <form id="weddingForm" action="https://api.web3forms.com/submit" method="POST" class="rsvp-form" accept-charset="UTF-8">
                 <input type="hidden" name="access_key" value="f8b32af9-e06a-46fc-8326-5e4bd1e604e4">
@@ -451,38 +443,52 @@ permalink: /ivan-and-alla
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label">Чи плануєте ви бути на реєстрації?</label>
+                    <label class="form-label">Чи розділите ви з нами цей особливий день?</label>
                     <label class="check-container">
-                        Так
-                        <input type="radio" name="registration" value="Так" required>
+                        Із радістю будемо ❤️
+                        <input type="radio" name="special_day" value="Із радістю будемо ❤️" required>
                         <span class="checkmark"></span>
                     </label>
                     <label class="check-container">
-                        Ні
-                        <input type="radio" name="registration" value="Ні">
-                        <span class="checkmark"></span>
-                    </label>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label">Чи плануєте бути на весіллі?</label>
-                    <label class="check-container">
-                        Так
-                        <input type="radio" name="wedding" value="Так" required>
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="check-container">
-                        Ні
-                        <input type="radio" name="wedding" value="Ні">
+                        На жаль, не зможемо
+                        <input type="radio" name="special_day" value="На жаль, не зможемо">
                         <span class="checkmark"></span>
                     </label>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label">Чи будете з дітьми?</label>
+                    <label class="form-label">Чи будете присутні на церемонії?</label>
+                    <label class="check-container">
+                        Так, обов’язково
+                        <input type="radio" name="ceremony" value="Так, обов’язково" required>
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="check-container">
+                        На жаль, ні
+                        <input type="radio" name="ceremony" value="На жаль, ні">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Чи завітаєте на святкування?</label>
                     <label class="check-container">
                         Так
-                        <input type="radio" name="children" value="Так" required>
+                        <input type="radio" name="celebration" value="Так" required>
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="check-container">
+                        Ні
+                        <input type="radio" name="celebration" value="Ні">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Чи плануєте бути з маленькими гостями?</label>
+                    <label class="check-container">
+                        Так, з дітками
+                        <input type="radio" name="children" value="Так, з дітками" required>
                         <span class="checkmark"></span>
                     </label>
                     <label class="check-container">
@@ -493,17 +499,11 @@ permalink: /ivan-and-alla
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label">Побажання щодо алкоголю:</label>
+                    <label class="form-label">Ваші побажання щодо напоїв:</label>
 
                     <label class="check-container check-square">
-                        Ром
-                        <input type="checkbox" name="temp_alcohol" value="Ром">
-                        <span class="checkmark" style="border-radius:4px;"></span>
-                    </label>
-
-                    <label class="check-container check-square">
-                        Горілка
-                        <input type="checkbox" name="temp_alcohol" value="Горілка">
+                        Ігристе (шампанське)
+                        <input type="checkbox" name="temp_alcohol" value="Ігристе (шампанське)">
                         <span class="checkmark" style="border-radius:4px;"></span>
                     </label>
 
@@ -514,8 +514,20 @@ permalink: /ivan-and-alla
                     </label>
 
                     <label class="check-container check-square">
-                        Шампанське
-                        <input type="checkbox" name="temp_alcohol" value="Шампанське">
+                        Горілка
+                        <input type="checkbox" name="temp_alcohol" value="Горілка">
+                        <span class="checkmark" style="border-radius:4px;"></span>
+                    </label>
+
+                    <label class="check-container check-square">
+                        Ром
+                        <input type="checkbox" name="temp_alcohol" value="Ром">
+                        <span class="checkmark" style="border-radius:4px;"></span>
+                    </label>
+
+                    <label class="check-container check-square">
+                        Не вживаю алкоголь
+                        <input type="checkbox" name="temp_alcohol" value="Не вживаю алкоголь">
                         <span class="checkmark" style="border-radius:4px;"></span>
                     </label>
                 </div>
@@ -621,10 +633,11 @@ permalink: /ivan-and-alla
             from_name: "Ivan and Alla - Wedding",
             subject: "Нова анкета гостя (Іван та Алла)",
             "Ім’я / імена гостей": formData.get("guest_names"),
-            "Реєстрація": formData.get("registration"),
-            "Весілля": formData.get("wedding"),
-            "З дітьми": formData.get("children"),
-            "Алкоголь": alcohol.join(', ') || 'Не обрано'
+            "Особливий день": formData.get("special_day"),
+            "Церемонія": formData.get("ceremony"),
+            "Святкування": formData.get("celebration"),
+            "Маленькі гості": formData.get("children"),
+            "Напої": alcohol.join(', ') || 'Не обрано'
         };
 
         try {
