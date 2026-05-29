@@ -108,29 +108,74 @@ permalink: /vitalii-and-valentina-invite/vasyl-and-zoriana-marko-yustina-and-mak
             color: #fff !important;
         }
 
-        /* Кола таймера та дат — PNG-фон + білий текст */
-        #page .wdp_countdown_item,
+        /* Кола таймера — повний розмір, бежевий відтінок */
+        #countdown #cntdwn {
+            display: inline-block;
+            text-align: center;
+        }
+
+        #page .wdp_countdown_item {
+            position: relative;
+            margin: 0 10px !important;
+            padding: 0 !important;
+            width: 120px !important;
+            height: 120px !important;
+            min-width: 120px;
+            min-height: 120px;
+            display: inline-flex !important;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+            vertical-align: top;
+            background: none !important;
+            background-color: transparent !important;
+            border-radius: 0;
+            z-index: 0;
+            isolation: isolate;
+        }
+
+        #page .wdp_countdown_item::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: url(../assets_premium3/images/countdown-item-bg.png) no-repeat center center;
+            background-size: contain;
+            filter: sepia(0.42) saturate(0.62) hue-rotate(352deg) brightness(0.94);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        #countdown .wdp_countdown_item p {
+            position: relative;
+            z-index: 1;
+            filter: none;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            line-height: 1.15;
+        }
+
+        #countdown .wdp_countdown_item .wdp_countdown_int,
+        #countdown .wdp_countdown_item b {
+            position: relative;
+            z-index: 1;
+            filter: none;
+            display: block;
+            margin: 0;
+        }
+
         #page .wdp_event_date {
             position: relative;
             background: none !important;
             background-color: transparent !important;
             border-radius: 0;
             z-index: 0;
-        }
-
-        #page .wdp_countdown_item::before {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 120px;
-            height: 120px;
-            transform: translate(-50%, -50%);
-            background: url(../assets_premium3/images/countdown-item-bg.png) no-repeat center;
-            background-size: contain;
-            filter: sepia(0.42) saturate(0.62) hue-rotate(352deg) brightness(0.94);
-            z-index: -1;
-            pointer-events: none;
         }
 
         #page .wdp_event_date::before {
@@ -168,6 +213,15 @@ permalink: /vitalii-and-valentina-invite/vasyl-and-zoriana-marko-yustina-and-mak
             font-size: clamp(45px, 6vw, 64px);
             margin-bottom: 12px;
             letter-spacing: 0.2px;
+        }
+
+        #countdown .wdp_section_title h2.wdp_guest_greeting {
+            font-size: clamp(42px, 7.2vw, 68px);
+            line-height: 1.12;
+            max-width: 960px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 12px;
         }
         #countdown .wdp_section_title p{
             font-family: 'Playfair Display', serif;
@@ -339,43 +393,58 @@ permalink: /vitalii-and-valentina-invite/vasyl-and-zoriana-marko-yustina-and-mak
             }
         }
 
-        /* Таймер — більші цифри та підписи */
-        #countdown .wdp_countdown_item {
-            width: clamp(88px, 22vw, 120px);
-            height: clamp(88px, 22vw, 120px);
-            padding-top: 1.25em;
-        }
-
-        #countdown .wdp_countdown_int {
-            font-size: clamp(34px, 7vw, 46px) !important;
+        #countdown .wdp_countdown_int,
+        #countdown .wdp_countdown_item b {
+            font-size: clamp(18px, 3.8vw, 22px) !important;
             font-weight: 600;
             line-height: 1.1;
         }
 
-        #countdown .wdp_countdown_item b {
-            font-size: inherit;
-            font-weight: inherit;
-        }
-
         #countdown .wdp_countdown_item p {
-            font-size: clamp(14px, 2.8vw, 18px) !important;
-            margin-top: 6px;
-            line-height: 1.3;
+            font-size: clamp(11px, 2.4vw, 13px) !important;
+            margin-top: 5px;
+            line-height: 1.25;
         }
 
-        @media screen and (max-width: 592px) {
-            #countdown .wdp_countdown_item {
-                background: none !important;
+        @media screen and (max-width: 767px) {
+            #countdown .container.wdp_margin_top_4 {
+                padding-left: 10px;
+                padding-right: 10px;
             }
 
-            #countdown .wdp_countdown_item::before {
-                display: block;
+            #countdown .container.wdp_margin_top_4 .row {
+                margin-left: 0;
+                margin-right: 0;
             }
 
-            #countdown .wdp_countdown_item,
-            #countdown .wdp_countdown_item p,
+            #countdown #cntdwn {
+                display: flex;
+                flex-wrap: nowrap;
+                justify-content: center;
+                align-items: stretch;
+                width: 100%;
+                max-width: 100%;
+                gap: clamp(4px, 1.2vw, 8px);
+            }
+
+            #page .wdp_countdown_item {
+                flex: 1 1 0;
+                min-width: 0 !important;
+                width: auto !important;
+                max-width: none;
+                height: auto !important;
+                min-height: 0;
+                aspect-ratio: 1;
+                margin: 0 !important;
+            }
+
+            #countdown .wdp_countdown_int,
             #countdown .wdp_countdown_item b {
-                color: #fff !important;
+                font-size: clamp(15px, 4.2vw, 20px) !important;
+            }
+
+            #countdown .wdp_countdown_item p {
+                font-size: clamp(9px, 2.6vw, 12px) !important;
             }
         }
 
@@ -417,24 +486,16 @@ permalink: /vitalii-and-valentina-invite/vasyl-and-zoriana-marko-yustina-and-mak
             margin-right: 4px;
         }
 
-
-
         #wdp_home_events .wdp_event_date {
-            min-width: 118px;
-            min-height: 118px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 16px 20px;
             margin-left: 0;
             margin-right: 0;
             float: none;
+            padding: 20px 35px 20px;
+            display: inline-block;
         }
 
         #wdp_home_events .wdp_event_date p {
             margin: 0;
-            font-size: clamp(15px, 2.8vw, 18px);
-            line-height: 1.35;
         }
 
         @media screen and (max-width: 991px) {
@@ -613,7 +674,7 @@ permalink: /vitalii-and-valentina-invite/vasyl-and-zoriana-marko-yustina-and-mak
                                                 <span class="lead">липня</span></p>
                                         </div>
                                         <div class="wdp_event_time">
-                                            <p><i class="fa fa-clock-o"></i> 22:30</p>
+                                            <p><i class="fa fa-clock-o"></i> 22:00</p>
                                         </div>
                                         <div class="wdp_event_location">
                                             <p><i class="fa fa-map-marker"></i> Прощання та завершення святкування!</p>
@@ -648,9 +709,7 @@ permalink: /vitalii-and-valentina-invite/vasyl-and-zoriana-marko-yustina-and-mak
                     <style>
                         #vv_dresscode {
                             padding: clamp(48px, 8vh, 88px) 0 clamp(56px, 9vh, 96px);
-                            background:
-                                radial-gradient(ellipse 90% 60% at 50% 0%, rgba(196, 173, 136, 0.14), transparent 70%),
-                                linear-gradient(180deg, #fdfcfb 0%, #f8f5f0 100%);
+                            background: transparent;
                         }
 
                         #vv_dresscode .vv_dresscode__head h2 {
@@ -734,7 +793,7 @@ permalink: /vitalii-and-valentina-invite/vasyl-and-zoriana-marko-yustina-and-mak
         <section class="footer-hero" id="footer">
             <div class="footer-hero__media" aria-hidden="true">
                 <div class="footer-hero__bg"></div>
-                <img class="footer-hero__photo" src="/assets/media/images/vitalii-and-valentina2.2.jpg" alt="Віталій і Валентина">
+                <img class="footer-hero__photo" src="/assets/media/images/vitalii-and-valentina1.3.jpg" alt="Віталій і Валентина">
             </div>
 
             <div class="footer-hero__content">
@@ -767,7 +826,7 @@ permalink: /vitalii-and-valentina-invite/vasyl-and-zoriana-marko-yustina-and-mak
                 inset:0;
                 background:
                         linear-gradient(180deg, rgba(0,0,0,.20) 0%, rgba(0,0,0,.45) 100%),
-                        url('/assets/media/images/vitalii-and-valentina2.2.jpg') center/cover no-repeat;
+                        url('/assets/media/images/vitalii-and-valentina1.3.jpg') center/cover no-repeat;
                 transform:scale(1.02);
             }
 
@@ -787,7 +846,7 @@ permalink: /vitalii-and-valentina-invite/vasyl-and-zoriana-marko-yustina-and-mak
             @media screen and (min-width: 1024px) {
                 .footer-hero__bg{
                     background:
-                        url('/assets/media/images/vitalii-and-valentina2.2.jpg') center/cover no-repeat;
+                        url('/assets/media/images/vitalii-and-valentina1.3.jpg') center/cover no-repeat;
                     transform:scale(1.18);
                     filter:blur(36px) saturate(1.08) brightness(0.92);
                     will-change:transform;
