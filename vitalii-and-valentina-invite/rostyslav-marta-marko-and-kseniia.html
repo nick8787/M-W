@@ -380,7 +380,15 @@ permalink: /vitalii-and-valentina-invite/rostyslav-marta-marko-and-kseniia
         }
 
         /* Таймінг — години та текст локації */
-        #wdp_home_events .wdp_event_time p,
+        #wdp_home_events .wdp_event_time p {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(21px, 4.6vw, 28px);
+            font-weight: 500;
+            line-height: 1.4;
+            color: #2f2f2f;
+            letter-spacing: 0.02em;
+        }
+
         #wdp_home_events .wdp_event_location p {
             font-family: 'Playfair Display', serif;
             font-size: clamp(17px, 3.4vw, 22px);
@@ -388,17 +396,28 @@ permalink: /vitalii-and-valentina-invite/rostyslav-marta-marko-and-kseniia
             color: #3a3a3a;
         }
 
-        #wdp_home_events .wdp_event_time,
-        #wdp_home_events .wdp_event_location {
-            margin-top: 18px;
+        #wdp_home_events .wdp_event_time {
+            margin-top: 20px;
         }
 
-        #wdp_home_events .wdp_event_time .fa,
+        #wdp_home_events .wdp_event_location {
+            margin-top: 16px;
+        }
+
+        #wdp_home_events .wdp_event_time .fa {
+            font-size: 0.92em;
+            color: var(--vv-accent);
+            margin-right: 8px;
+            vertical-align: -1px;
+        }
+
         #wdp_home_events .wdp_event_location .fa {
             font-size: 1.15em;
             color: var(--vv-accent);
             margin-right: 4px;
         }
+
+
 
         #wdp_home_events .wdp_event_date {
             min-width: 118px;
