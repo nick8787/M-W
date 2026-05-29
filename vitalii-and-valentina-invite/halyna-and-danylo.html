@@ -13,7 +13,7 @@ permalink: /vitalii-and-valentina-invite/halyna-and-danylo
     <meta property="og:url" content="https://my-wedding.com.ua/vitalii-and-valentina-invite/halyna-and-danylo" />
     <meta property="og:title" content="Віталій & Валентина - Весільне запрошення" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="/assets/media/images/vitalii-and-valentina1.jpg" />
+    <meta property="og:image" content="/assets/media/images/vitalii-and-valentina1.1.jpg" />
     <link rel="canonical" href="https://my-wedding.com.ua/vitalii-and-valentina-invite/halyna-and-danylo">
 
 <link href="https://fonts.googleapis.com/css?family=Comfortaa%7CScope+One%7CTangerine:700" rel="stylesheet">
@@ -38,10 +38,133 @@ permalink: /vitalii-and-valentina-invite/halyna-and-danylo
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
 
     <style>
+        :root {
+            --vv-accent: #A68B5C;
+            --vv-accent-dark: #8F7350;
+            --vv-accent-soft: #C4AD88;
+        }
+
+        /* Рожевий → беж: глобальні заміни з шаблону */
+        .wdp_preloader {
+            background-color: var(--vv-accent) !important;
+        }
+
+        #page .wdp_splash_date,
+        #page .wdp_event_details,
+        #page a:hover,
+        #countdown .wdp_section_title h2,
+        #wdp_home_events .wdp_section_title h2,
+        #wdp_home_events .wdp_event_title {
+            color: var(--vv-accent) !important;
+        }
+
+        #page .wdp_btn {
+            border-color: var(--vv-accent) !important;
+            color: var(--vv-accent) !important;
+        }
+
+        #page .wdp_btn:hover {
+            background: var(--vv-accent) !important;
+            border-color: var(--vv-accent) !important;
+            color: #fff !important;
+        }
+
+        #page ::-webkit-selection,
+        #page ::-moz-selection {
+            background: var(--vv-accent) !important;
+        }
+
+        /* Рожева «шторка» при завантаженні та хвиля на фото */
+        #wdp_slideshow.wdp_hero_static::before,
+        #wdp_slideshow.wdp_hero_static::after {
+            filter: sepia(0.42) saturate(0.62) hue-rotate(352deg) brightness(0.94);
+        }
+
+        #page .wdp_splash_inner {
+            background-image: none !important;
+        }
+
+        /* Серця — оригінальна графіка, перефарбована в беж */
+        #page .wdp_splash_hearts {
+            position: relative;
+            background: none !important;
+            border-radius: 0;
+        }
+
+        #page .wdp_splash_hearts::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: url(../assets_premium3/images/hearts.png) no-repeat center;
+            background-size: contain;
+            filter: sepia(0.42) saturate(0.62) hue-rotate(352deg) brightness(0.94);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        #page .wdp_splash_couple_ini {
+            position: relative;
+            z-index: 1;
+            color: #fff !important;
+        }
+
+        /* Кола таймера та дат — PNG-фон + білий текст */
+        #page .wdp_countdown_item,
+        #page .wdp_event_date {
+            position: relative;
+            background: none !important;
+            background-color: transparent !important;
+            border-radius: 0;
+            z-index: 0;
+        }
+
+        #page .wdp_countdown_item::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 120px;
+            height: 120px;
+            transform: translate(-50%, -50%);
+            background: url(../assets_premium3/images/countdown-item-bg.png) no-repeat center;
+            background-size: contain;
+            filter: sepia(0.42) saturate(0.62) hue-rotate(352deg) brightness(0.94);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        #page .wdp_event_date::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: url(../assets_premium3/images/countdown-item-bg.png) no-repeat center;
+            background-size: contain;
+            filter: sepia(0.42) saturate(0.62) hue-rotate(352deg) brightness(0.94);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        #countdown .wdp_countdown_item,
+        #countdown .wdp_countdown_item p,
+        #countdown .wdp_countdown_item .wdp_countdown_int,
+        #countdown .wdp_countdown_item b,
+        #countdown #cntdwn,
+        #page .wdp_event_date,
+        #page .wdp_event_date p,
+        #page .wdp_event_date .lead,
+        #page .wdp_event_date i {
+            color: #fff !important;
+        }
+
+        .footer-hero__title,
+        .footer-hero__note {
+            color: #fffefc !important;
+        }
+
         #countdown .wdp_section_title h2{
             font-family: 'Great Vibes', cursive;
             font-weight: normal;
-            color: #f81d32;
+            color: var(--vv-accent);
             font-size: clamp(45px, 6vw, 64px);
             margin-bottom: 12px;
             letter-spacing: 0.2px;
@@ -219,6 +342,104 @@ permalink: /vitalii-and-valentina-invite/halyna-and-danylo
                 margin-top: 2rem !important;
             }
         }
+
+        /* Таймер — більші цифри та підписи */
+        #countdown .wdp_countdown_item {
+            width: clamp(88px, 22vw, 120px);
+            height: clamp(88px, 22vw, 120px);
+            padding-top: 1.25em;
+        }
+
+        #countdown .wdp_countdown_int {
+            font-size: clamp(34px, 7vw, 46px) !important;
+            font-weight: 600;
+            line-height: 1.1;
+        }
+
+        #countdown .wdp_countdown_item b {
+            font-size: inherit;
+            font-weight: inherit;
+        }
+
+        #countdown .wdp_countdown_item p {
+            font-size: clamp(14px, 2.8vw, 18px) !important;
+            margin-top: 6px;
+            line-height: 1.3;
+        }
+
+        @media screen and (max-width: 592px) {
+            #countdown .wdp_countdown_item {
+                background: none !important;
+            }
+
+            #countdown .wdp_countdown_item::before {
+                display: block;
+            }
+
+            #countdown .wdp_countdown_item,
+            #countdown .wdp_countdown_item p,
+            #countdown .wdp_countdown_item b {
+                color: #fff !important;
+            }
+        }
+
+        /* Таймінг — години та текст локації */
+        #wdp_home_events .wdp_event_time p,
+        #wdp_home_events .wdp_event_location p {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(17px, 3.4vw, 22px);
+            line-height: 1.55;
+            color: #3a3a3a;
+        }
+
+        #wdp_home_events .wdp_event_time,
+        #wdp_home_events .wdp_event_location {
+            margin-top: 18px;
+        }
+
+        #wdp_home_events .wdp_event_time .fa,
+        #wdp_home_events .wdp_event_location .fa {
+            font-size: 1.15em;
+            color: var(--vv-accent);
+            margin-right: 4px;
+        }
+
+        #wdp_home_events .wdp_event_date {
+            min-width: 118px;
+            min-height: 118px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 20px;
+            margin-left: 0;
+            margin-right: 0;
+            float: none;
+        }
+
+        #wdp_home_events .wdp_event_date p {
+            margin: 0;
+            font-size: clamp(15px, 2.8vw, 18px);
+            line-height: 1.35;
+        }
+
+        @media screen and (max-width: 991px) {
+            #wdp_home_events .wdp_home_event_item {
+                width: 100%;
+                max-width: 420px;
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+            }
+
+            #wdp_home_events .wdp_event_date {
+                margin: 0 auto 12px;
+            }
+
+            #wdp_home_events .wdp_event_time,
+            #wdp_home_events .wdp_event_location {
+                text-align: center;
+            }
+        }
     </style>
 
 </head>
@@ -237,7 +458,7 @@ permalink: /vitalii-and-valentina-invite/halyna-and-danylo
 
                 <section id="wdp_slideshow" class="wdp_hero_static">
                     <div class="wdp_slideshow_inner">
-                        <img src="/assets/media/images/vitalii-and-valentina1.jpg" alt="Віталій і Валентина" class="img-responsive wdp_hero_image">
+                        <img src="/assets/media/images/vitalii-and-valentina1.1.jpg" alt="Віталій і Валентина" class="img-responsive wdp_hero_image">
                     </div>
                 </section>
 
@@ -278,7 +499,7 @@ permalink: /vitalii-and-valentina-invite/halyna-and-danylo
                                 FinishMessage = "<div class='countdown_end'>Ми вже одружилися! Дякуємо, що завітали! 💖</div>";
                                 CountActive = true;
                                 BackColor = "transparent";
-                                ForeColor = "inherit";
+                                ForeColor = "#FFFFFF";
                                 CountStepper = -1;
                                 LeadingZero = false;
                                 DisplayFormat = "<div class='wdp_countdown_item'><p><span class='wdp_countdown_int'>%%D%%</span> Днів</p></div><div class='wdp_countdown_item'><p><span class='wdp_countdown_int'>%%H%%</span> годин</p></div><div class='wdp_countdown_item'><p><span class='wdp_countdown_int'>%%M%%</span> Хвилин</p></div><div class='wdp_countdown_item'><p><span class='wdp_countdown_int'>%%S%%</span> Секунд</p></div>";
@@ -294,7 +515,7 @@ permalink: /vitalii-and-valentina-invite/halyna-and-danylo
                     #wdp_home_events .wdp_section_title h2 {
                         font-family: 'Great Vibes', cursive;
                         font-weight: 400;
-                        color: #f81d32;
+                        color: var(--vv-accent);
                         letter-spacing: .5px;
                         font-size: clamp(45px, 7vw, 64px);
                         margin-bottom: 8px;
@@ -354,6 +575,22 @@ permalink: /vitalii-and-valentina-invite/halyna-and-danylo
                                 </div>
 
                                 <div class="wdp_home_event_item wdp_margin_top_4">
+                                    <h4 class="wdp_event_title">Ресторан</h4>
+                                    <div class="clearfix wdp_margin_top_4">
+                                        <div class="wdp_event_date">
+                                            <p><span class="lead"><i class="fa fa-calendar"></i></span> 31-го
+                                                <span class="lead">липня</span></p>
+                                        </div>
+                                        <div class="wdp_event_time">
+                                            <p><i class="fa fa-clock-o"></i> 16:30</p>
+                                        </div>
+                                        <div class="wdp_event_location">
+                                            <p><i class="fa fa-map-marker"></i> Ресторан «Замок Лева», м. Львів.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="wdp_home_event_item wdp_margin_top_4">
                                     <h4 class="wdp_event_title">Завершення події</h4>
                                     <div class="clearfix wdp_margin_top_4">
                                         <div class="wdp_event_date">
@@ -384,7 +621,7 @@ permalink: /vitalii-and-valentina-invite/halyna-and-danylo
         <section class="footer-hero" id="footer">
             <div class="footer-hero__media" aria-hidden="true">
                 <div class="footer-hero__bg"></div>
-                <img class="footer-hero__photo" src="/assets/media/images/vitalii-and-valentina2.jpg" alt="Віталій і Валентина">
+                <img class="footer-hero__photo" src="/assets/media/images/vitalii-and-valentina2.2.jpg" alt="Віталій і Валентина">
             </div>
 
             <div class="footer-hero__content">
@@ -417,7 +654,7 @@ permalink: /vitalii-and-valentina-invite/halyna-and-danylo
                 inset:0;
                 background:
                         linear-gradient(180deg, rgba(0,0,0,.20) 0%, rgba(0,0,0,.45) 100%),
-                        url('/assets/media/images/vitalii-and-valentina2.jpg') center/cover no-repeat;
+                        url('/assets/media/images/vitalii-and-valentina2.2.jpg') center/cover no-repeat;
                 transform:scale(1.02);
             }
 
@@ -437,7 +674,7 @@ permalink: /vitalii-and-valentina-invite/halyna-and-danylo
             @media screen and (min-width: 1024px) {
                 .footer-hero__bg{
                     background:
-                        url('/assets/media/images/vitalii-and-valentina2.jpg') center/cover no-repeat;
+                        url('/assets/media/images/vitalii-and-valentina2.2.jpg') center/cover no-repeat;
                     transform:scale(1.18);
                     filter:blur(36px) saturate(1.08) brightness(0.92);
                     will-change:transform;
@@ -481,7 +718,7 @@ permalink: /vitalii-and-valentina-invite/halyna-and-danylo
                 margin: 0 0 8px;
                 text-shadow: 0 4px 16px rgba(0,0,0,.25);
             }
-            .footer-hero__subtitle strong{ color:#ffe1ef; font-weight:800; }
+            .footer-hero__subtitle strong{ color:#f5ead8; font-weight:800; }
 
             .footer-hero__note{
                 font-size: clamp(15px, 2vw, 20px);
