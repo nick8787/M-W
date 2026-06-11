@@ -1,0 +1,6 @@
+defaults:
+  - scope:
+      path: "template-premium-101"
+    values:
+      layout: null
+      permalink: /template-premium-101
