@@ -212,7 +212,7 @@ permalink: /template-premium-4
             if (!rec) return;
 
             var COUNTDOWN = {
-                date: '10.06.2026',
+                date: '10.06.2027',
                 time: '15:00',
                 utc:  '+03:00'
             };
@@ -286,14 +286,14 @@ permalink: /template-premium-4
                 var timeInterval = setInterval(updateClock, 1000);
             }
 
-            var iso = handleOverflowMonth(toISODate(COUNTDOWN.date || '2025-08-15'));
+            var iso = handleOverflowMonth(toISODate(COUNTDOWN.date || '2027-02-15'));
             var time = (COUNTDOWN.time || '15:00').slice(0,5);
             var utc  = (COUNTDOWN.utc || '+03:00').trim();
             if (utc[0] !== '+' && utc[0] !== '-') utc = '+' + utc;
 
             var deadline = new Date(iso + 'T' + time + utc);
             if (isNaN(deadline)) {
-                deadline = new Date('2026-06-10T15:00+03:00');
+                deadline = new Date('2027-06-10T15:00:00+03:00');
             }
 
             initializeClock('t415__timer862753287', deadline);

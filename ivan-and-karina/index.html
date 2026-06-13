@@ -65,7 +65,9 @@ permalink: /ivan-and-karina
                                 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 
                                 <!-- Background -->
-                                <img class="hero-image" src="/assets/media/images/ivan-and-karina1.jpg" alt="Wedding Background">
+                                <div class="hero-bg">
+                                    <img class="hero-image" src="/assets/media/images/ivan-and-karina1.jpg" alt="Wedding Background">
+                                </div>
                                 <div class="overlay" aria-hidden="true"></div>
 
                                 <!-- ЕДИНЫЙ КОНТЕЙНЕР ДЛЯ ВСЕГО: Имена + Карточка + Иконка скролла -->
@@ -111,14 +113,43 @@ permalink: /ivan-and-karina
                                         background: #1a1a1a;
                                     }
 
+                                    .hero-bg{
+                                        position:absolute; inset:0; z-index:0;
+                                        pointer-events:none; user-select:none;
+                                    }
+
                                     .hero-image{
                                         position:absolute; inset:0; width:100%; height:100%;
-                                        object-fit:cover; opacity:0; animation:fadeIn 1.3s ease-in forwards; transform:scale(1.02);
+                                        object-fit:cover; object-position:center;
+                                        opacity:0; animation:fadeIn 1.3s ease-in forwards; transform:scale(1.02);
                                     }
                                     .overlay{
                                         position:absolute; inset:0; z-index:1;
                                         background:linear-gradient(to bottom, rgba(0,0,0,.15) 0%, rgba(0,0,0,.6) 100%);
                                         opacity:0; animation:fadeOverlay .9s ease 1s forwards; pointer-events:none;
+                                    }
+
+                                    /* Desktop: повне фото + розмиті боки з тієї ж картинки */
+                                    @media (min-width: 992px){
+                                        .hero-bg{
+                                            --hero-bg-url: none;
+                                        }
+                                        .hero-bg::before{
+                                            content:"";
+                                            position:absolute;
+                                            inset:-24px;
+                                            background:
+                                                    radial-gradient(900px 520px at 50% 35%, rgba(0,0,0,.08), rgba(0,0,0,.65) 72%),
+                                                    var(--hero-bg-url) center/cover no-repeat;
+                                            filter: blur(18px) saturate(115%) contrast(105%);
+                                            transform: scale(1.08);
+                                        }
+                                        .hero-image{
+                                            object-fit: contain;
+                                            object-position: 50% 50%;
+                                            transform: none;
+                                            filter: saturate(105%) contrast(102%) drop-shadow(0 18px 60px rgba(0,0,0,.35));
+                                        }
                                     }
 
                                     /* === НОВЫЙ ЖЕСТКИЙ КАРКАС === */
@@ -198,6 +229,14 @@ permalink: /ivan-and-karina
                                     @keyframes fadeUp { from { opacity:0; transform: translate3d(0,10px,0);} to { opacity:1; transform: translate3d(0,0,0);} }
                                     @keyframes wheel { 0%{transform:translate(-50%,0);opacity:1;}60%{transform:translate(-50%,10px);opacity:.15;}100%{transform:translate(-50%,0);opacity:1;} }
                                 </style>
+                                <script>
+                                    (function(){
+                                        const bg = document.querySelector('.wedding-hero .hero-bg');
+                                        const img = bg ? bg.querySelector('.hero-image') : null;
+                                        if (!bg || !img || !img.getAttribute('src')) return;
+                                        bg.style.setProperty('--hero-bg-url', 'url("' + img.getAttribute('src') + '")');
+                                    })();
+                                </script>
                             </section>
 
 

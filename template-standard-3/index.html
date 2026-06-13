@@ -565,28 +565,28 @@ permalink: /template-standard-3
                         <!-- /DETAILS -->
 
                         <!-- COUNTDOWN -->
-                        <section class="wedding-countdown" aria-label="Відлік до весілля">
+                        <section class="wedding-countdown" id="wc-countdown-section" aria-label="Відлік до весілля" data-end-ts="1812877200000">
                             <header class="wc-head">
                                 <h2 class="wc-title">Чекаємо на вас</h2>
                                 <p class="wc-sub">До нашого свята залишилось</p>
                                 <div class="wc-ornament" aria-hidden="true"></div>
                             </header>
 
-                            <div class="wc-timer" id="countdown">
+                            <div class="wc-timer" role="timer" aria-live="polite">
                                 <div class="wc-box">
-                                    <span class="wc-num" id="days">0</span>
+                                    <span class="wc-num wc-val" data-part="d">—</span>
                                     <span class="wc-label">Днів</span>
                                 </div>
                                 <div class="wc-box">
-                                    <span class="wc-num" id="hours">0</span>
+                                    <span class="wc-num wc-val" data-part="h">—</span>
                                     <span class="wc-label">Годин</span>
                                 </div>
                                 <div class="wc-box">
-                                    <span class="wc-num" id="minutes">0</span>
+                                    <span class="wc-num wc-val" data-part="m">—</span>
                                     <span class="wc-label">Хвилин</span>
                                 </div>
                                 <div class="wc-box">
-                                    <span class="wc-num" id="seconds">0</span>
+                                    <span class="wc-num wc-val" data-part="s">—</span>
                                     <span class="wc-label">Секунд</span>
                                 </div>
                             </div>
@@ -639,35 +639,6 @@ permalink: /template-standard-3
                                     .wc-timer{ gap: 8px; }
                                 }
                             </style>
-
-                            <script>
-                                document.addEventListener('DOMContentLoaded', () => {
-                                    const targetDate = new Date("2026-06-10T00:00:00");
-                                    const daysEl = document.getElementById("days");
-                                    const hoursEl = document.getElementById("hours");
-                                    const minutesEl = document.getElementById("minutes");
-                                    const secondsEl = document.getElementById("seconds");
-
-                                    function updateCountdown(){
-                                        const now = new Date();
-                                        const diff = targetDate - now;
-                                        if(diff <= 0){
-                                            daysEl.textContent = hoursEl.textContent = minutesEl.textContent = secondsEl.textContent = "0";
-                                            return;
-                                        }
-                                        const days = Math.floor(diff / (1000*60*60*24));
-                                        const hours = Math.floor((diff / (1000*60*60)) % 24);
-                                        const minutes = Math.floor((diff / (1000*60)) % 60);
-                                        const seconds = Math.floor((diff / 1000) % 60);
-                                        daysEl.textContent = days;
-                                        hoursEl.textContent = hours.toString().padStart(2,'0');
-                                        minutesEl.textContent = minutes.toString().padStart(2,'0');
-                                        secondsEl.textContent = seconds.toString().padStart(2,'0');
-                                    }
-                                    updateCountdown();
-                                    setInterval(updateCountdown, 1000);
-                                });
-                            </script>
                         </section>
                         <!-- /COUNTDOWN -->
 
@@ -888,9 +859,39 @@ permalink: /template-standard-3
                         <script src="../assets-premium1/js/vendor/jquery-validator.js"></script>
                         <script src="../assets-premium1/js/vendor/jquery.nice-select.min.js"></script>
                         <script src="../assets-premium1/js/vendor/slick.min.js"></script>
-                        <script src="../assets-premium1/js/vendor/jquery.countdown.min.js"></script>
                         <script src="../assets-premium1/js/vendor/wow.js"></script>
                         <script src="../assets-premium1/js/app.js"></script>
+                        <script>
+                            (function () {
+                                var root = document.getElementById('wc-countdown-section');
+                                if (!root) return;
+                                var endTs = Number(root.getAttribute('data-end-ts'));
+                                if (!endTs) return;
+                                var elD = root.querySelector('[data-part="d"]');
+                                var elH = root.querySelector('[data-part="h"]');
+                                var elM = root.querySelector('[data-part="m"]');
+                                var elS = root.querySelector('[data-part="s"]');
+                                if (!elD || !elH || !elM || !elS) return;
+
+                                function pad2(n) {
+                                    n = n | 0;
+                                    return n < 10 ? '0' + n : String(n);
+                                }
+
+                                function tick() {
+                                    var diff = endTs - Date.now();
+                                    if (diff < 0) diff = 0;
+                                    var totalSec = Math.floor(diff / 1000);
+                                    elD.textContent = Math.floor(totalSec / 86400);
+                                    elH.textContent = pad2(Math.floor(totalSec / 3600) % 24);
+                                    elM.textContent = pad2(Math.floor(totalSec / 60) % 60);
+                                    elS.textContent = pad2(totalSec % 60);
+                                }
+
+                                tick();
+                                window.setInterval(tick, 1000);
+                            })();
+                        </script>
 
                     </div>
                 </div>
