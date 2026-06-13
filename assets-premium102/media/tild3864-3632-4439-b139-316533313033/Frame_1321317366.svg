@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="956" height="396" viewBox="0 0 956 396" fill="none">
+  <defs>
+    <style type="text/css"><![CDATA[
+      @font-face {
+        font-family: 'ForumNames';
+        src: url('../tild3638-3965-4434-b766-333663373161/Forum.woff') format('woff');
+      }
+      @font-face {
+        font-family: 'GreatVibesNames';
+        src: url('../tild6237-6462-4432-b261-633934316132/GreatVibes-Regular.woff') format('woff');
+      }
+      .name-serif {
+        font-family: 'ForumNames', Georgia, serif;
+        font-size: 56px;
+        fill: #ffffff;
+        letter-spacing: 0.16em;
+      }
+      .name-script {
+        font-family: 'GreatVibesNames', cursive;
+        font-size: 132px;
+        fill: #ffffff;
+      }
+    ]]></style>
+  </defs>
+  <text x="250" y="188" class="name-script">М</text>
+  <text x="390" y="188" class="name-serif">АРІЯ</text>
+  <text x="220" y="338" class="name-script">О</text>
+  <text x="360" y="338" class="name-serif">ЛЕКСІЙ</text>
+</svg>

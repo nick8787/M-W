@@ -4,3 +4,8 @@ defaults:
     values:
       layout: null
       permalink: /template-premium-101
+  - scope:
+      path: "template-premium-102"
+    values:
+      layout: null
+      permalink: /template-premium-102
