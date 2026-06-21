@@ -1,6 +1,6 @@
 ---
 layout: null
-permalink: /anton-and-olya
+permalink: /marina-and-bohdan
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -9,15 +9,15 @@ permalink: /anton-and-olya
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Антон & Оля - Весільне запрошення">
+    <meta name="description" content="Марина & Богдан - Весільне запрошення">
 
     <!--metatextblock-->
-    <title>Антон & Оля - Весільне запрошення</title>
-    <meta property="og:url" content="https://my-wedding.com.ua/anton-and-olya" />
-    <meta property="og:title" content="Антон & Оля - Весільне запрошення" />
+    <title>Марина & Богдан - Весільне запрошення</title>
+    <meta property="og:url" content="https://my-wedding.com.ua/marina-and-bohdan" />
+    <meta property="og:title" content="Марина & Богдан - Весільне запрошення" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="/assets/media/images/anton-and-olya2.jpg" />
-    <link rel="canonical" href="https://my-wedding.com.ua/anton-and-olya">
+    <meta property="og:image" content="/assets/media/images/marina-and-bohdan1.jpg" />
+    <link rel="canonical" href="https://my-wedding.com.ua/marina-and-bohdan">
     <!--/metatextblock-->
 
     <!-- Favicon -->
@@ -65,21 +65,25 @@ permalink: /anton-and-olya
                                 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 
                                 <!-- Background -->
-                                <img class="hero-image" src="/assets/media/images/anton-and-olya2.jpg" alt="Wedding Background">
+                                <img class="hero-image" src="/assets/media/images/marina-and-bohdan1.jpg" alt="Wedding Background">
                                 <div class="overlay" aria-hidden="true"></div>
 
+                                <!-- ЕДИНЫЙ КОНТЕЙНЕР ДЛЯ ВСЕГО: Имена + Карточка + Иконка скролла -->
                                 <div class="hero-content-wrapper">
 
+                                    <!-- 1. Имена -->
                                     <div class="monogram">
-                                        <div class="couple-names">Антон &amp; Оля</div>
+                                        <div class="couple-names">Марина &amp; Богдан</div>
                                     </div>
 
+                                    <!-- 2. Карточка (Save the Date) -->
                                     <div class="save-card" role="group" aria-label="Save the date">
                                         <div class="save-title">МИ ОДРУЖУЄМОСЬ!</div>
-                                        <div class="save-date">26&nbsp;&bull;&nbsp;09&nbsp;&bull;&nbsp;2026</div>
-                                        <div class="save-sub">Будемо щасливі розділити цей особливий день з особливими для нас людьми</div>
+                                        <div class="save-date">15&nbsp;&bull;&nbsp;08&nbsp;&bull;&nbsp;2026</div>
+                                        <div class="save-sub">Запрошуємо Вас розділити з нами радість особливої для нас події та стати частиною нашої історії</div>
                                     </div>
 
+                                    <!-- 3. Иконка скролла (Теперь она жестко привязана к карточке) -->
                                     <div class="scroll-cue" aria-hidden="true"><span></span></div>
 
                                 </div>
@@ -98,6 +102,7 @@ permalink: /anton-and-olya
                                     .wedding-hero{
                                         position:relative;
                                         width:100%;
+                                        /* ИСПОЛЬЗУЕМ 100vh ВМЕСТО 100svh, ЧТОБЫ УБРАТЬ ПРЫЖКИ ПРИ СКРОЛЛЕ */
                                         height: 100vh;
                                         min-height: 640px;
                                         isolation:isolate;
@@ -116,6 +121,8 @@ permalink: /anton-and-olya
                                         opacity:0; animation:fadeOverlay .9s ease 1s forwards; pointer-events:none;
                                     }
 
+                                    /* === НОВЫЙ ЖЕСТКИЙ КАРКАС === */
+                                    /* Контейнер намертво прибит к низу, элементы внутри выстроены столбцом */
                                     .hero-content-wrapper{
                                         position:absolute;
                                         bottom: 0;
@@ -125,8 +132,10 @@ permalink: /anton-and-olya
                                         display:flex;
                                         flex-direction:column;
                                         align-items: center;
+                                        /* Фиксированное расстояние между именами, карточкой и иконкой */
                                         gap: clamp(16px, 3vh, 24px);
                                         padding: var(--pad-x);
+                                        /* Отступ от самого низа экрана */
                                         padding-bottom: clamp(30px, 6vh, 60px);
                                     }
 
@@ -136,14 +145,15 @@ permalink: /anton-and-olya
                                         align-items:center;
                                         color:var(--ink);
                                         overflow:visible;
-                                        padding-top: 0.35em;
+                                        padding-top: 6px;
                                     }
 
                                     .couple-names{
                                         font-family:'Great Vibes', cursive;
-                                        font-size: clamp(42px, 7vw, 68px);
-                                        line-height:1.25;
-                                        padding: 0.12em 0.2em 0.06em;
+                                        font-size: clamp(40px, 6.6vw, 66px);
+                                        line-height:1.28;
+                                        padding: .14em .22em .2em;
+                                        display:inline-block;
                                         overflow:visible;
                                         background:linear-gradient(120deg, #fff, #f5f5f5);
                                         -webkit-background-clip:text; background-clip:text; color:transparent;
@@ -152,6 +162,7 @@ permalink: /anton-and-olya
                                         white-space:nowrap;
                                     }
 
+                                    /* Карточка больше не абсолютная, она просто стоит под именами */
                                     .save-card{
                                         position:relative;
                                         width: 100%; max-width: var(--card-w);
@@ -163,21 +174,22 @@ permalink: /anton-and-olya
                                     }
 
                                     .save-title{
-                                        font-size: clamp(17px, 2.2vw, 20px);
+                                        font-size: clamp(16px, 2.0vw, 19px);
                                         letter-spacing:.35em; text-transform:uppercase;
                                         color:#fff; opacity:.9;
                                     }
 
                                     .save-date{
                                         font-family:'Great Vibes', cursive; line-height:1;
-                                        font-size: clamp(34px, 6.4vw, 56px);
+                                        font-size: clamp(32px, 6vw, 54px);
                                         background:linear-gradient(120deg, var(--gold-2), var(--gold-1));
                                         -webkit-background-clip:text; background-clip:text; color:transparent;
                                         text-shadow: 0 2px 14px rgba(0,0,0,.25);
                                     }
 
-                                    .save-sub{ font-size: clamp(16px, 2.6vw, 19px); color:#fff; opacity:.92; }
+                                    .save-sub{ font-size: clamp(15px, 2.4vw, 18px); color:#fff; opacity:.92; }
 
+                                    /* Иконка скролла теперь тоже в общем потоке (relative), а не скачет сама по себе */
                                     .scroll-cue{
                                         position:relative;
                                         margin-top: 10px;
@@ -204,8 +216,7 @@ permalink: /anton-and-olya
 
                                 <header class="wt-head">
                                     <h2 class="wt-title">Таймінг дня</h2>
-                                    <p class="wt-sub">Наше свято буде проходити за адресою
-                                        <br><b>с.Софіївка Заміський комплекс «Боковенька»</b></p>
+                                    <p class="wt-sub">З любов'ю - кожна мить</p>
                                 </header>
 
                                 <ol class="wt-list">
@@ -217,12 +228,12 @@ permalink: /anton-and-olya
                                                 </div>
                                                 <div class="wt-text">
                                                     <h3 class="wt-label">Збір гостей</h3>
-                                                    <p class="wt-address">Тепла зустріч та привітальний фуршет</p>
+                                                    <p class="wt-address">кафе «Кабріолет» м. Чернігів, вул. Громадська, 39</p>
                                                 </div>
-                                                <time class="wt-time">15:00</time>
+                                                <time class="wt-time">13:00</time>
                                             </div>
                                             <div class="wt-card-bottom">
-                                                <button class="wt-map" data-place="Заміський комплекс Боковенька, с. Софіївка">Відкрити на мапі</button>
+                                                <button class="wt-map" data-lat="51.51586" data-lng="31.267108" data-place="кафе «Кабріолет», Чернігів, вул. Громадська, 39">Відкрити на мапі</button>
                                             </div>
                                         </div>
                                     </li>
@@ -235,12 +246,30 @@ permalink: /anton-and-olya
                                                 </div>
                                                 <div class="wt-text">
                                                     <h3 class="wt-label">Весільна церемонія</h3>
-                                                    <p class="wt-address">Романтична виїзна церемонія на березі річки</p>
+                                                    <p class="wt-address">кафе «Кабріолет» м. Чернігів, вул. Громадська, 39</p>
                                                 </div>
-                                                <time class="wt-time">16:00</time>
+                                                <time class="wt-time">13:30</time>
                                             </div>
                                             <div class="wt-card-bottom">
-                                                <button class="wt-map" data-place="Заміський комплекс Боковенька, с. Софіївка">Відкрити на мапі</button>
+                                                <button class="wt-map" data-lat="51.51586" data-lng="31.267108" data-place="кафе «Кабріолет», Чернігів, вул. Громадська, 39">Відкрити на мапі</button>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <li class="wt-row">
+                                        <div class="wt-card">
+                                            <div class="wt-card-top">
+                                                <div class="wt-icon">
+                                                    <img src="https://img.icons8.com/ios/50/camera.png" alt="" decoding="async">
+                                                </div>
+                                                <div class="wt-text">
+                                                    <h3 class="wt-label">Загальна фотосесія з гостями</h3>
+                                                    <p class="wt-address">кафе «Кабріолет» м. Чернігів, вул. Громадська, 39</p>
+                                                </div>
+                                                <time class="wt-time">14:00</time>
+                                            </div>
+                                            <div class="wt-card-bottom">
+                                                <button class="wt-map" data-lat="51.51586" data-lng="31.267108" data-place="кафе «Кабріолет», Чернігів, вул. Громадська, 39">Відкрити на мапі</button>
                                             </div>
                                         </div>
                                     </li>
@@ -253,12 +282,12 @@ permalink: /anton-and-olya
                                                 </div>
                                                 <div class="wt-text">
                                                     <h3 class="wt-label">Святковий банкет</h3>
-                                                    <p class="wt-address">Ресторан заміського комплексу «Боковенька»</p>
+                                                    <p class="wt-address">кафе «Кабріолет» м. Чернігів, вул. Громадська, 39</p>
                                                 </div>
-                                                <time class="wt-time">17:00</time>
+                                                <time class="wt-time">15:00</time>
                                             </div>
                                             <div class="wt-card-bottom">
-                                                <button class="wt-map" data-place="Заміський комплекс Боковенька, с. Софіївка">Відкрити на мапі</button>
+                                                <button class="wt-map" data-lat="51.51586" data-lng="31.267108" data-place="кафе «Кабріолет», Чернігів, вул. Громадська, 39">Відкрити на мапі</button>
                                             </div>
                                         </div>
                                     </li>
@@ -270,23 +299,8 @@ permalink: /anton-and-olya
                                                     <img src="https://img.icons8.com/ios/50/wedding-cake.png" alt="" decoding="async">
                                                 </div>
                                                 <div class="wt-text">
-                                                    <h3 class="wt-label">Вечірня програма</h3>
-                                                    <p class="wt-address">Атмосферний sweet bar у вечірньому сяйві</p>
-                                                </div>
-                                                <time class="wt-time">20:00</time>
-                                            </div>
-                                        </div>
-                                    </li>
-
-                                    <li class="wt-row">
-                                        <div class="wt-card">
-                                            <div class="wt-card-top">
-                                                <div class="wt-icon">
-                                                    <img src="https://img.icons8.com/ios/50/hearts.png" alt="" decoding="async">
-                                                </div>
-                                                <div class="wt-text">
                                                     <h3 class="wt-label">Завершення вечора</h3>
-                                                    <p class="wt-address">Тепле прощання, поцілунки та обійми</p>
+                                                    <p class="wt-address">Підсумок нашого особливого дня, прощання з гостями та теплі обійми наостанок.</p>
                                                 </div>
                                                 <time class="wt-time">22:00</time>
                                             </div>
@@ -315,12 +329,12 @@ permalink: /anton-and-olya
                                     .wt-head{ text-align:center; margin-bottom: clamp(20px, 6vh, 44px); }
                                     .wt-title{
                                         margin:0 0 6px; font-family:'Great Vibes',cursive;
-                                        font-size: clamp(40px, 6.8vw, 72px); line-height:1.05;
+                                        font-size: clamp(38px, 6.2vw, 68px); line-height:1.05;
                                         background: linear-gradient(130deg, var(--gold-2), var(--gold-1));
                                         -webkit-background-clip:text; background-clip:text; color:transparent;
                                         text-shadow: 0 2px 14px rgba(0,0,0,.12);
                                     }
-                                    .wt-sub{ margin:0; font-size: clamp(14px, 2.4vw, 17px); color:var(--muted); }
+                                    .wt-sub{ margin:0; font-size: clamp(13px, 2.2vw, 16px); color:var(--muted); }
                                     .wt-list{
                                         list-style:none; margin:0 auto; padding: 0;
                                         max-width: 860px; width: 100%;
@@ -375,7 +389,7 @@ permalink: /anton-and-olya
                                     }
                                     .wt-icon img{ width:22px; height:22px; filter: grayscale(100%) brightness(0%); opacity:.9; }
                                     .wt-label{
-                                        margin:0; font-size: clamp(17px, 2.8vw, 21px); font-weight:600; letter-spacing:.01em;
+                                        margin:0; font-size: clamp(16px, 2.6vw, 20px); font-weight:600; letter-spacing:.01em;
                                     }
                                     .wt-time{
                                         font-size: 14px; font-weight:600; white-space:nowrap;
@@ -416,7 +430,7 @@ permalink: /anton-and-olya
                                     }
                                     @media (min-width: 900px){
                                         .wt-card{ padding: 16px 18px 14px; }
-                                        .wt-label{ font-size: clamp(19px, 1.8vw, 23px); }
+                                        .wt-label{ font-size: clamp(18px, 1.6vw, 22px); }
                                         .wt-time{ font-size: 15px; }
                                         .wt-list{ max-width: 900px; }
                                         .wt-row{ padding-left: calc(var(--rail-x) + 22px); }
@@ -467,40 +481,20 @@ permalink: /anton-and-olya
                             </section>
 
 
-                            <section class="wedding-details" aria-label="Побажання наречених">
+                            <section class="wedding-details" aria-label="Деталі свята">
+                                <!-- Шрифти -->
                                 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet"/>
 
+                                <!-- Заголовок -->
                                 <header class="wd-head">
-                                    <h2 class="wd-title">Побажання наречених</h2>
-                                    <p class="wd-sub">Дякуємо за розуміння та підтримку</p>
+                                    <h2 class="wd-title">Деталі</h2>
+                                    <p class="wd-sub">Дякуємо за ваше тепло та розуміння</p>
                                     <div class="wd-ornament" aria-hidden="true"></div>
                                 </header>
 
+                                <!-- Карточки деталей -->
                                 <div class="wd-grid">
-                                    <article class="wd-card" data-anim>
-                                        <div class="wd-mark">
-        <span class="wd-icon">
-          <img src="https://img.icons8.com/ios/50/wedding-rings.png" alt="" decoding="async" />
-        </span>
-                                        </div>
-                                        <h3 class="wd-card-title">Без класичних традицій</h3>
-                                        <p class="wd-card-text">
-                                            Ми мріємо про романтичне та атмосферне свято, тому залишаємо лише ті традиції, які відгукуються нам душею. Ми вирішили відмовитися від традицій на кшталт викупу, викрадення наречених та інших.
-                                        </p>
-                                    </article>
-
-                                    <article class="wd-card" data-anim>
-                                        <div class="wd-mark">
-        <span class="wd-icon">
-          <img src="https://img.icons8.com/ios/50/gift.png" alt="" decoding="async" />
-        </span>
-                                        </div>
-                                        <h3 class="wd-card-title">Цінний подарунок</h3>
-                                        <p class="wd-card-text">
-                                            Якщо ви хочете зробити потрібний та цінний подарунок — будемо дуже вдячні за вклад у бюджет нашої молодої сім’ї.
-                                        </p>
-                                    </article>
-
+                                    <!-- Без квітів -->
                                     <article class="wd-card wd-card--noflowers" data-anim>
                                         <div class="wd-mark">
         <span class="wd-icon">
@@ -509,24 +503,39 @@ permalink: /anton-and-olya
                                         </div>
                                         <h3 class="wd-card-title">Просимо без квітів</h3>
                                         <p class="wd-card-text">
-                                            Наречена обожнює квіти, проте не встигне насолодитися їхньою красою через медовий місяць.
+                                            Просимо вас не дарувати нам квіти, ми не встигнемо насолодитися їх красою.
                                         </p>
                                     </article>
 
+                                    <!-- Пляшка напою -->
                                     <article class="wd-card" data-anim>
                                         <div class="wd-mark">
         <span class="wd-icon">
-          <img src="https://img.icons8.com/ios/50/gift-card.png" alt="" decoding="async" />
+          <img src="https://img.icons8.com/ios/50/wine-bottle.png" alt="" decoding="async" />
         </span>
                                         </div>
-                                        <h3 class="wd-card-title">Маленькі приємності</h3>
+                                        <h3 class="wd-card-title">Замість квітів - пляшка</h3>
                                         <p class="wd-card-text">
-                                            Приємним компліментом для нас буде, якщо замість квітів ви віддасте перевагу подарунковому сертифікату.
+                                            Приємним компліментом для нас буде, якщо замість квітів ви подаруєте пляшку алкогольного напою для нашої колекції - ми відкриємо її на найближчому спільному святі. За бажанням можете написати, коли саме це буде.
+                                        </p>
+                                    </article>
+
+                                    <!-- Внесок у сімейний бюджет -->
+                                    <article class="wd-card" data-anim>
+                                        <div class="wd-mark">
+        <span class="wd-icon">
+          <img src="https://img.icons8.com/ios/50/gift.png" alt="" decoding="async" />
+        </span>
+                                        </div>
+                                        <h3 class="wd-card-title">Цінний подарунок</h3>
+                                        <p class="wd-card-text">
+                                            Якщо ви хочете зробити потрібний та цінний подарунок - будемо дуже вдячні за вклад у бюджет нашої молодої сім’ї.
                                         </p>
                                     </article>
                                 </div>
 
                                 <style>
+                                    /* Локальні змінні секції, щоб не конфліктувати з іншими блоками */
                                     .wedding-details{
                                         --gold-1:#d6b889;
                                         --gold-2:#f1e0b3;
@@ -554,19 +563,19 @@ permalink: /anton-and-olya
                                     .wd-title{
                                         margin:0 0 6px;
                                         font-family:'Great Vibes', cursive;
-                                        font-size: clamp(42px, 7.2vw, 76px);
+                                        font-size: clamp(40px, 6.6vw, 72px);
                                         line-height: 1.22;
                                         padding-top: 0.2em;
                                         padding-bottom: 0.15em;
-                                        padding-inline: 0.25em;
+                                        padding-inline: 0.25em;   /* ↑ невеликий запас зліва/справа */
                                         background: linear-gradient(130deg, var(--gold-2), var(--gold-1));
                                         -webkit-background-clip:text; background-clip:text; color:transparent;
                                         text-shadow: 0 2px 16px rgba(0,0,0,.12);
                                         overflow: visible;
-                                        display: inline-block;
+                                        display: inline-block;    /* гарантує, що падінги врахуються */
                                     }
 
-                                    .wd-sub{ margin:0; color:var(--muted); font-size: clamp(14px, 2.4vw, 17px); }
+                                    .wd-sub{ margin:0; color:var(--muted); font-size: clamp(13px, 2.2vw, 16px); }
                                     .wd-ornament{
                                         width:min(180px, 40vw); height:2px; margin: 14px auto 0;
                                         border-radius:2px;
@@ -574,6 +583,7 @@ permalink: /anton-and-olya
                                         filter: drop-shadow(0 4px 10px rgba(214,184,137,.25));
                                     }
 
+                                    /* Сітка карток: мобайл 1 кол., далі 2/3 */
                                     .wd-grid{
                                         width:100%; max-width: var(--maxw);
                                         display:grid; gap: var(--gap);
@@ -583,7 +593,7 @@ permalink: /anton-and-olya
                                         .wd-grid{ grid-template-columns: 1fr 1fr; }
                                     }
                                     @media (min-width: 1040px){
-                                        .wd-grid{ grid-template-columns: 1fr 1fr; }
+                                        .wd-grid{ grid-template-columns: 1fr 1fr 1fr; }
                                     }
 
                                     .wd-card{
@@ -597,6 +607,7 @@ permalink: /anton-and-olya
                                         opacity:0; transform: translateY(14px);
                                     }
 
+                                    /* Тонка золота смужка вгорі */
                                     .wd-card::before{
                                         content:"";
                                         position:absolute; left:12%; right:12%; top:-1px; height:3px; border-radius:2px;
@@ -617,6 +628,7 @@ permalink: /anton-and-olya
                                         filter: grayscale(100%) brightness(0%);
                                         opacity:.9;
                                     }
+                                    /* Перекреслення для "без квітів" (акуратно, золото) */
                                     .wd-card--noflowers .wd-icon::after{
                                         content:""; position:absolute; inset:0; margin:auto;
                                         width:70%; height:2px; border-radius:2px;
@@ -628,17 +640,19 @@ permalink: /anton-and-olya
                                     .wd-card-title{
                                         margin: 4px 0 8px;
                                         font-weight:600; letter-spacing:.01em;
-                                        font-size: clamp(17px, 2.8vw, 21px);
+                                        font-size: clamp(16px, 2.6vw, 20px);
                                     }
                                     .wd-card-text{
                                         margin:0; line-height:1.6; color: var(--muted);
                                         font-size: clamp(14px, 2.4vw, 16px);
                                     }
 
+                                    /* Анімація появи (аккуратна) */
                                     @keyframes fdUp { to { opacity:1; transform: translateY(0); } }
                                 </style>
 
                                 <script>
+                                    // Плавна поява карток при прокрутці
                                     document.addEventListener('DOMContentLoaded', () => {
                                         const cards = document.querySelectorAll('.wedding-details [data-anim]');
                                         const io = new IntersectionObserver((entries) => {
@@ -655,161 +669,225 @@ permalink: /anton-and-olya
                                 </script>
                             </section>
 
-                            <section class="wedding-dresscode" aria-label="Дрес-код">
+                            <section class="wedding-countdown" aria-label="Відлік до весілля">
+                                <!-- Шрифти -->
                                 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet"/>
 
-                                <header class="dc-head">
-                                    <h2 class="dc-title">Дрес-код</h2>
-                                    <div class="dc-ornament" aria-hidden="true"></div>
+                                <!-- Заголовок (зникає, коли час вийшов) -->
+                                <header class="wc-head" id="wc-header">
+                                    <h2 class="wc-title">Чекаємо на Вас</h2>
+                                    <p class="wc-sub">До нашого свята залишилось</p>
+                                    <div class="wc-ornament" aria-hidden="true"></div>
                                 </header>
 
-                                <div class="dc-grid">
-                                    <article class="dc-card dc-card--palette">
-                                        <h3 class="dc-palette-title">Палітра події</h3>
+                                <!-- Відлік (зникає, коли час вийшов) -->
+                                <div class="wc-timer" id="countdown">
+                                    <div class="wc-box">
+                                        <span class="wc-num" id="days">0</span>
+                                        <span class="wc-label">Днів</span>
+                                    </div>
+                                    <div class="wc-box">
+                                        <span class="wc-num" id="hours">0</span>
+                                        <span class="wc-label">Годин</span>
+                                    </div>
+                                    <div class="wc-box">
+                                        <span class="wc-num" id="minutes">0</span>
+                                        <span class="wc-label">Хвилин</span>
+                                    </div>
+                                    <div class="wc-box">
+                                        <span class="wc-num" id="seconds">0</span>
+                                        <span class="wc-label">Секунд</span>
+                                    </div>
+                                </div>
 
-                                        <ul class="dc-swatches" role="list">
-                                            <li class="dc-swatch" aria-label="Темно-коричневий"><span></span></li>
-                                            <li class="dc-swatch" aria-label="Коричневий"><span></span></li>
-                                            <li class="dc-swatch" aria-label="Пудровий"><span></span></li>
-                                            <li class="dc-swatch" aria-label="Бежевий"><span></span></li>
-                                            <li class="dc-swatch" aria-label="Кремовий"><span></span></li>
-                                        </ul>
-
-                                        <p class="dc-palette-note">
-                                            Ми будемо раді, якщо ваші образи підтримають нашу весільну палітру відтінків.
-                                        </p>
-                                    </article>
-
-                                    <article class="dc-card">
-                                        <p class="dc-text">
-                                            Із задоволенням допоможемо з будь-якими уточненнями.<br>
-                                            З усіх питань можна звертатися до наречених:
-                                        </p>
-                                        <div class="dc-actions">
-                                            <a class="dc-btn" href="tel:+380673761669">📞 Наречена</a>
-                                            <a class="dc-btn dc-btn--light" href="tel:+380671344072">📞 Наречений</a>
-                                        </div>
-                                        <div class="dc-contact">
-                                            Наречена: <a href="tel:+380673761669">067&nbsp;376&nbsp;16&nbsp;69</a><br>
-                                            Наречений: <a href="tel:+380671344072">067&nbsp;134&nbsp;40&nbsp;72</a>
-                                        </div>
-                                    </article>
+                                <!-- Повідомлення, коли день настав (з'являється замість таймера) -->
+                                <div class="wc-finished" id="finished-message" style="display: none;">
+                                    <div class="wc-finished-title">Цей день настав</div>
+                                    <div class="wc-finished-sub">Сьогодні ми кажемо одне одному «Так» 💍</div>
+                                    <div class="wc-ornament" aria-hidden="true" style="margin: 10px auto 16px;"></div>
+                                    <div class="wc-finished-note">Дякуємо, що ви поруч у цей особливий момент ♥️</div>
                                 </div>
 
                                 <style>
-                                    .wedding-dresscode{
-                                        --gold-1:#d6b889; --gold-2:#f1e0b3;
-                                        --ink:#2b2a2a; --muted:#6f6f6f; --soft:#ffffff;
-                                        --line: rgba(0,0,0,.10);
+                                    .wedding-countdown {
+                                        --gold-1: #d6b889; --gold-2: #f1e0b3;
+                                        --ink: #2c2b2b; --muted: #6f6f6f; --soft: #ffffff;
                                         --px: clamp(16px, 4vw, 32px);
                                         --py: clamp(28px, 8vh, 72px);
-                                        --radius: 20px;
-                                        --maxw: min(1000px, 94vw);
+                                        --radius: 18px;
+
+                                        position: relative; isolation: isolate;
                                         padding: var(--py) var(--px);
-                                        display:grid; place-items:center;
-                                        font-family:'Montserrat', sans-serif; color:var(--ink);
+                                        display: grid; place-items: center;
+                                        font-family: 'Montserrat', sans-serif; color: var(--ink);
                                         background:
                                                 radial-gradient(1000px 520px at 50% -12%, rgba(214,184,137,.16), transparent 55%),
                                                 linear-gradient(180deg, #f9f7f4, #fdfcfb);
+                                        min-height: 250px; /* Щоб блок не стрибав по висоті при зміні контенту */
                                     }
-                                    .dc-head{ text-align:center; margin-bottom: clamp(24px, 6vh, 48px); max-width: var(--maxw); }
-                                    .dc-title{
-                                        margin:0 0 6px;
-                                        font-family:'Great Vibes', cursive;
-                                        font-size: clamp(42px, 7vw, 76px);
-                                        line-height:1.22;
+
+                                    .wc-head { text-align: center; margin-bottom: clamp(20px, 5vh, 40px); transition: opacity 0.5s; }
+
+                                    .wc-title {
+                                        margin: 0 0 8px;
+                                        font-family: 'Great Vibes', cursive;
+                                        font-size: clamp(38px, 8vw, 56px);
+                                        line-height: 1.2;
+                                        padding: 10px 20px; /* ДОДАНО ВІДСТУПИ ПО БОКАХ */
                                         background: linear-gradient(130deg, var(--gold-2), var(--gold-1));
-                                        -webkit-background-clip:text; background-clip:text; color:transparent;
-                                        text-shadow: 0 2px 14px rgba(0,0,0,.12);
-                                        display:inline-block; padding-inline:.2em; overflow:visible;
+                                        -webkit-background-clip: text; background-clip: text; color: transparent;
+                                        text-shadow: 0 2px 12px rgba(0,0,0,.10);
+                                        word-break: keep-all;
                                     }
-                                    .dc-sub{ margin:0; color:var(--muted); font-size: clamp(13px, 2.2vw, 16px); }
-                                    .dc-ornament{
-                                        width:min(180px, 40vw); height:2px; margin: 14px auto 0; border-radius:2px;
+
+                                    .wc-sub { margin: 0; font-size: clamp(13px, 2.4vw, 17px); color: var(--muted); }
+
+                                    .wc-ornament {
+                                        width: min(160px, 40vw); height: 2px; margin: 14px auto 0;
+                                        border-radius: 2px;
                                         background: linear-gradient(90deg, transparent, rgba(214,184,137,.85), transparent);
-                                        filter: drop-shadow(0 4px 10px rgba(214,184,137,.25));
+                                        filter: drop-shadow(0 3px 8px rgba(214,184,137,.22));
                                     }
 
-                                    .dc-grid{
-                                        width:100%; max-width: var(--maxw);
-                                        display:grid; gap: clamp(16px, 3vw, 26px);
-                                        grid-template-columns: 1fr;
+                                    .wc-timer {
+                                        display: grid;
+                                        grid-template-columns: repeat(4, 1fr);
+                                        gap: clamp(10px, 3.6vw, 20px);
+                                        width: min(940px, 100%);
+                                        transition: opacity 0.5s;
                                     }
-                                    @media (min-width:920px){ .dc-grid{ grid-template-columns: 1fr 1fr; } }
 
-                                    .dc-card{
+                                    .wc-box {
                                         background: var(--soft);
-                                        border: 1px solid var(--line);
+                                        border: 1px solid rgba(214,184,137,.26);
                                         border-radius: var(--radius);
-                                        box-shadow: 0 16px 40px rgba(18,19,20,.06);
-                                        padding: clamp(18px, 3vh, 24px) clamp(16px, 3vw, 22px);
-                                        position:relative;
-                                    }
-                                    .dc-card::before{
-                                        content:"";
-                                        position:absolute; left:12%; right:12%; top:-1px; height:3px; border-radius:2px;
-                                        background: linear-gradient(130deg, var(--gold-2), var(--gold-1)); opacity:.9;
-                                    }
-
-                                    .dc-card--palette{
+                                        box-shadow: 0 14px 36px rgba(18,19,20,.06);
+                                        text-align: center;
+                                        padding: clamp(12px, 2.6vh, 18px) clamp(10px, 2.6vw, 18px);
                                         overflow: visible;
                                     }
 
-                                    .dc-palette-title{
-                                        margin:0 0 18px; font-weight:600; letter-spacing:.02em;
-                                        font-size: clamp(19px, 3vw, 23px); text-align:center; color: var(--ink);
-                                    }
-                                    .dc-swatches{
-                                        display:flex;
-                                        justify-content:space-between;
-                                        align-items:center;
-                                        gap: clamp(6px, 1.4vw, 14px);
-                                        list-style:none;
-                                        margin:0 0 16px;
-                                        width: calc(100% + 2 * clamp(16px, 3vw, 22px));
-                                        margin-inline: calc(-1 * clamp(16px, 3vw, 22px));
-                                        padding:0;
-                                        flex-wrap:nowrap;
-                                    }
-                                    .dc-swatch{
-                                        flex:1 1 0;
-                                        min-width:0;
-                                        margin:0;
-                                        padding:0;
-                                        display:flex;
-                                        justify-content:center;
-                                    }
-                                    .dc-swatch span{
-                                        display:block;
-                                        width:100%;
-                                        aspect-ratio:1;
-                                        border-radius:50%;
-                                        box-shadow: inset 0 0 0 1px rgba(0,0,0,.08), 0 6px 18px rgba(0,0,0,.10);
-                                    }
-                                    .dc-swatches .dc-swatch:nth-child(1) span{ background:#331e18; }
-                                    .dc-swatches .dc-swatch:nth-child(2) span{ background:#7b5244; }
-                                    .dc-swatches .dc-swatch:nth-child(3) span{ background:#d3afaa; }
-                                    .dc-swatches .dc-swatch:nth-child(4) span{ background:#E5C8AA; }
-                                    .dc-swatches .dc-swatch:nth-child(5) span{ background:#FBF0E6; }
-
-                                    .dc-palette-note{
-                                        margin:6px 0 0; font-size: 14px; line-height:1.5; color: var(--muted); text-align:center;
+                                    .wc-num {
+                                        display: block;
+                                        font-size: clamp(24px, 6.6vw, 50px);
+                                        line-height: 1.3;
+                                        padding: 4px 0;
+                                        font-weight: 600;
+                                        background: linear-gradient(130deg, var(--gold-2), var(--gold-1));
+                                        -webkit-background-clip: text; background-clip: text; color: transparent;
+                                        text-shadow: 0 1px 10px rgba(0,0,0,.10);
                                     }
 
-                                    .dc-actions{ display:flex; flex-wrap:wrap; gap:10px; margin-top: 10px; }
-                                    .dc-btn{
-                                        display:inline-flex; align-items:center; justify-content:center;
-                                        gap:8px; padding:10px 16px; font-weight:700; letter-spacing:.02em;
-                                        border-radius:999px; text-decoration:none;
-                                        background: linear-gradient(130deg, var(--gold-2), var(--gold-1)); color:#1d1c16;
-                                        border:1px solid rgba(214,184,137,.55);
-                                        box-shadow: 0 12px 28px rgba(214,184,137,.26);
-                                        transition: transform .15s ease, box-shadow .2s ease;
+                                    .wc-label {
+                                        display: block;
+                                        font-size: clamp(11px, 2.6vw, 15px);
+                                        font-weight: 500; color: var(--ink); opacity: .85; letter-spacing: .03em;
                                     }
-                                    .dc-btn:hover{ transform: translateY(-1px); box-shadow: 0 18px 36px rgba(214,184,137,.34); }
-                                    .dc-btn--light{ background:#fff; color:#2f2f2f; border-color: rgba(0,0,0,.08); box-shadow: 0 10px 24px rgba(18,19,20,.06); }
-                                    .dc-contact{ margin-top: 8px; font-size: 14px; color: var(--muted); }
+
+                                    /* --- Стилі для фінального повідомлення --- */
+                                    .wc-finished {
+                                        display: flex;
+                                        flex-direction: column;
+                                        align-items: center;
+                                        text-align: center;
+                                        animation: fadeInFinished 1s ease-out forwards;
+                                    }
+
+                                    .wc-finished-title {
+                                        font-family: 'Great Vibes', cursive;
+                                        font-size: clamp(42px, 9vw, 64px);
+                                        line-height: 1.2;
+                                        padding: 4px 20px; /* ДОДАНО ВІДСТУПИ ПО БОКАХ */
+                                        margin-bottom: 8px;
+                                        background: linear-gradient(130deg, var(--gold-2), var(--gold-1));
+                                        -webkit-background-clip: text; background-clip: text; color: transparent;
+                                        text-shadow: 0 2px 14px rgba(0,0,0,.12);
+                                    }
+
+                                    .wc-finished-sub {
+                                        font-size: clamp(16px, 3.5vw, 22px);
+                                        font-weight: 500;
+                                        color: var(--ink);
+                                        margin-bottom: 4px;
+                                    }
+
+                                    .wc-finished-note {
+                                        font-size: clamp(13px, 3vw, 16px);
+                                        color: var(--muted);
+                                        font-style: italic;
+                                        max-width: 400px;
+                                        line-height: 1.5;
+                                    }
+
+                                    @keyframes fadeInFinished {
+                                        from { opacity: 0; transform: translateY(15px); }
+                                        to { opacity: 1; transform: translateY(0); }
+                                    }
+
+                                    /* Дуже вузькі екрани */
+                                    @media (max-width: 420px) {
+                                        .wc-title { font-size: 34px; line-height: 1.25; }
+                                        .wc-box { padding: 10px 6px; border-radius: 14px; }
+                                        .wc-num { font-size: 26px; line-height: 1.25; }
+                                        .wc-label { font-size: 11px; }
+                                        .wc-timer { gap: 8px; }
+                                        .wc-finished-title { font-size: 38px; }
+                                    }
                                 </style>
+
+                                <script>
+                                    document.addEventListener('DOMContentLoaded', () => {
+                                        // Встановіть дату вашого весілля (РРРР-ММ-ДДТ00:00:00)
+                                        const targetDate = new Date("2026-08-15T00:00:00");
+
+                                        const timerEl = document.getElementById("countdown");
+                                        const headerEl = document.getElementById("wc-header");
+                                        const finishedEl = document.getElementById("finished-message");
+
+                                        const daysEl = document.getElementById("days");
+                                        const hoursEl = document.getElementById("hours");
+                                        const minutesEl = document.getElementById("minutes");
+                                        const secondsEl = document.getElementById("seconds");
+
+                                        let countdownInterval;
+
+                                        function updateCountdown() {
+                                            const now = new Date();
+                                            const diff = targetDate - now;
+
+                                            // Якщо час вийшов
+                                            if (diff <= 0) {
+                                                clearInterval(countdownInterval); // Зупиняємо таймер
+
+                                                // Ховаємо таймер і старий заголовок
+                                                timerEl.style.display = "none";
+                                                headerEl.style.display = "none";
+
+                                                // Показуємо красивий текст
+                                                finishedEl.style.display = "flex";
+                                                return;
+                                            }
+
+                                            // Якщо час ще є - рахуємо далі
+                                            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                                            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+                                            const minutes = Math.floor((diff / (1000 * 60)) % 60);
+                                            const seconds = Math.floor((diff / 1000) % 60);
+
+                                            daysEl.textContent = days;
+                                            hoursEl.textContent = hours.toString().padStart(2, '0');
+                                            minutesEl.textContent = minutes.toString().padStart(2, '0');
+                                            secondsEl.textContent = seconds.toString().padStart(2, '0');
+                                        }
+
+                                        // Запускаємо відлік
+                                        updateCountdown();
+                                        // Оновлюємо кожну секунду, якщо час ще не вийшов
+                                        if (targetDate - new Date() > 0) {
+                                            countdownInterval = setInterval(updateCountdown, 1000);
+                                        }
+                                    });
+                                </script>
                             </section>
 
                             <section class="survey-elegant" aria-label="Опитування для гостей">
@@ -818,39 +896,32 @@ permalink: /anton-and-olya
                                 <div class="survey-card">
                                     <h2 class="survey-title">Опитування для гостей</h2>
 
-                                    <form id="weddingForm" action="https://api.web3forms.com/submit" method="POST">
-                                        <input type="hidden" name="access_key" value="421f03a5-2403-40b1-b592-aa5ef756a849">
-                                        <input type="hidden" name="subject" value="Відповіді з весільної анкети">
+                                    <form id="weddingForm" action="https://api.web3forms.com/submit" method="POST" accept-charset="UTF-8">
+                                        <input type="hidden" name="access_key" value="43648aff-d14c-48c5-8135-496caa62f7f9">
+                                        <input type="hidden" name="subject" value="Відповіді з весільної анкети — Марина & Богдан">
                                         <input type="hidden" name="from_name" value="Весільний сайт">
 
-                                        <label class="question">Ваше ім’я та прізвище:</label>
-                                        <input class="input" type="text" name="Ім’я та прізвище" placeholder="Введіть ваше ім’я та прізвище" required>
+                                        <label class="question">Ваше імʼя та прізвище</label>
+                                        <input class="input" type="text" name="Імʼя та прізвище" placeholder="Введіть ваше імʼя та прізвище" required>
 
-                                        <label class="question">Чи плануєте Ви бути на нашому святі?</label>
+                                        <label class="question">Чи плануєте ви бути на весіллі?</label>
                                         <div class="options">
-                                            <label class="pill"><input type="radio" name="Чи плануєте Ви бути на нашому святі?" value="Так" required>Так</label>
-                                            <label class="pill"><input type="radio" name="Чи плануєте Ви бути на нашому святі?" value="Ні">Ні</label>
+                                            <label class="pill"><input type="radio" name="Чи плануєте ви бути на весіллі?" value="Так" required>Так</label>
+                                            <label class="pill"><input type="radio" name="Чи плануєте ви бути на весіллі?" value="На жаль, не зможу">На жаль, не зможу</label>
                                         </div>
 
-                                        <label class="question">Чи плануєте Ви залишатись із ночівлею чи скористаєтесь трансфером?</label>
-                                        <div class="options">
-                                            <label class="pill"><input type="radio" name="Ночівля або трансфер" value="Залишусь на ночівлю" required>Залишусь на ночівлю</label>
-                                            <label class="pill"><input type="radio" name="Ночівля або трансфер" value="Скористаюсь трансфером">Скористаюсь трансфером</label>
-                                        </div>
-
-                                        <label class="question">Ваші побажання по алкогольним напоям:</label>
-                                        <div class="options options-grid">
+                                        <label class="question">Побажання щодо алкоголю</label>
+                                        <div class="options options-grid" id="alcoholOptions">
                                             <label class="pill"><input type="checkbox" name="Алкоголь[]" value="Шампанське">🥂 Шампанське</label>
                                             <label class="pill"><input type="checkbox" name="Алкоголь[]" value="Вино">🍷 Вино</label>
                                             <label class="pill"><input type="checkbox" name="Алкоголь[]" value="Віскі">🥃 Віскі</label>
-                                            <label class="pill"><input type="checkbox" name="Алкоголь[]" value="Горілка">🍾 Горілка</label>
-                                            <label class="pill"><input type="checkbox" name="Алкоголь[]" value="Джин">🍸 Джин</label>
+                                            <label class="pill pill--full"><input type="checkbox" id="noAlcohol" name="Не вживаю алкоголь" value="Я не вживатиму алкоголь">Я не вживатиму алкоголь</label>
                                         </div>
 
                                         <label class="question">Ваші побажання:</label>
-                                        <textarea class="input" name="Ваші побажання" placeholder="Напишіть тут будь-які додаткові побажання або важливу інформацію." rows="4"></textarea>
+                                        <textarea class="input" name="Ваші побажання" placeholder="Напишіть тут будь-які додаткові побажання чи важливу інформацію. Якщо з вами буде дитина або діти, зазначте це, будь ласка." rows="4"></textarea>
 
-                                        <p class="survey-deadline">Просимо надати відповідь до <strong>1.09.26</strong></p>
+                                        <p class="survey-deadline">Будемо вдячні за швидкий зворотний звʼязок ❤️</p>
 
                                         <button type="submit" class="btn-submit">Відправити 💌</button>
                                     </form>
@@ -881,12 +952,12 @@ permalink: /anton-and-olya
                                     }
                                     .survey-title{
                                         margin:0 0 18px; font-family:'Great Vibes', cursive;
-                                        font-size: clamp(34px, 6.4vw, 54px); line-height:1.2; padding:.15em 0 .1em;
+                                        font-size: clamp(32px, 6vw, 52px); line-height:1.2; padding:.15em 0 .1em;
                                         background: linear-gradient(130deg, var(--gold-2), var(--gold-1));
                                         -webkit-background-clip:text; background-clip:text; color:transparent;
                                         text-align:center; text-shadow: 0 2px 16px rgba(0,0,0,.10); overflow:visible;
                                     }
-                                    .question{ display:block; margin:18px 0 10px; font-weight:600; color:var(--ink); letter-spacing:.01em; font-size: clamp(15px, 2.4vw, 17px); }
+                                    .question{ display:block; margin:18px 0 10px; font-weight:600; color:var(--ink); letter-spacing:.01em; }
                                     .input{
                                         width:100%; padding:14px 16px; border-radius:14px;
                                         border:1px solid rgba(214,184,137,.35); background:#fff; font-size:16px;
@@ -894,7 +965,10 @@ permalink: /anton-and-olya
                                     }
                                     .input:focus{ outline:none; border-color: rgba(214,184,137,.9); box-shadow: 0 10px 28px rgba(214,184,137,.22); }
                                     .options{ display:flex; flex-wrap:wrap; gap:10px 10px; margin-bottom:14px; }
-                                    .options-grid{ display:grid; grid-template-columns: 1fr; gap:10px; }
+                                    .options-grid{ display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:10px; }
+                                    @media (max-width:580px){ .options-grid{ grid-template-columns: 1fr 1fr; } }
+                                    @media (max-width:420px){ .options-grid{ grid-template-columns: 1fr; } }
+                                    .pill--full{ grid-column: 1 / -1; }
                                     .pill{
                                         display:inline-flex; align-items:center; justify-content:center;
                                         gap:8px; padding:10px 14px; font-weight:600; border-radius:999px;
@@ -925,11 +999,27 @@ permalink: /anton-and-olya
                                         color: var(--muted);
                                         line-height: 1.5;
                                     }
-                                    .survey-deadline strong{ color: var(--ink); font-weight: 700; }
                                     @keyframes fadeIn{ from{opacity:0; transform: translateY(18px);} to{opacity:1; transform:none;} }
                                 </style>
 
                                 <script>
+                                    (function () {
+                                        const noAlcohol = document.getElementById('noAlcohol');
+                                        const drinkBoxes = document.querySelectorAll('#alcoholOptions input[name="Алкоголь[]"]');
+
+                                        noAlcohol.addEventListener('change', () => {
+                                            if (noAlcohol.checked) {
+                                                drinkBoxes.forEach((box) => { box.checked = false; });
+                                            }
+                                        });
+
+                                        drinkBoxes.forEach((box) => {
+                                            box.addEventListener('change', () => {
+                                                if (box.checked) noAlcohol.checked = false;
+                                            });
+                                        });
+                                    })();
+
                                     document.getElementById('weddingForm').addEventListener('submit', async function(e) {
                                         e.preventDefault();
                                         const form = e.target;
@@ -937,21 +1027,29 @@ permalink: /anton-and-olya
                                         const btn = form.querySelector('.btn-submit');
                                         const originalText = btn.innerText;
 
+                                        // Меняем текст кнопки на время отправки
                                         btn.innerText = 'Відправляємо...';
 
                                         const drinksChecked = Array.from(form.querySelectorAll('input[name="Алкоголь[]"]:checked'))
-                                            .map(i => i.value);
+                                            .map((i) => i.value);
+                                        const noAlcoholChecked = form.querySelector('#noAlcohol:checked');
+
                                         formData.delete('Алкоголь[]');
-                                        if (drinksChecked.length) {
-                                            formData.append('Алкоголь', drinksChecked.join(', '));
+                                        formData.delete('Не вживаю алкоголь');
+
+                                        if (noAlcoholChecked) {
+                                            formData.append('Побажання щодо алкоголю', 'Я не вживатиму алкоголь');
+                                        } else if (drinksChecked.length) {
+                                            formData.append('Побажання щодо алкоголю', drinksChecked.join(', '));
                                         } else {
-                                            formData.append('Алкоголь', '—');
+                                            formData.append('Побажання щодо алкоголю', '—');
                                         }
 
                                         const object = Object.fromEntries(formData);
                                         const jsonBody = JSON.stringify(object);
 
                                         try {
+                                            // Отправляем запрос с явным указанием JSON заголовков
                                             const res = await fetch(form.action, {
                                                 method: 'POST',
                                                 headers: {
@@ -975,6 +1073,7 @@ permalink: /anton-and-olya
                                             document.getElementById('formMessage').style.color = 'red';
                                             document.getElementById('formMessage').style.display = 'block';
                                         } finally {
+                                            // Возвращаем текст кнопки обратно
                                             btn.innerText = originalText;
                                         }
                                     });
@@ -985,9 +1084,16 @@ permalink: /anton-and-olya
                             <!-- Footer Section Start -->
                             <footer>
                                 <section class="footer-hero" id="footer">
-                                    <div class="footer-hero__media" aria-hidden="true">
-                                        <div class="footer-hero__bg"></div>
-                                        <img class="footer-hero__photo" src="/assets/media/images/anton-and-olya1.jpg" alt="Антон та Оля">
+                                    <div class="footer-hero__bg" aria-hidden="true"></div>
+
+                                    <div class="footer-hero__content">
+                                        <h2 class="footer-hero__title">З любов’ю чекаємо на Вас</h2>
+
+                                        <p class="footer-hero__subtitle">
+                                            Будемо вдячні за швидкий зворотний звʼязок ❤️
+                                        </p>
+
+                                        <p class="footer-hero__note">До зустрічі на святі</p>
                                     </div>
                                 </section>
 
@@ -997,52 +1103,62 @@ permalink: /anton-and-olya
                                         min-height:100vh;
                                         width:100%;
                                         overflow:hidden;
+                                        display:grid;
+                                        place-items:center;
                                         isolation:isolate;
+                                        font-family:'Montserrat',sans-serif;
                                     }
-
-                                    .footer-hero__media{
-                                        position:absolute;
-                                        inset:0;
-                                        z-index:0;
-                                        overflow:hidden;
-                                    }
-
                                     .footer-hero__bg{
-                                        position:absolute;
-                                        inset:0;
-                                        background:url('/assets/media/images/anton-and-olya1.jpg') center/cover no-repeat;
+                                        position:absolute; inset:0;
+                                        background:
+                                                linear-gradient(180deg, rgba(0,0,0,.22) 0%, rgba(0,0,0,.5) 100%),
+                                                url('/assets/media/images/marina-and-bohdan2.jpg') center/cover no-repeat;
+                                        z-index:-1;
                                         transform:scale(1.02);
                                     }
-
-                                    .footer-hero__photo{
-                                        display:none;
+                                    .footer-hero__content{
+                                        text-align:center;
+                                        color:#fff;
+                                        padding: clamp(24px, 4vw, 48px);
+                                        max-width: 1000px;
                                     }
 
-                                    @media screen and (min-width: 1024px) {
-                                        .footer-hero__bg{
-                                            background:url('/assets/media/images/anton-and-olya1.jpg') center/cover no-repeat;
-                                            transform:scale(1.18);
-                                            filter:blur(36px) saturate(1.08) brightness(0.92);
-                                            will-change:transform;
-                                        }
+                                    /* Елегантний єдиний стиль заголовків (як у розділах вище) */
+                                    .footer-hero__title{
+                                        margin:0 0 10px;
+                                        font-family:'Great Vibes', cursive;
+                                        font-size: clamp(36px, 6.4vw, 72px);
+                                        line-height: 1.22;          /* запас для завитків шрифту */
+                                        padding: .15em .25em .12em; /* захист від обрізання з усіх боків */
+                                        background: linear-gradient(130deg, #f1e0b3, #d6b889);
+                                        -webkit-background-clip:text; background-clip:text; color:transparent;
+                                        text-shadow: 0 2px 14px rgba(0,0,0,.12);
+                                        overflow: visible;
+                                    }
 
-                                        .footer-hero__photo{
-                                            display:block;
-                                            position:absolute;
-                                            inset:0;
-                                            width:100%;
-                                            height:100%;
-                                            object-fit:contain;
-                                            object-position:center center;
-                                            z-index:1;
-                                        }
+                                    .footer-hero__subtitle{
+                                        font-size: clamp(14px, 2.2vw, 20px);
+                                        margin: 0 0 8px;
+                                        text-shadow: 0 4px 16px rgba(0,0,0,.25);
+                                        letter-spacing:.01em;
+                                    }
+                                    .footer-hero__subtitle strong{
+                                        color:#fff; font-weight:700;
+                                        background: linear-gradient(130deg, #f1e0b3, #d6b889);
+                                        -webkit-background-clip:text; background-clip:text; color:transparent;
+                                        text-shadow: 0 1px 10px rgba(0,0,0,.18);
+                                    }
+
+                                    .footer-hero__note{
+                                        font-size: clamp(13px, 2vw, 18px);
+                                        opacity:.95; letter-spacing:.02em;
                                     }
 
                                     @media (min-width:1600px){
-                                        .footer-hero__bg{
-                                            transform:scale(1.22);
-                                            filter:blur(40px) saturate(1.08) brightness(0.92);
-                                        }
+                                        .footer-hero__bg{ transform:scale(1.04); }
+                                    }
+                                    @supports (padding: max(0px)) {
+                                        .footer-hero__content{ padding-bottom: max(24px, env(safe-area-inset-bottom)); }
                                     }
                                 </style>
                             </footer>
