@@ -272,7 +272,7 @@ permalink: /marina-and-bohdan
                                                 <time class="wt-time">13:00</time>
                                             </div>
                                             <div class="wt-card-bottom">
-                                                <button class="wt-map" data-lat="51.51586" data-lng="31.267108" data-place="кафе «Кабріолет», Чернігів, вул. Громадська, 39">Відкрити на мапі</button>
+                                                <button class="wt-map" data-place="Кафе Кабріолет, вул. Громадська, 39, Чернігів">Відкрити на мапі</button>
                                             </div>
                                         </div>
                                     </li>
@@ -285,12 +285,8 @@ permalink: /marina-and-bohdan
                                                 </div>
                                                 <div class="wt-text">
                                                     <h3 class="wt-label">Весільна церемонія</h3>
-                                                    <p class="wt-address">кафе «Кабріолет» м. Чернігів, вул. Громадська, 39</p>
                                                 </div>
                                                 <time class="wt-time">13:30</time>
-                                            </div>
-                                            <div class="wt-card-bottom">
-                                                <button class="wt-map" data-lat="51.51586" data-lng="31.267108" data-place="кафе «Кабріолет», Чернігів, вул. Громадська, 39">Відкрити на мапі</button>
                                             </div>
                                         </div>
                                     </li>
@@ -303,12 +299,8 @@ permalink: /marina-and-bohdan
                                                 </div>
                                                 <div class="wt-text">
                                                     <h3 class="wt-label">Загальна фотосесія з гостями</h3>
-                                                    <p class="wt-address">кафе «Кабріолет» м. Чернігів, вул. Громадська, 39</p>
                                                 </div>
                                                 <time class="wt-time">14:00</time>
-                                            </div>
-                                            <div class="wt-card-bottom">
-                                                <button class="wt-map" data-lat="51.51586" data-lng="31.267108" data-place="кафе «Кабріолет», Чернігів, вул. Громадська, 39">Відкрити на мапі</button>
                                             </div>
                                         </div>
                                     </li>
@@ -321,12 +313,8 @@ permalink: /marina-and-bohdan
                                                 </div>
                                                 <div class="wt-text">
                                                     <h3 class="wt-label">Святковий банкет</h3>
-                                                    <p class="wt-address">кафе «Кабріолет» м. Чернігів, вул. Громадська, 39</p>
                                                 </div>
                                                 <time class="wt-time">15:00</time>
-                                            </div>
-                                            <div class="wt-card-bottom">
-                                                <button class="wt-map" data-lat="51.51586" data-lng="31.267108" data-place="кафе «Кабріолет», Чернігів, вул. Громадська, 39">Відкрити на мапі</button>
                                             </div>
                                         </div>
                                     </li>
@@ -481,18 +469,23 @@ permalink: /marina-and-bohdan
 
                                 <script>
                                     function openMap(btn){
+                                        const directUrl = btn.getAttribute('data-url');
                                         const lat = btn.getAttribute('data-lat');
                                         const lng = btn.getAttribute('data-lng');
                                         const place = btn.getAttribute('data-place');
                                         const isiOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
                                         let url = '';
-                                        if (lat && lng){
+                                        if (directUrl) {
+                                            url = directUrl;
+                                        } else if (place) {
+                                            const q = encodeURIComponent(place);
+                                            url = isiOS
+                                                ? `https://maps.apple.com/?q=${q}`
+                                                : `https://www.google.com/maps/search/?api=1&query=${q}`;
+                                        } else if (lat && lng) {
                                             url = isiOS
                                                 ? `https://maps.apple.com/?ll=${lat},${lng}&q=${lat},${lng}`
                                                 : `https://www.google.com/maps?q=${lat},${lng}`;
-                                        } else if (place){
-                                            const q = encodeURIComponent(place);
-                                            url = isiOS ? `https://maps.apple.com/?q=${q}` : `https://www.google.com/maps?q=${q}`;
                                         }
                                         if (url) window.open(url, '_blank', 'noopener');
                                     }
@@ -958,7 +951,7 @@ permalink: /marina-and-bohdan
                                         </div>
 
                                         <label class="question">Ваші побажання:</label>
-                                        <textarea class="input" name="Ваші побажання" placeholder="Напишіть тут будь-які додаткові побажання чи важливу інформацію. Якщо з вами буде дитина або діти, зазначте це, будь ласка." rows="4"></textarea>
+                                        <textarea class="input" name="Ваші побажання" placeholder="Якщо з вами будуть діти, зазначте це, будь ласка. Також напишіть тут додаткові побажання чи важливу інформацію." rows="4"></textarea>
 
                                         <p class="survey-deadline">Будемо вдячні за швидкий зворотний звʼязок ❤️</p>
 
