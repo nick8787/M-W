@@ -552,11 +552,12 @@ permalink: /bohdan-and-marina
                                         <label class="pill"><input type="radio" name="Чи плануєте ви бути у РАЦС?" value="Ні">Ні</label>
                                     </div>
 
-                                    <label class="question">Ваші побажання по алкогольним напоям:</label>
+                                    <label class="question">Напої:</label>
                                     <div class="options options-grid">
-                                        <label class="pill"><input type="checkbox" name="Алкоголь[]" value="Шампанське">🥂 Шампанське</label>
-                                        <label class="pill"><input type="checkbox" name="Алкоголь[]" value="Вино">🍷 Вино</label>
-                                        <label class="pill"><input type="checkbox" name="Алкоголь[]" value="Водка">🍾 Водка</label>
+                                        <label class="pill"><input type="checkbox" name="Напої[]" value="Горілка">🍾 Горілка</label>
+                                        <label class="pill"><input type="checkbox" name="Напої[]" value="Коньяк">🥃 Коньяк</label>
+                                        <label class="pill"><input type="checkbox" name="Напої[]" value="Шампанське">🥂 Шампанське</label>
+                                        <label class="pill"><input type="checkbox" name="Напої[]" value="Вино">🍷 Вино</label>
                                     </div>
 
                                     <label class="question">Ваші побажання:</label>
@@ -639,9 +640,9 @@ permalink: /bohdan-and-marina
                                     const btn = form.querySelector('.btn-submit');
                                     const originalText = btn.innerText;
 
-                                    const drinksChecked = Array.from(form.querySelectorAll('input[name="Алкоголь[]"]:checked')).map(i => i.value);
-                                    formData.delete('Алкоголь[]');
-                                    formData.append('Алкоголь', drinksChecked.length ? drinksChecked.join(', ') : '—');
+                                    const drinksChecked = Array.from(form.querySelectorAll('input[name="Напої[]"]:checked')).map(i => i.value);
+                                    formData.delete('Напої[]');
+                                    formData.append('Напої', drinksChecked.length ? drinksChecked.join(', ') : '—');
 
                                     btn.innerText = 'Відправляємо...';
 
@@ -680,7 +681,9 @@ permalink: /bohdan-and-marina
 
                         <footer>
                             <section class="footer-hero" id="footer">
-                                <div class="footer-hero__bg" aria-hidden="true"></div>
+                                <div class="footer-hero__bg" aria-hidden="true">
+                                    <img class="footer-hero__img" src="/assets/media/images/bohdan-and-marina3.jpg" alt="" loading="lazy" decoding="async">
+                                </div>
                                 <div class="footer-hero__content">
                                     <h2 class="footer-hero__title">З любов’ю чекаємо на вас</h2>
                                     <p class="footer-hero__subtitle">
@@ -701,9 +704,13 @@ permalink: /bohdan-and-marina
                                     position:absolute; inset:0;
                                     background:
                                             linear-gradient(180deg, rgba(0,0,0,.22) 0%, rgba(0,0,0,.5) 100%),
-                                            url('/assets/media/images/bohdan-and-marina2.jpg') center/cover no-repeat;
-                                    z-index:-1; transform:scale(1.02);
+                                            url('/assets/media/images/bohdan-and-marina3.jpg') center/cover no-repeat;
+                                    z-index:0;
+                                    transform:scale(1.02);
+                                    pointer-events:none;
+                                    user-select:none;
                                 }
+                                .footer-hero__img{ display:none; }
 
                                 .footer-hero__content{
                                     position:absolute; left:50%;
@@ -756,14 +763,44 @@ permalink: /bohdan-and-marina
 
                                 @media (min-width: 769px){
                                     .footer-hero__bg{
-                                        background-position: center 42%;
+                                        --footer-bg-url: url('/assets/media/images/bohdan-and-marina3.jpg');
+                                        transform: none;
+                                        background: none;
+                                    }
+                                    .footer-hero__bg::before{
+                                        content:"";
+                                        position:absolute;
+                                        inset:-24px;
+                                        background:
+                                                radial-gradient(900px 520px at 50% 40%, rgba(0,0,0,.10), rgba(0,0,0,.70) 70%),
+                                                var(--footer-bg-url) center/cover no-repeat;
+                                        filter: blur(18px) saturate(115%) contrast(105%);
+                                        transform: scale(1.08);
+                                        z-index:-1;
+                                    }
+                                    .footer-hero__bg::after{
+                                        content:"";
+                                        position:absolute;
+                                        inset:0;
+                                        background: linear-gradient(180deg, rgba(0,0,0,.22) 0%, rgba(0,0,0,.5) 100%);
+                                        z-index:1;
+                                    }
+                                    .footer-hero__img{
+                                        display:block;
+                                        position:absolute;
+                                        inset:0;
+                                        width:100%;
+                                        height:100%;
+                                        object-fit:contain;
+                                        object-position:50% 50%;
+                                        transform:scale(.94);
+                                        filter:saturate(105%) contrast(102%) drop-shadow(0 18px 60px rgba(0,0,0,.35));
+                                        z-index:0;
                                     }
                                     .footer-hero__content{
                                         top: min(85%, calc(100% - env(safe-area-inset-bottom) - 48px));
                                     }
                                 }
-
-                                @media (min-width:1600px){ .footer-hero__bg{ transform:scale(1.04); } }
                                 @supports (padding: max(0px)) {
                                     .footer-hero__content{
                                         padding-bottom: max(24px, env(safe-area-inset-bottom));
