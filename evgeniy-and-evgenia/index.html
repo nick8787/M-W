@@ -245,12 +245,12 @@ permalink: /evgeniy-and-evgenia
                                                 </div>
                                                 <div class="wt-text">
                                                     <h3 class="wt-label">Сбор гостей</h3>
-                                                    <p class="wt-address">Молдова, с. Конгаз, ресторан «Золотой Павлин»</p>
+                                                    <p class="wt-address">Молдова, Конгаз, ул. Калинина, 10 — ресторан «Золотой Павлин»</p>
                                                 </div>
                                                 <time class="wt-time">15:30</time>
                                             </div>
                                             <div class="wt-card-bottom">
-                                                <button class="wt-map" data-place="Ресторан «Золотой Павлин», с. Конгаз, Молдова">Открыть на карте</button>
+                                                <button class="wt-map" type="button" data-lat="46.108374" data-lng="28.6054766" data-label="Ресторан «Золотой Павлин», ул. Калинина 10, Конгаз">Открыть на карте</button>
                                             </div>
                                         </div>
                                     </li>
@@ -263,12 +263,12 @@ permalink: /evgeniy-and-evgenia
                                                 </div>
                                                 <div class="wt-text">
                                                     <h3 class="wt-label">Фуршет и Welcome Bar</h3>
-                                                    <p class="wt-address">Молдова, с. Конгаз, ресторан «Золотой Павлин»</p>
+                                                    <p class="wt-address">Молдова, Конгаз, ул. Калинина, 10 — ресторан «Золотой Павлин»</p>
                                                 </div>
                                                 <time class="wt-time">16:00</time>
                                             </div>
                                             <div class="wt-card-bottom">
-                                                <button class="wt-map" data-place="Ресторан «Золотой Павлин», с. Конгаз, Молдова">Открыть на карте</button>
+                                                <button class="wt-map" type="button" data-lat="46.108374" data-lng="28.6054766" data-label="Ресторан «Золотой Павлин», ул. Калинина 10, Конгаз">Открыть на карте</button>
                                             </div>
                                         </div>
                                     </li>
@@ -281,12 +281,12 @@ permalink: /evgeniy-and-evgenia
                                                 </div>
                                                 <div class="wt-text">
                                                     <h3 class="wt-label">Торжественная церемония бракосочетания</h3>
-                                                    <p class="wt-address">Молдова, с. Конгаз, ресторан «Золотой Павлин»</p>
+                                                    <p class="wt-address">Молдова, Конгаз, ул. Калинина, 10 — ресторан «Золотой Павлин»</p>
                                                 </div>
                                                 <time class="wt-time">17:00</time>
                                             </div>
                                             <div class="wt-card-bottom">
-                                                <button class="wt-map" data-place="Ресторан «Золотой Павлин», с. Конгаз, Молдова">Открыть на карте</button>
+                                                <button class="wt-map" type="button" data-lat="46.108374" data-lng="28.6054766" data-label="Ресторан «Золотой Павлин», ул. Калинина 10, Конгаз">Открыть на карте</button>
                                             </div>
                                         </div>
                                     </li>
@@ -299,12 +299,12 @@ permalink: /evgeniy-and-evgenia
                                                 </div>
                                                 <div class="wt-text">
                                                     <h3 class="wt-label">Приглашаем в банкетный зал</h3>
-                                                    <p class="wt-address">Молдова, с. Конгаз, ресторан «Золотой Павлин»</p>
+                                                    <p class="wt-address">Молдова, Конгаз, ул. Калинина, 10 — ресторан «Золотой Павлин»</p>
                                                 </div>
                                                 <time class="wt-time">18:00</time>
                                             </div>
                                             <div class="wt-card-bottom">
-                                                <button class="wt-map" data-place="Ресторан «Золотой Павлин», с. Конгаз, Молдова">Открыть на карте</button>
+                                                <button class="wt-map" type="button" data-lat="46.108374" data-lng="28.6054766" data-label="Ресторан «Золотой Павлин», ул. Калинина 10, Конгаз">Открыть на карте</button>
                                             </div>
                                         </div>
                                     </li>
@@ -446,18 +446,24 @@ permalink: /evgeniy-and-evgenia
                                     function openMap(btn){
                                         const lat = btn.getAttribute('data-lat');
                                         const lng = btn.getAttribute('data-lng');
+                                        const label = btn.getAttribute('data-label') || 'Ресторан «Золотой Павлин»';
                                         const place = btn.getAttribute('data-place');
-                                        const isiOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+                                        const isApple = /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent) && 'ontouchend' in document;
                                         let url = '';
+
                                         if (lat && lng){
-                                            url = isiOS
-                                                ? `https://maps.apple.com/?ll=${lat},${lng}&q=${lat},${lng}`
-                                                : `https://www.google.com/maps?q=${lat},${lng}`;
+                                            const q = encodeURIComponent(label);
+                                            url = isApple
+                                                ? `https://maps.apple.com/?q=${q}&ll=${lat},${lng}`
+                                                : `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
                                         } else if (place){
                                             const q = encodeURIComponent(place);
-                                            url = isiOS ? `https://maps.apple.com/?q=${q}` : `https://www.google.com/maps?q=${q}`;
+                                            url = isApple
+                                                ? `https://maps.apple.com/?q=${q}`
+                                                : `https://www.google.com/maps/search/?api=1&query=${q}`;
                                         }
-                                        if (url) window.open(url, '_blank', 'noopener');
+
+                                        if (url) window.open(url, '_blank', 'noopener,noreferrer');
                                     }
                                     document.addEventListener('click', (e) => {
                                         const btn = e.target.closest('.wt-map');
