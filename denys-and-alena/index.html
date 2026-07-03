@@ -201,6 +201,265 @@ permalink: /denys-and-alena
                             </section>
 
 
+                            <section class="wedding-music" aria-label="Музыка для настроения">
+                                <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet"/>
+
+                                <audio id="wedding-audio" loop preload="auto">
+                                    <source src="/assets/media/music/%D0%AD%D0%B4%20%D0%A8%D0%B8%D1%80%D0%B0%D0%BD%20%26%20%D0%91%D0%B5%D0%B9%D0%BE%D0%BD%D1%81%D0%B5%20-%20Perfect%20Duet.mp3" type="audio/mpeg">
+                                </audio>
+
+                                <header class="wm-head">
+                                    <h2 class="wm-title">Наша мелодия</h2>
+                                    <p class="wm-sub">Эта песня особенная для нас — включите её, если хотите погрузиться в атмосферу приглашения</p>
+                                    <div class="wm-ornament" aria-hidden="true"></div>
+                                </header>
+
+                                <div class="wm-card" id="music-card">
+                                    <div class="wm-body">
+                                        <div class="wm-bars" id="music-bars" aria-hidden="true">
+                                            <span></span><span></span><span></span><span></span><span></span>
+                                        </div>
+
+                                        <p class="wm-track">Ed Sheeran &amp; Beyoncé — <em>Perfect Duet</em></p>
+
+                                        <div class="wm-actions" id="music-choices">
+                                            <button type="button" id="music-play-btn" class="wm-btn wm-btn--primary">Включить музыку</button>
+                                            <button type="button" id="music-skip-btn" class="wm-btn wm-btn--ghost">Продолжить без музыки</button>
+                                        </div>
+
+                                        <div class="wm-playing" id="music-playing" hidden>
+                                            <p class="wm-playing-text">Музыка играет — приятного просмотра</p>
+                                            <button type="button" id="music-pause-btn" class="wm-btn wm-btn--primary">Приостановить</button>
+                                        </div>
+
+                                        <p class="wm-dismissed" id="music-dismissed" hidden>Приятного просмотра ↓</p>
+                                    </div>
+                                </div>
+
+                                <style>
+                                    .wedding-music{
+                                        --olive-1:#606c38;
+                                        --olive-2:#8ba888;
+                                        --olive-light:#cbd6c2;
+                                        --ink:#2b3a28;
+                                        --muted:#5a6652;
+                                        --soft:#ffffff;
+                                        --line: rgba(96,108,56,.14);
+                                        --radius: 18px;
+                                        --px: clamp(16px, 4vw, 28px);
+                                        --py: clamp(16px, 3.5vh, 36px);
+
+                                        position:relative;
+                                        isolation:isolate;
+                                        padding: var(--py) var(--px);
+                                        font-family:'Montserrat', sans-serif;
+                                        color:var(--ink);
+                                        background:
+                                                radial-gradient(900px 520px at 50% -10%, rgba(96,108,56,.14), transparent 55%),
+                                                linear-gradient(180deg, #f4f7f0, #fafbf8);
+                                        text-align:center;
+                                    }
+
+                                    .wm-head{ margin-bottom: clamp(12px, 2.5vh, 22px); max-width: 520px; margin-inline:auto; }
+                                    .wm-title{
+                                        margin:0 0 6px;
+                                        font-family:'Great Vibes', cursive;
+                                        font-size: clamp(32px, 5.5vw, 56px);
+                                        line-height:1.05;
+                                        background: linear-gradient(130deg, var(--olive-2), var(--olive-1));
+                                        -webkit-background-clip:text; background-clip:text; color:transparent;
+                                        text-shadow: 0 2px 14px rgba(0,0,0,.12);
+                                    }
+                                    .wm-sub{
+                                        margin:0;
+                                        font-size: clamp(12px, 2.1vw, 14px);
+                                        line-height:1.45;
+                                        color: var(--muted);
+                                    }
+                                    .wedding-music .wm-ornament{
+                                        width:min(140px, 36vw);
+                                        height:2px;
+                                        margin:10px auto 0;
+                                        border-radius:2px;
+                                        background: linear-gradient(90deg, transparent, rgba(96,108,56,.75), transparent);
+                                    }
+
+                                    .wm-card{
+                                        position:relative;
+                                        width:min(440px, 100%);
+                                        margin:0 auto;
+                                        padding:0;
+                                        background: var(--soft);
+                                        border:1px solid var(--line);
+                                        border-radius: var(--radius);
+                                        box-shadow: 0 18px 44px rgba(18,19,20,.07);
+                                        overflow:hidden;
+                                        transition: opacity .5s ease, transform .5s ease;
+                                    }
+                                    .wm-card::before{
+                                        content:"";
+                                        position:absolute; left:14%; right:14%; top:-1px; height:3px;
+                                        border-radius:2px;
+                                        background: linear-gradient(130deg, var(--olive-light), var(--olive-2));
+                                        opacity:.9;
+                                        z-index:2;
+                                    }
+
+                                    .wm-body{
+                                        padding: clamp(14px, 2.5vw, 18px) clamp(16px, 3.5vw, 22px) clamp(12px, 2vw, 16px);
+                                    }
+
+                                    .wm-bars{
+                                        display:none;
+                                        align-items:flex-end;
+                                        justify-content:center;
+                                        gap:4px;
+                                        height:20px;
+                                        margin:0 auto 8px;
+                                    }
+                                    .wm-bars.is-active{
+                                        display:flex;
+                                        animation: fadeIn .35s ease;
+                                    }
+                                    .wm-bars span{
+                                        display:block;
+                                        width:3px;
+                                        border-radius:999px;
+                                        background: linear-gradient(180deg, var(--olive-2), var(--olive-1));
+                                        animation: wmBar 1s ease-in-out infinite;
+                                    }
+                                    .wm-bars span:nth-child(1){ height:7px; animation-delay:0s; }
+                                    .wm-bars span:nth-child(2){ height:12px; animation-delay:.15s; }
+                                    .wm-bars span:nth-child(3){ height:16px; animation-delay:.3s; }
+                                    .wm-bars span:nth-child(4){ height:11px; animation-delay:.45s; }
+                                    .wm-bars span:nth-child(5){ height:8px; animation-delay:.6s; }
+                                    @keyframes wmBar{
+                                        0%,100%{ transform: scaleY(.45); opacity:.55; }
+                                        50%{ transform: scaleY(1); opacity:1; }
+                                    }
+
+                                    .wm-track{
+                                        margin:0 0 10px;
+                                        font-size: clamp(12px, 2vw, 13px);
+                                        color:var(--muted);
+                                        letter-spacing:.01em;
+                                    }
+                                    .wm-track em{ font-style:italic; color:var(--olive-1); font-weight:500; }
+
+                                    .wm-actions{
+                                        display:flex;
+                                        flex-direction:column;
+                                        gap:7px;
+                                    }
+                                    @media (min-width:480px){
+                                        .wm-actions{ flex-direction:row; justify-content:center; flex-wrap:wrap; }
+                                    }
+
+                                    .wm-btn{
+                                        appearance:none;
+                                        border:none;
+                                        cursor:pointer;
+                                        padding:8px 14px;
+                                        border-radius:999px;
+                                        font-size:12px;
+                                        font-weight:700;
+                                        letter-spacing:.02em;
+                                        font-family:inherit;
+                                        transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
+                                    }
+                                    .wm-btn--primary{
+                                        background: linear-gradient(130deg, var(--olive-2), var(--olive-1));
+                                        color:#fff;
+                                        border:1px solid rgba(96,108,56,.35);
+                                        box-shadow: 0 12px 28px rgba(96,108,56,.28);
+                                    }
+                                    .wm-btn--primary:hover{ transform: translateY(-1px); box-shadow: 0 16px 34px rgba(96,108,56,.36); }
+                                    .wm-btn--ghost{
+                                        background:#fff;
+                                        color:var(--ink);
+                                        border:1px solid rgba(96,108,56,.22);
+                                        box-shadow: 0 8px 20px rgba(18,19,20,.05);
+                                    }
+                                    .wm-btn--ghost:hover{ transform: translateY(-1px); background:#f8faf6; }
+
+                                    .wm-playing{ display:flex; flex-direction:column; align-items:center; gap:8px; }
+                                    .wm-playing-text{
+                                        margin:0;
+                                        font-size:12px;
+                                        color:var(--muted);
+                                    }
+
+                                    .wm-dismissed{
+                                        margin:0;
+                                        font-size:13px;
+                                        color:var(--olive-1);
+                                        font-weight:600;
+                                        letter-spacing:.02em;
+                                        animation: fadeIn .6s ease;
+                                    }
+                                    @keyframes fadeIn{
+                                        from{ opacity:0; transform: translateY(8px); }
+                                        to{ opacity:1; transform:none; }
+                                    }
+
+                                    .wm-card.is-dismissed .wm-track{ opacity:.45; transition: .4s ease; }
+                                </style>
+
+                                <script>
+                                    document.addEventListener('DOMContentLoaded', function () {
+                                        const audio = document.getElementById('wedding-audio');
+                                        const card = document.getElementById('music-card');
+                                        const bars = document.getElementById('music-bars');
+                                        const choices = document.getElementById('music-choices');
+                                        const playing = document.getElementById('music-playing');
+                                        const dismissed = document.getElementById('music-dismissed');
+                                        const playBtn = document.getElementById('music-play-btn');
+                                        const pauseBtn = document.getElementById('music-pause-btn');
+                                        const skipBtn = document.getElementById('music-skip-btn');
+                                        if (!audio || !card) return;
+
+                                        audio.volume = 0.4;
+
+                                        function setPlaying(on) {
+                                            bars.classList.toggle('is-active', on);
+                                            choices.hidden = on;
+                                            playing.hidden = !on;
+                                            pauseBtn.textContent = on ? 'Приостановить' : 'Включить снова';
+                                        }
+
+                                        playBtn.addEventListener('click', function () {
+                                            card.classList.remove('is-dismissed');
+                                            dismissed.hidden = true;
+                                            audio.play().then(function () {
+                                                setPlaying(true);
+                                            }).catch(function () {});
+                                        });
+
+                                        pauseBtn.addEventListener('click', function () {
+                                            if (audio.paused) {
+                                                audio.play().then(function () { setPlaying(true); }).catch(function () {});
+                                            } else {
+                                                audio.pause();
+                                                setPlaying(false);
+                                                choices.hidden = false;
+                                                playing.hidden = true;
+                                                playBtn.textContent = 'Включить снова';
+                                            }
+                                        });
+
+                                        skipBtn.addEventListener('click', function () {
+                                            audio.pause();
+                                            setPlaying(false);
+                                            choices.hidden = true;
+                                            playing.hidden = true;
+                                            dismissed.hidden = false;
+                                            card.classList.add('is-dismissed');
+                                        });
+                                    });
+                                </script>
+                            </section>
+
+
                             <section class="wedding-location" aria-label="Локация">
                                 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet"/>
 
@@ -1486,94 +1745,6 @@ permalink: /denys-and-alena
                             <script src="../assets-premium1/js/vendor/wow.js"></script>
 
                             <script src="../assets-premium1/js/app.js"></script>
-
-                            <!-- Music player -->
-                            <audio id="wedding-audio" loop preload="auto">
-                                <source src="/assets/media/music/%D0%AD%D0%B4%20%D0%A8%D0%B8%D1%80%D0%B0%D0%BD%20%26%20%D0%91%D0%B5%D0%B9%D0%BE%D0%BD%D1%81%D0%B5%20-%20Perfect%20Duet.mp3" type="audio/mpeg">
-                            </audio>
-
-                            <div class="music-player-wrap" aria-hidden="false">
-                                <button id="music-toggle-btn" class="music-btn" type="button" aria-label="Включить или выключить музыку">
-                                    <svg id="icon-playing" class="music-icon" style="display:none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                        <path d="M9 18V5l12-2v13"></path>
-                                        <circle cx="6" cy="18" r="3"></circle>
-                                        <circle cx="18" cy="16" r="3"></circle>
-                                    </svg>
-                                    <svg id="icon-paused" class="music-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                                    </svg>
-                                </button>
-                            </div>
-
-                            <style>
-                                .music-player-wrap{
-                                    position:fixed;
-                                    bottom:28px;
-                                    left:24px;
-                                    z-index:9998;
-                                }
-                                .music-btn{
-                                    width:52px;
-                                    height:52px;
-                                    border-radius:50%;
-                                    background:linear-gradient(145deg, #8ba888, #606c38);
-                                    border:1.5px solid rgba(255,255,255,.35);
-                                    color:#fff;
-                                    display:flex;
-                                    align-items:center;
-                                    justify-content:center;
-                                    cursor:pointer;
-                                    box-shadow:0 10px 28px rgba(96,108,56,.38);
-                                    transition:transform .2s ease, box-shadow .2s ease;
-                                }
-                                .music-btn:hover{
-                                    transform:scale(1.06);
-                                    box-shadow:0 14px 34px rgba(96,108,56,.48);
-                                }
-                                .music-icon{ width:21px; height:21px; }
-                                .music-btn.is-playing{ animation:musicPulse 2s infinite; }
-                                @keyframes musicPulse{
-                                    0%{ box-shadow:0 0 0 0 rgba(96,108,56,.45); }
-                                    70%{ box-shadow:0 0 0 14px rgba(96,108,56,0); }
-                                    100%{ box-shadow:0 0 0 0 rgba(96,108,56,0); }
-                                }
-                                @media (max-width:768px){
-                                    .music-player-wrap{ bottom:22px; left:18px; }
-                                    .music-btn{ width:46px; height:46px; }
-                                    .music-icon{ width:18px; height:18px; }
-                                }
-                            </style>
-
-                            <script>
-                                document.addEventListener('DOMContentLoaded', function () {
-                                    const audio = document.getElementById('wedding-audio');
-                                    const btn = document.getElementById('music-toggle-btn');
-                                    const iconPlaying = document.getElementById('icon-playing');
-                                    const iconPaused = document.getElementById('icon-paused');
-                                    if (!audio || !btn) return;
-
-                                    audio.volume = 0.4;
-
-                                    function setPlayingState(isPlaying) {
-                                        btn.classList.toggle('is-playing', isPlaying);
-                                        iconPlaying.style.display = isPlaying ? 'block' : 'none';
-                                        iconPaused.style.display = isPlaying ? 'none' : 'block';
-                                        btn.setAttribute('aria-label', isPlaying ? 'Выключить музыку' : 'Включить музыку');
-                                    }
-
-                                    btn.addEventListener('click', function () {
-                                        if (audio.paused) {
-                                            audio.play().then(function () {
-                                                setPlayingState(true);
-                                            }).catch(function () {});
-                                        } else {
-                                            audio.pause();
-                                            setPlayingState(false);
-                                        }
-                                    });
-                                });
-                            </script>
-                            <!-- /Music player -->
                         </div>
                         </div>
                     </div>
