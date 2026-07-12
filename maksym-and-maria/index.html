@@ -1370,25 +1370,34 @@ permalink: /maksym-and-maria
                                         max-width: 1000px;
                                         text-align:center;
                                         color:#fff;
-                                        padding: clamp(24px, 4vw, 48px);
+                                        padding: clamp(16px, 3vw, 48px) clamp(12px, 3vw, 40px);
                                         z-index:2;
                                         box-sizing:border-box;
+                                        container-type: inline-size;
+                                        container-name: footer-copy;
                                     }
 
                                     /* Елегантний єдиний стиль заголовків (як у розділах вище) */
                                     .footer-hero__title{
-                                        margin:0 0 10px;
+                                        margin:0 auto 10px;
                                         font-family:'Great Vibes', cursive;
-                                        font-size: clamp(32px, 6.8vw, 72px);
-                                        line-height: 1.22;
-                                        padding: .15em .35em .12em;
+                                        /* масштаб від ширини контейнера — завжди вміщується в 1 рядок */
+                                        font-size: clamp(20px, calc((100cqi - 8px) / 13.2), 72px);
+                                        line-height: 1.25;
+                                        padding: .12em 0;
                                         background: linear-gradient(130deg, #f1e0b3, #d6b889);
                                         -webkit-background-clip:text; background-clip:text; color:transparent;
                                         text-shadow: 0 2px 14px rgba(0,0,0,.12);
                                         overflow: visible;
                                         white-space: nowrap;
                                         max-width: 100%;
+                                        width: max-content;
                                         box-sizing: border-box;
+                                    }
+                                    @supports not (font-size: 1cqi) {
+                                        .footer-hero__title{
+                                            font-size: clamp(20px, calc((100vw - 48px) / 13.2), 72px);
+                                        }
                                     }
 
                                     .footer-hero__subtitle{
