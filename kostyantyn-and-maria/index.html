@@ -27,20 +27,17 @@ permalink: /kostyantyn-and-maria
 
     <style>
         :root {
-            --taupe: #a19488;
-            --taupe-deep: #948779;
-            --taupe-soft: #ada094;
-            --panel: #f5efec;
-            --panel-2: #faf7f5;
-            --sage: #85895e;
-            --olive: #60672e;
-            --olive-deep: #4a5124;
-            --ink: #2c2a26;
-            --muted: #6b675f;
-            --line: rgba(96, 103, 46, 0.16);
-            --line-light: rgba(255, 255, 255, 0.22);
-            --text-on-taupe: #f7f2ed;
-            --muted-on-taupe: rgba(247, 242, 237, 0.78);
+            --bg: #f5efec;
+            --bg-2: #faf7f5;
+            --burgundy: #6e2c3a;
+            --burgundy-deep: #5a2430;
+            --burgundy-soft: #8a4554;
+            --cream: #f7f2ed;
+            --cream-soft: rgba(247, 242, 237, 0.82);
+            --ink: #6e2c3a;
+            --muted: #8a6570;
+            --line: rgba(110, 44, 58, 0.18);
+            --line-soft: rgba(110, 44, 58, 0.12);
             --white: #fff;
             --font-display: 'Cormorant Garamond', Georgia, serif;
             --font-script: 'Pinyon Script', cursive;
@@ -55,8 +52,8 @@ permalink: /kostyantyn-and-maria
         body {
             margin: 0;
             font-family: var(--font-body);
-            color: var(--text-on-taupe);
-            background: var(--taupe);
+            color: var(--ink);
+            background: var(--bg);
             -webkit-font-smoothing: antialiased;
             line-height: 1.55;
         }
@@ -116,27 +113,29 @@ permalink: /kostyantyn-and-maria
             position: relative;
             z-index: 3;
             width: 100%;
-            max-width: 640px;
+            max-width: 720px;
             text-align: center;
             padding: 0 var(--pad-x) clamp(36px, 7vh, 64px);
         }
         .hero-names {
-            margin: 0 0 8px;
-            font-family: var(--font-display);
-            font-weight: 500;
-            font-size: clamp(28px, 8vw, 52px);
-            line-height: 1.05;
-            letter-spacing: 0.01em;
+            margin: 0 0 4px;
+            font-family: var(--font-script);
+            font-weight: 400;
+            font-size: clamp(48px, 12vw, 73px);
+            line-height: normal;
+            letter-spacing: normal;
             white-space: nowrap;
             text-shadow: 0 8px 28px rgba(0,0,0,.35);
         }
         .hero-date {
             margin: 0;
-            font-family: var(--font-display);
-            font-size: clamp(28px, 5.5vw, 40px);
-            font-weight: 500;
-            letter-spacing: 0.08em;
+            font-family: var(--font-script);
+            font-weight: 400;
+            font-size: clamp(28px, 6vw, 42px);
+            line-height: 1.8;
+            letter-spacing: normal;
             opacity: 0.95;
+            text-shadow: 0 6px 20px rgba(0,0,0,.3);
         }
         .hero-cue {
             width: 22px;
@@ -169,21 +168,20 @@ permalink: /kostyantyn-and-maria
                 width: 100%;
                 object-position: center 12%;
             }
+            .hero-names {
+                font-size: clamp(36px, 11vw, 56px);
+            }
         }
 
         /* ===== SHARED SECTION ===== */
         .section {
             padding: var(--pad-y) var(--pad-x);
-        }
-        .section--main {
-            background: linear-gradient(180deg, var(--taupe) 0%, var(--taupe-deep) 100%);
-            color: var(--text-on-taupe);
-        }
-        .section--panel {
-            background:
-                radial-gradient(900px 420px at 50% -8%, rgba(143, 129, 117, 0.12), transparent 55%),
-                linear-gradient(180deg, var(--panel), var(--panel-2));
+            background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
             color: var(--ink);
+        }
+        .section--burgundy {
+            background: linear-gradient(165deg, var(--burgundy) 0%, var(--burgundy-deep) 100%);
+            color: var(--cream);
         }
         .wrap {
             width: min(var(--max), 100%);
@@ -195,23 +193,23 @@ permalink: /kostyantyn-and-maria
             font-family: var(--font-script);
             font-size: clamp(48px, 9vw, 64px);
             font-weight: 400;
-            color: var(--text-on-taupe);
+            color: var(--burgundy);
             line-height: 1.15;
             letter-spacing: normal;
-            text-shadow: rgba(0, 0, 0, 0.4) 0px 4px 5px;
+            text-shadow: rgba(110, 44, 58, 0.12) 0px 2px 4px;
         }
-        .section--panel .section-kicker {
-            color: var(--olive);
-            text-shadow: rgba(0, 0, 0, 0.12) 0px 2px 4px;
+        .section--burgundy .section-kicker {
+            color: var(--cream);
+            text-shadow: rgba(0, 0, 0, 0.25) 0px 3px 6px;
         }
         .section-line {
             width: min(120px, 30vw);
             height: 1px;
             margin: 0 auto 28px;
-            background: linear-gradient(90deg, transparent, rgba(247,242,237,.55), transparent);
+            background: linear-gradient(90deg, transparent, var(--burgundy-soft), transparent);
         }
-        .section--panel .section-line {
-            background: linear-gradient(90deg, transparent, var(--sage), transparent);
+        .section--burgundy .section-line {
+            background: linear-gradient(90deg, transparent, rgba(247, 242, 237, 0.55), transparent);
         }
         .lead {
             max-width: 640px;
@@ -220,13 +218,13 @@ permalink: /kostyantyn-and-maria
             font-family: var(--font-display);
             font-size: clamp(24px, 4vw, 34px);
             line-height: 1.7;
-            color: var(--text-on-taupe);
+            color: var(--burgundy);
         }
         .lead p { margin: 0 0 1em; }
         .lead p:last-child { margin-bottom: 0; }
         .lead-sign {
             font-style: italic;
-            color: #efe6db;
+            color: var(--burgundy-soft);
             font-weight: 500;
         }
 
@@ -238,9 +236,9 @@ permalink: /kostyantyn-and-maria
             max-height: 380px;
             overflow: hidden;
             border-radius: 16px;
-            border: 1px solid var(--line-light);
-            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
-            background: rgba(0,0,0,.12);
+            border: 1px solid var(--line-soft);
+            box-shadow: 0 16px 40px rgba(110, 44, 58, 0.08);
+            background: rgba(110, 44, 58, 0.06);
         }
         .timing-photo img {
             width: 100%;
@@ -266,37 +264,38 @@ permalink: /kostyantyn-and-maria
             max-width: 560px;
             margin-inline: auto;
             display: grid;
-            gap: 12px;
+            gap: 18px;
         }
         .timing-item {
             display: grid;
             grid-template-columns: 72px 1fr;
             gap: 14px;
-            align-items: start;
-            padding: 14px 16px;
-            background: rgba(255,255,255,.12);
-            border: 1px solid var(--line-light);
-            border-radius: 14px;
-            backdrop-filter: blur(6px);
-            -webkit-backdrop-filter: blur(6px);
+            align-items: baseline;
+            padding: 0;
+            background: none;
+            border: none;
         }
         .timing-time {
             font-family: var(--font-display);
-            font-size: 26px;
+            font-size: clamp(22px, 3.5vw, 28px);
             font-weight: 600;
-            color: #f3ebe3;
-            line-height: 1.2;
+            color: var(--burgundy);
+            line-height: 1.35;
         }
         .timing-label {
             margin: 0;
-            font-size: 17px;
+            font-family: var(--font-display);
+            font-size: clamp(22px, 3.5vw, 28px);
             font-weight: 500;
-            color: var(--text-on-taupe);
+            color: var(--burgundy);
+            line-height: 1.35;
         }
         .timing-note {
-            margin: 4px 0 0;
-            font-size: 15px;
-            color: var(--muted-on-taupe);
+            margin: 2px 0 0;
+            font-family: var(--font-display);
+            font-size: clamp(18px, 2.8vw, 22px);
+            line-height: 1.4;
+            color: var(--muted);
         }
 
         /* ===== DRESS CODE ===== */
@@ -319,7 +318,7 @@ permalink: /kostyantyn-and-maria
             font-family: var(--font-display);
             font-size: clamp(28px, 4vw, 34px);
             font-weight: 600;
-            color: #f3ebe3;
+            color: var(--burgundy);
         }
         .dc-photo {
             width: 100%;
@@ -327,7 +326,7 @@ permalink: /kostyantyn-and-maria
             max-height: 160px;
             overflow: hidden;
             border-radius: 12px;
-            background: rgba(0,0,0,.12);
+            background: rgba(110, 44, 58, 0.06);
         }
         .dc-photo img {
             width: 100%;
@@ -341,7 +340,7 @@ permalink: /kostyantyn-and-maria
             font-family: var(--font-display);
             font-size: clamp(16px, 2.6vw, 19px);
             line-height: 1.45;
-            color: rgba(255, 248, 240, 0.92);
+            color: var(--burgundy-soft);
         }
         @media (max-width: 720px) {
             .dc-photo {
@@ -365,7 +364,7 @@ permalink: /kostyantyn-and-maria
             font-family: var(--font-display);
             font-size: clamp(28px, 4.5vw, 40px);
             font-weight: 600;
-            color: var(--olive);
+            color: var(--cream);
             line-height: 1.2;
         }
         .location-address {
@@ -373,18 +372,18 @@ permalink: /kostyantyn-and-maria
             font-family: var(--font-display);
             font-size: clamp(18px, 3vw, 24px);
             line-height: 1.5;
-            color: var(--ink);
+            color: var(--cream-soft);
         }
         .location-photo {
             position: relative;
             width: 100%;
-            aspect-ratio: 16 / 9;
-            max-height: 420px;
+            aspect-ratio: 4 / 3;
+            max-height: 520px;
             overflow: hidden;
             border-radius: 16px;
-            border: 1px solid var(--line);
-            box-shadow: 0 16px 40px rgba(44, 42, 38, 0.08);
-            background: #e8dfd6;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+            background: rgba(0, 0, 0, 0.15);
         }
         .location-photo img {
             width: 100%;
@@ -405,21 +404,22 @@ permalink: /kostyantyn-and-maria
             font-size: 15px;
             font-weight: 700;
             letter-spacing: 0.02em;
-            color: #f7f2ed;
-            background: linear-gradient(145deg, #a19488, #7d7166);
-            border: 1px solid rgba(125, 113, 102, 0.35);
-            box-shadow: 0 12px 28px rgba(90, 78, 68, 0.22);
+            font-family: var(--font-display);
+            color: var(--burgundy);
+            background: var(--cream);
+            border: 1px solid rgba(247, 242, 237, 0.55);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
             transition: transform .15s ease, box-shadow .2s ease, filter .2s ease;
         }
         .location-btn:hover {
             transform: translateY(-1px);
-            filter: brightness(1.05);
-            box-shadow: 0 16px 34px rgba(90, 78, 68, 0.3);
+            filter: brightness(1.03);
+            box-shadow: 0 16px 34px rgba(0, 0, 0, 0.22);
         }
         @media (max-width: 720px) {
             .location-photo {
-                aspect-ratio: 16 / 10;
-                max-height: 240px;
+                aspect-ratio: 5 / 4;
+                max-height: 340px;
                 border-radius: 14px;
             }
         }
@@ -432,45 +432,17 @@ permalink: /kostyantyn-and-maria
             font-family: var(--font-display);
             font-size: clamp(24px, 4vw, 34px);
             line-height: 1.7;
-            color: var(--text-on-taupe);
+            color: var(--burgundy);
         }
         .details-text p {
             margin: 0 0 1em;
         }
         .details-text p:last-child { margin-bottom: 0; }
-        .details-list {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            text-align: left;
-            display: grid;
-            gap: 12px;
-        }
-        .details-list li {
-            position: relative;
-            padding-left: 22px;
-            font-family: var(--font-display);
-            font-size: inherit;
-            color: var(--text-on-taupe);
-            line-height: 1.7;
-        }
-        .details-list li::before {
-            content: "—";
-            position: absolute;
-            left: 0;
-            color: rgba(247, 242, 237, 0.7);
-            font-weight: 600;
-        }
 
         /* ===== FORM ===== */
         .form-card {
             max-width: 560px;
             margin: 0 auto;
-            padding: clamp(22px, 4vw, 36px);
-            background: #fff;
-            border: 1px solid var(--line);
-            border-radius: 18px;
-            box-shadow: 0 18px 48px rgba(44, 42, 38, 0.06);
         }
         .form-title {
             margin: 0 0 22px;
@@ -478,7 +450,7 @@ permalink: /kostyantyn-and-maria
             font-family: var(--font-display);
             font-size: clamp(34px, 5.5vw, 48px);
             font-weight: 500;
-            color: var(--olive);
+            color: var(--cream);
             line-height: 1.2;
         }
         .field {
@@ -487,25 +459,26 @@ permalink: /kostyantyn-and-maria
         .field label {
             display: block;
             margin-bottom: 8px;
-            font-size: 16px;
+            font-family: var(--font-display);
+            font-size: clamp(18px, 2.8vw, 22px);
             font-weight: 600;
-            color: var(--ink);
+            color: var(--cream);
         }
         .field input[type="text"],
         .field input[type="number"] {
             width: 100%;
             padding: 12px 14px;
-            border: 1px solid rgba(96, 103, 46, 0.22);
+            border: 1px solid rgba(247, 242, 237, 0.35);
             border-radius: 10px;
-            background: #fff;
+            background: rgba(255, 255, 255, 0.96);
             font-size: 17px;
-            color: var(--ink);
+            color: var(--burgundy-deep);
             transition: border-color .2s ease, box-shadow .2s ease;
         }
         .field input:focus {
             outline: none;
-            border-color: var(--sage);
-            box-shadow: 0 0 0 3px rgba(133, 137, 94, 0.18);
+            border-color: rgba(247, 242, 237, 0.85);
+            box-shadow: 0 0 0 3px rgba(247, 242, 237, 0.2);
         }
         .radios {
             display: flex;
@@ -518,17 +491,19 @@ permalink: /kostyantyn-and-maria
             gap: 8px;
             padding: 10px 16px;
             border-radius: 999px;
-            border: 1px solid rgba(96, 103, 46, 0.22);
-            background: #fff;
+            border: 1px solid rgba(247, 242, 237, 0.4);
+            background: transparent;
+            color: var(--cream);
             cursor: pointer;
+            font-family: var(--font-display);
             font-weight: 600;
-            font-size: 16px;
+            font-size: 18px;
             user-select: none;
             transition: .15s ease;
         }
         .radio-pill:has(input:checked) {
-            background: linear-gradient(145deg, #a19488, #7d7166);
-            color: #f7f2ed;
+            background: var(--cream);
+            color: var(--burgundy);
             border-color: transparent;
         }
         .radio-pill input { display: none; }
@@ -540,19 +515,20 @@ permalink: /kostyantyn-and-maria
             cursor: pointer;
             padding: 14px 18px;
             border-radius: 999px;
-            font-size: 17px;
+            font-family: var(--font-display);
+            font-size: 20px;
             font-weight: 700;
             letter-spacing: 0.02em;
-            color: #f7f2ed;
-            background: linear-gradient(145deg, #a19488, #7d7166);
-            border: 1px solid rgba(125, 113, 102, 0.35);
-            box-shadow: 0 12px 28px rgba(90, 78, 68, 0.22);
+            color: var(--burgundy);
+            background: var(--cream);
+            border: 1px solid rgba(247, 242, 237, 0.55);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
             transition: transform .15s ease, box-shadow .2s ease, filter .2s ease;
         }
         .btn-submit:hover {
             transform: translateY(-1px);
-            filter: brightness(1.05);
-            box-shadow: 0 16px 34px rgba(90, 78, 68, 0.3);
+            filter: brightness(1.03);
+            box-shadow: 0 16px 34px rgba(0, 0, 0, 0.22);
         }
         .btn-submit:disabled {
             opacity: 0.7;
@@ -565,19 +541,8 @@ permalink: /kostyantyn-and-maria
             text-align: center;
             font-weight: 600;
             font-size: 16px;
+            color: var(--cream);
         }
-
-        /* ===== FOOTER ===== */
-        .footer {
-            padding: 40px var(--pad-x) 48px;
-            text-align: center;
-            background: var(--taupe-deep);
-            color: var(--text-on-taupe);
-            font-family: var(--font-display);
-            font-size: clamp(24px, 4vw, 34px);
-            font-style: italic;
-        }
-        .footer p { margin: 0; }
     </style>
 </head>
 <body>
@@ -589,13 +554,13 @@ permalink: /kostyantyn-and-maria
              alt="Костянтин і Марія">
         <div class="hero-shade" aria-hidden="true"></div>
         <div class="hero-content">
-            <h1 class="hero-names">Костянтин &amp; Марія</h1>
+            <h1 class="hero-names">Kostiantyn &amp; Maria</h1>
             <p class="hero-date">01.09.2026</p>
             <div class="hero-cue" aria-hidden="true"><span></span></div>
         </div>
     </section>
 
-    <section class="section section--main" aria-label="Запрошення">
+    <section class="section" aria-label="Запрошення">
         <div class="wrap">
             <h2 class="section-kicker">Invitation</h2>
             <div class="section-line" aria-hidden="true"></div>
@@ -608,7 +573,7 @@ permalink: /kostyantyn-and-maria
         </div>
     </section>
 
-    <section class="section section--panel" aria-label="Локація">
+    <section class="section section--burgundy" aria-label="Локація">
         <div class="wrap">
             <h2 class="section-kicker">Location</h2>
             <div class="section-line" aria-hidden="true"></div>
@@ -634,7 +599,7 @@ permalink: /kostyantyn-and-maria
         </div>
     </section>
 
-    <section class="section section--main" aria-label="Таймінг дня">
+    <section class="section" aria-label="Таймінг дня">
         <div class="wrap">
             <h2 class="section-kicker">Timing</h2>
             <div class="section-line" aria-hidden="true"></div>
@@ -682,7 +647,7 @@ permalink: /kostyantyn-and-maria
         </div>
     </section>
 
-    <section class="section section--main" aria-label="Дрес-код">
+    <section class="section" aria-label="Дрес-код">
         <div class="wrap">
             <h2 class="section-kicker">Dress Code</h2>
             <div class="section-line" aria-hidden="true"></div>
@@ -712,22 +677,18 @@ permalink: /kostyantyn-and-maria
         </div>
     </section>
 
-    <section class="section section--main" aria-label="Details">
+    <section class="section" aria-label="Details">
         <div class="wrap">
             <h2 class="section-kicker">Details</h2>
             <div class="section-line" aria-hidden="true"></div>
             <div class="details-text">
                 <p>Кажуть, що найкращі подарунки — це ті, які залишаються з нами надовго. 🤍</p>
-                <p>Тому замість традиційних букетів ми будемо дуже вдячні, якщо ви оберете один із цих варіантів:</p>
-                <ul class="details-list">
-                    <li>пляшку міцного алкоголю для нашої майбутньої сімейної колекції;</li>
-                    <li>внесок «на квіти», щоб ми могли купувати їх тоді, коли вони особливо тішитимуть наш дім.</li>
-                </ul>
+                <p>Тому замість традиційних букетів ми будемо дуже вдячні, якщо ви подаруєте пляшку міцного алкоголю для нашої майбутньої сімейної колекції.</p>
             </div>
         </div>
     </section>
 
-    <section class="section section--panel" aria-label="Підтвердження присутності">
+    <section class="section section--burgundy" aria-label="Підтвердження присутності">
         <div class="wrap">
             <div class="form-card">
                 <h2 class="form-title">Будь ласка підтвердіть<br>вашу присутність</h2>
@@ -802,7 +763,7 @@ permalink: /kostyantyn-and-maria
 
                 if (json.success) {
                     msg.textContent = 'Дякуємо за вашу відповідь!';
-                    msg.style.color = '#3f6b2f';
+                    msg.style.color = '#e8f0d8';
                     msg.style.display = 'block';
                     form.reset();
                 } else {
@@ -810,7 +771,7 @@ permalink: /kostyantyn-and-maria
                 }
             } catch (err) {
                 msg.textContent = 'Сталася помилка. Спробуйте ще раз.';
-                msg.style.color = '#a12828';
+                msg.style.color = '#ffd0d0';
                 msg.style.display = 'block';
             } finally {
                 btn.disabled = false;
