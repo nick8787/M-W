@@ -1,0 +1,822 @@
+---
+layout: null
+permalink: /kostyantyn-and-maria
+---
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Костянтин & Марія - Весільне запрошення">
+
+    <!--metatextblock-->
+    <title>Костянтин & Марія - Весільне запрошення</title>
+    <meta property="og:url" content="https://my-wedding.com.ua/kostyantyn-and-maria" />
+    <meta property="og:title" content="Костянтин & Марія - Весільне запрошення" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/assets/media/images/kostyantyn-and-maria1.jpg" />
+    <link rel="canonical" href="https://my-wedding.com.ua/kostyantyn-and-maria">
+    <!--/metatextblock-->
+
+    <link rel="shortcut icon" type="image/x-icon" href="../assets-premium1/media/favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --taupe: #a19488;
+            --taupe-deep: #948779;
+            --taupe-soft: #ada094;
+            --panel: #f5efec;
+            --panel-2: #faf7f5;
+            --sage: #85895e;
+            --olive: #60672e;
+            --olive-deep: #4a5124;
+            --ink: #2c2a26;
+            --muted: #6b675f;
+            --line: rgba(96, 103, 46, 0.16);
+            --line-light: rgba(255, 255, 255, 0.22);
+            --text-on-taupe: #f7f2ed;
+            --muted-on-taupe: rgba(247, 242, 237, 0.78);
+            --white: #fff;
+            --font-display: 'Cormorant Garamond', Georgia, serif;
+            --font-script: 'Pinyon Script', cursive;
+            --font-body: 'Montserrat', sans-serif;
+            --max: 920px;
+            --pad-x: clamp(18px, 5vw, 36px);
+            --pad-y: clamp(48px, 9vh, 96px);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            margin: 0;
+            font-family: var(--font-body);
+            color: var(--text-on-taupe);
+            background: var(--taupe);
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.55;
+        }
+        img { max-width: 100%; display: block; }
+        button, input { font: inherit; }
+
+        /* ===== HERO ===== */
+        .hero {
+            position: relative;
+            min-height: 100svh;
+            min-height: 100vh;
+            display: grid;
+            place-items: end center;
+            overflow: hidden;
+            isolation: isolate;
+            color: #fff;
+        }
+        .hero-blur {
+            position: absolute;
+            inset: -8%;
+            z-index: 0;
+            background:
+                url('/assets/media/images/kostyantyn-and-maria1.jpg') center / cover no-repeat;
+            filter: blur(28px) saturate(1.05);
+            transform: scale(1.12);
+        }
+        .hero-blur::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(32, 34, 20, 0.28);
+        }
+        .hero-photo {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            width: min(100%, 560px);
+            margin-inline: auto;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 18%;
+        }
+        .hero-shade {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            background: linear-gradient(
+                to top,
+                rgba(20, 22, 14, 0.72) 0%,
+                rgba(20, 22, 14, 0.28) 42%,
+                rgba(20, 22, 14, 0.08) 70%,
+                transparent 100%
+            );
+            pointer-events: none;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            width: 100%;
+            max-width: 640px;
+            text-align: center;
+            padding: 0 var(--pad-x) clamp(36px, 7vh, 64px);
+        }
+        .hero-names {
+            margin: 0 0 8px;
+            font-family: var(--font-display);
+            font-weight: 500;
+            font-size: clamp(28px, 8vw, 52px);
+            line-height: 1.05;
+            letter-spacing: 0.01em;
+            white-space: nowrap;
+            text-shadow: 0 8px 28px rgba(0,0,0,.35);
+        }
+        .hero-date {
+            margin: 0;
+            font-family: var(--font-display);
+            font-size: clamp(28px, 5.5vw, 40px);
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            opacity: 0.95;
+        }
+        .hero-cue {
+            width: 22px;
+            height: 34px;
+            margin: 22px auto 0;
+            border: 1.5px solid rgba(255,255,255,.7);
+            border-radius: 16px;
+            position: relative;
+        }
+        .hero-cue span {
+            position: absolute;
+            left: 50%;
+            top: 6px;
+            width: 4px;
+            height: 8px;
+            border-radius: 2px;
+            background: #fff;
+            transform: translateX(-50%);
+            animation: wheel 1.8s ease-in-out infinite;
+        }
+        @keyframes wheel {
+            0% { transform: translate(-50%, 0); opacity: 1; }
+            60% { transform: translate(-50%, 10px); opacity: .2; }
+            100% { transform: translate(-50%, 0); opacity: 1; }
+        }
+
+        @media (max-width: 720px) {
+            .hero-blur { display: none; }
+            .hero-photo {
+                width: 100%;
+                object-position: center 12%;
+            }
+        }
+
+        /* ===== SHARED SECTION ===== */
+        .section {
+            padding: var(--pad-y) var(--pad-x);
+        }
+        .section--main {
+            background: linear-gradient(180deg, var(--taupe) 0%, var(--taupe-deep) 100%);
+            color: var(--text-on-taupe);
+        }
+        .section--panel {
+            background:
+                radial-gradient(900px 420px at 50% -8%, rgba(143, 129, 117, 0.12), transparent 55%),
+                linear-gradient(180deg, var(--panel), var(--panel-2));
+            color: var(--ink);
+        }
+        .wrap {
+            width: min(var(--max), 100%);
+            margin: 0 auto;
+        }
+        .section-kicker {
+            margin: 0 0 10px;
+            text-align: center;
+            font-family: var(--font-script);
+            font-size: clamp(48px, 9vw, 64px);
+            font-weight: 400;
+            color: var(--text-on-taupe);
+            line-height: 1.15;
+            letter-spacing: normal;
+            text-shadow: rgba(0, 0, 0, 0.4) 0px 4px 5px;
+        }
+        .section--panel .section-kicker {
+            color: var(--olive);
+            text-shadow: rgba(0, 0, 0, 0.12) 0px 2px 4px;
+        }
+        .section-line {
+            width: min(120px, 30vw);
+            height: 1px;
+            margin: 0 auto 28px;
+            background: linear-gradient(90deg, transparent, rgba(247,242,237,.55), transparent);
+        }
+        .section--panel .section-line {
+            background: linear-gradient(90deg, transparent, var(--sage), transparent);
+        }
+        .lead {
+            max-width: 640px;
+            margin: 0 auto;
+            text-align: center;
+            font-family: var(--font-display);
+            font-size: clamp(24px, 4vw, 34px);
+            line-height: 1.7;
+            color: var(--text-on-taupe);
+        }
+        .lead p { margin: 0 0 1em; }
+        .lead p:last-child { margin-bottom: 0; }
+        .lead-sign {
+            font-style: italic;
+            color: #efe6db;
+            font-weight: 500;
+        }
+
+        /* ===== TIMING ===== */
+        .timing-photo {
+            width: min(780px, 100%);
+            margin: 0 auto 28px;
+            aspect-ratio: 16 / 9;
+            max-height: 380px;
+            overflow: hidden;
+            border-radius: 16px;
+            border: 1px solid var(--line-light);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+            background: rgba(0,0,0,.12);
+        }
+        .timing-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 65%;
+        }
+        @media (max-width: 720px) {
+            .timing-photo {
+                aspect-ratio: 4 / 3;
+                max-height: 280px;
+                border-radius: 14px;
+                margin-bottom: 22px;
+            }
+            .timing-photo img {
+                object-position: center 58%;
+            }
+        }
+        .timing-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            max-width: 560px;
+            margin-inline: auto;
+            display: grid;
+            gap: 12px;
+        }
+        .timing-item {
+            display: grid;
+            grid-template-columns: 72px 1fr;
+            gap: 14px;
+            align-items: start;
+            padding: 14px 16px;
+            background: rgba(255,255,255,.12);
+            border: 1px solid var(--line-light);
+            border-radius: 14px;
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+        }
+        .timing-time {
+            font-family: var(--font-display);
+            font-size: 26px;
+            font-weight: 600;
+            color: #f3ebe3;
+            line-height: 1.2;
+        }
+        .timing-label {
+            margin: 0;
+            font-size: 17px;
+            font-weight: 500;
+            color: var(--text-on-taupe);
+        }
+        .timing-note {
+            margin: 4px 0 0;
+            font-size: 15px;
+            color: var(--muted-on-taupe);
+        }
+
+        /* ===== DRESS CODE ===== */
+        .dc-grid {
+            display: grid;
+            gap: 28px;
+            max-width: 780px;
+            margin: 0 auto;
+        }
+        @media (min-width: 720px) {
+            .dc-grid { grid-template-columns: 1fr 1fr; align-items: start; gap: 22px; }
+        }
+        .dc-card {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+        .dc-title {
+            margin: 0 0 14px;
+            font-family: var(--font-display);
+            font-size: clamp(28px, 4vw, 34px);
+            font-weight: 600;
+            color: #f3ebe3;
+        }
+        .dc-photo {
+            width: 100%;
+            aspect-ratio: 3 / 1;
+            max-height: 160px;
+            overflow: hidden;
+            border-radius: 12px;
+            background: rgba(0,0,0,.12);
+        }
+        .dc-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+            display: block;
+        }
+        .dc-note {
+            margin: 12px 0 0;
+            font-family: var(--font-display);
+            font-size: clamp(16px, 2.6vw, 19px);
+            line-height: 1.45;
+            color: rgba(255, 248, 240, 0.92);
+        }
+        @media (max-width: 720px) {
+            .dc-photo {
+                width: calc(100% + 2 * var(--pad-x));
+                max-width: none;
+                margin-left: calc(-1 * var(--pad-x));
+                aspect-ratio: 2.4 / 1;
+                max-height: none;
+                border-radius: 0;
+            }
+        }
+
+        /* ===== LOCATION ===== */
+        .location-block {
+            max-width: 780px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .location-name {
+            margin: 0 0 8px;
+            font-family: var(--font-display);
+            font-size: clamp(28px, 4.5vw, 40px);
+            font-weight: 600;
+            color: var(--olive);
+            line-height: 1.2;
+        }
+        .location-address {
+            margin: 0 0 22px;
+            font-family: var(--font-display);
+            font-size: clamp(18px, 3vw, 24px);
+            line-height: 1.5;
+            color: var(--ink);
+        }
+        .location-photo {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            max-height: 420px;
+            overflow: hidden;
+            border-radius: 16px;
+            border: 1px solid var(--line);
+            box-shadow: 0 16px 40px rgba(44, 42, 38, 0.08);
+            background: #e8dfd6;
+        }
+        .location-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+        }
+        .location-actions {
+            margin-top: 18px;
+        }
+        .location-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 22px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            color: #f7f2ed;
+            background: linear-gradient(145deg, #a19488, #7d7166);
+            border: 1px solid rgba(125, 113, 102, 0.35);
+            box-shadow: 0 12px 28px rgba(90, 78, 68, 0.22);
+            transition: transform .15s ease, box-shadow .2s ease, filter .2s ease;
+        }
+        .location-btn:hover {
+            transform: translateY(-1px);
+            filter: brightness(1.05);
+            box-shadow: 0 16px 34px rgba(90, 78, 68, 0.3);
+        }
+        @media (max-width: 720px) {
+            .location-photo {
+                aspect-ratio: 16 / 10;
+                max-height: 240px;
+                border-radius: 14px;
+            }
+        }
+
+        /* ===== DETAILS ===== */
+        .details-text {
+            max-width: 720px;
+            margin: 0 auto;
+            text-align: center;
+            font-family: var(--font-display);
+            font-size: clamp(24px, 4vw, 34px);
+            line-height: 1.7;
+            color: var(--text-on-taupe);
+        }
+        .details-text p {
+            margin: 0 0 1em;
+        }
+        .details-text p:last-child { margin-bottom: 0; }
+        .details-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            text-align: left;
+            display: grid;
+            gap: 12px;
+        }
+        .details-list li {
+            position: relative;
+            padding-left: 22px;
+            font-family: var(--font-display);
+            font-size: inherit;
+            color: var(--text-on-taupe);
+            line-height: 1.7;
+        }
+        .details-list li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: rgba(247, 242, 237, 0.7);
+            font-weight: 600;
+        }
+
+        /* ===== FORM ===== */
+        .form-card {
+            max-width: 560px;
+            margin: 0 auto;
+            padding: clamp(22px, 4vw, 36px);
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            box-shadow: 0 18px 48px rgba(44, 42, 38, 0.06);
+        }
+        .form-title {
+            margin: 0 0 22px;
+            text-align: center;
+            font-family: var(--font-display);
+            font-size: clamp(34px, 5.5vw, 48px);
+            font-weight: 500;
+            color: var(--olive);
+            line-height: 1.2;
+        }
+        .field {
+            margin-bottom: 16px;
+        }
+        .field label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--ink);
+        }
+        .field input[type="text"],
+        .field input[type="number"] {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid rgba(96, 103, 46, 0.22);
+            border-radius: 10px;
+            background: #fff;
+            font-size: 17px;
+            color: var(--ink);
+            transition: border-color .2s ease, box-shadow .2s ease;
+        }
+        .field input:focus {
+            outline: none;
+            border-color: var(--sage);
+            box-shadow: 0 0 0 3px rgba(133, 137, 94, 0.18);
+        }
+        .radios {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .radio-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            border-radius: 999px;
+            border: 1px solid rgba(96, 103, 46, 0.22);
+            background: #fff;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 16px;
+            user-select: none;
+            transition: .15s ease;
+        }
+        .radio-pill:has(input:checked) {
+            background: linear-gradient(145deg, #a19488, #7d7166);
+            color: #f7f2ed;
+            border-color: transparent;
+        }
+        .radio-pill input { display: none; }
+        .btn-submit {
+            width: 100%;
+            margin-top: 8px;
+            appearance: none;
+            border: none;
+            cursor: pointer;
+            padding: 14px 18px;
+            border-radius: 999px;
+            font-size: 17px;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            color: #f7f2ed;
+            background: linear-gradient(145deg, #a19488, #7d7166);
+            border: 1px solid rgba(125, 113, 102, 0.35);
+            box-shadow: 0 12px 28px rgba(90, 78, 68, 0.22);
+            transition: transform .15s ease, box-shadow .2s ease, filter .2s ease;
+        }
+        .btn-submit:hover {
+            transform: translateY(-1px);
+            filter: brightness(1.05);
+            box-shadow: 0 16px 34px rgba(90, 78, 68, 0.3);
+        }
+        .btn-submit:disabled {
+            opacity: 0.7;
+            cursor: wait;
+            transform: none;
+        }
+        .form-message {
+            display: none;
+            margin-top: 14px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            padding: 40px var(--pad-x) 48px;
+            text-align: center;
+            background: var(--taupe-deep);
+            color: var(--text-on-taupe);
+            font-family: var(--font-display);
+            font-size: clamp(24px, 4vw, 34px);
+            font-style: italic;
+        }
+        .footer p { margin: 0; }
+    </style>
+</head>
+<body>
+
+    <section class="hero" aria-label="Головна">
+        <div class="hero-blur" aria-hidden="true"></div>
+        <img class="hero-photo"
+             src="/assets/media/images/kostyantyn-and-maria1.jpg"
+             alt="Костянтин і Марія">
+        <div class="hero-shade" aria-hidden="true"></div>
+        <div class="hero-content">
+            <h1 class="hero-names">Костянтин &amp; Марія</h1>
+            <p class="hero-date">01.09.2026</p>
+            <div class="hero-cue" aria-hidden="true"><span></span></div>
+        </div>
+    </section>
+
+    <section class="section section--main" aria-label="Запрошення">
+        <div class="wrap">
+            <h2 class="section-kicker">Invitation</h2>
+            <div class="section-line" aria-hidden="true"></div>
+            <div class="lead">
+                <p>У житті кожної людини є моменти, які хочеться прожити поруч із тими, хто займає особливе місце в серці.</p>
+                <p>Для нас таким моментом стане день, коли ми станемо чоловіком і дружиною.</p>
+                <p>І ми будемо щасливі, якщо саме ви розділите з нами ці щирі емоції, теплі усмішки та початок нової історії нашої сім’ї.</p>
+                <p class="lead-sign">З любов’ю чекаємо на зустріч</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section--panel" aria-label="Локація">
+        <div class="wrap">
+            <h2 class="section-kicker">Location</h2>
+            <div class="section-line" aria-hidden="true"></div>
+            <div class="location-block">
+                <h3 class="location-name">«Квіткова оранжерея»</h3>
+                <p class="location-address">проспект Академіка Глушкова, 1<br>Київ, Ukraine</p>
+                <div class="location-photo">
+                    <img
+                        src="/assets/media/images/kostyantyn-and-maria-place.jpg"
+                        alt="Квіткова оранжерея"
+                        loading="lazy"
+                        decoding="async">
+                </div>
+                <div class="location-actions">
+                    <a class="location-btn"
+                       href="https://www.google.com/maps/search/?api=1&query=%D0%BF%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82%20%D0%90%D0%BA%D0%B0%D0%B4%D0%B5%D0%BC%D1%96%D0%BA%D0%B0%20%D0%93%D0%BB%D1%83%D1%88%D0%BA%D0%BE%D0%B2%D0%B0%201%2C%20%D0%9A%D0%B8%D1%97%D0%B2"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        Відкрити на карті
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section--main" aria-label="Таймінг дня">
+        <div class="wrap">
+            <h2 class="section-kicker">Timing</h2>
+            <div class="section-line" aria-hidden="true"></div>
+            <div class="timing-photo">
+                <img
+                    src="/assets/media/images/kostyantyn-and-maria2.jpg"
+                    alt="Костянтин і Марія"
+                    loading="lazy"
+                    decoding="async">
+            </div>
+            <ol class="timing-list">
+                <li class="timing-item">
+                    <div class="timing-time">12:00</div>
+                    <div>
+                        <p class="timing-label">Вінчання у Лаврі</p>
+                        <p class="timing-note">Києво-Печерська Лавра</p>
+                    </div>
+                </li>
+                <li class="timing-item">
+                    <div class="timing-time">13:00</div>
+                    <div>
+                        <p class="timing-label">Збір гостей</p>
+                        <p class="timing-note">«Квіткова оранжерея»</p>
+                    </div>
+                </li>
+                <li class="timing-item">
+                    <div class="timing-time">15:00</div>
+                    <div>
+                        <p class="timing-label">Банкет</p>
+                    </div>
+                </li>
+                <li class="timing-item">
+                    <div class="timing-time">16:30</div>
+                    <div>
+                        <p class="timing-label">Перший танець</p>
+                    </div>
+                </li>
+                <li class="timing-item">
+                    <div class="timing-time">22:00</div>
+                    <div>
+                        <p class="timing-label">Закінчення свята</p>
+                    </div>
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <section class="section section--main" aria-label="Дрес-код">
+        <div class="wrap">
+            <h2 class="section-kicker">Dress Code</h2>
+            <div class="section-line" aria-hidden="true"></div>
+            <div class="dc-grid">
+                <article class="dc-card">
+                    <h3 class="dc-title">Чоловіки</h3>
+                    <div class="dc-photo">
+                        <img
+                            src="/assets/media/images/kostyantyn-and-maria-dresscode-men.jpg"
+                            alt="Дрес-код для чоловіків"
+                            loading="lazy"
+                            decoding="async">
+                    </div>
+                </article>
+                <article class="dc-card">
+                    <h3 class="dc-title">Дівчата</h3>
+                    <div class="dc-photo">
+                        <img
+                            src="/assets/media/images/kostyantyn-and-maria-dresscode-girls.jpg"
+                            alt="Дрес-код для дівчат"
+                            loading="lazy"
+                            decoding="async">
+                    </div>
+                    <p class="dc-note">Усі світлі й пастельні відтінки — лише без білого ☺️</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section--main" aria-label="Details">
+        <div class="wrap">
+            <h2 class="section-kicker">Details</h2>
+            <div class="section-line" aria-hidden="true"></div>
+            <div class="details-text">
+                <p>Кажуть, що найкращі подарунки — це ті, які залишаються з нами надовго. 🤍</p>
+                <p>Тому замість традиційних букетів ми будемо дуже вдячні, якщо ви оберете один із цих варіантів:</p>
+                <ul class="details-list">
+                    <li>пляшку міцного алкоголю для нашої майбутньої сімейної колекції;</li>
+                    <li>внесок «на квіти», щоб ми могли купувати їх тоді, коли вони особливо тішитимуть наш дім.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section--panel" aria-label="Підтвердження присутності">
+        <div class="wrap">
+            <div class="form-card">
+                <h2 class="form-title">Будь ласка підтвердіть<br>вашу присутність</h2>
+
+                <form id="weddingForm" action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="f23a7b90-cf49-43f9-b0a1-23554687cf94">
+                    <input type="hidden" name="subject" value="Відповіді з весільної анкети — Костянтин і Марія">
+                    <input type="hidden" name="from_name" value="Весільний сайт">
+
+                    <div class="field">
+                        <label for="firstName">Ім’я</label>
+                        <input id="firstName" type="text" name="Ім’я" required autocomplete="given-name">
+                    </div>
+
+                    <div class="field">
+                        <label for="lastName">Прізвище</label>
+                        <input id="lastName" type="text" name="Прізвище" required autocomplete="family-name">
+                    </div>
+
+                    <div class="field">
+                        <label for="guestsCount">Скільки людей буде присутніх?</label>
+                        <input id="guestsCount" type="number" name="Скільки людей буде присутніх?" min="1" inputmode="numeric">
+                    </div>
+
+                    <div class="field">
+                        <label>Підтверджую присутність</label>
+                        <div class="radios">
+                            <label class="radio-pill">
+                                <input type="radio" name="Підтверджую присутність" value="Так" required>
+                                Так
+                            </label>
+                            <label class="radio-pill">
+                                <input type="radio" name="Підтверджую присутність" value="Ні">
+                                Ні
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Зберегти відповідь</button>
+                </form>
+
+                <div id="formMessage" class="form-message" role="status" aria-live="polite"></div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('weddingForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const form = e.target;
+            const btn = form.querySelector('.btn-submit');
+            const msg = document.getElementById('formMessage');
+            const original = btn.textContent;
+
+            btn.disabled = true;
+            btn.textContent = 'Надсилаємо...';
+            msg.style.display = 'none';
+
+            const formData = new FormData(form);
+            const payload = Object.fromEntries(formData.entries());
+
+            try {
+                const res = await fetch(form.action, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+                const json = await res.json();
+
+                if (json.success) {
+                    msg.textContent = 'Дякуємо за вашу відповідь!';
+                    msg.style.color = '#3f6b2f';
+                    msg.style.display = 'block';
+                    form.reset();
+                } else {
+                    throw new Error(json.message || 'Помилка відправки');
+                }
+            } catch (err) {
+                msg.textContent = 'Сталася помилка. Спробуйте ще раз.';
+                msg.style.color = '#a12828';
+                msg.style.display = 'block';
+            } finally {
+                btn.disabled = false;
+                btn.textContent = original;
+            }
+        });
+    </script>
+</body>
+</html>
