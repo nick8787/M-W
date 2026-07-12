@@ -82,7 +82,7 @@ permalink: /maksym-and-maria
                                     <div class="save-card" role="group" aria-label="Save the date">
                                         <div class="save-title">МИ ОДРУЖУЄМОСЬ!</div>
                                         <div class="save-date">29&nbsp;&bull;&nbsp;08&nbsp;&bull;&nbsp;2026</div>
-                                        <div class="save-sub">Запрошуємо Вас розділити з нами радість особливої для нас події та стати частиною нашої історії</div>
+                                        <div class="save-sub">Запрошуємо Вас стати частиною нашого особливого дня та розділити з нами ці щасливі миті.</div>
                                     </div>
 
                                     <!-- 3. Иконка скролла (Теперь она жестко привязана к карточке) -->
@@ -111,6 +111,24 @@ permalink: /maksym-and-maria
                                         overflow:hidden;
                                         font-family:'Montserrat',sans-serif;
                                         background: #1a1a1a;
+                                    }
+                                    .wedding-hero::after{
+                                        content:"";
+                                        position:absolute;
+                                        left:0; right:0; bottom:0;
+                                        height: clamp(64px, 10vh, 110px);
+                                        background: linear-gradient(
+                                            to bottom,
+                                            rgba(249,247,244,0) 0%,
+                                            rgba(249,247,244,.08) 25%,
+                                            rgba(249,247,244,.22) 45%,
+                                            rgba(249,247,244,.48) 65%,
+                                            rgba(249,247,244,.78) 82%,
+                                            rgba(249,247,244,.95) 93%,
+                                            #f9f7f4 100%
+                                        );
+                                        z-index:3;
+                                        pointer-events:none;
                                     }
 
                                     .hero-bg{
@@ -530,7 +548,7 @@ permalink: /maksym-and-maria
                                         </div>
                                         <h3 class="wd-card-title">Подарунок</h3>
                                         <p class="wd-card-text">
-                                            Найкращим подарунком для нас буде ваш внесок у бюджет нашої молодої сім’ї.
+                                            Найціннішим подарунком для нас буде ваша присутність. Якщо ж ви плануєте привітати нас подарунком, будемо вдячні за внесок у бюджет нашої молодої сім’ї.
                                         </p>
                                     </article>
 
@@ -543,7 +561,7 @@ permalink: /maksym-and-maria
                                         </div>
                                         <h3 class="wd-card-title">Замість квітів</h3>
                                         <p class="wd-card-text">
-                                            Замість квітів будемо раді алкоголю, який ми з вами розділимо в приємний для нас час, настільним іграм або книгам.
+                                            Якщо бажаєте привітати нас символічним подарунком замість квітів, будемо раді пляшці улюбленого алкоголю, настільній грі або книзі.
                                         </p>
                                     </article>
                                 </div>
@@ -1256,7 +1274,7 @@ permalink: /maksym-and-maria
                                     </div>
 
                                     <div class="footer-hero__content">
-                                        <h2 class="footer-hero__title">З любов’ю чекаємо на Вас</h2>
+                                        <h2 class="footer-hero__title">З любов’ю Максим та Марія</h2>
 
                                         <p class="footer-hero__subtitle">
                                             Будь ласка, підтвердьте присутність до <strong>10.08.2026</strong>
@@ -1274,6 +1292,24 @@ permalink: /maksym-and-maria
                                         overflow:hidden;
                                         isolation:isolate;
                                         font-family:'Montserrat',sans-serif;
+                                    }
+                                    .footer-hero::before{
+                                        content:"";
+                                        position:absolute;
+                                        left:0; right:0; top:0;
+                                        height: clamp(64px, 10vh, 110px);
+                                        background: linear-gradient(
+                                            to bottom,
+                                            #fdfcfb 0%,
+                                            rgba(253,252,251,.95) 7%,
+                                            rgba(253,252,251,.78) 18%,
+                                            rgba(253,252,251,.48) 35%,
+                                            rgba(253,252,251,.22) 55%,
+                                            rgba(253,252,251,.08) 75%,
+                                            rgba(253,252,251,0) 100%
+                                        );
+                                        z-index:3;
+                                        pointer-events:none;
                                     }
                                     .footer-hero__bg{
                                         position:absolute; inset:0;
@@ -1343,13 +1379,14 @@ permalink: /maksym-and-maria
                                     .footer-hero__title{
                                         margin:0 0 10px;
                                         font-family:'Great Vibes', cursive;
-                                        font-size: clamp(36px, 6.4vw, 72px);
+                                        font-size: clamp(34px, 7.2vw, 82px);
                                         line-height: 1.22;          /* запас для завитків шрифту */
                                         padding: .15em .25em .12em; /* захист від обрізання з усіх боків */
                                         background: linear-gradient(130deg, #f1e0b3, #d6b889);
                                         -webkit-background-clip:text; background-clip:text; color:transparent;
                                         text-shadow: 0 2px 14px rgba(0,0,0,.12);
                                         overflow: visible;
+                                        white-space: nowrap;
                                     }
 
                                     .footer-hero__subtitle{
@@ -1385,6 +1422,20 @@ permalink: /maksym-and-maria
                                     <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
                                 </svg>
                             </a>
+                            <style>
+                                .scroll-top{
+                                    box-shadow: inset 0 0 0 2px rgba(214,184,137,.55);
+                                    background: rgba(255,255,255,.85);
+                                    backdrop-filter: blur(6px);
+                                    -webkit-backdrop-filter: blur(6px);
+                                }
+                                .scroll-top::after{
+                                    color: #1d1c16 !important;
+                                }
+                                .scroll-top .scroll-top__circle path{
+                                    stroke: #d6b889 !important;
+                                }
+                            </style>
                             <!-- back-to-top-end -->
 
                             <!-- Jquery Js -->
