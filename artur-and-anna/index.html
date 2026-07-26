@@ -216,12 +216,6 @@ permalink: /artur-and-anna
             background: url('/assets/media/images/artur-and-anna2.png') center/cover no-repeat;
             z-index: 2; margin-top: -1px;
         }
-        .photo-curve-bottom {
-            position: absolute; bottom: -1px; left: 0; width: 100%; height: 120px;
-            background: var(--bg1);
-            border-top-left-radius: 50% 100%;
-            border-top-right-radius: 50% 20%;
-        }
 
         /* --- 6. DRESS CODE --- */
         .dress-code {
@@ -229,19 +223,21 @@ permalink: /artur-and-anna
                 radial-gradient(1000px 520px at 50% -12%, rgba(214,184,137,.16), transparent 55%),
                 linear-gradient(180deg, var(--bg1), var(--bg2));
             color: var(--ink);
-            padding: 20px 30px 80px;
+            padding: 40px 30px 80px;
             text-align: center;
             position: relative;
             z-index: 4;
+            margin-top: -90px;
         }
 
         .palette-swatches {
             display: flex;
             justify-content: center;
-            gap: 22px;
-            flex-wrap: wrap;
+            align-items: stretch;
+            gap: 12px;
+            flex-wrap: nowrap;
             margin: 30px auto 0;
-            max-width: 360px;
+            max-width: 100%;
         }
         .palette-swatch {
             display: flex;
@@ -251,9 +247,10 @@ permalink: /artur-and-anna
             background: var(--soft);
             border: 1px solid var(--line);
             border-radius: 16px;
-            padding: 14px 16px 12px;
+            padding: 14px 12px 12px;
             box-shadow: 0 10px 24px rgba(18,19,20,.06);
-            min-width: 96px;
+            flex: 1 1 0;
+            min-width: 0;
         }
         .palette-swatch span {
             width: 64px;
@@ -515,9 +512,7 @@ permalink: /artur-and-anna
     </section>
 
     <!-- 4. PHOTO INTERLUDE -->
-    <section class="photo-interlude">
-        <div class="photo-curve-bottom"></div>
-    </section>
+    <section class="photo-interlude"></section>
 
     <!-- 5. DRESS CODE -->
     <section class="dress-code fade-up">
