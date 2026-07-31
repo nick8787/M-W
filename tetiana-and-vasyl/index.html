@@ -1,6 +1,6 @@
 ---
 layout: null
-permalink: /yaroslav-and-alina
+permalink: /tetiana-and-vasyl
 ---
 <!DOCTYPE html>
 <html lang="uk">
@@ -10,11 +10,11 @@ permalink: /yaroslav-and-alina
 
     <!--metatextblock-->
     <title>Ярослав & Аліна — Весільне запрошення</title>
-    <meta property="og:url" content="https://my-wedding.com.ua/yaroslav-and-alina" />
+    <meta property="og:url" content="https://my-wedding.com.ua/tetiana-and-vasyl" />
     <meta property="og:title" content="Ярослав & Аліна — Весільне запрошення" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://my-wedding.com.ua/assets/media/images/yaroslav-and-alina1.jpg" />
-    <link rel="canonical" href="https://my-wedding.com.ua/yaroslav-and-alina">
+    <meta property="og:image" content="/assets/media/images/tetiana-and-vasyl1.png" />
+    <link rel="canonical" href="https://my-wedding.com.ua/tetiana-and-vasyl">
     <!--/metatextblock-->
 
     <!-- Favicon -->
@@ -151,6 +151,8 @@ permalink: /yaroslav-and-alina
             font-family: var(--font-body); font-size: 11px; text-transform: uppercase; letter-spacing: 1px;
             text-decoration: none; margin: 0 auto 50px;
             transition: transform 0.3s; box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
         }
         .btn-circle-black:hover { transform: scale(1.05); }
 
@@ -163,7 +165,7 @@ permalink: /yaroslav-and-alina
         /* --- 5. PHOTO INTERLUDE --- */
         .photo-interlude {
             position: relative; height: 550px;
-            background: url('/assets/media/images/yaroslav-and-alina2.jpg') center/cover no-repeat;
+            background: url('/assets/media/images/tetiana-and-vasyl2.jpg') center/cover no-repeat;
             z-index: 2; margin-top: -1px;
         }
         .photo-curve-bottom {
@@ -181,18 +183,6 @@ permalink: /yaroslav-and-alina
             text-align: center;
             position: relative;
             z-index: 4;
-        }
-
-        .palette-image-wrap {
-            max-width: 520px;
-            margin: 30px auto 0;
-        }
-
-        .palette-image {
-            width: 100%;
-            display: block;
-            border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
         }
 
         /* --- 7. DETAILS --- */
@@ -221,6 +211,7 @@ permalink: /yaroslav-and-alina
         }
 
         .rsvp-form { margin-top: 30px; text-align: left; }
+        .form-group { margin-bottom: 28px; }
 
         .form-label { display: block; font-size: 14px; font-weight: 700; margin-bottom: 10px; font-family: var(--font-body); letter-spacing: 0.5px; color: #000; }
 
@@ -228,6 +219,8 @@ permalink: /yaroslav-and-alina
             width: 100%; border: none; border-bottom: 1px solid #999;
             padding: 12px 0; font-family: var(--font-body); font-size: 16px; outline: none;
             background: transparent; transition: 0.3s;
+            -webkit-appearance: none;
+            border-radius: 0;
         }
         .input-text:focus, .input-area:focus { border-color: #000; }
 
@@ -235,11 +228,14 @@ permalink: /yaroslav-and-alina
         .check-container {
             display: block; position: relative; padding-left: 30px; margin-bottom: 15px;
             cursor: pointer; font-size: 15px;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
         }
         .check-container input { position: absolute; opacity: 0; cursor: pointer; height: 0; width: 0; }
         .checkmark {
             position: absolute; top: 3px; left: 0; height: 18px; width: 18px;
             background-color: transparent; border: 1.5px solid #000; border-radius: 50%;
+            pointer-events: none;
         }
         .check-container input:checked ~ .checkmark { background-color: #000; }
         .check-square .checkmark { border-radius: 4px; }
@@ -250,6 +246,8 @@ permalink: /yaroslav-and-alina
             text-transform: uppercase; letter-spacing: 1px; font-size: 12px;
             display: flex; align-items: center; justify-content: center;
             margin: 50px auto 0; cursor: pointer; transition: 0.3s;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
         }
         .btn-submit-circle:hover { transform: scale(1.05); }
 
@@ -271,26 +269,35 @@ permalink: /yaroslav-and-alina
         .music-btn {
             position: fixed; bottom: 30px; right: 20px; width: 50px; height: 50px;
             border-radius: 50%;
-            /* Чорний фон, золота рамка - видно всюди */
             background: #000000;
             border: 2px solid var(--color-gold);
             box-shadow: 0 4px 15px rgba(0,0,0,0.4);
             z-index: 1000; display: grid; place-items: center; cursor: pointer;
             transition: 0.3s;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
         }
-        .music-btn svg { width: 22px; fill: #fff; } /* Біла іконка */
+        .music-btn svg { width: 22px; fill: #fff; }
         .music-btn.playing { animation: pulse-btn 2s infinite; background: #1a1a1a; }
         @keyframes pulse-btn { 0%{box-shadow: 0 0 0 0 rgba(192, 160, 128, 0.4);} 70%{box-shadow: 0 0 0 10px rgba(192, 160, 128, 0);} 100%{box-shadow: 0 0 0 0 rgba(192, 160, 128, 0);} }
 
+        @media (max-width: 480px) {
+            .names-big { font-size: 32px; }
+            .date-big { font-size: 24px; letter-spacing: 3px; }
+            .hero-monogram { font-size: 52px; }
+            .t-time { font-size: 42px; }
+            .countdown { gap: 18px; }
+            .cd-num { font-size: 30px; }
+        }
     </style>
 </head>
 <body>
 
 <div class="wrapper">
 
-    <!-- 1. HERO VIDEO -->
+    <!-- 1. HERO -->
     <header class="hero">
-        <img src="/assets/media/images/yaroslav-and-alina1.jpg" alt="Весілля" class="hero-bg-img">
+        <img src="/assets/media/images/tetiana-and-vasyl1.png" alt="Тетяна і Василь" class="hero-bg-img">
         <div class="hero-overlay"></div>
 
         <div class="hero-content-top fade-up">
@@ -299,7 +306,7 @@ permalink: /yaroslav-and-alina
         </div>
 
         <div class="hero-content-bottom fade-up">
-            <div class="hero-monogram">Y & A</div>
+            <div class="hero-monogram">T & V</div>
             <span class="hero-arrow">⌄</span>
         </div>
     </header>
@@ -307,64 +314,45 @@ permalink: /yaroslav-and-alina
     <!-- 2. INTRO -->
     <section class="intro">
         <div class="fade-up">
-            <h2 class="names-big">Ярослав<br>ТА Аліна</h2>
-            <div class="date-big">23 • 05 • 2026</div>
+            <h2 class="names-big">Тетяна<br>ТА Василь</h2>
+            <div class="date-big">27 • 09 • 2026</div>
 
             <p class="text-body" style="color:#fff; text-transform: none;">
-                Кохання звучатиме в кожній літері - від <strong>А</strong> до Я
+                Любі наші!
             </p>
             <p class="text-body" style="color:#fff; text-transform: none;">
-                23.05 ми скажемо “так”, і цей день стане продовженням нашої історії.
-                І найбільша радість — ділити її з тими, кого ми любимо.
-                Запрошуємо вас стати частиною нашого дня🤍
+                Серед тисяч доріг ми знайшли одне одного — і тепер наші серця б’ються в унісон.
+                Розділіть із нами найголовніший день нашого життя —
+                <strong>27 вересня</strong> в ресторані <strong>«Айвенго»</strong>.
+            </p>
+            <p class="text-body" style="color:#fff; text-transform: none;">
+                Ваша присутність зробить цей день ще теплішим і світлішим 🤍
             </p>
         </div>
     </section>
 
-    <!-- 3. TIMELINE -->
+    <!-- 3. LOCATION & TIMELINE -->
     <section class="white-section">
         <div class="fade-up" style="text-align:center;">
-            <span class="loc-address" style="color: #888; font-size:10px;">ЛОКАЦІЇ ТА ТАЙМІНГ</span>
-            <h3 class="loc-title">НАШ ОСОБЛИВИЙ ДЕНЬ</h3>
-            <span class="loc-address">БУДЕМО ЩАСЛИВІ РОЗДІЛИТИ ЙОГО РАЗОМ ІЗ ВАМИ</span>
+            <span class="loc-address" style="color: #888; font-size:10px;">ЛОКАЦІЯ ТА ТАЙМІНГ</span>
+            <h3 class="loc-title">РЕСТОРАН «АЙВЕНГО»</h3>
+            <span class="loc-address">
+                Рівненська область, с. Колоденка<br>
+                вул. Зелена, 53
+            </span>
 
-            <div style="margin: 25px 0 35px; display: flex; flex-direction: column; gap: 14px; align-items: center;">
-                <a href="https://maps.app.goo.gl/nyQgE1s5VhJWkpHc7?g_st=it" target="_blank" class="btn-circle-black" style="width: 120px; height: 120px; font-size: 10px; margin: 0;">
-                    ЦЕРКВА<br>НА МАПІ
-                </a>
-
-                <div style="font-size: 13px; text-transform: uppercase; letter-spacing: 1px; color: #333; font-weight: 600;">
-                    ЦЕРКВА ПЕТРА І ПАВЛА
-                </div>
-
-                <a href="https://maps.app.goo.gl/a7DN7rrQ8MNeyMVj6?g_st=it" target="_blank" class="btn-circle-black" style="width: 120px; height: 120px; font-size: 10px; margin: 10px 0 0;">
-                    РЕСТОРАН<br>НА МАПІ
-                </a>
-
-                <div style="font-size: 13px; text-transform: uppercase; letter-spacing: 1px; color: #333; font-weight: 600;">
-                    РЕСТОРАН “MICHELLE’S TRAVEL HOUSE”
-                </div>
-            </div>
+            <a href="https://www.google.com/maps/search/?api=1&query=ресторан+Айвенго,+вул.+Зелена+53,+Колоденка,+Рівненська+область"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="btn-circle-black"
+               style="margin: 30px auto 50px;">
+                НА<br>МАПІ
+            </a>
 
             <div class="timeline">
                 <div class="t-item">
-                    <div class="t-time">13:00</div>
-                    <div class="t-name">ВІНЧАННЯ</div>
-                    <div class="t-dot"></div>
-                </div>
-                <div class="t-item">
-                    <div class="t-time">14:00</div>
-                    <div class="t-name">ФОТОСЕСІЯ НА ПРИРОДІ</div>
-                    <div class="t-dot"></div>
-                </div>
-                <div class="t-item">
-                    <div class="t-time">18:00</div>
-                    <div class="t-name">ЦЕРЕМОНІЯ РОЗПИСУ</div>
-                    <div class="t-dot"></div>
-                </div>
-                <div class="t-item">
-                    <div class="t-time">19:00</div>
-                    <div class="t-name">СВЯТКОВИЙ БЕНКЕТ</div>
+                    <div class="t-time">13:30</div>
+                    <div class="t-name">ЗУСТРІЧ ГОСТЕЙ<br>І ПОЧАТОК СВЯТА</div>
                 </div>
             </div>
         </div>
@@ -380,15 +368,8 @@ permalink: /yaroslav-and-alina
         <h2 class="title-lg">DRESS<br>CODE</h2>
 
         <p class="text-body" style="color:#333; margin-top:20px; text-transform:none;">
-            Ми дуже хочемо, щоб наш день був гармонійним і красивим, тому підготували палітру для гостей.
-            Будемо щиро вдячні, якщо у виборі образу ви орієнтуєтесь на неї.
-        </p>
-
-        <div class="palette-image-wrap">
-            <img src="/assets/media/images/DCYaroslavAlina.jpg" alt="Палітра dress code" class="palette-image">
-        </div>
-
-        <p class="text-body" style="color:#666; font-size:12px; text-transform:none; margin-top:18px;">
+            Дрес-код вільний — одягайтеся так, як вам комфортно і красиво.
+            Найголовніше для нас — ваші усмішки та гарний настрій.
         </p>
     </section>
 
@@ -399,26 +380,16 @@ permalink: /yaroslav-and-alina
             <h2 class="title-lg" style="margin-bottom:40px;">ПОДАРУНКИ &<br>ДЕТАЛІ</h2>
 
             <div class="d-item">
-                <div class="d-title">ПРО КВІТИ</div>
+                <div class="d-title">ПРО ПОДАРУНКИ</div>
                 <div class="d-text">
-                    Замість квітів, які швидко зівʼянуть, нам буде приємно отримати пляшечку улюбленого напою🍾
-                </div>
-            </div>
-            <div class="d-item">
-                <div class="d-title">TELEGRAM-ГРУПА</div>
-                <div class="d-text">
-                    Ми будемо раді, якщо ви приєднаєтесь до нашої Telegram-групи 🤍
-                    Саме там буде зручно ділитися важливими деталями, настроєм і всім, що стосується нашого свята.
-                    <br><br>
-                    <a href="https://t.me/+Ost0-UPaKRw4NDQy" target="_blank" style="color: var(--color-gold); text-decoration: none; border-bottom: 1px solid var(--color-gold); padding-bottom: 2px;">
-                        Приєднатися до групи
-                    </a>
+                    Замість квітів можете подарувати пляшку свого улюбленого напою —
+                    нам буде дуже приємно. А якщо хочете принести квіти — ми також будемо раді 🤍
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 7. ANKETA (Fixed Sender Name) -->
+    <!-- 7. ANKETA -->
     <section class="rsvp-curved">
         <div class="fade-up">
             <h2 class="title-lg">АНКЕТА</h2>
@@ -426,13 +397,14 @@ permalink: /yaroslav-and-alina
                 ПІДТВЕРДІТЬ СВОЮ ПРИСУТНІСТЬ
             </p>
             <p style="text-align:center; font-size:11px; text-transform:uppercase; letter-spacing:1px; color:#888; margin-bottom:40px;">
-                Підтвердіть свою присутність до 10 травня
+                Будь ласка, дайте відповідь до 1 вересня 2026
             </p>
 
-            <form id="weddingForm" action="https://api.web3forms.com/submit" method="POST" class="rsvp-form">
-                <input type="hidden" name="access_key" value="9303738e-4863-455a-be6e-c1731bf20750">
-                <input type="hidden" name="from_name" value="Весілля М та V">
-                <input type="hidden" name="subject" value="Нова відповідь гостя">
+            <form id="weddingForm" action="https://api.web3forms.com/submit" method="POST" class="rsvp-form" accept-charset="UTF-8">
+                <input type="hidden" name="access_key" value="47f417fd-e5e9-4699-b416-da7a33176319">
+                <!-- Web3Forms: листи → otto88915@gmail.com — access_key має бути прив’язаний до цієї пошти в кабінеті. -->
+                <input type="hidden" name="from_name" value="Tetiana and Vasyl - Wedding">
+                <input type="hidden" name="subject" value="Nova vidpovid gostya (Tetiana and Vasyl)">
 
                 <!-- 1. ІМЕНА ГОСТЕЙ -->
                 <div class="form-group">
@@ -526,14 +498,14 @@ permalink: /yaroslav-and-alina
             <div><div class="cd-num" id="m">0</div><div class="cd-lbl">Хвилин</div></div>
             <div><div class="cd-num" id="s">0</div><div class="cd-lbl">Секунд</div></div>
         </div>
-        <p style="margin-top:40px; font-size:10px; opacity:0.4; letter-spacing:2px;">Y & A • 2026</p>
+        <p style="margin-top:40px; font-size:10px; opacity:0.4; letter-spacing:2px;">T & V • 27.09.2026</p>
     </section>
 
-    <!-- MUSIC (FIXED AUTOPLAY) -->
-    <div class="music-btn" onclick="toggleMusic()">
+    <!-- MUSIC -->
+    <div class="music-btn" onclick="toggleMusic()" role="button" aria-label="Музика">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
     </div>
-    <audio id="audio" loop>
+    <audio id="audio" loop preload="none">
         <source src="/assets/media/music/rufus_innerbloom.mp3" type="audio/mpeg">
     </audio>
 
@@ -548,9 +520,9 @@ permalink: /yaroslav-and-alina
     }, { threshold: 0.1 });
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-    // 2. Таймер
-    const targetDate = new Date("2026-05-23T13:30:00").getTime();
-    setInterval(() => {
+    // 2. Таймер — 27.09.2026, 13:30
+    const targetDate = new Date("2026-09-27T13:30:00").getTime();
+    function updateCountdown() {
         const now = new Date().getTime();
         const distance = targetDate - now;
         if (distance > 0) {
@@ -558,10 +530,17 @@ permalink: /yaroslav-and-alina
             document.getElementById("h").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             document.getElementById("m").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             document.getElementById("s").innerText = Math.floor((distance % (1000 * 60)) / 1000);
+        } else {
+            document.getElementById("d").innerText = 0;
+            document.getElementById("h").innerText = 0;
+            document.getElementById("m").innerText = 0;
+            document.getElementById("s").innerText = 0;
         }
-    }, 1000);
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
 
-    // 3. Музика (Smart Autoplay Fix)
+    // 3. Музика
     const audio = document.getElementById('audio');
     const musicBtn = document.querySelector('.music-btn');
     let playing = false;
@@ -573,13 +552,12 @@ permalink: /yaroslav-and-alina
             playing = false;
         } else {
             audio.volume = 0.3;
-            audio.play();
+            audio.play().catch(function () {});
             musicBtn.classList.add('playing');
             playing = true;
         }
     }
 
-    // Автозапуск при першому дотику
     document.body.addEventListener('click', function() {
         if (!playing) { toggleMusic(); }
     }, { once: true });
@@ -588,26 +566,22 @@ permalink: /yaroslav-and-alina
         if (!playing) { toggleMusic(); }
     }, { once: true });
 
-
-    // 4. ВІДПРАВКА ФОРМИ (Виправлено ім'я відправника)
+    // 4. Відправка форми (UTF-8, українські підписи в листі)
     document.getElementById('weddingForm').addEventListener('submit', async function(e) {
         e.preventDefault();
         const btn = e.target.querySelector('button');
         const originalText = btn.innerText;
         btn.innerText = "Надсилаємо...";
+        btn.disabled = true;
 
         const formData = new FormData(e.target);
-
-        // Збір алкоголю
         const alcohol = Array.from(e.target.querySelectorAll('input[name="temp_alcohol"]:checked'))
             .map(el => el.value);
 
-        // Формуємо JSON.
-        // ВАЖЛИВО: from_name англійською, щоб не було ієрогліфів
         const data = {
             access_key: formData.get('access_key'),
-            from_name: "Wedding",
-            subject: "Нова анкета гостя (Wedding)",
+            from_name: "Tetiana and Vasyl - Wedding",
+            subject: "Nova vidpovid gostya (Tetiana and Vasyl)",
             "Ім’я / імена гостей": formData.get("guest_names"),
             "Скільки гостей / хто буде": formData.get("guest_details") || "Не вказано",
             "Присутність": formData.get("attendance"),
@@ -618,7 +592,7 @@ permalink: /yaroslav-and-alina
             const res = await fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
+                    'Content-Type': 'application/json; charset=UTF-8',
                     'Accept': 'application/json'
                 },
                 body: JSON.stringify(data)
@@ -626,16 +600,17 @@ permalink: /yaroslav-and-alina
 
             const result = await res.json();
 
-            if(result.success) {
-                document.getElementById('formMessage').innerHTML = '<span style="color: green">✅ Дякуємо! Ваша відповідь збережена.</span>';
+            if (result.success) {
+                document.getElementById('formMessage').innerHTML = '<span style="color: green">Дякуємо! Ваша відповідь збережена.</span>';
                 e.target.reset();
             } else {
                 throw new Error('Server error');
             }
         } catch (error) {
-            document.getElementById('formMessage').innerHTML = '<span style="color: red">❌ Помилка. Спробуйте пізніше.</span>';
+            document.getElementById('formMessage').innerHTML = '<span style="color: red">Помилка. Спробуйте пізніше.</span>';
         } finally {
-            btn.innerText = "НАДІСЛАТИ";
+            btn.innerText = originalText;
+            btn.disabled = false;
         }
     });
 </script>
